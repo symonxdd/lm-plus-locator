@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
+import '../services/location_service.dart';
+
+enum _LocatorStatus {
+  idle,
+  loading,
+  found,
+  permissionDenied,
+  permissionPermanentlyDenied,
+  serviceDisabled,
+  error,
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,9 +22,41 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _authService = AuthService();
+  final _locationService = LocationService();
 
-  void _findNearestOffices() {
-    // TODO: request location and show the nearest LM+ offices.
+  _LocatorStatus _status = _LocatorStatus.idle;
+  double? _latitude;
+  double? _longitude;
+
+  Future<void> _findNearestOffices() async {
+    setState(() => _status = _LocatorStatus.loading);
+
+    try {
+      final permissionStatus = await _locationService.checkPermission();
+
+      switch (permissionStatus) {
+        case LocationPermissionStatus.denied:
+          setState(() => _status = _LocatorStatus.permissionDenied);
+          return;
+        case LocationPermissionStatus.permanentlyDenied:
+          setState(() => _status = _LocatorStatus.permissionPermanentlyDenied);
+          return;
+        case LocationPermissionStatus.serviceDisabled:
+          setState(() => _status = _LocatorStatus.serviceDisabled);
+          return;
+        case LocationPermissionStatus.granted:
+          break;
+      }
+
+      final position = await _locationService.getCurrentPosition();
+      setState(() {
+        _latitude = position.latitude;
+        _longitude = position.longitude;
+        _status = _LocatorStatus.found;
+      });
+    } catch (_) {
+      setState(() => _status = _LocatorStatus.error);
+    }
   }
 
   @override
@@ -30,26 +73,115 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'We gebruiken je locatie enkel om het dichtstbijzijnde '
-                'kantoor te vinden. Je locatie wordt nooit opgeslagen of '
-                'gedeeld.',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'We gebruiken je locatie enkel om het dichtstbijzijnde '
+                    'kantoor te vinden. Je locatie wordt nooit opgeslagen of '
+                    'gedeeld.',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 16),
+                  FilledButton.icon(
+                    onPressed: _status == _LocatorStatus.loading
+                        ? null
+                        : _findNearestOffices,
+                    icon: const Icon(Icons.my_location),
+                    label: const Text(
+                      'Vind mijn dichtstbijzijnde LM+ kantoor',
+                    ),
+                  ),
+                ],
               ),
+            ),
+            Expanded(child: _buildContent()),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildContent() {
+    switch (_status) {
+      case _LocatorStatus.idle:
+        return const SizedBox.shrink();
+
+      case _LocatorStatus.loading:
+        return const Center(child: CircularProgressIndicator());
+
+      case _LocatorStatus.found:
+        // TODO: load assets/lm_offices.json and show the 5 nearest offices.
+        return _InfoMessage(
+          text: 'Locatie gevonden: $_latitude, $_longitude',
+        );
+
+      case _LocatorStatus.permissionDenied:
+        return _InfoMessage(
+          text: 'Locatietoegang geweigerd. Geef toestemming in je '
+              'instellingen om het dichtstbijzijnde kantoor te vinden.',
+          actionLabel: 'Open instellingen',
+          onAction: _locationService.openAppSettings,
+        );
+
+      case _LocatorStatus.permissionPermanentlyDenied:
+        return _InfoMessage(
+          text: 'Locatietoegang geweigerd. Geef toestemming in je '
+              'instellingen om het dichtstbijzijnde kantoor te vinden.',
+          actionLabel: 'Open instellingen',
+          onAction: _locationService.openAppSettings,
+        );
+
+      case _LocatorStatus.serviceDisabled:
+        return _InfoMessage(
+          text: 'Locatieservices zijn uitgeschakeld. Zet GPS aan om verder '
+              'te gaan.',
+          actionLabel: 'Open locatie-instellingen',
+          onAction: _locationService.openLocationSettings,
+        );
+
+      case _LocatorStatus.error:
+        return const _InfoMessage(
+          text: 'Er is iets misgegaan. Probeer het later opnieuw.',
+        );
+    }
+  }
+}
+
+/// A centered, non-blocking informational message with an optional action
+/// button (e.g. "Open instellingen").
+class _InfoMessage extends StatelessWidget {
+  const _InfoMessage({required this.text, this.actionLabel, this.onAction});
+
+  final String text;
+  final String? actionLabel;
+  final Future<bool> Function()? onAction;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.location_off,
+              size: 40,
+              color: Theme.of(context).colorScheme.outline,
+            ),
+            const SizedBox(height: 12),
+            Text(text, textAlign: TextAlign.center),
+            if (actionLabel != null && onAction != null) ...[
               const SizedBox(height: 16),
-              FilledButton.icon(
-                onPressed: _findNearestOffices,
-                icon: const Icon(Icons.my_location),
-                label: const Text('Vind mijn dichtstbijzijnde LM+ kantoor'),
-              ),
+              OutlinedButton(onPressed: onAction, child: Text(actionLabel!)),
             ],
-          ),
+          ],
         ),
       ),
     );
