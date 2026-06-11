@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'screens/auth_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class LmPlusLocatorApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const Scaffold(body: Center(child: CircularProgressIndicator())),
+      home: const AuthScreen(),
     );
   }
 }
