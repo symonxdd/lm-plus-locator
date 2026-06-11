@@ -1,0 +1,2675 @@
+[
+  {
+    "name": "LM Plus Aalst",
+    "address": "Capucienenlaan 93 E",
+    "city": "Aalst",
+    "postal_code": "9300",
+    "phone": "053 21 58 16",
+    "lat": 50.9338912,
+    "lng": 4.0295921
+  },
+  {
+    "name": "LM Plus Aalter",
+    "address": "Bellemstraat 24",
+    "city": "Aalter",
+    "postal_code": "9880",
+    "phone": "09 223 19 76",
+    "lat": 51.0885393,
+    "lng": 3.4683243
+  },
+  {
+    "name": "LM Plus Aarschot",
+    "address": "🧑🏻‍🦽‍➡️Orleansplein 3",
+    "city": "Aarschot",
+    "postal_code": "3200",
+    "phone": "016 56 74 30",
+    "lat": 50.9829566,
+    "lng": 4.8308462
+  },
+  {
+    "name": "LM Plus Aartselaar",
+    "address": "Leon Gilliotlaan 77",
+    "city": "Aartselaar",
+    "postal_code": "2630",
+    "phone": "03 887 41 22",
+    "lat": 51.12975,
+    "lng": 4.3871391
+  },
+  {
+    "name": "LM Plus Alken",
+    "address": "Ridderstraat 22",
+    "city": "Alken",
+    "postal_code": "3570",
+    "phone": "011 59 78 50",
+    "lat": 50.8750157,
+    "lng": 5.3033115
+  },
+  {
+    "name": "LM Plus Anderlecht",
+    "address": "Sint-Guidocorso 11",
+    "city": "Anderlecht",
+    "postal_code": "1070",
+    "phone": "02 522 69 38",
+    "lat": 50.8352096,
+    "lng": 4.3057294
+  },
+  {
+    "name": "LM Plus Antoing",
+    "address": "Grand'Rue 36",
+    "city": "Antoing",
+    "postal_code": "7640",
+    "phone": "069 34 38 00",
+    "lat": 50.5670253,
+    "lng": 3.4473187
+  },
+  {
+    "name": "LM Plus Antwerpen (Lange Leemstraat)",
+    "address": "Lange Leemstraat 132 A",
+    "city": "Antwerpen",
+    "postal_code": "2018",
+    "phone": "03 230 68 52",
+    "lat": 51.2070708,
+    "lng": 4.4141228
+  },
+  {
+    "name": "LM Plus Antwerpen (Lange Nieuwstraat)",
+    "address": "Lange Nieuwstraat 109",
+    "city": "Antwerpen",
+    "postal_code": "2000",
+    "phone": "03 206 35 10",
+    "lat": 51.2196103,
+    "lng": 4.412624
+  },
+  {
+    "name": "LM Plus Antwerpen (Pieter Doorlantlaan)",
+    "address": "Pieter Doorlantlaan 7",
+    "city": "Antwerpen",
+    "postal_code": "2050",
+    "phone": "03 203 76 00",
+    "lat": 51.2304602,
+    "lng": 4.3851693
+  },
+  {
+    "name": "LM Plus Ardooie",
+    "address": "Brugstraat 18",
+    "city": "Ardooie",
+    "postal_code": "8850",
+    "phone": "050 89 15 33",
+    "lat": 50.9766616,
+    "lng": 3.200293
+  },
+  {
+    "name": "LM Plus As",
+    "address": "Oude Baan 16",
+    "city": "As",
+    "postal_code": "3665",
+    "phone": "089 36 12 57",
+    "lat": 50.9986451,
+    "lng": 5.5741818
+  },
+  {
+    "name": "LM Plus Asse - LM Plus",
+    "address": "Kalkoven 22",
+    "city": "Asse",
+    "postal_code": "1730",
+    "phone": "02 454 95 03",
+    "lat": 50.9128182,
+    "lng": 4.1955965
+  },
+  {
+    "name": "LM Plus Ath",
+    "address": "Esplanade 6",
+    "city": "Ath",
+    "postal_code": "7800",
+    "phone": "068 84 05 27",
+    "lat": 50.6312419,
+    "lng": 3.7804474
+  },
+  {
+    "name": "LM Plus Avelgem",
+    "address": "Oudenaardsesteenweg 25",
+    "city": "Avelgem",
+    "postal_code": "8580",
+    "phone": "056 21 05 87",
+    "lat": 50.7768836,
+    "lng": 3.446818
+  },
+  {
+    "name": "LM Plus Baasrode",
+    "address": "Scheepswerfstraat 17",
+    "city": "Baasrode",
+    "postal_code": "9200",
+    "phone": "",
+    "lat": 51.0359457,
+    "lng": 4.1651598
+  },
+  {
+    "name": "LM Plus Balegem",
+    "address": "Vrijhem 34 A",
+    "city": "Balegem",
+    "postal_code": "9860",
+    "phone": "",
+    "lat": 50.927011,
+    "lng": 3.7891066
+  },
+  {
+    "name": "LM Plus Balgerhoeke",
+    "address": "Balgerhoeke 186",
+    "city": "Balgerhoeke",
+    "postal_code": "9900",
+    "phone": "",
+    "lat": 51.2054622,
+    "lng": 3.5163738
+  },
+  {
+    "name": "LM Plus Basècles",
+    "address": "Rue Grande 77",
+    "city": "Basècles",
+    "postal_code": "7971",
+    "phone": "069 58 01 78",
+    "lat": 50.524987,
+    "lng": 3.6512206
+  },
+  {
+    "name": "LM Plus Beernem",
+    "address": "Hoornstraat 7",
+    "city": "Beernem",
+    "postal_code": "8730",
+    "phone": "050 27 04 06",
+    "lat": 51.1432655,
+    "lng": 3.3412426
+  },
+  {
+    "name": "LM Plus Beervelde",
+    "address": "Dorp 20",
+    "city": "Beervelde",
+    "postal_code": "9080",
+    "phone": "",
+    "lat": 51.0798669,
+    "lng": 3.8746963
+  },
+  {
+    "name": "LM Plus Begijnendijk",
+    "address": "Mechelbaan 258",
+    "city": "Begijnendijk",
+    "postal_code": "3130",
+    "phone": "016 56 74 30",
+    "lat": 51.0287601,
+    "lng": 4.7957036
+  },
+  {
+    "name": "LM Plus Bekkevoort",
+    "address": "Staatsbaan 193",
+    "city": "Bekkevoort",
+    "postal_code": "3460",
+    "phone": "013 31 14 13",
+    "lat": 50.945014,
+    "lng": 4.9752846
+  },
+  {
+    "name": "LM Plus Beloeil",
+    "address": "Rue d'Ath 38",
+    "city": "Beloeil",
+    "postal_code": "7970",
+    "phone": "069 34 38 00",
+    "lat": 50.5513735,
+    "lng": 3.7366669
+  },
+  {
+    "name": "LM Plus Beringen",
+    "address": "Hasseltse Steenweg 8",
+    "city": "Beringen",
+    "postal_code": "3580",
+    "phone": "011 42 49 17",
+    "lat": 51.0475661,
+    "lng": 5.2257509
+  },
+  {
+    "name": "LM Plus Beringen (Beverlo)",
+    "address": "Papaverstraat 2",
+    "city": "Beringen (Beverlo)",
+    "postal_code": "3580",
+    "phone": "011 70 53 90",
+    "lat": 51.0884434,
+    "lng": 5.2412188
+  },
+  {
+    "name": "LM Plus Berlare",
+    "address": "Hoekskensweg 2",
+    "city": "Berlare",
+    "postal_code": "9290",
+    "phone": "",
+    "lat": 51.0166935,
+    "lng": 4.0073234
+  },
+  {
+    "name": "LM Plus Bertem",
+    "address": "Gemeenteplein 2",
+    "city": "Bertem",
+    "postal_code": "3060",
+    "phone": "016 47 25 41",
+    "lat": 50.8635683,
+    "lng": 4.6296792
+  },
+  {
+    "name": "LM Plus Betekom",
+    "address": "Prof. Scharpélaan 108",
+    "city": "Betekom",
+    "postal_code": "3130",
+    "phone": "016 56 74 30",
+    "lat": 50.9926741,
+    "lng": 4.7849795
+  },
+  {
+    "name": "LM Plus Bever",
+    "address": "Kerkhove 40",
+    "city": "Bever",
+    "postal_code": "1547",
+    "phone": "054 58 65 55",
+    "lat": 50.7148062,
+    "lng": 3.9354878
+  },
+  {
+    "name": "LM Plus Beveren-Kruibeke-Zwijndrecht",
+    "address": "Donkvijverstraat 11",
+    "city": "Beveren-Kruibeke-Zwijndrecht",
+    "postal_code": "9120",
+    "phone": "03 755 49 65",
+    "lat": 51.214613,
+    "lng": 4.2519574
+  },
+  {
+    "name": "LM Plus Bilzen-Hoeselt",
+    "address": "Dokter Willem Meersstraat 8",
+    "city": "Bilzen-Hoeselt",
+    "postal_code": "3730",
+    "phone": "089 41 41 83",
+    "lat": 50.8522433,
+    "lng": 5.4808116
+  },
+  {
+    "name": "LM Plus Bilzen-Hoeselt (Beverst)",
+    "address": "Beverststraat 67",
+    "city": "Bilzen-Hoeselt (Beverst)",
+    "postal_code": "3740",
+    "phone": "089 41 41 83",
+    "lat": 50.8940858,
+    "lng": 5.4687556
+  },
+  {
+    "name": "LM Plus Bilzen-Hoeselt (Eigenbilzen)",
+    "address": "Lentelaan 2",
+    "city": "Bilzen-Hoeselt (Eigenbilzen)",
+    "postal_code": "3740",
+    "phone": "089 41 41 83",
+    "lat": 50.8826877,
+    "lng": 5.5706248
+  },
+  {
+    "name": "LM Plus Bilzen-Hoeselt (Mopertingen)",
+    "address": "Mopertingenstraat 18",
+    "city": "Bilzen-Hoeselt (Mopertingen)",
+    "postal_code": "3740",
+    "phone": "089 41 41 83",
+    "lat": 50.8619262,
+    "lng": 5.5752091
+  },
+  {
+    "name": "LM Plus Blandain",
+    "address": "Rue Colette 7",
+    "city": "Blandain",
+    "postal_code": "7522",
+    "phone": "069 34 38 00",
+    "lat": 50.6230758,
+    "lng": 3.2993223
+  },
+  {
+    "name": "LM Plus Blaton",
+    "address": "Rue de Condé 24",
+    "city": "Blaton",
+    "postal_code": "7321",
+    "phone": "069 34 38 00",
+    "lat": 50.4971052,
+    "lng": 3.6698153
+  },
+  {
+    "name": "LM Plus Bleharies",
+    "address": "Rue Lucien Delfosse 9",
+    "city": "Bleharies",
+    "postal_code": "7620",
+    "phone": "069 34 38 00",
+    "lat": 50.5143332,
+    "lng": 3.412767
+  },
+  {
+    "name": "LM Plus Bocholt (Kaulille)",
+    "address": "Koedriesstraat 33",
+    "city": "Bocholt (Kaulille)",
+    "postal_code": "3950",
+    "phone": "011 54 45 35",
+    "lat": 51.1871096,
+    "lng": 5.5244384
+  },
+  {
+    "name": "LM Plus Boekhoute",
+    "address": "Noordstraat 33",
+    "city": "Boekhoute",
+    "postal_code": "9961",
+    "phone": "",
+    "lat": 51.2596821,
+    "lng": 3.7185829
+  },
+  {
+    "name": "LM Plus Boom",
+    "address": "Antwerpsestraat 50",
+    "city": "Boom",
+    "postal_code": "2850",
+    "phone": "03 888 05 64",
+    "lat": 51.0880011,
+    "lng": 4.3658354
+  },
+  {
+    "name": "LM Plus Boortmeerbeek",
+    "address": "Pastorijstraat 9",
+    "city": "Boortmeerbeek",
+    "postal_code": "3190",
+    "phone": "02 251 07 23",
+    "lat": 50.9816996,
+    "lng": 4.5716649
+  },
+  {
+    "name": "LM Plus Bornem",
+    "address": "Kapelstraat 50",
+    "city": "Bornem",
+    "postal_code": "2880",
+    "phone": "03 899 46 57",
+    "lat": 51.0972764,
+    "lng": 4.235489
+  },
+  {
+    "name": "LM Plus Boutersem (Kerkomsesteenweg)",
+    "address": "Kerkomsesteenweg 55",
+    "city": "Boutersem",
+    "postal_code": "3370",
+    "phone": "016 81 30 31",
+    "lat": 50.8448468,
+    "lng": 4.8416189
+  },
+  {
+    "name": "LM Plus Braine-L'Alleud",
+    "address": "Rue du Môle 7",
+    "city": "Braine-L'Alleud",
+    "postal_code": "1420",
+    "phone": "02 387 39 45",
+    "lat": 50.6831026,
+    "lng": 4.3698918
+  },
+  {
+    "name": "LM Plus Brakel",
+    "address": "Hoogstraat 5",
+    "city": "Brakel",
+    "postal_code": "9660",
+    "phone": "055 42 33 03",
+    "lat": 50.8031776,
+    "lng": 3.7645831
+  },
+  {
+    "name": "LM Plus Bredene",
+    "address": "Dorpsstraat 112",
+    "city": "Bredene",
+    "postal_code": "8450",
+    "phone": "050 27 04 06",
+    "lat": 51.2347792,
+    "lng": 2.9769785
+  },
+  {
+    "name": "LM Plus Bree",
+    "address": "Nieuwstadpoort 66",
+    "city": "Bree",
+    "postal_code": "3960",
+    "phone": "089 47 13 52",
+    "lat": 51.1407471,
+    "lng": 5.5947676
+  },
+  {
+    "name": "LM Plus Brugge",
+    "address": "Revillpark 1",
+    "city": "Brugge",
+    "postal_code": "8000",
+    "phone": "050 89 15 10",
+    "lat": 51.2145088,
+    "lng": 3.2025607
+  },
+  {
+    "name": "LM Plus Brussel",
+    "address": "Zuidlaan 46-47",
+    "city": "Brussel",
+    "postal_code": "1000",
+    "phone": "02 218 07 22",
+    "lat": 50.8334603,
+    "lng": 4.34404
+  },
+  {
+    "name": "LM Plus Buggenhout",
+    "address": "Hanenstraat 50",
+    "city": "Buggenhout",
+    "postal_code": "9255",
+    "phone": "",
+    "lat": 51.0121706,
+    "lng": 4.1965205
+  },
+  {
+    "name": "LM Plus Burst",
+    "address": "Stationsplein 20",
+    "city": "Burst",
+    "postal_code": "9420",
+    "phone": "053 83 17 34",
+    "lat": 50.9073186,
+    "lng": 3.9207679
+  },
+  {
+    "name": "LM Plus Celles",
+    "address": "Rue Provinciale 110 A",
+    "city": "Celles",
+    "postal_code": "7760",
+    "phone": "069 66 13 41",
+    "lat": 50.756989,
+    "lng": 3.4448954
+  },
+  {
+    "name": "LM Plus Chièvres",
+    "address": "Rue Saint Jean 35",
+    "city": "Chièvres",
+    "postal_code": "7950",
+    "phone": "069 34 38 00",
+    "lat": 50.5865519,
+    "lng": 3.8071527
+  },
+  {
+    "name": "LM Plus Clabecq",
+    "address": "Rue du Parc 13",
+    "city": "Clabecq",
+    "postal_code": "1480",
+    "phone": "067 21 07 40",
+    "lat": 50.6854534,
+    "lng": 4.2259885
+  },
+  {
+    "name": "LM Plus Comines-Warneton",
+    "address": "Rue de la Gare 59",
+    "city": "Comines-Warneton",
+    "postal_code": "7780",
+    "phone": "056 55 57 56",
+    "lat": 50.771468,
+    "lng": 2.9972095
+  },
+  {
+    "name": "LM Plus De Haan",
+    "address": "Nieuwstraat 20",
+    "city": "De Haan",
+    "postal_code": "8420",
+    "phone": "059 23 48 37",
+    "lat": 51.2721634,
+    "lng": 3.0356016
+  },
+  {
+    "name": "LM Plus De Panne",
+    "address": "Duinkerkelaan 60 B",
+    "city": "De Panne",
+    "postal_code": "8660",
+    "phone": "058 41 50 22",
+    "lat": 51.0982084,
+    "lng": 2.5833569
+  },
+  {
+    "name": "LM Plus De Pinte",
+    "address": "Nazarethstraat 7",
+    "city": "De Pinte",
+    "postal_code": "9840",
+    "phone": "",
+    "lat": 50.9879165,
+    "lng": 3.6421375
+  },
+  {
+    "name": "LM Plus Deerlijk",
+    "address": "Hoogstraat 8",
+    "city": "Deerlijk",
+    "postal_code": "8540",
+    "phone": "051 40 55 55",
+    "lat": 50.8548213,
+    "lng": 3.3604319
+  },
+  {
+    "name": "LM Plus Deinze",
+    "address": "Tolpoortstraat 83 A",
+    "city": "Deinze",
+    "postal_code": "9800",
+    "phone": "09 386 28 38",
+    "lat": 50.980068,
+    "lng": 3.5297417
+  },
+  {
+    "name": "LM Plus Denderleeuw",
+    "address": "De Nayerstraat 2",
+    "city": "Denderleeuw",
+    "postal_code": "9470",
+    "phone": "053 68 15 17",
+    "lat": 50.8904151,
+    "lng": 4.075614
+  },
+  {
+    "name": "LM Plus Dendermonde",
+    "address": "Oude Vest 50",
+    "city": "Dendermonde",
+    "postal_code": "9200",
+    "phone": "052 21 12 34",
+    "lat": 51.0287803,
+    "lng": 4.1013575
+  },
+  {
+    "name": "LM Plus Dergneau",
+    "address": "Rue du Marais 1 B",
+    "city": "Dergneau",
+    "postal_code": "7912",
+    "phone": "069 34 38 00",
+    "lat": 50.7176675,
+    "lng": 3.5771453
+  },
+  {
+    "name": "LM Plus Destelbergen (Dendermondesteenweg)",
+    "address": "Dendermondesteenweg 561",
+    "city": "Destelbergen",
+    "postal_code": "9070",
+    "phone": "",
+    "lat": 51.0529061,
+    "lng": 3.7683077
+  },
+  {
+    "name": "LM Plus Destelbergen (Isabella Haeckstraat)",
+    "address": "Isabella Haeckstraat 2",
+    "city": "Destelbergen",
+    "postal_code": "9070",
+    "phone": "09 259 13 29",
+    "lat": 51.0597766,
+    "lng": 3.8178154
+  },
+  {
+    "name": "LM Plus Deurne",
+    "address": "Gallifortlei 114",
+    "city": "Deurne",
+    "postal_code": "2100",
+    "phone": "03 324 03 49",
+    "lat": 51.2233595,
+    "lng": 4.4644012
+  },
+  {
+    "name": "LM Plus Deurne (Brievenbus)",
+    "address": "Herentalsebaan 597",
+    "city": "Deurne",
+    "postal_code": "2100",
+    "phone": "03 324 03 49",
+    "lat": 51.2048575,
+    "lng": 4.4778169
+  },
+  {
+    "name": "LM Plus Diepenbeek",
+    "address": "Stationsstraat 3A",
+    "city": "Diepenbeek",
+    "postal_code": "3590",
+    "phone": "089 41 41 83",
+    "lat": 50.9094127,
+    "lng": 5.419182
+  },
+  {
+    "name": "LM Plus Diest",
+    "address": "🧑🏻‍🦽‍➡️Cleynaertsstraat 10",
+    "city": "Diest",
+    "postal_code": "3290",
+    "phone": "013 31 14 13",
+    "lat": 50.9852029,
+    "lng": 5.0504887
+  },
+  {
+    "name": "LM Plus Diksmuide",
+    "address": "Grauwe Broedersstraat 38/10",
+    "city": "Diksmuide",
+    "postal_code": "8600",
+    "phone": "051 50 39 85",
+    "lat": 51.0359165,
+    "lng": 2.8662005
+  },
+  {
+    "name": "LM Plus Dilsen-Stokkem",
+    "address": "Europalaan 36",
+    "city": "Dilsen-Stokkem",
+    "postal_code": "3650",
+    "phone": "089 75 56 79",
+    "lat": 51.0367516,
+    "lng": 5.7248652
+  },
+  {
+    "name": "LM Plus Dilsen-Stokkem (Rotem)",
+    "address": "Hoogbaan 128",
+    "city": "Dilsen-Stokkem (Rotem)",
+    "postal_code": "3650",
+    "phone": "089 75 56 79",
+    "lat": 51.0512336,
+    "lng": 5.7369183
+  },
+  {
+    "name": "LM Plus Dour",
+    "address": "Rue Grande 98/1",
+    "city": "Dour",
+    "postal_code": "7370",
+    "phone": "065 69 02 05",
+    "lat": 50.3969195,
+    "lng": 3.7788639
+  },
+  {
+    "name": "LM Plus Drieslinter",
+    "address": "Stationsstraat 19",
+    "city": "Drieslinter",
+    "postal_code": "3350",
+    "phone": "016 81 30 31",
+    "lat": 50.8459635,
+    "lng": 5.054923
+  },
+  {
+    "name": "LM Plus Dworp",
+    "address": "Kerkstraat 27",
+    "city": "Dworp",
+    "postal_code": "1653",
+    "phone": "02 356 53 82",
+    "lat": 50.7299205,
+    "lng": 4.2980064
+  },
+  {
+    "name": "LM Plus Edegem",
+    "address": "Trooststraat 14",
+    "city": "Edegem",
+    "postal_code": "2650",
+    "phone": "03 457 04 01",
+    "lat": 51.1551623,
+    "lng": 4.4467598
+  },
+  {
+    "name": "LM Plus Eeklo",
+    "address": "Koningin Astridplein 20",
+    "city": "Eeklo",
+    "postal_code": "9900",
+    "phone": "09 377 15 39",
+    "lat": 51.1812199,
+    "lng": 3.5737832
+  },
+  {
+    "name": "LM Plus Eernegem",
+    "address": "Aartrijkestraat 94",
+    "city": "Eernegem",
+    "postal_code": "8480",
+    "phone": "051 59 11 60",
+    "lat": 51.1246266,
+    "lng": 3.0308565
+  },
+  {
+    "name": "LM Plus Eksaarde",
+    "address": "Kasteeldreef 47",
+    "city": "Eksaarde",
+    "postal_code": "9160",
+    "phone": "",
+    "lat": 51.1504603,
+    "lng": 3.9585734
+  },
+  {
+    "name": "LM Plus Elewijt",
+    "address": "Tervuursesteenweg 762",
+    "city": "Elewijt",
+    "postal_code": "1982",
+    "phone": "02 251 07 23",
+    "lat": 50.9605009,
+    "lng": 4.4965117
+  },
+  {
+    "name": "LM Plus Ellezelles",
+    "address": "Rue d'Audenarde 44",
+    "city": "Ellezelles",
+    "postal_code": "7890",
+    "phone": "068 54 27 42",
+    "lat": 50.7360919,
+    "lng": 3.6815391
+  },
+  {
+    "name": "LM Plus Elsene",
+    "address": "Malibranstraat 15",
+    "city": "Elsene",
+    "postal_code": "1050",
+    "phone": "02 647 50 44",
+    "lat": 50.8290715,
+    "lng": 4.3728336
+  },
+  {
+    "name": "LM Plus Elsene",
+    "address": "Blanchestraat 15",
+    "city": "Elsene",
+    "postal_code": "1050",
+    "phone": "02 376 13 68",
+    "lat": 50.8302603,
+    "lng": 4.3582337
+  },
+  {
+    "name": "LM Plus Erpe-Mere",
+    "address": "Steenstraat 45",
+    "city": "Mere",
+    "postal_code": "9420",
+    "phone": "053 83 17 34",
+    "lat": 50.9206734,
+    "lng": 3.9695036
+  },
+  {
+    "name": "LM Plus Etterbeek",
+    "address": "Tervatestraat 51",
+    "city": "Etterbeek",
+    "postal_code": "1040",
+    "phone": "02 376 13 68",
+    "lat": 50.8305436,
+    "lng": 4.4002758
+  },
+  {
+    "name": "LM Plus Frasnes-Lez-Anvaing",
+    "address": "Grand Place 13",
+    "city": "Frasnes-Lez-Anvaing",
+    "postal_code": "7911",
+    "phone": "069 87 52 17",
+    "lat": 50.6682141,
+    "lng": 3.6219184
+  },
+  {
+    "name": "LM Plus Galmaarden",
+    "address": "🧑🏻‍🦽‍➡️Bergstraat 8a",
+    "city": "Galmaarden",
+    "postal_code": "1570",
+    "phone": "054 58 65 55",
+    "lat": 50.7524458,
+    "lng": 3.9698972
+  },
+  {
+    "name": "LM Plus Galmaarden (Brievenbus)",
+    "address": "Stationsstraat 41",
+    "city": "Galmaarden",
+    "postal_code": "1570",
+    "phone": "054 58 65 55",
+    "lat": 50.7480376,
+    "lng": 3.9694462
+  },
+  {
+    "name": "LM Plus Gavere",
+    "address": "Markt 45",
+    "city": "Gavere",
+    "postal_code": "9890",
+    "phone": "09 384 22 14",
+    "lat": 50.9302575,
+    "lng": 3.6599079
+  },
+  {
+    "name": "LM Plus Geel",
+    "address": "Markt 61",
+    "city": "Geel",
+    "postal_code": "2440",
+    "phone": "014 58 81 38",
+    "lat": 51.1604888,
+    "lng": 4.9909587
+  },
+  {
+    "name": "LM Plus Geetbets (Brievenbus)",
+    "address": "Steenstraat 7",
+    "city": "Geetbets",
+    "postal_code": "3450",
+    "phone": "016 81 30 31",
+    "lat": 50.8923496,
+    "lng": 5.113651
+  },
+  {
+    "name": "LM Plus Gelrode",
+    "address": "Lindeboomstraat 7",
+    "city": "Gelrode",
+    "postal_code": "3200",
+    "phone": "016 56 74 30",
+    "lat": 50.9642888,
+    "lng": 4.7926817
+  },
+  {
+    "name": "LM Plus Genappe",
+    "address": "Rue de la Station 40",
+    "city": "Genappe",
+    "postal_code": "1470",
+    "phone": "067 77 10 45",
+    "lat": 50.6081552,
+    "lng": 4.4482339
+  },
+  {
+    "name": "LM Plus Genk (Centrum)",
+    "address": "Europalaan 53",
+    "city": "Genk",
+    "postal_code": "3600",
+    "phone": "02 417 17 17",
+    "lat": 50.9666,
+    "lng": 5.4974729
+  },
+  {
+    "name": "LM Plus Genk (Waterschei)",
+    "address": "Hoevenzavellaan 45",
+    "city": "Genk",
+    "postal_code": "3600",
+    "phone": "089 36 12 57",
+    "lat": 51.0005498,
+    "lng": 5.5066509
+  },
+  {
+    "name": "LM Plus Gent (Brabantdam 101)",
+    "address": "Brabantdam 101",
+    "city": "Gent",
+    "postal_code": "9000",
+    "phone": "09 223 19 76",
+    "lat": 51.0500242,
+    "lng": 3.7312341
+  },
+  {
+    "name": "LM Plus Gent (Brugsesteenweg)",
+    "address": "Brugsesteenweg 23",
+    "city": "Gent",
+    "postal_code": "9000",
+    "phone": "",
+    "lat": 51.0638752,
+    "lng": 3.6942637
+  },
+  {
+    "name": "LM Plus Gent (Hoogpoort)",
+    "address": "Hoogpoort 37",
+    "city": "Gent",
+    "postal_code": "9000",
+    "phone": "",
+    "lat": 51.0553235,
+    "lng": 3.7243887
+  },
+  {
+    "name": "LM Plus Gent (Koning Albertlaan)",
+    "address": "Koning Albertlaan 87",
+    "city": "Gent",
+    "postal_code": "9000",
+    "phone": "",
+    "lat": 51.1021752,
+    "lng": 3.8280122
+  },
+  {
+    "name": "LM Plus Gent (Tijgerstraat)",
+    "address": "Tijgerstraat 12 K",
+    "city": "Gent",
+    "postal_code": "9000",
+    "phone": "",
+    "lat": 51.0399678,
+    "lng": 3.7312883
+  },
+  {
+    "name": "LM Plus Gentbrugge (brievenbus)",
+    "address": "Frederik Burvenichstraat 151",
+    "city": "Gentbrugge",
+    "postal_code": "9050",
+    "phone": "",
+    "lat": 51.0407072,
+    "lng": 3.7562595
+  },
+  {
+    "name": "LM Plus Geraardsbergen",
+    "address": "Adamstraat 27",
+    "city": "Geraardsbergen",
+    "postal_code": "9500",
+    "phone": "054 41 14 02",
+    "lat": 50.7710174,
+    "lng": 3.8733629
+  },
+  {
+    "name": "LM Plus Gibecq",
+    "address": "Chemin Tour Saint Pierre 25",
+    "city": "Gibecq",
+    "postal_code": "7823",
+    "phone": "069 34 38 00",
+    "lat": 50.6418342,
+    "lng": 3.891932
+  },
+  {
+    "name": "LM Plus Gijzenzele",
+    "address": "Kerkstraat 4",
+    "city": "Gijzenzele",
+    "postal_code": "9860",
+    "phone": "",
+    "lat": 50.971091,
+    "lng": 3.8158248
+  },
+  {
+    "name": "LM Plus Gingelom (Mielen-Boven-Aalst)",
+    "address": "Lindestraat 18",
+    "city": "Gingelom",
+    "postal_code": "3891",
+    "phone": "012 74 16 10",
+    "lat": 50.7525197,
+    "lng": 5.2188625
+  },
+  {
+    "name": "LM Plus Gistel",
+    "address": "Hoogstraat 19",
+    "city": "Gistel",
+    "postal_code": "8470",
+    "phone": "059 27 66 67",
+    "lat": 51.1561454,
+    "lng": 2.9650988
+  },
+  {
+    "name": "LM Plus Gooik",
+    "address": "Wijngaardstraat 81",
+    "city": "Gooik",
+    "postal_code": "1755",
+    "phone": "02 532 03 45",
+    "lat": 50.7964936,
+    "lng": 4.1258805
+  },
+  {
+    "name": "LM Plus Grimbergen",
+    "address": "Pastoor Woutersstraat 4",
+    "city": "Grimbergen",
+    "postal_code": "1850",
+    "phone": "02 270 33 01",
+    "lat": 50.932395,
+    "lng": 4.3710303
+  },
+  {
+    "name": "LM Plus Haacht",
+    "address": "Markt 17",
+    "city": "Haacht",
+    "postal_code": "3150",
+    "phone": "016 47 25 41",
+    "lat": 50.9770704,
+    "lng": 4.6376844
+  },
+  {
+    "name": "LM Plus Haaltert",
+    "address": "Hoogstraat 4 A",
+    "city": "Haaltert",
+    "postal_code": "9450",
+    "phone": "053 83 80 63",
+    "lat": 50.9012567,
+    "lng": 4.0055967
+  },
+  {
+    "name": "LM Plus Halle",
+    "address": "Vondel 23",
+    "city": "Halle",
+    "postal_code": "1500",
+    "phone": "02 454 95 03",
+    "lat": 50.7356152,
+    "lng": 4.2388755
+  },
+  {
+    "name": "LM Plus Halle",
+    "address": "🧑🏻‍🦽‍➡️Vondel 23",
+    "city": "Halle",
+    "postal_code": "1500",
+    "phone": "02 356 53 82",
+    "lat": 50.7356152,
+    "lng": 4.2388755
+  },
+  {
+    "name": "LM Plus Hamme",
+    "address": "Spoorwegstraat 96",
+    "city": "Hamme",
+    "postal_code": "9220",
+    "phone": "052 48 04 46",
+    "lat": 51.0941138,
+    "lng": 4.1331821
+  },
+  {
+    "name": "LM Plus Hamont-Achel",
+    "address": "Balenhoek 27",
+    "city": "Hamont-Achel",
+    "postal_code": "3930",
+    "phone": "011 54 45 35",
+    "lat": 51.2391553,
+    "lng": 5.5470933
+  },
+  {
+    "name": "LM Plus Harchies",
+    "address": "Trieu Magdelon 3",
+    "city": "Harchies",
+    "postal_code": "7321",
+    "phone": "069 34 38 00",
+    "lat": 50.478152,
+    "lng": 3.6910409
+  },
+  {
+    "name": "LM Plus Harelbeke",
+    "address": "Marktstraat 85 bus 1",
+    "city": "Harelbeke",
+    "postal_code": "8530",
+    "phone": "056 72 55 02",
+    "lat": 50.855079,
+    "lng": 3.3088079
+  },
+  {
+    "name": "LM Plus Hasselt (Geraetsstraat)",
+    "address": "Geraetsstraat 20",
+    "city": "Hasselt",
+    "postal_code": "3500",
+    "phone": "011 22 14 06",
+    "lat": 50.9310555,
+    "lng": 5.3303592
+  },
+  {
+    "name": "LM Plus Hasselt (Kortessem)",
+    "address": "Dorpsstraat 20",
+    "city": "Hasselt",
+    "postal_code": "3720",
+    "phone": "011 37 71 12",
+    "lat": 50.8578709,
+    "lng": 5.3880604
+  },
+  {
+    "name": "LM Plus Hechtel-Eksel",
+    "address": "Hasseltsebaan 109",
+    "city": "Hechtel-Eksel",
+    "postal_code": "3940",
+    "phone": "011 40 16 06",
+    "lat": 51.1152778,
+    "lng": 5.3705159
+  },
+  {
+    "name": "LM Plus Heers (Brievenbus)",
+    "address": "Steenweg 170",
+    "city": "Heers",
+    "postal_code": "3870",
+    "phone": "012 74 16 10",
+    "lat": 50.7491635,
+    "lng": 5.2991918
+  },
+  {
+    "name": "LM Plus Heist",
+    "address": "Kursaalstraat 41/43",
+    "city": "Heist",
+    "postal_code": "8301",
+    "phone": "050 60 29 29",
+    "lat": 51.338113,
+    "lng": 3.2394308
+  },
+  {
+    "name": "LM Plus Hekelgem",
+    "address": "Brusselbaan 103",
+    "city": "Affligem",
+    "postal_code": "1790",
+    "phone": "02 417 17 17",
+    "lat": 50.9136238,
+    "lng": 4.1044474
+  },
+  {
+    "name": "LM Plus Hélécine",
+    "address": "Rue des Charrons 80",
+    "city": "Hélécine",
+    "postal_code": "1357",
+    "phone": "010 81 20 75",
+    "lat": 50.7540077,
+    "lng": 4.9862918
+  },
+  {
+    "name": "LM Plus Herent",
+    "address": "Wilselsesteenweg 97",
+    "city": "Herent",
+    "postal_code": "3020",
+    "phone": "016 47 25 41",
+    "lat": 50.9053072,
+    "lng": 4.6821322
+  },
+  {
+    "name": "LM Plus Herentals",
+    "address": "Bovenrij 45",
+    "city": "Herentals",
+    "postal_code": "2200",
+    "phone": "014 21 25 72",
+    "lat": 51.1747128,
+    "lng": 4.8375268
+  },
+  {
+    "name": "LM Plus Herk-de-Stad",
+    "address": "Grote baan 65",
+    "city": "Herk-de-Stad",
+    "postal_code": "3540",
+    "phone": "013 46 22 94",
+    "lat": 50.9474525,
+    "lng": 5.1265251
+  },
+  {
+    "name": "LM Plus Herseaux",
+    "address": "Chaussée d'Estaimpuis 169",
+    "city": "Herseaux",
+    "postal_code": "7712",
+    "phone": "069 34 38 00",
+    "lat": 50.717102,
+    "lng": 3.2684822
+  },
+  {
+    "name": "LM Plus Herzele",
+    "address": "Groenlaan 13",
+    "city": "Herzele",
+    "postal_code": "9550",
+    "phone": "053 62 37 42",
+    "lat": 50.8842848,
+    "lng": 3.8922503
+  },
+  {
+    "name": "LM Plus Heusden",
+    "address": "Heusdendorp 8",
+    "city": "Heusden",
+    "postal_code": "9070",
+    "phone": "",
+    "lat": 51.0288107,
+    "lng": 3.8007886
+  },
+  {
+    "name": "LM Plus Heusden-Zolder",
+    "address": "Stationsstraat 127",
+    "city": "Heusden-Zolder",
+    "postal_code": "3550",
+    "phone": "011 57 49 07",
+    "lat": 51.0371148,
+    "lng": 5.3307696
+  },
+  {
+    "name": "LM Plus Heusden-Zolder (Zolder)",
+    "address": "Inakker 32",
+    "city": "Heusden-Zolder",
+    "postal_code": "3550",
+    "phone": "011 57 49 07",
+    "lat": 51.0212007,
+    "lng": 5.3120907
+  },
+  {
+    "name": "LM Plus Heuvelland",
+    "address": "Nieuwstraat 9A",
+    "city": "Heuvelland",
+    "postal_code": "8956",
+    "phone": "050 89 15 33",
+    "lat": 50.7847412,
+    "lng": 2.8276844
+  },
+  {
+    "name": "LM Plus Hoboken",
+    "address": "Antwerpsesteenweg 281 A",
+    "city": "Hoboken",
+    "postal_code": "2660",
+    "phone": "03 827 52 23",
+    "lat": 51.1803021,
+    "lng": 4.3653007
+  },
+  {
+    "name": "LM Plus Hoeilaart",
+    "address": "Joseph Denayerstraat 7",
+    "city": "Hoeilaart",
+    "postal_code": "1560",
+    "phone": "02 657 00 76",
+    "lat": 50.7690392,
+    "lng": 4.4716207
+  },
+  {
+    "name": "LM Plus Houthalen (Oost)",
+    "address": "Tulpenstraat 45",
+    "city": "Houthalen",
+    "postal_code": "3530",
+    "phone": "089 36 12 57",
+    "lat": 51.020584,
+    "lng": 5.4762068
+  },
+  {
+    "name": "LM Plus Houthulst",
+    "address": "Stokstraat 93",
+    "city": "Houthulst",
+    "postal_code": "8650",
+    "phone": "057 20 06 62",
+    "lat": 50.9755847,
+    "lng": 2.9191102
+  },
+  {
+    "name": "LM Plus Huldenberg",
+    "address": "De Peuthystraat 38",
+    "city": "Huldenberg",
+    "postal_code": "3040",
+    "phone": "02 657 00 76",
+    "lat": 50.79037,
+    "lng": 4.5767949
+  },
+  {
+    "name": "LM Plus Ieper",
+    "address": "Surmont de Volsberghestraat 48",
+    "city": "Ieper",
+    "postal_code": "8900",
+    "phone": "057 20 06 62",
+    "lat": 50.8533676,
+    "lng": 2.8840074
+  },
+  {
+    "name": "LM Plus Ieper (Brievenbus)",
+    "address": "Jan Yperman Ziekenhuis",
+    "city": "Ieper",
+    "postal_code": "8900",
+    "phone": "057 33 36 50",
+    "lat": 50.8650925,
+    "lng": 2.8976249
+  },
+  {
+    "name": "LM Plus Izegem",
+    "address": "Ketelstraat 2",
+    "city": "Izegem",
+    "postal_code": "8870",
+    "phone": "051 31 59 10",
+    "lat": 50.9201445,
+    "lng": 3.2149088
+  },
+  {
+    "name": "LM Plus Jette",
+    "address": "Leon Théodorstraat 143",
+    "city": "Jette",
+    "postal_code": "1090",
+    "phone": "02 427 72 93",
+    "lat": 50.8768853,
+    "lng": 4.3284615
+  },
+  {
+    "name": "LM Plus Kalmthout",
+    "address": "Kapellensteenweg 246",
+    "city": "Kalmthout",
+    "postal_code": "2920",
+    "phone": "03 651 80 58",
+    "lat": 51.3789735,
+    "lng": 4.4746529
+  },
+  {
+    "name": "LM Plus Kapellen",
+    "address": "Dorpsstraat 72",
+    "city": "Kapellen",
+    "postal_code": "2950",
+    "phone": "03 605 93 11",
+    "lat": 51.3171764,
+    "lng": 4.4276766
+  },
+  {
+    "name": "LM Plus Kapelle-op-den-Bos",
+    "address": "Oudstrijdersstraat 12",
+    "city": "Kapelle-op-den-Bos",
+    "postal_code": "1880",
+    "phone": "052 37 24 02",
+    "lat": 51.009108,
+    "lng": 4.353316
+  },
+  {
+    "name": "LM Plus Keerbergen",
+    "address": "Haachtsebaan 57",
+    "city": "Keerbergen",
+    "postal_code": "3140",
+    "phone": "016 47 25 41",
+    "lat": 51.0028781,
+    "lng": 4.632013
+  },
+  {
+    "name": "LM Plus Kieldrecht",
+    "address": "Grensstraat 2",
+    "city": "Kieldrecht",
+    "postal_code": "9130",
+    "phone": "",
+    "lat": 51.2937926,
+    "lng": 4.168831
+  },
+  {
+    "name": "LM Plus Kinrooi (Molenbeersel)",
+    "address": "Weertersteenweg 386",
+    "city": "Kinrooi (Molenbeersel)",
+    "postal_code": "3640",
+    "phone": "089 75 56 79",
+    "lat": 51.176803,
+    "lng": 5.7286025
+  },
+  {
+    "name": "LM Plus Kluisbergen",
+    "address": "Stationsstraat 60",
+    "city": "Kluisbergen",
+    "postal_code": "9690",
+    "phone": "",
+    "lat": 50.788607,
+    "lng": 3.5107943
+  },
+  {
+    "name": "LM Plus Knesselare",
+    "address": "Kloosterstraat 18",
+    "city": "Knesselare",
+    "postal_code": "9910",
+    "phone": "",
+    "lat": 51.1401378,
+    "lng": 3.4116532
+  },
+  {
+    "name": "LM Plus Knokke-Heist",
+    "address": "Gemeenteplein 35/37",
+    "city": "Knokke-Heist",
+    "postal_code": "8300",
+    "phone": "050 60 29 29",
+    "lat": 51.340921,
+    "lng": 3.2903132
+  },
+  {
+    "name": "LM Plus Koekelare",
+    "address": "Noordomstraat 35 A1",
+    "city": "Koekelare",
+    "postal_code": "8680",
+    "phone": "051 59 11 60",
+    "lat": 51.0909697,
+    "lng": 2.9761177
+  },
+  {
+    "name": "LM Plus Koekelberg",
+    "address": "Frans Gasthuislaan 5",
+    "city": "Koekelberg",
+    "postal_code": "1081",
+    "phone": "02 218 07 22",
+    "lat": 50.8669896,
+    "lng": 4.3114819
+  },
+  {
+    "name": "LM Plus Koksijde",
+    "address": "Koninklijke Baan 186",
+    "city": "Koksijde",
+    "postal_code": "8670",
+    "phone": "058 51 62 40",
+    "lat": 51.1192023,
+    "lng": 2.6320263
+  },
+  {
+    "name": "LM Plus Kortemark",
+    "address": "Lichterveldestraat 1",
+    "city": "Kortemark",
+    "postal_code": "8610",
+    "phone": "02 417 17 17",
+    "lat": 51.028511,
+    "lng": 3.0444959
+  },
+  {
+    "name": "LM Plus Kortrijk",
+    "address": "Groeningelaan 40",
+    "city": "Kortrijk",
+    "postal_code": "8500",
+    "phone": "056 21 05 87",
+    "lat": 50.8273605,
+    "lng": 3.2765076
+  },
+  {
+    "name": "LM Plus Kortrijk (AZ Groeninge)",
+    "address": "Campus Kennedylaan",
+    "city": "Kortrijk",
+    "postal_code": "8500",
+    "phone": "056 21 05 87",
+    "lat": 50.8015486,
+    "lng": 3.264851
+  },
+  {
+    "name": "LM Plus Laken",
+    "address": "Emile Bockstaellaan 223",
+    "city": "Laken",
+    "postal_code": "1020",
+    "phone": "02 428 77 31",
+    "lat": 50.878329,
+    "lng": 4.3483923
+  },
+  {
+    "name": "LM Plus Lanaken",
+    "address": "Winkelstraat 26",
+    "city": "Lanaken",
+    "postal_code": "3620",
+    "phone": "089 48 19 61",
+    "lat": 50.8887562,
+    "lng": 5.6488769
+  },
+  {
+    "name": "LM Plus Landegem",
+    "address": "Landegemdorp 9",
+    "city": "Landegem",
+    "postal_code": "9850",
+    "phone": "",
+    "lat": 51.0564122,
+    "lng": 3.5731303
+  },
+  {
+    "name": "LM Plus Landen",
+    "address": "Stationsstraat 146",
+    "city": "Landen",
+    "postal_code": "3400",
+    "phone": "011 88 16 19",
+    "lat": 50.7487231,
+    "lng": 5.0807551
+  },
+  {
+    "name": "LM Plus Landen (Waasmont)",
+    "address": "Middenstraat 30",
+    "city": "Landen",
+    "postal_code": "3401",
+    "phone": "011 88 16 19",
+    "lat": 50.7274185,
+    "lng": 5.0623091
+  },
+  {
+    "name": "LM Plus Langdorp (Elsleukenstraat)",
+    "address": "Elsleukenstraat 59",
+    "city": "Langdorp",
+    "postal_code": "3201",
+    "phone": "016 56 74 30",
+    "lat": 51.0193321,
+    "lng": 4.9153126
+  },
+  {
+    "name": "LM Plus Langdorp (Gijmelsesteenweg)",
+    "address": "Gijmelsesteenweg 268",
+    "city": "Langdorp",
+    "postal_code": "3201",
+    "phone": "016 56 74 30",
+    "lat": 51.008989,
+    "lng": 4.8601548
+  },
+  {
+    "name": "LM Plus Langemark",
+    "address": "Korte Ieperstraat 2",
+    "city": "Langemark",
+    "postal_code": "8920",
+    "phone": "057 20 06 62",
+    "lat": 50.9125696,
+    "lng": 2.9190861
+  },
+  {
+    "name": "LM Plus Le Bizet",
+    "address": "Rue d'Armentières 333",
+    "city": "Le Bizet",
+    "postal_code": "7783",
+    "phone": "069 34 38 00",
+    "lat": 50.7083023,
+    "lng": 2.8826271
+  },
+  {
+    "name": "LM Plus Lebbeke",
+    "address": "Leo Duboisstraat 21",
+    "city": "Lebbeke",
+    "postal_code": "9280",
+    "phone": "052 41 07 49",
+    "lat": 50.999967,
+    "lng": 4.1264995
+  },
+  {
+    "name": "LM Plus Lede",
+    "address": "Kasteeldreef 33",
+    "city": "Lede",
+    "postal_code": "9340",
+    "phone": "053 80 80 81",
+    "lat": 50.9661908,
+    "lng": 3.9803973
+  },
+  {
+    "name": "LM Plus Ledeberg",
+    "address": "Brusselsesteenweg 298",
+    "city": "Ledeberg",
+    "postal_code": "9050",
+    "phone": "09 231 51 55",
+    "lat": 51.0404838,
+    "lng": 3.7427169
+  },
+  {
+    "name": "LM Plus Leffinge",
+    "address": "Leffingestraat 37",
+    "city": "Leffinge",
+    "postal_code": "8432",
+    "phone": "059 70 29 07",
+    "lat": 51.1821589,
+    "lng": 2.8807322
+  },
+  {
+    "name": "LM Plus Leisele",
+    "address": "Lostraat 13",
+    "city": "Leisele",
+    "postal_code": "8691",
+    "phone": "058 51 62 40",
+    "lat": 50.9767535,
+    "lng": 2.6188859
+  },
+  {
+    "name": "LM Plus Leopoldsburg",
+    "address": "Hospitaalstraat 9",
+    "city": "Leopoldsburg",
+    "postal_code": "3970",
+    "phone": "011 40 16 06",
+    "lat": 51.1180991,
+    "lng": 5.2638607
+  },
+  {
+    "name": "LM Plus Leuven",
+    "address": "🧑🏻‍🦽‍➡️Oude Diestsesteenweg 13B",
+    "city": "Leuven",
+    "postal_code": "3010",
+    "phone": "016 47 25 41",
+    "lat": 50.8833908,
+    "lng": 4.7168437
+  },
+  {
+    "name": "LM Plus Leuven (Brievenbus)",
+    "address": "Vital Decosterstraat 84",
+    "city": "Leuven",
+    "postal_code": "3000",
+    "phone": "016 47 25 41",
+    "lat": 50.8825576,
+    "lng": 4.7027667
+  },
+  {
+    "name": "LM Plus Leuze-en-Hainaut",
+    "address": "Rue de Tournai 6",
+    "city": "Leuze-en-Hainaut",
+    "postal_code": "7900",
+    "phone": "069 67 02 09",
+    "lat": 50.5986929,
+    "lng": 3.6174714
+  },
+  {
+    "name": "LM Plus Lier",
+    "address": "Kruisbogenhofstraat 17",
+    "city": "Lier",
+    "postal_code": "2500",
+    "phone": "03 480 05 36",
+    "lat": 51.135159,
+    "lng": 4.5680605
+  },
+  {
+    "name": "LM Plus Lochristi",
+    "address": "Dorp West 105",
+    "city": "Lochristi",
+    "postal_code": "9080",
+    "phone": "09 355 52 45",
+    "lat": 51.0937382,
+    "lng": 3.8241725
+  },
+  {
+    "name": "LM Plus Lokeren",
+    "address": "Zand 20",
+    "city": "Lokeren",
+    "postal_code": "9160",
+    "phone": "09 345 87 09",
+    "lat": 51.1025023,
+    "lng": 3.995373
+  },
+  {
+    "name": "LM Plus Lommel",
+    "address": "Hertog Janplein 14",
+    "city": "Lommel",
+    "postal_code": "3920",
+    "phone": "011 54 45 35",
+    "lat": 51.2295348,
+    "lng": 5.3052865
+  },
+  {
+    "name": "LM Plus Lovendegem",
+    "address": "Kasteeldreef 95",
+    "city": "Lovendegem",
+    "postal_code": "9920",
+    "phone": "",
+    "lat": 51.0971132,
+    "lng": 3.6058326
+  },
+  {
+    "name": "LM Plus Lubbeek",
+    "address": "Staatsbaan 126",
+    "city": "Lubbeek",
+    "postal_code": "3210",
+    "phone": "016 81 30 31",
+    "lat": 50.9021052,
+    "lng": 4.8486632
+  },
+  {
+    "name": "LM Plus Lummen (Linkhout)",
+    "address": "Priesterse Heidestraat 56",
+    "city": "Lummen",
+    "postal_code": "3560",
+    "phone": "011 70 53 90",
+    "lat": 50.9698904,
+    "lng": 5.1463372
+  },
+  {
+    "name": "LM Plus Maaseik",
+    "address": "Bleumerstraat 64 A",
+    "city": "Maaseik",
+    "postal_code": "3680",
+    "phone": "089 56 72 01",
+    "lat": 51.0940873,
+    "lng": 5.7952008
+  },
+  {
+    "name": "LM Plus Maaseik (Neeroeteren)",
+    "address": "Maaseikerlaan 36",
+    "city": "Maaseik",
+    "postal_code": "3680",
+    "phone": "089 75 56 79",
+    "lat": 51.093777,
+    "lng": 5.7087278
+  },
+  {
+    "name": "LM Plus Maasmechelen (Eisden)",
+    "address": "Langstraat 42",
+    "city": "Maasmechelen",
+    "postal_code": "3630",
+    "phone": "089 75 56 79",
+    "lat": 50.9866703,
+    "lng": 5.7120452
+  },
+  {
+    "name": "LM Plus Machelen",
+    "address": "Vilvoordelaan 1 A",
+    "city": "Machelen",
+    "postal_code": "1830",
+    "phone": "02 251 07 23",
+    "lat": 50.9136393,
+    "lng": 4.4368457
+  },
+  {
+    "name": "LM Plus Maldegem",
+    "address": "39e Linielaan 1",
+    "city": "Maldegem",
+    "postal_code": "9990",
+    "phone": "050 89 16 90",
+    "lat": 51.2074561,
+    "lng": 3.4488984
+  },
+  {
+    "name": "LM Plus Mariakerke",
+    "address": "Molenwalstraat 76",
+    "city": "Mariakerke",
+    "postal_code": "9030",
+    "phone": "",
+    "lat": 51.0760637,
+    "lng": 3.6981265
+  },
+  {
+    "name": "LM Plus Maulde",
+    "address": "Rue Altière 8",
+    "city": "Maulde",
+    "postal_code": "7534",
+    "phone": "069 34 38 00",
+    "lat": 50.6207521,
+    "lng": 3.5688742
+  },
+  {
+    "name": "LM Plus Mazenzele",
+    "address": "Molenstraat 17",
+    "city": "Mazenzele",
+    "postal_code": "1745",
+    "phone": "052 37 24 02",
+    "lat": 50.9418486,
+    "lng": 4.1684062
+  },
+  {
+    "name": "LM Plus Meerhout",
+    "address": "Markt 33",
+    "city": "Meerhout",
+    "postal_code": "2450",
+    "phone": "014 30 00 45",
+    "lat": 51.1316264,
+    "lng": 5.0777086
+  },
+  {
+    "name": "LM Plus Melle",
+    "address": "Lindestraat 10",
+    "city": "Melle",
+    "postal_code": "9090",
+    "phone": "",
+    "lat": 51.0029956,
+    "lng": 3.7951965
+  },
+  {
+    "name": "LM Plus Menen",
+    "address": "Ieperstraat 432",
+    "city": "Menen",
+    "postal_code": "8930",
+    "phone": "056 53 29 85",
+    "lat": 50.803852,
+    "lng": 3.0960485
+  },
+  {
+    "name": "LM Plus Merelbeke",
+    "address": "Driekoningenplein 16",
+    "city": "Merelbeke",
+    "postal_code": "9820",
+    "phone": "09 230 60 80",
+    "lat": 50.9930457,
+    "lng": 3.7470269
+  },
+  {
+    "name": "LM Plus Merksem",
+    "address": "St.Franciscusplein 9",
+    "city": "Merksem",
+    "postal_code": "2170",
+    "phone": "03 645 90 80",
+    "lat": 51.2462363,
+    "lng": 4.4464964
+  },
+  {
+    "name": "LM Plus Mesen",
+    "address": "Markt 11",
+    "city": "Mesen",
+    "postal_code": "8957",
+    "phone": "057 20 06 62",
+    "lat": 50.7654728,
+    "lng": 2.8995408
+  },
+  {
+    "name": "LM Plus Middelkerke",
+    "address": "Smidsestraat 5",
+    "city": "Middelkerke",
+    "postal_code": "8430",
+    "phone": "059 70 29 07",
+    "lat": 51.1859178,
+    "lng": 2.8208715
+  },
+  {
+    "name": "LM Plus Moerbeke-Waas",
+    "address": "Plaisantstraat 32",
+    "city": "Moerbeke-Waas",
+    "postal_code": "9180",
+    "phone": "09 346 82 77",
+    "lat": 51.173552,
+    "lng": 3.9375964
+  },
+  {
+    "name": "LM Plus Moerzeke",
+    "address": "Dorp 31",
+    "city": "Moerzeke",
+    "postal_code": "9220",
+    "phone": "",
+    "lat": 51.0626658,
+    "lng": 4.1522683
+  },
+  {
+    "name": "LM Plus Mollem",
+    "address": "Kouter 6",
+    "city": "Mollem",
+    "postal_code": "1730",
+    "phone": "052 37 24 02",
+    "lat": 50.930229,
+    "lng": 4.2255201
+  },
+  {
+    "name": "LM Plus Moorsel",
+    "address": "Moorsel-Dorp 11",
+    "city": "Moorsel",
+    "postal_code": "9310",
+    "phone": "053 78 52 99",
+    "lat": 50.9474704,
+    "lng": 4.0986552
+  },
+  {
+    "name": "LM Plus Mortsel",
+    "address": "Mechelsesteenweg 63",
+    "city": "Mortsel",
+    "postal_code": "2640",
+    "phone": "03 457 04 01",
+    "lat": 51.1682938,
+    "lng": 4.4521635
+  },
+  {
+    "name": "LM Plus Niel",
+    "address": "Antwerpsestraat 5",
+    "city": "Niel",
+    "postal_code": "2845",
+    "phone": "03 888 30 47",
+    "lat": 51.1065878,
+    "lng": 4.3297331
+  },
+  {
+    "name": "LM Plus Nieuwerkerken",
+    "address": "Diestersteenweg 124",
+    "city": "Nieuwerkerken",
+    "postal_code": "3850",
+    "phone": "011 69 53 84",
+    "lat": 50.8637188,
+    "lng": 5.1888396
+  },
+  {
+    "name": "LM Plus Nieuwpoort",
+    "address": "Oostendestraat 26",
+    "city": "Nieuwpoort",
+    "postal_code": "8620",
+    "phone": "059 70 29 07",
+    "lat": 51.132522,
+    "lng": 2.7524271
+  },
+  {
+    "name": "LM Plus Ninove",
+    "address": "Centrumlaan 6",
+    "city": "Ninove",
+    "postal_code": "9400",
+    "phone": "054 33 24 52",
+    "lat": 50.8345043,
+    "lng": 4.0222555
+  },
+  {
+    "name": "LM Plus Nivelles",
+    "address": "Rue des Vieilles Prisons 15a",
+    "city": "Nivelles",
+    "postal_code": "1400",
+    "phone": "067 21 07 40",
+    "lat": 50.5974689,
+    "lng": 4.3259847
+  },
+  {
+    "name": "LM Plus Oetingen",
+    "address": "Blijkheerstraat 71",
+    "city": "Oetingen",
+    "postal_code": "1755",
+    "phone": "054 51 84 97",
+    "lat": 50.7732965,
+    "lng": 4.0479814
+  },
+  {
+    "name": "LM Plus Oostende",
+    "address": "Vindictivelaan 5",
+    "city": "Oostende",
+    "postal_code": "8400",
+    "phone": "059 70 29 07",
+    "lat": 51.2275619,
+    "lng": 2.9188536
+  },
+  {
+    "name": "LM Plus Oosterzele",
+    "address": "Keiberg 22",
+    "city": "Oosterzele",
+    "postal_code": "9860",
+    "phone": "",
+    "lat": 50.9456637,
+    "lng": 3.8098684
+  },
+  {
+    "name": "LM Plus Oostrozebeke",
+    "address": "Smallestokstraat 22",
+    "city": "Oostrozebeke",
+    "postal_code": "8780",
+    "phone": "056 61 51 10",
+    "lat": 50.9215081,
+    "lng": 3.3354012
+  },
+  {
+    "name": "LM Plus Ormeignies",
+    "address": "Rue Saint Ursmer 12",
+    "city": "Ormeignies",
+    "postal_code": "7802",
+    "phone": "069 34 38 00",
+    "lat": 50.5938931,
+    "lng": 3.7497079
+  },
+  {
+    "name": "LM Plus Oudergem",
+    "address": "Gemeenteplein 20",
+    "city": "Oudergem",
+    "postal_code": "1160",
+    "phone": "02 660 34 53",
+    "lat": 50.8155081,
+    "lng": 4.4283826
+  },
+  {
+    "name": "LM Plus Pecq",
+    "address": "Rue Albert I 48",
+    "city": "Pecq",
+    "postal_code": "7740",
+    "phone": "069 34 38 00",
+    "lat": 50.6852655,
+    "lng": 3.3426305
+  },
+  {
+    "name": "LM Plus Pelt",
+    "address": "Vijverstraat 3",
+    "city": "Pelt",
+    "postal_code": "3910",
+    "phone": "02 417 17 17",
+    "lat": 51.2154025,
+    "lng": 5.4404887
+  },
+  {
+    "name": "LM Plus Pepingen",
+    "address": "Ninoofsesteenweg 94",
+    "city": "Pepingen",
+    "postal_code": "1670",
+    "phone": "02 356 53 82",
+    "lat": 50.7593964,
+    "lng": 4.1618938
+  },
+  {
+    "name": "LM Plus Péruwelz",
+    "address": "Petite Place 2",
+    "city": "Péruwelz",
+    "postal_code": "7600",
+    "phone": "069 78 08 62",
+    "lat": 50.5091499,
+    "lng": 3.5912517
+  },
+  {
+    "name": "LM Plus Perwez",
+    "address": "Avenue Wilmart 89 A",
+    "city": "Perwez",
+    "postal_code": "1360",
+    "phone": "010 22 37 58",
+    "lat": 50.6267661,
+    "lng": 4.8314391
+  },
+  {
+    "name": "LM Plus Peutie",
+    "address": "Vilvoordestraat 49",
+    "city": "Peutie",
+    "postal_code": "1800",
+    "phone": "02 251 07 23",
+    "lat": 50.9277162,
+    "lng": 4.4520642
+  },
+  {
+    "name": "LM Plus Poperinge",
+    "address": "Ieperstraat 52",
+    "city": "Poperinge",
+    "postal_code": "8970",
+    "phone": "057 33 36 50",
+    "lat": 50.8543085,
+    "lng": 2.7294548
+  },
+  {
+    "name": "LM Plus Putte",
+    "address": "Mechelbaan 428",
+    "city": "Putte",
+    "postal_code": "2580",
+    "phone": "015 20 33 66",
+    "lat": 51.0553776,
+    "lng": 4.6293422
+  },
+  {
+    "name": "LM Plus Quevaucamps",
+    "address": "Rue Wauters 156",
+    "city": "Quevaucamps",
+    "postal_code": "7972",
+    "phone": "069 34 38 00",
+    "lat": 50.5288308,
+    "lng": 3.6891078
+  },
+  {
+    "name": "LM Plus Quiévrain",
+    "address": "Place du Ballodrome 14",
+    "city": "Quiévrain",
+    "postal_code": "7380",
+    "phone": "069 34 38 00",
+    "lat": 50.4049627,
+    "lng": 3.6845968
+  },
+  {
+    "name": "LM Plus Rebecq",
+    "address": "Grand-Place 18",
+    "city": "Rebecq",
+    "postal_code": "1430",
+    "phone": "067 63 68 78",
+    "lat": 50.6652924,
+    "lng": 4.1330952
+  },
+  {
+    "name": "LM Plus Riemst",
+    "address": "Eyckendael 10 B",
+    "city": "Riemst",
+    "postal_code": "3770",
+    "phone": "012 44 13 95",
+    "lat": 50.8111601,
+    "lng": 5.604722
+  },
+  {
+    "name": "LM Plus Riemst (Val-Meer)",
+    "address": "Grote Straat 77",
+    "city": "Riemst",
+    "postal_code": "3770",
+    "phone": "012 23 12 38",
+    "lat": 50.7834341,
+    "lng": 5.5963816
+  },
+  {
+    "name": "LM Plus Riemst (Vlijtingen)",
+    "address": "Burgemeester Coenegrachtslaan 9",
+    "city": "Riemst",
+    "postal_code": "3770",
+    "phone": "012 23 12 38",
+    "lat": 50.8306368,
+    "lng": 5.5856705
+  },
+  {
+    "name": "LM Plus Riemst (Zichen-Zussen-Bolder)",
+    "address": "Groenstraat 21",
+    "city": "Riemst",
+    "postal_code": "3770",
+    "phone": "012 23 12 38",
+    "lat": 50.7913742,
+    "lng": 5.6290264
+  },
+  {
+    "name": "LM Plus Rillaar",
+    "address": "Molenstraat 8",
+    "city": "Rillaar",
+    "postal_code": "3202",
+    "phone": "016 56 74 30",
+    "lat": 50.9738797,
+    "lng": 4.8926359
+  },
+  {
+    "name": "LM Plus Roeselare",
+    "address": "Hendrik Consciencestraat 13-15",
+    "city": "Roeselare",
+    "postal_code": "8800",
+    "phone": "050 89 15 33",
+    "lat": 50.9490357,
+    "lng": 3.1288151
+  },
+  {
+    "name": "LM Plus Roosdaal",
+    "address": "Derrevoortstraat 23",
+    "city": "Roosdaal",
+    "postal_code": "1760",
+    "phone": "02 532 03 45",
+    "lat": 50.8162368,
+    "lng": 4.1089512
+  },
+  {
+    "name": "LM Plus Schaarbeek",
+    "address": "Koninginneplein 51-52",
+    "city": "Schaarbeek",
+    "postal_code": "1030",
+    "phone": "02 209 48 10",
+    "lat": 50.8593482,
+    "lng": 4.3682632
+  },
+  {
+    "name": "LM Plus Schaffen",
+    "address": "Wezelbaan 54",
+    "city": "Schaffen",
+    "postal_code": "3290",
+    "phone": "013 31 14 13",
+    "lat": 51.0013778,
+    "lng": 5.0893713
+  },
+  {
+    "name": "LM Plus Schepdaal",
+    "address": "Marktplein 7",
+    "city": "Schepdaal",
+    "postal_code": "1703",
+    "phone": "02 417 17 17",
+    "lat": 50.8352264,
+    "lng": 4.1923633
+  },
+  {
+    "name": "LM Plus Scherpenheuvel (Houwaartstraat)",
+    "address": "Houwaartstraat 336",
+    "city": "Scherpenheuvel",
+    "postal_code": "3270",
+    "phone": "013 31 14 13",
+    "lat": 50.9650699,
+    "lng": 4.947443
+  },
+  {
+    "name": "LM Plus Scherpenheuvel (Rozenkranslaan)",
+    "address": "Rozenkranslaan 2",
+    "city": "Scherpenheuvel",
+    "postal_code": "3270",
+    "phone": "013 31 14 13",
+    "lat": 50.9818818,
+    "lng": 4.9783173
+  },
+  {
+    "name": "LM Plus Serskamp",
+    "address": "Wanzelesteenweg 26",
+    "city": "Serskamp",
+    "postal_code": "9260",
+    "phone": "",
+    "lat": 50.9844919,
+    "lng": 3.9352791
+  },
+  {
+    "name": "LM Plus Sint-Agatha-Berchem",
+    "address": "Kortestraat 8",
+    "city": "Sint-Agatha-Berchem",
+    "postal_code": "1082",
+    "phone": "02 218 07 22",
+    "lat": 50.8643415,
+    "lng": 4.2945662
+  },
+  {
+    "name": "LM Plus Sint-Amandsberg",
+    "address": "Antwerpsesteenweg 334",
+    "city": "Sint-Amandsberg",
+    "postal_code": "9040",
+    "phone": "09 228 27 96",
+    "lat": 51.0608988,
+    "lng": 3.7483462
+  },
+  {
+    "name": "LM Plus Sint-Genesius-Rode",
+    "address": "Fonteinstraat 33A",
+    "city": "Sint-Genesius-Rode",
+    "postal_code": "1640",
+    "phone": "02 381 22 41",
+    "lat": 50.7438072,
+    "lng": 4.3462166
+  },
+  {
+    "name": "LM Plus Sint-Jans-Molenbeek",
+    "address": "Gemeenteplaats 9",
+    "city": "Sint-Jans-Molenbeek",
+    "postal_code": "1080",
+    "phone": "02 411 53 16",
+    "lat": 50.8546494,
+    "lng": 4.3382792
+  },
+  {
+    "name": "LM Plus Sint-Niklaas",
+    "address": "Zamanstraat 9",
+    "city": "Sint-Niklaas",
+    "postal_code": "9100",
+    "phone": "03 765 08 32",
+    "lat": 51.1658915,
+    "lng": 4.1443497
+  },
+  {
+    "name": "LM Plus Sint-Niklaas (Brievenbus)",
+    "address": "Lamstraat 23",
+    "city": "Sint-Niklaas",
+    "postal_code": "9100",
+    "phone": "",
+    "lat": 51.1659828,
+    "lng": 4.153133
+  },
+  {
+    "name": "LM Plus Sint-Pieters-Leeuw",
+    "address": "Gustave Gibonstraat 10",
+    "city": "Sint-Pieters-Leeuw",
+    "postal_code": "1600",
+    "phone": "02 356 53 82",
+    "lat": 50.8048365,
+    "lng": 4.2841529
+  },
+  {
+    "name": "LM Plus Sint-Pieters-Woluwe",
+    "address": "Langestraat 16 A",
+    "city": "Sint-Pieters-Woluwe",
+    "postal_code": "1150",
+    "phone": "02 770 41 34",
+    "lat": 50.8430732,
+    "lng": 4.4671956
+  },
+  {
+    "name": "LM Plus Sint-Truiden",
+    "address": "Clockemstraat 50",
+    "city": "Sint-Truiden",
+    "postal_code": "3800",
+    "phone": "011 68 25 41",
+    "lat": 50.8131753,
+    "lng": 5.184809
+  },
+  {
+    "name": "LM Plus Sint-Truiden (Brustem)",
+    "address": "Lenaertsstraat 29",
+    "city": "Sint-Truiden",
+    "postal_code": "3800",
+    "phone": "012 74 16 10",
+    "lat": 50.8045173,
+    "lng": 5.226184
+  },
+  {
+    "name": "LM Plus Sint-Truiden (Gorsemweg)",
+    "address": "Gorsemweg 126",
+    "city": "Sint-Truiden",
+    "postal_code": "3800",
+    "phone": "011 70 53 90",
+    "lat": 50.8220517,
+    "lng": 5.1771746
+  },
+  {
+    "name": "LM Plus Sleidinge",
+    "address": "Dorp 74",
+    "city": "Sleidinge",
+    "postal_code": "9940",
+    "phone": "09 223 19 76",
+    "lat": 51.1337786,
+    "lng": 3.6800666
+  },
+  {
+    "name": "LM Plus Staden",
+    "address": "Kapelleriestraat 27",
+    "city": "Staden",
+    "postal_code": "8840",
+    "phone": "051 70 18 57",
+    "lat": 50.9741504,
+    "lng": 3.0117962
+  },
+  {
+    "name": "LM Plus Strombeek",
+    "address": "Villegas de Clercampstraat 8",
+    "city": "Strombeek",
+    "postal_code": "1853",
+    "phone": "02 251 07 23",
+    "lat": 50.9096457,
+    "lng": 4.3542684
+  },
+  {
+    "name": "LM Plus Strombeek-Bever",
+    "address": "De Villegas de Clercampstraat 8",
+    "city": "Strombeek-Bever",
+    "postal_code": "1853",
+    "phone": "02 270 33 01",
+    "lat": 50.9096457,
+    "lng": 4.3542684
+  },
+  {
+    "name": "LM Plus Templeuve",
+    "address": "Rue de Roubaix 8",
+    "city": "Templeuve",
+    "postal_code": "7520",
+    "phone": "069 34 38 00",
+    "lat": 50.6447264,
+    "lng": 3.2818515
+  },
+  {
+    "name": "LM Plus Temse",
+    "address": "Kasteelstraat 79",
+    "city": "Temse",
+    "postal_code": "9140",
+    "phone": "03 771 01 84",
+    "lat": 51.1241266,
+    "lng": 4.2184501
+  },
+  {
+    "name": "LM Plus Tervuren",
+    "address": "Markt 12",
+    "city": "Tervuren",
+    "postal_code": "3080",
+    "phone": "02 657 00 76",
+    "lat": 50.8241184,
+    "lng": 4.5135763
+  },
+  {
+    "name": "LM Plus Tessenderlo-Ham",
+    "address": "Vismarkt 6",
+    "city": "Tessenderlo-Ham",
+    "postal_code": "3980",
+    "phone": "013 66 18 07",
+    "lat": 51.0702182,
+    "lng": 5.091312
+  },
+  {
+    "name": "LM Plus Testelt",
+    "address": "Voort 23",
+    "city": "Testelt",
+    "postal_code": "3272",
+    "phone": "013 31 14 13",
+    "lat": 51.0184548,
+    "lng": 4.9572257
+  },
+  {
+    "name": "LM Plus Tielt",
+    "address": "Bruggestraat 20",
+    "city": "Tielt",
+    "postal_code": "8700",
+    "phone": "051 40 55 55",
+    "lat": 51.000956,
+    "lng": 3.3258084
+  },
+  {
+    "name": "LM Plus Tienen (Aandorenstraat)",
+    "address": "Aandorenstraat 1",
+    "city": "Tienen",
+    "postal_code": "3300",
+    "phone": "016 81 30 31",
+    "lat": 50.8011437,
+    "lng": 4.9479733
+  },
+  {
+    "name": "LM Plus Tollembeek",
+    "address": "Hernestraat 75",
+    "city": "Tollembeek",
+    "postal_code": "1570",
+    "phone": "054 58 65 55",
+    "lat": 50.7374826,
+    "lng": 4.0154356
+  },
+  {
+    "name": "LM Plus Tongeren-Borgloon",
+    "address": "Graaf Lodewijkplein 6 bus 1",
+    "city": "Tongeren-Borgloon",
+    "postal_code": "3840",
+    "phone": "012 74 16 10",
+    "lat": 50.8044578,
+    "lng": 5.3420365
+  },
+  {
+    "name": "LM Plus Tongeren-Borgloon",
+    "address": "Eeuwfeestwal 24",
+    "city": "Tongeren-Borgloon",
+    "postal_code": "3700",
+    "phone": "012 23 12 38",
+    "lat": 50.7815588,
+    "lng": 5.4602928
+  },
+  {
+    "name": "LM Plus Tongeren-Borgloon (Hoepertingen)",
+    "address": "St-Truidersteenweg 454",
+    "city": "Tongeren-Borgloon (Hoepertingen)",
+    "postal_code": "3840",
+    "phone": "012 74 16 10",
+    "lat": 50.807073,
+    "lng": 5.2815066
+  },
+  {
+    "name": "LM Plus Tongeren-Borgloon (Widooie)",
+    "address": "Widooierlinde 2",
+    "city": "Tongeren-Borgloon",
+    "postal_code": "3700",
+    "phone": "012 23 12 38",
+    "lat": 50.7717,
+    "lng": 5.405544
+  },
+  {
+    "name": "LM Plus Torhout",
+    "address": "Markt 24",
+    "city": "Torhout",
+    "postal_code": "8820",
+    "phone": "050 21 20 88",
+    "lat": 51.0641936,
+    "lng": 3.1022228
+  },
+  {
+    "name": "LM Plus Tournai",
+    "address": "Rue Childéric 15",
+    "city": "Tournai",
+    "postal_code": "7500",
+    "phone": "069 34 38 01",
+    "lat": 50.6096947,
+    "lng": 3.3946707
+  },
+  {
+    "name": "LM Plus Tremelo",
+    "address": "Hilstraat 3",
+    "city": "Tremelo",
+    "postal_code": "3120",
+    "phone": "016 53 99 29",
+    "lat": 50.9909012,
+    "lng": 4.7031603
+  },
+  {
+    "name": "LM Plus Ukkel",
+    "address": "Xavier de Buestraat 7",
+    "city": "Ukkel",
+    "postal_code": "1180",
+    "phone": "02 376 13 68",
+    "lat": 50.8033796,
+    "lng": 4.3351883
+  },
+  {
+    "name": "LM Plus Veurne",
+    "address": "Daniel De Haenelaan 18",
+    "city": "Veurne",
+    "postal_code": "8630",
+    "phone": "050 89 15 10",
+    "lat": 51.0721071,
+    "lng": 2.6577834
+  },
+  {
+    "name": "LM Plus Villers-la-Ville",
+    "address": "Boulevard Neuf 12",
+    "city": "Villers-la-Ville",
+    "postal_code": "1495",
+    "phone": "010 22 37 58",
+    "lat": 50.5827424,
+    "lng": 4.535009
+  },
+  {
+    "name": "LM Plus Vleteren",
+    "address": "Veurnestraat 4",
+    "city": "Vleteren",
+    "postal_code": "8640",
+    "phone": "050 89 15 33",
+    "lat": 50.9323324,
+    "lng": 2.7350172
+  },
+  {
+    "name": "LM Plus Vorst",
+    "address": "Sint-Denijsplein 16",
+    "city": "Vorst",
+    "postal_code": "1190",
+    "phone": "02 376 13 68",
+    "lat": 50.8098842,
+    "lng": 4.3163569
+  },
+  {
+    "name": "LM Plus Waanrode",
+    "address": "Grote Vreunte 54",
+    "city": "Waanrode",
+    "postal_code": "3473",
+    "phone": "013 31 14 13",
+    "lat": 50.913664,
+    "lng": 5.0049832
+  },
+  {
+    "name": "LM Plus Waarschoot",
+    "address": "Stationsstraat 79",
+    "city": "Waarschoot",
+    "postal_code": "9950",
+    "phone": "",
+    "lat": 51.1526236,
+    "lng": 3.6119198
+  },
+  {
+    "name": "LM Plus Wachtebeke",
+    "address": "Stationsstraat 23",
+    "city": "Wachtebeke",
+    "postal_code": "9185",
+    "phone": "",
+    "lat": 51.1724931,
+    "lng": 3.8619152
+  },
+  {
+    "name": "LM Plus Waregem",
+    "address": "Holstraat 43",
+    "city": "Waregem",
+    "postal_code": "8790",
+    "phone": "056 61 51 10",
+    "lat": 50.8850272,
+    "lng": 3.4357342
+  },
+  {
+    "name": "LM Plus Warneton",
+    "address": "Rue de Lille 13",
+    "city": "Warneton",
+    "postal_code": "7784",
+    "phone": "069 34 38 00",
+    "lat": 50.7524643,
+    "lng": 2.9482574
+  },
+  {
+    "name": "LM Plus Waterloo",
+    "address": "Rue de la Station 73",
+    "city": "Waterloo",
+    "postal_code": "1410",
+    "phone": "010 22 37 58",
+    "lat": 50.7153118,
+    "lng": 4.3874497
+  },
+  {
+    "name": "LM Plus Wavre",
+    "address": "Avenue des Déportés 31-33",
+    "city": "Wavre",
+    "postal_code": "1300",
+    "phone": "010 22 37 58",
+    "lat": 50.7162671,
+    "lng": 4.6140996
+  },
+  {
+    "name": "LM Plus Wervik",
+    "address": "Ooststraat 53",
+    "city": "Wervik",
+    "postal_code": "8940",
+    "phone": "056 53 29 85",
+    "lat": 50.7852341,
+    "lng": 3.0498418
+  },
+  {
+    "name": "LM Plus Westerlo",
+    "address": "De Merodedreef 89 b",
+    "city": "Westerlo",
+    "postal_code": "2260",
+    "phone": "014 54 31 57",
+    "lat": 51.0907655,
+    "lng": 4.9171558
+  },
+  {
+    "name": "LM Plus Willebroek",
+    "address": "August van Landeghemstraat 3",
+    "city": "Willebroek",
+    "postal_code": "2830",
+    "phone": "03 886 63 43",
+    "lat": 51.0608535,
+    "lng": 4.3603456
+  },
+  {
+    "name": "LM Plus Wilrijk",
+    "address": "Laarstraat 5",
+    "city": "Wilrijk",
+    "postal_code": "2610",
+    "phone": "03 828 55 88",
+    "lat": 51.1744776,
+    "lng": 4.3941787
+  },
+  {
+    "name": "LM Plus Wilsele",
+    "address": "Aarschotsesteenweg 595",
+    "city": "Wilsele",
+    "postal_code": "3012",
+    "phone": "016 47 25 41",
+    "lat": 50.926513,
+    "lng": 4.7224463
+  },
+  {
+    "name": "LM Plus Wolvertem - LM Plus",
+    "address": "Hoogstraat 97",
+    "city": "Wolvertem",
+    "postal_code": "1861",
+    "phone": "02 417 17 17",
+    "lat": 50.954779,
+    "lng": 4.3142758
+  },
+  {
+    "name": "LM Plus Wondelgem",
+    "address": "Morekstraat 275",
+    "city": "Wondelgem",
+    "postal_code": "9032",
+    "phone": "",
+    "lat": 51.0827839,
+    "lng": 3.716192
+  },
+  {
+    "name": "LM Plus Zaffelare",
+    "address": "Oosteinde 3",
+    "city": "Zaffelare",
+    "postal_code": "9080",
+    "phone": "",
+    "lat": 51.1334823,
+    "lng": 3.8648256
+  },
+  {
+    "name": "LM Plus Zaventem",
+    "address": "Karel Quitmannplein 8",
+    "city": "Zaventem",
+    "postal_code": "1930",
+    "phone": "02 720 65 80",
+    "lat": 50.8860963,
+    "lng": 4.4704771
+  },
+  {
+    "name": "LM Plus Zele",
+    "address": "Lokerenbaan 25",
+    "city": "Zele",
+    "postal_code": "9240",
+    "phone": "052 44 43 25",
+    "lat": 51.0717828,
+    "lng": 4.0396878
+  },
+  {
+    "name": "LM Plus Zelzate",
+    "address": "Burgemeester Chalmetlaan 19",
+    "city": "Zelzate",
+    "postal_code": "9060",
+    "phone": "09 345 55 23",
+    "lat": 51.1968179,
+    "lng": 3.8169176
+  },
+  {
+    "name": "LM Plus Zepperen",
+    "address": "Zepperen-Dorp 63",
+    "city": "Sint-Truiden",
+    "postal_code": "3800",
+    "phone": "011 68 25 41",
+    "lat": 50.8229706,
+    "lng": 5.2551769
+  },
+  {
+    "name": "LM Plus Zichem (Lobbensestraat)",
+    "address": "Lobbensestraat 175",
+    "city": "Zichem",
+    "postal_code": "3271",
+    "phone": "013 31 14 13",
+    "lat": 50.9851327,
+    "lng": 4.9530452
+  },
+  {
+    "name": "LM Plus Zomergem",
+    "address": "Dreef 5",
+    "city": "Zomergem",
+    "postal_code": "9930",
+    "phone": "",
+    "lat": 51.1186396,
+    "lng": 3.5612566
+  },
+  {
+    "name": "LM Plus Zonhoven",
+    "address": "Dorpsplein 26",
+    "city": "Zonhoven",
+    "postal_code": "3520",
+    "phone": "011 81 43 24",
+    "lat": 50.9946382,
+    "lng": 5.3671551
+  },
+  {
+    "name": "LM Plus Zoutleeuw",
+    "address": "Sint-Truidensestraat 2",
+    "city": "Zoutleeuw",
+    "postal_code": "3440",
+    "phone": "011 31 54 09",
+    "lat": 50.8326937,
+    "lng": 5.1033476
+  },
+  {
+    "name": "LM Plus Zulte",
+    "address": "Nachtegaalstraat 10",
+    "city": "Zulte",
+    "postal_code": "9870",
+    "phone": "",
+    "lat": 50.9223307,
+    "lng": 3.449575
+  },
+  {
+    "name": "LM Plus Zwevegem",
+    "address": "Otegemstraat 84",
+    "city": "Zwevegem",
+    "postal_code": "8550",
+    "phone": "056 75 54 08",
+    "lat": 50.8162703,
+    "lng": 3.3563491
+  }
+]
