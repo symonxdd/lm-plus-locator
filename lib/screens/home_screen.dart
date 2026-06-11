@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../models/office.dart';
 import '../services/auth_service.dart';
 import '../services/location_service.dart';
+import '../services/office_service.dart';
+import '../widgets/office_card.dart';
 
 enum _LocatorStatus {
   idle,
   loading,
-  found,
+  results,
   permissionDenied,
   permissionPermanentlyDenied,
   serviceDisabled,
@@ -23,10 +26,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _authService = AuthService();
   final _locationService = LocationService();
+  final _officeService = OfficeService();
 
   _LocatorStatus _status = _LocatorStatus.idle;
-  double? _latitude;
-  double? _longitude;
+  List<OfficeWithDistance> _nearestOffices = [];
 
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
@@ -49,10 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
       }
 
       final position = await _locationService.getCurrentPosition();
+      final offices = await _officeService.loadOffices();
+      final nearest = _officeService.nearestOffices(
+        offices: offices,
+        userLat: position.latitude,
+        userLng: position.longitude,
+      );
+
       setState(() {
-        _latitude = position.latitude;
-        _longitude = position.longitude;
-        _status = _LocatorStatus.found;
+        _nearestOffices = nearest;
+        _status = _LocatorStatus.results;
       });
     } catch (_) {
       setState(() => _status = _LocatorStatus.error);
@@ -115,20 +124,16 @@ class _HomeScreenState extends State<HomeScreen> {
       case _LocatorStatus.loading:
         return const Center(child: CircularProgressIndicator());
 
-      case _LocatorStatus.found:
-        // TODO: load assets/lm_offices.json and show the 5 nearest offices.
-        return _InfoMessage(
-          text: 'Locatie gevonden: $_latitude, $_longitude',
+      case _LocatorStatus.results:
+        return ListView.builder(
+          padding: const EdgeInsets.only(top: 8, bottom: 16),
+          itemCount: _nearestOffices.length,
+          itemBuilder: (context, index) {
+            return OfficeCard(officeWithDistance: _nearestOffices[index]);
+          },
         );
 
       case _LocatorStatus.permissionDenied:
-        return _InfoMessage(
-          text: 'Locatietoegang geweigerd. Geef toestemming in je '
-              'instellingen om het dichtstbijzijnde kantoor te vinden.',
-          actionLabel: 'Open instellingen',
-          onAction: _locationService.openAppSettings,
-        );
-
       case _LocatorStatus.permissionPermanentlyDenied:
         return _InfoMessage(
           text: 'Locatietoegang geweigerd. Geef toestemming in je '
