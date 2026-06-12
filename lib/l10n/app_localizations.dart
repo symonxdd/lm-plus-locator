@@ -359,6 +359,36 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Aangemeld als {email}'**
   String accountSignedInAs(String email);
+
+  /// Tooltip for the app bar button that opens the photo capture screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'Foto maken om te delen'**
+  String get photoShareTooltip;
+
+  /// Title of the photo capture/share screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'Foto delen'**
+  String get photoShareTitle;
+
+  /// Button label to discard the current photo and take a new one.
+  ///
+  /// In nl, this message translates to:
+  /// **'Opnieuw nemen'**
+  String get photoRetakeButton;
+
+  /// Button label to share the captured photo via the OS share sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Delen'**
+  String get photoShareButton;
+
+  /// Subject line pre-filled when sharing a photo, e.g. via email.
+  ///
+  /// In nl, this message translates to:
+  /// **'Foto van LM+ Locator'**
+  String get photoShareSubject;
 }
 
 class _AppLocalizationsDelegate

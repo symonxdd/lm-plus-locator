@@ -42,5 +42,10 @@
   "logoutConfirmMessage": "Möchtest du dich wirklich abmelden?",
   "cancelButton": "Abbrechen",
   "accountTooltip": "Konto",
-  "accountSignedInAs": "Angemeldet als {email}"
+  "accountSignedInAs": "Angemeldet als {email}",
+  "photoShareTooltip": "Foto zum Teilen aufnehmen",
+  "photoShareTitle": "Foto teilen",
+  "photoRetakeButton": "Erneut aufnehmen",
+  "photoShareButton": "Teilen",
+  "photoShareSubject": "Foto von LM+ Locator"
 }

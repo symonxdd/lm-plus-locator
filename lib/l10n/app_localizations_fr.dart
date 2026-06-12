@@ -151,4 +151,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String accountSignedInAs(String email) {
     return 'Connecté en tant que $email';
   }
+
+  @override
+  String get photoShareTooltip => 'Prendre une photo à partager';
+
+  @override
+  String get photoShareTitle => 'Partager une photo';
+
+  @override
+  String get photoRetakeButton => 'Reprendre';
+
+  @override
+  String get photoShareButton => 'Partager';
+
+  @override
+  String get photoShareSubject => 'Photo de LM+ Locator';
 }

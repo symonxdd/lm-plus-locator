@@ -150,4 +150,19 @@ class AppLocalizationsNl extends AppLocalizations {
   String accountSignedInAs(String email) {
     return 'Aangemeld als $email';
   }
+
+  @override
+  String get photoShareTooltip => 'Foto maken om te delen';
+
+  @override
+  String get photoShareTitle => 'Foto delen';
+
+  @override
+  String get photoRetakeButton => 'Opnieuw nemen';
+
+  @override
+  String get photoShareButton => 'Delen';
+
+  @override
+  String get photoShareSubject => 'Foto van LM+ Locator';
 }

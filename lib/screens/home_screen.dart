@@ -9,6 +9,7 @@ import '../theme/app_colors.dart';
 import '../widgets/head_office_info_button.dart';
 import '../widgets/office_card.dart';
 import '../widgets/settings_selector.dart';
+import 'photo_share_screen.dart';
 
 enum _LocatorStatus {
   idle,
@@ -163,6 +164,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         title: Text(l10n.appTitle),
         actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const PhotoShareScreen()),
+            ),
+            icon: const Icon(Icons.camera_alt_outlined),
+            tooltip: l10n.photoShareTooltip,
+          ),
           const HeadOfficeInfoButton(),
           const SettingsSelector(),
         ],

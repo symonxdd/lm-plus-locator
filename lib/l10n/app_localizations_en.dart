@@ -149,4 +149,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String accountSignedInAs(String email) {
     return 'Signed in as $email';
   }
+
+  @override
+  String get photoShareTooltip => 'Take a photo to share';
+
+  @override
+  String get photoShareTitle => 'Share photo';
+
+  @override
+  String get photoRetakeButton => 'Retake';
+
+  @override
+  String get photoShareButton => 'Share';
+
+  @override
+  String get photoShareSubject => 'Photo from LM+ Locator';
 }

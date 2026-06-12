@@ -42,5 +42,10 @@
   "logoutConfirmMessage": "Are you sure you want to log out?",
   "cancelButton": "Cancel",
   "accountTooltip": "Account",
-  "accountSignedInAs": "Signed in as {email}"
+  "accountSignedInAs": "Signed in as {email}",
+  "photoShareTooltip": "Take a photo to share",
+  "photoShareTitle": "Share photo",
+  "photoRetakeButton": "Retake",
+  "photoShareButton": "Share",
+  "photoShareSubject": "Photo from LM+ Locator"
 }

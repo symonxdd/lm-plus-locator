@@ -186,5 +186,25 @@
         "type": "String"
       }
     }
+  },
+  "photoShareTooltip": "Foto maken om te delen",
+  "@photoShareTooltip": {
+    "description": "Tooltip for the app bar button that opens the photo capture screen."
+  },
+  "photoShareTitle": "Foto delen",
+  "@photoShareTitle": {
+    "description": "Title of the photo capture/share screen."
+  },
+  "photoRetakeButton": "Opnieuw nemen",
+  "@photoRetakeButton": {
+    "description": "Button label to discard the current photo and take a new one."
+  },
+  "photoShareButton": "Delen",
+  "@photoShareButton": {
+    "description": "Button label to share the captured photo via the OS share sheet."
+  },
+  "photoShareSubject": "Foto van LM+ Locator",
+  "@photoShareSubject": {
+    "description": "Subject line pre-filled when sharing a photo, e.g. via email."
   }
 }
