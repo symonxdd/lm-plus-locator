@@ -88,6 +88,8 @@ flutter:
   assets:
     - assets/lm_offices.json
     - assets/icon/icon_foreground.png
+    - assets/icon/icon_pin_mask.png
+    - assets/icon/icon_plus_mask.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

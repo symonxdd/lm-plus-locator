@@ -154,12 +154,23 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.all(8),
-          child: ColorFiltered(
-            colorFilter: ColorFilter.mode(
-              ctaColors(context).background,
-              BlendMode.srcIn,
-            ),
-            child: Image.asset('assets/icon/icon_foreground.png'),
+          child: Stack(
+            children: [
+              ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  ctaColors(context).background,
+                  BlendMode.srcIn,
+                ),
+                child: Image.asset('assets/icon/icon_pin_mask.png'),
+              ),
+              ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  ctaColors(context).foreground,
+                  BlendMode.srcIn,
+                ),
+                child: Image.asset('assets/icon/icon_plus_mask.png'),
+              ),
+            ],
           ),
         ),
         title: Text(l10n.appTitle),
