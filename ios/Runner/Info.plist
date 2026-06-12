@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We gebruiken je locatie enkel om het dichtstbijzijnde LM+ kantoor te vinden. Je locatie wordt nooit opgeslagen of gedeeld.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>De camera is nodig om een foto te maken die je via e-mail kan versturen.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
