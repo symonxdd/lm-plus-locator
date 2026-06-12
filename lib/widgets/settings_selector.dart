@@ -51,7 +51,7 @@ class SettingsSelector extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListTile(
-                  dense: true,
+                  visualDensity: VisualDensity.compact,
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.account_circle_outlined),
                   title: Text(l10n.accountTooltip),
@@ -68,7 +68,7 @@ class SettingsSelector extends StatelessWidget {
                 ),
                 for (final entry in _languages.entries)
                   ListTile(
-                    dense: true,
+                    visualDensity: VisualDensity.compact,
                     contentPadding: EdgeInsets.zero,
                     title: Text(entry.value),
                     trailing: selectedLocale?.languageCode ==
@@ -84,7 +84,7 @@ class SettingsSelector extends StatelessWidget {
                     },
                   ),
                 ListTile(
-                  dense: true,
+                  visualDensity: VisualDensity.compact,
                   contentPadding: EdgeInsets.zero,
                   title: Text(l10n.languageSystemDefault),
                   trailing: selectedLocale == null
@@ -105,7 +105,7 @@ class SettingsSelector extends StatelessWidget {
                 ),
                 for (final entry in themeOptions.entries)
                   ListTile(
-                    dense: true,
+                    visualDensity: VisualDensity.compact,
                     contentPadding: EdgeInsets.zero,
                     leading: Icon(entry.value.$2),
                     title: Text(entry.value.$1),
