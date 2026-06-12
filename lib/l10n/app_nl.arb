@@ -4,14 +4,6 @@
   "@appTitle": {
     "description": "The application title shown in the app bar."
   },
-  "emailTab": "E-mail",
-  "@emailTab": {
-    "description": "Tab label for email/password authentication."
-  },
-  "phoneTab": "Telefoon",
-  "@phoneTab": {
-    "description": "Tab label for phone (OTP) authentication."
-  },
   "loginTitle": "Inloggen",
   "@loginTitle": {
     "description": "Heading shown on the email form in login mode, and the login button label."
@@ -51,55 +43,6 @@
   "authenticationFailed": "Authenticatie mislukt.",
   "@authenticationFailed": {
     "description": "Fallback error message when email/password authentication fails."
-  },
-  "phoneLoginTitle": "Inloggen met telefoonnummer",
-  "@phoneLoginTitle": {
-    "description": "Heading shown on the phone authentication form."
-  },
-  "phoneLabel": "Telefoonnummer (bv. +32470123456)",
-  "@phoneLabel": {
-    "description": "Label for the phone number text field."
-  },
-  "phoneValidationError": "Voer een geldig telefoonnummer in met landcode (+32...).",
-  "@phoneValidationError": {
-    "description": "Validation message when the phone number is empty or missing a country code."
-  },
-  "sendVerificationCode": "Verstuur verificatiecode",
-  "@sendVerificationCode": {
-    "description": "Submit button label on the phone authentication form."
-  },
-  "verificationFailed": "Verificatie mislukt.",
-  "@verificationFailed": {
-    "description": "Fallback error message when sending the SMS verification code fails."
-  },
-  "verificationCodeTitle": "Verificatiecode",
-  "@verificationCodeTitle": {
-    "description": "App bar title on the OTP screen."
-  },
-  "otpSentMessage": "We hebben een code gestuurd naar {phoneNumber}.",
-  "@otpSentMessage": {
-    "description": "Message shown on the OTP screen, including the phone number the code was sent to.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String"
-      }
-    }
-  },
-  "verificationCodeLabel": "Verificatiecode",
-  "@verificationCodeLabel": {
-    "description": "Label for the OTP code text field."
-  },
-  "verificationCodeValidationError": "Voer de ontvangen code in.",
-  "@verificationCodeValidationError": {
-    "description": "Validation message when the OTP code field is empty or too short."
-  },
-  "confirmButton": "Bevestigen",
-  "@confirmButton": {
-    "description": "Submit button label on the OTP screen."
-  },
-  "invalidVerificationCode": "Ongeldige verificatiecode.",
-  "@invalidVerificationCode": {
-    "description": "Fallback error message when the OTP code is incorrect."
   },
   "logoutTooltip": "Uitloggen",
   "@logoutTooltip": {
@@ -142,6 +85,18 @@
       }
     }
   },
+  "yourLocationLabel": "Jouw locatie: {latitude}, {longitude}",
+  "@yourLocationLabel": {
+    "description": "Shows the coordinates of the user's current location after a search.",
+    "placeholders": {
+      "latitude": {
+        "type": "String"
+      },
+      "longitude": {
+        "type": "String"
+      }
+    }
+  },
   "languageMenuTooltip": "Taal",
   "@languageMenuTooltip": {
     "description": "Tooltip for the app bar button that opens the language picker."
@@ -149,5 +104,13 @@
   "languageSystemDefault": "Systeemtaal",
   "@languageSystemDefault": {
     "description": "Option in the language picker that follows the device language."
+  },
+  "authDisclaimer": "Aanmelden is momenteel enkel voor test- en ontwikkelingsdoeleinden en is niet vereist om de kantorenzoeker te gebruiken.",
+  "@authDisclaimer": {
+    "description": "Small print on the auth screen explaining that signing in is optional and for testing purposes."
+  },
+  "continueAsGuestButton": "Doorgaan zonder account",
+  "@continueAsGuestButton": {
+    "description": "Button label that lets the user continue using the app anonymously, without signing in."
   }
 }

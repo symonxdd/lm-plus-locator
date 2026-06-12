@@ -12,12 +12,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
-  String get emailTab => 'E-Mail';
-
-  @override
-  String get phoneTab => 'Telefon';
-
-  @override
   String get loginTitle => 'Anmelden';
 
   @override
@@ -48,43 +42,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get authenticationFailed => 'Authentifizierung fehlgeschlagen.';
-
-  @override
-  String get phoneLoginTitle => 'Mit Telefonnummer anmelden';
-
-  @override
-  String get phoneLabel => 'Telefonnummer (z. B. +32470123456)';
-
-  @override
-  String get phoneValidationError =>
-      'Bitte gib eine gültige Telefonnummer mit Landesvorwahl ein (+32...).';
-
-  @override
-  String get sendVerificationCode => 'Bestätigungscode senden';
-
-  @override
-  String get verificationFailed => 'Verifizierung fehlgeschlagen.';
-
-  @override
-  String get verificationCodeTitle => 'Bestätigungscode';
-
-  @override
-  String otpSentMessage(String phoneNumber) {
-    return 'Wir haben einen Code an $phoneNumber gesendet.';
-  }
-
-  @override
-  String get verificationCodeLabel => 'Bestätigungscode';
-
-  @override
-  String get verificationCodeValidationError =>
-      'Bitte gib den erhaltenen Code ein.';
-
-  @override
-  String get confirmButton => 'Bestätigen';
-
-  @override
-  String get invalidVerificationCode => 'Ungültiger Bestätigungscode.';
 
   @override
   String get logoutTooltip => 'Abmelden';
@@ -120,8 +77,20 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String yourLocationLabel(String latitude, String longitude) {
+    return 'Dein Standort: $latitude, $longitude';
+  }
+
+  @override
   String get languageMenuTooltip => 'Sprache';
 
   @override
   String get languageSystemDefault => 'Systemsprache';
+
+  @override
+  String get authDisclaimer =>
+      'Die Anmeldung dient derzeit nur Test- und Entwicklungszwecken und ist nicht erforderlich, um den Bürofinder zu nutzen.';
+
+  @override
+  String get continueAsGuestButton => 'Ohne Konto fortfahren';
 }

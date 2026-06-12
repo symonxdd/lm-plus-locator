@@ -12,12 +12,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
-  String get emailTab => 'Email';
-
-  @override
-  String get phoneTab => 'Phone';
-
-  @override
   String get loginTitle => 'Log in';
 
   @override
@@ -47,42 +41,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get authenticationFailed => 'Authentication failed.';
-
-  @override
-  String get phoneLoginTitle => 'Log in with phone number';
-
-  @override
-  String get phoneLabel => 'Phone number (e.g. +32470123456)';
-
-  @override
-  String get phoneValidationError =>
-      'Enter a valid phone number with country code (+32...).';
-
-  @override
-  String get sendVerificationCode => 'Send verification code';
-
-  @override
-  String get verificationFailed => 'Verification failed.';
-
-  @override
-  String get verificationCodeTitle => 'Verification code';
-
-  @override
-  String otpSentMessage(String phoneNumber) {
-    return 'We\'ve sent a code to $phoneNumber.';
-  }
-
-  @override
-  String get verificationCodeLabel => 'Verification code';
-
-  @override
-  String get verificationCodeValidationError => 'Enter the code you received.';
-
-  @override
-  String get confirmButton => 'Confirm';
-
-  @override
-  String get invalidVerificationCode => 'Invalid verification code.';
 
   @override
   String get logoutTooltip => 'Log out';
@@ -118,8 +76,20 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String yourLocationLabel(String latitude, String longitude) {
+    return 'Your location: $latitude, $longitude';
+  }
+
+  @override
   String get languageMenuTooltip => 'Language';
 
   @override
   String get languageSystemDefault => 'System language';
+
+  @override
+  String get authDisclaimer =>
+      'Signing in is currently for testing and development purposes only, and isn\'t required to use the office locator.';
+
+  @override
+  String get continueAsGuestButton => 'Continue without an account';
 }

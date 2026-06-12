@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import '../widgets/language_selector.dart';
-import 'otp_screen.dart';
 
-/// Login / register screen supporting email+password and phone (OTP) auth.
+/// Login / register screen supporting email+password auth.
 ///
 /// On successful authentication, [AuthService.authStateChanges] fires and
 /// the root widget swaps this screen out for the Home screen automatically.
@@ -17,21 +16,23 @@ class AuthScreen extends StatefulWidget {
   State<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen>
-    with SingleTickerProviderStateMixin {
+class _AuthScreenState extends State<AuthScreen> {
   final _authService = AuthService();
-  late final TabController _tabController;
+  bool _isGuestLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
+  Future<void> _continueAsGuest() async {
+    setState(() => _isGuestLoading = true);
+    try {
+      await _authService.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
+      );
+    } finally {
+      if (mounted) setState(() => _isGuestLoading = false);
+    }
   }
 
   @override
@@ -41,19 +42,38 @@ class _AuthScreenState extends State<AuthScreen>
       appBar: AppBar(
         title: Text(l10n.appTitle),
         actions: const [LanguageSelector()],
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: l10n.emailTab),
-            Tab(text: l10n.phoneTab),
-          ],
-        ),
       ),
-      body: TabBarView(
-        controller: _tabController,
+      body: Column(
         children: [
-          _EmailAuthForm(authService: _authService),
-          _PhoneAuthForm(authService: _authService),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
+            child: Text(
+              l10n.authDisclaimer,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.outline,
+              ),
+            ),
+          ),
+          Expanded(
+            child: _EmailAuthForm(authService: _authService),
+          ),
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 8),
+              child: TextButton(
+                onPressed: _isGuestLoading ? null : _continueAsGuest,
+                child: _isGuestLoading
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : Text(l10n.continueAsGuestButton),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -176,109 +196,6 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
               child: Text(
                 _isRegisterMode ? l10n.toggleToLogin : l10n.toggleToRegister,
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Phone number form that sends an OTP via SMS and opens [OtpScreen].
-class _PhoneAuthForm extends StatefulWidget {
-  const _PhoneAuthForm({required this.authService});
-
-  final AuthService authService;
-
-  @override
-  State<_PhoneAuthForm> createState() => _PhoneAuthFormState();
-}
-
-class _PhoneAuthFormState extends State<_PhoneAuthForm> {
-  final _formKey = GlobalKey<FormState>();
-  final _phoneController = TextEditingController();
-  bool _isLoading = false;
-
-  @override
-  void dispose() {
-    _phoneController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _submit() async {
-    if (!_formKey.currentState!.validate()) return;
-
-    setState(() => _isLoading = true);
-    final phoneNumber = _phoneController.text.trim();
-
-    await widget.authService.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
-      codeSent: (verificationId) {
-        if (!mounted) return;
-        setState(() => _isLoading = false);
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => OtpScreen(
-              authService: widget.authService,
-              verificationId: verificationId,
-              phoneNumber: phoneNumber,
-            ),
-          ),
-        );
-      },
-      verificationFailed: (e) {
-        if (!mounted) return;
-        setState(() => _isLoading = false);
-        final l10n = AppLocalizations.of(context)!;
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.message ?? l10n.verificationFailed)),
-        );
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              l10n.phoneLoginTitle,
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            TextFormField(
-              controller: _phoneController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                labelText: l10n.phoneLabel,
-                border: const OutlineInputBorder(),
-              ),
-              validator: (value) {
-                if (value == null ||
-                    !value.startsWith('+') ||
-                    value.length < 8) {
-                  return l10n.phoneValidationError;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 24),
-            FilledButton(
-              onPressed: _isLoading ? null : _submit,
-              child: _isLoading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : Text(l10n.sendVerificationCode),
             ),
           ],
         ),

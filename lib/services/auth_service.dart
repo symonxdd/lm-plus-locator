@@ -32,36 +32,9 @@ class AuthService {
     );
   }
 
-  /// Starts phone number verification. [codeSent] is called once Firebase has
-  /// sent the SMS, with the `verificationId` needed to confirm the code.
-  Future<void> verifyPhoneNumber({
-    required String phoneNumber,
-    required void Function(String verificationId) codeSent,
-    required void Function(FirebaseAuthException error) verificationFailed,
-  }) {
-    return _firebaseAuth.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
-      verificationCompleted: (PhoneAuthCredential credential) {
-        _firebaseAuth.signInWithCredential(credential);
-      },
-      verificationFailed: verificationFailed,
-      codeSent: (String verificationId, int? resendToken) {
-        codeSent(verificationId);
-      },
-      codeAutoRetrievalTimeout: (String verificationId) {},
-    );
-  }
-
-  /// Confirms the SMS code sent during [verifyPhoneNumber] and signs the user in.
-  Future<UserCredential> signInWithSmsCode({
-    required String verificationId,
-    required String smsCode,
-  }) {
-    final credential = PhoneAuthProvider.credential(
-      verificationId: verificationId,
-      smsCode: smsCode,
-    );
-    return _firebaseAuth.signInWithCredential(credential);
+  /// Signs the user in as an anonymous guest, without any credentials.
+  Future<UserCredential> signInAnonymously() {
+    return _firebaseAuth.signInAnonymously();
   }
 
   Future<void> signOut() => _firebaseAuth.signOut();

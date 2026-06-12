@@ -1,8 +1,6 @@
 {
   "@@locale": "de",
   "appTitle": "LM+ Locator",
-  "emailTab": "E-Mail",
-  "phoneTab": "Telefon",
   "loginTitle": "Anmelden",
   "registerTitle": "Konto erstellen",
   "emailLabel": "E-Mail-Adresse",
@@ -13,17 +11,6 @@
   "toggleToLogin": "Hast du schon ein Konto? Anmelden",
   "toggleToRegister": "Noch kein Konto? Registrieren",
   "authenticationFailed": "Authentifizierung fehlgeschlagen.",
-  "phoneLoginTitle": "Mit Telefonnummer anmelden",
-  "phoneLabel": "Telefonnummer (z. B. +32470123456)",
-  "phoneValidationError": "Bitte gib eine gültige Telefonnummer mit Landesvorwahl ein (+32...).",
-  "sendVerificationCode": "Bestätigungscode senden",
-  "verificationFailed": "Verifizierung fehlgeschlagen.",
-  "verificationCodeTitle": "Bestätigungscode",
-  "otpSentMessage": "Wir haben einen Code an {phoneNumber} gesendet.",
-  "verificationCodeLabel": "Bestätigungscode",
-  "verificationCodeValidationError": "Bitte gib den erhaltenen Code ein.",
-  "confirmButton": "Bestätigen",
-  "invalidVerificationCode": "Ungültiger Bestätigungscode.",
   "logoutTooltip": "Abmelden",
   "locationPrivacyNotice": "Wir verwenden deinen Standort nur, um das nächstgelegene Büro zu finden. Dein Standort wird niemals gespeichert oder weitergegeben.",
   "findNearestOfficeButton": "Nächstes LM+ Büro finden",
@@ -33,6 +20,9 @@
   "openLocationSettingsButton": "Standorteinstellungen öffnen",
   "genericErrorMessage": "Etwas ist schiefgelaufen. Bitte versuche es später erneut.",
   "distanceInKm": "{distance} km",
+  "yourLocationLabel": "Dein Standort: {latitude}, {longitude}",
   "languageMenuTooltip": "Sprache",
-  "languageSystemDefault": "Systemsprache"
+  "languageSystemDefault": "Systemsprache",
+  "authDisclaimer": "Die Anmeldung dient derzeit nur Test- und Entwicklungszwecken und ist nicht erforderlich, um den Bürofinder zu nutzen.",
+  "continueAsGuestButton": "Ohne Konto fortfahren"
 }

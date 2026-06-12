@@ -12,12 +12,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
-  String get emailTab => 'E-mail';
-
-  @override
-  String get phoneTab => 'Téléphone';
-
-  @override
   String get loginTitle => 'Connexion';
 
   @override
@@ -48,42 +42,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get authenticationFailed => 'Authentification échouée.';
-
-  @override
-  String get phoneLoginTitle => 'Connexion avec un numéro de téléphone';
-
-  @override
-  String get phoneLabel => 'Numéro de téléphone (ex. +32470123456)';
-
-  @override
-  String get phoneValidationError =>
-      'Veuillez saisir un numéro de téléphone valide avec l\'indicatif du pays (+32...).';
-
-  @override
-  String get sendVerificationCode => 'Envoyer le code de vérification';
-
-  @override
-  String get verificationFailed => 'Échec de la vérification.';
-
-  @override
-  String get verificationCodeTitle => 'Code de vérification';
-
-  @override
-  String otpSentMessage(String phoneNumber) {
-    return 'Nous avons envoyé un code au $phoneNumber.';
-  }
-
-  @override
-  String get verificationCodeLabel => 'Code de vérification';
-
-  @override
-  String get verificationCodeValidationError => 'Veuillez saisir le code reçu.';
-
-  @override
-  String get confirmButton => 'Confirmer';
-
-  @override
-  String get invalidVerificationCode => 'Code de vérification invalide.';
 
   @override
   String get logoutTooltip => 'Se déconnecter';
@@ -120,8 +78,20 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String yourLocationLabel(String latitude, String longitude) {
+    return 'Votre position : $latitude, $longitude';
+  }
+
+  @override
   String get languageMenuTooltip => 'Langue';
 
   @override
   String get languageSystemDefault => 'Langue du système';
+
+  @override
+  String get authDisclaimer =>
+      'La connexion est actuellement réservée aux tests et au développement ; elle n\'est pas nécessaire pour utiliser le localisateur de bureaux.';
+
+  @override
+  String get continueAsGuestButton => 'Continuer sans compte';
 }

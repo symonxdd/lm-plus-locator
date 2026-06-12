@@ -108,18 +108,6 @@ abstract class AppLocalizations {
   /// **'LM+ Locator'**
   String get appTitle;
 
-  /// Tab label for email/password authentication.
-  ///
-  /// In nl, this message translates to:
-  /// **'E-mail'**
-  String get emailTab;
-
-  /// Tab label for phone (OTP) authentication.
-  ///
-  /// In nl, this message translates to:
-  /// **'Telefoon'**
-  String get phoneTab;
-
   /// Heading shown on the email form in login mode, and the login button label.
   ///
   /// In nl, this message translates to:
@@ -180,72 +168,6 @@ abstract class AppLocalizations {
   /// **'Authenticatie mislukt.'**
   String get authenticationFailed;
 
-  /// Heading shown on the phone authentication form.
-  ///
-  /// In nl, this message translates to:
-  /// **'Inloggen met telefoonnummer'**
-  String get phoneLoginTitle;
-
-  /// Label for the phone number text field.
-  ///
-  /// In nl, this message translates to:
-  /// **'Telefoonnummer (bv. +32470123456)'**
-  String get phoneLabel;
-
-  /// Validation message when the phone number is empty or missing a country code.
-  ///
-  /// In nl, this message translates to:
-  /// **'Voer een geldig telefoonnummer in met landcode (+32...).'**
-  String get phoneValidationError;
-
-  /// Submit button label on the phone authentication form.
-  ///
-  /// In nl, this message translates to:
-  /// **'Verstuur verificatiecode'**
-  String get sendVerificationCode;
-
-  /// Fallback error message when sending the SMS verification code fails.
-  ///
-  /// In nl, this message translates to:
-  /// **'Verificatie mislukt.'**
-  String get verificationFailed;
-
-  /// App bar title on the OTP screen.
-  ///
-  /// In nl, this message translates to:
-  /// **'Verificatiecode'**
-  String get verificationCodeTitle;
-
-  /// Message shown on the OTP screen, including the phone number the code was sent to.
-  ///
-  /// In nl, this message translates to:
-  /// **'We hebben een code gestuurd naar {phoneNumber}.'**
-  String otpSentMessage(String phoneNumber);
-
-  /// Label for the OTP code text field.
-  ///
-  /// In nl, this message translates to:
-  /// **'Verificatiecode'**
-  String get verificationCodeLabel;
-
-  /// Validation message when the OTP code field is empty or too short.
-  ///
-  /// In nl, this message translates to:
-  /// **'Voer de ontvangen code in.'**
-  String get verificationCodeValidationError;
-
-  /// Submit button label on the OTP screen.
-  ///
-  /// In nl, this message translates to:
-  /// **'Bevestigen'**
-  String get confirmButton;
-
-  /// Fallback error message when the OTP code is incorrect.
-  ///
-  /// In nl, this message translates to:
-  /// **'Ongeldige verificatiecode.'**
-  String get invalidVerificationCode;
-
   /// Tooltip for the logout button on the home screen.
   ///
   /// In nl, this message translates to:
@@ -300,6 +222,12 @@ abstract class AppLocalizations {
   /// **'{distance} km'**
   String distanceInKm(String distance);
 
+  /// Shows the coordinates of the user's current location after a search.
+  ///
+  /// In nl, this message translates to:
+  /// **'Jouw locatie: {latitude}, {longitude}'**
+  String yourLocationLabel(String latitude, String longitude);
+
   /// Tooltip for the app bar button that opens the language picker.
   ///
   /// In nl, this message translates to:
@@ -311,6 +239,18 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Systeemtaal'**
   String get languageSystemDefault;
+
+  /// Small print on the auth screen explaining that signing in is optional and for testing purposes.
+  ///
+  /// In nl, this message translates to:
+  /// **'Aanmelden is momenteel enkel voor test- en ontwikkelingsdoeleinden en is niet vereist om de kantorenzoeker te gebruiken.'**
+  String get authDisclaimer;
+
+  /// Button label that lets the user continue using the app anonymously, without signing in.
+  ///
+  /// In nl, this message translates to:
+  /// **'Doorgaan zonder account'**
+  String get continueAsGuestButton;
 }
 
 class _AppLocalizationsDelegate

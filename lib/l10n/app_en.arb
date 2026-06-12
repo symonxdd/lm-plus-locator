@@ -1,8 +1,6 @@
 {
   "@@locale": "en",
   "appTitle": "LM+ Locator",
-  "emailTab": "Email",
-  "phoneTab": "Phone",
   "loginTitle": "Log in",
   "registerTitle": "Create account",
   "emailLabel": "Email address",
@@ -13,17 +11,6 @@
   "toggleToLogin": "Already have an account? Log in",
   "toggleToRegister": "Don't have an account? Register",
   "authenticationFailed": "Authentication failed.",
-  "phoneLoginTitle": "Log in with phone number",
-  "phoneLabel": "Phone number (e.g. +32470123456)",
-  "phoneValidationError": "Enter a valid phone number with country code (+32...).",
-  "sendVerificationCode": "Send verification code",
-  "verificationFailed": "Verification failed.",
-  "verificationCodeTitle": "Verification code",
-  "otpSentMessage": "We've sent a code to {phoneNumber}.",
-  "verificationCodeLabel": "Verification code",
-  "verificationCodeValidationError": "Enter the code you received.",
-  "confirmButton": "Confirm",
-  "invalidVerificationCode": "Invalid verification code.",
   "logoutTooltip": "Log out",
   "locationPrivacyNotice": "We only use your location to find the nearest office. Your location is never stored or shared.",
   "findNearestOfficeButton": "Find my nearest LM+ office",
@@ -33,6 +20,9 @@
   "openLocationSettingsButton": "Open location settings",
   "genericErrorMessage": "Something went wrong. Please try again later.",
   "distanceInKm": "{distance} km",
+  "yourLocationLabel": "Your location: {latitude}, {longitude}",
   "languageMenuTooltip": "Language",
-  "languageSystemDefault": "System language"
+  "languageSystemDefault": "System language",
+  "authDisclaimer": "Signing in is currently for testing and development purposes only, and isn't required to use the office locator.",
+  "continueAsGuestButton": "Continue without an account"
 }

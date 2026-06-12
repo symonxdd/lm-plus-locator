@@ -12,12 +12,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
-  String get emailTab => 'E-mail';
-
-  @override
-  String get phoneTab => 'Telefoon';
-
-  @override
   String get loginTitle => 'Inloggen';
 
   @override
@@ -47,42 +41,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get authenticationFailed => 'Authenticatie mislukt.';
-
-  @override
-  String get phoneLoginTitle => 'Inloggen met telefoonnummer';
-
-  @override
-  String get phoneLabel => 'Telefoonnummer (bv. +32470123456)';
-
-  @override
-  String get phoneValidationError =>
-      'Voer een geldig telefoonnummer in met landcode (+32...).';
-
-  @override
-  String get sendVerificationCode => 'Verstuur verificatiecode';
-
-  @override
-  String get verificationFailed => 'Verificatie mislukt.';
-
-  @override
-  String get verificationCodeTitle => 'Verificatiecode';
-
-  @override
-  String otpSentMessage(String phoneNumber) {
-    return 'We hebben een code gestuurd naar $phoneNumber.';
-  }
-
-  @override
-  String get verificationCodeLabel => 'Verificatiecode';
-
-  @override
-  String get verificationCodeValidationError => 'Voer de ontvangen code in.';
-
-  @override
-  String get confirmButton => 'Bevestigen';
-
-  @override
-  String get invalidVerificationCode => 'Ongeldige verificatiecode.';
 
   @override
   String get logoutTooltip => 'Uitloggen';
@@ -119,8 +77,20 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String yourLocationLabel(String latitude, String longitude) {
+    return 'Jouw locatie: $latitude, $longitude';
+  }
+
+  @override
   String get languageMenuTooltip => 'Taal';
 
   @override
   String get languageSystemDefault => 'Systeemtaal';
+
+  @override
+  String get authDisclaimer =>
+      'Aanmelden is momenteel enkel voor test- en ontwikkelingsdoeleinden en is niet vereist om de kantorenzoeker te gebruiken.';
+
+  @override
+  String get continueAsGuestButton => 'Doorgaan zonder account';
 }
