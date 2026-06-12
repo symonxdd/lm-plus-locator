@@ -29,5 +29,8 @@
   "headOfficeTooltip": "Hauptsitz",
   "headOfficeTitle": "LM+ Hauptsitz",
   "countryBelgium": "Belgien",
-  "orDividerLabel": "oder"
+  "orDividerLabel": "oder",
+  "logoutConfirmTitle": "Abmelden?",
+  "logoutConfirmMessage": "Möchtest du dich wirklich abmelden?",
+  "cancelButton": "Abbrechen"
 }

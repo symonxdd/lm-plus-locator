@@ -109,4 +109,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get orDividerLabel => 'ou';
+
+  @override
+  String get logoutConfirmTitle => 'Se déconnecter ?';
+
+  @override
+  String get logoutConfirmMessage => 'Voulez-vous vraiment vous déconnecter ?';
+
+  @override
+  String get cancelButton => 'Annuler';
 }

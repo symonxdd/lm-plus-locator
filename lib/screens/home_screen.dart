@@ -118,6 +118,31 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> _confirmLogout() async {
+    final l10n = AppLocalizations.of(context)!;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.logoutConfirmTitle),
+        content: Text(l10n.logoutConfirmMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancelButton),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(l10n.logoutTooltip),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await _authService.signOut();
+    }
+  }
+
   Future<void> _showHeadOfficeInfo() async {
     final l10n = AppLocalizations.of(context)!;
     await showModalBottomSheet(
@@ -193,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const LanguageSelector(),
           IconButton(
-            onPressed: _authService.signOut,
+            onPressed: _confirmLogout,
             icon: const Icon(Icons.logout),
             tooltip: l10n.logoutTooltip,
           ),

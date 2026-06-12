@@ -108,4 +108,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get orDividerLabel => 'of';
+
+  @override
+  String get logoutConfirmTitle => 'Uitloggen?';
+
+  @override
+  String get logoutConfirmMessage => 'Weet je zeker dat je wilt uitloggen?';
+
+  @override
+  String get cancelButton => 'Annuleren';
 }

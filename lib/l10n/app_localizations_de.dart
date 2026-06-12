@@ -108,4 +108,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get orDividerLabel => 'oder';
+
+  @override
+  String get logoutConfirmTitle => 'Abmelden?';
+
+  @override
+  String get logoutConfirmMessage => 'Möchtest du dich wirklich abmelden?';
+
+  @override
+  String get cancelButton => 'Abbrechen';
 }

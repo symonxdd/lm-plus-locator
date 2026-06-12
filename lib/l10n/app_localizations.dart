@@ -281,6 +281,24 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'of'**
   String get orDividerLabel;
+
+  /// Title of the confirmation dialog shown when the user taps the logout button.
+  ///
+  /// In nl, this message translates to:
+  /// **'Uitloggen?'**
+  String get logoutConfirmTitle;
+
+  /// Message body of the logout confirmation dialog.
+  ///
+  /// In nl, this message translates to:
+  /// **'Weet je zeker dat je wilt uitloggen?'**
+  String get logoutConfirmMessage;
+
+  /// Generic label for a button that cancels/dismisses a dialog.
+  ///
+  /// In nl, this message translates to:
+  /// **'Annuleren'**
+  String get cancelButton;
 }
 
 class _AppLocalizationsDelegate
