@@ -52,9 +52,13 @@ class _PhotoShareScreenState extends State<PhotoShareScreen> {
     final l10n = AppLocalizations.of(context)!;
     setState(() => _isSharing = true);
     try {
-      await SharePlus.instance.share(
+      final result = await SharePlus.instance.share(
         ShareParams(files: [XFile(photo.path)], subject: l10n.photoShareSubject),
       );
+      if (mounted && result.status == ShareResultStatus.success) {
+        Navigator.of(context).pop();
+        return;
+      }
     } finally {
       if (mounted) setState(() => _isSharing = false);
     }
