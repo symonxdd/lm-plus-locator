@@ -3,7 +3,6 @@ import 'package:geolocator/geolocator.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
-import '../services/auth_service.dart';
 import '../services/location_service.dart';
 import '../services/office_service.dart';
 import '../theme/app_colors.dart';
@@ -31,7 +30,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   static const _pageSize = 10;
 
-  final _authService = AuthService();
   final _locationService = LocationService();
   final _officeService = OfficeService();
   final _scrollController = ScrollController();
@@ -148,35 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<void> _confirmLogout() async {
-    final l10n = AppLocalizations.of(context)!;
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.logoutConfirmTitle),
-        content: Text(l10n.logoutConfirmMessage),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(l10n.cancelButton),
-          ),
-          FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: ctaColors(context).background,
-              foregroundColor: ctaColors(context).foreground,
-            ),
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(l10n.logoutTooltip),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed == true) {
-      await _authService.signOut();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -195,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(l10n.appTitle),
         actions: [
           const HeadOfficeInfoButton(),
-          SettingsSelector(onLogout: _confirmLogout),
+          const SettingsSelector(),
         ],
       ),
       body: SafeArea(

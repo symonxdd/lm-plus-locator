@@ -108,12 +108,6 @@ abstract class AppLocalizations {
   /// **'LM+ Locator'**
   String get appTitle;
 
-  /// Short tagline on the auth screen explaining what the app does.
-  ///
-  /// In nl, this message translates to:
-  /// **'Vind snel het dichtstbijzijnde LM+ kantoor.'**
-  String get appTagline;
-
   /// Heading shown on the email form in login mode, and the login button label.
   ///
   /// In nl, this message translates to:
@@ -276,23 +270,17 @@ abstract class AppLocalizations {
   /// **'Instellingen'**
   String get settingsTooltip;
 
-  /// Small print on the auth screen explaining that signing in is optional and not required for the office locator.
+  /// Small print shown in the account sheet explaining that signing in is optional and not required for the office locator.
   ///
   /// In nl, this message translates to:
   /// **'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.'**
   String get authDisclaimer;
 
-  /// Small print on the auth screen clarifying that this is an unofficial, independent app and not an official LM+ product.
+  /// Small print in the settings sheet clarifying that this is an unofficial, independent app and not an official LM+ product.
   ///
   /// In nl, this message translates to:
   /// **'Dit is een onafhankelijk project en is niet verbonden met LM+.'**
   String get unofficialAppNotice;
-
-  /// Button label that lets the user continue using the app anonymously, without signing in.
-  ///
-  /// In nl, this message translates to:
-  /// **'Doorgaan zonder account'**
-  String get continueAsGuestButton;
 
   /// Small hint on each office card explaining that tapping it opens the location in a maps app.
   ///
@@ -342,12 +330,6 @@ abstract class AppLocalizations {
   /// **'België'**
   String get countryBelgium;
 
-  /// Button on the auth screen that opens the email login/register form in a bottom sheet.
-  ///
-  /// In nl, this message translates to:
-  /// **'Doorgaan met account'**
-  String get continueWithAccountButton;
-
   /// Title of the confirmation dialog shown when the user taps the logout button.
   ///
   /// In nl, this message translates to:
@@ -365,6 +347,18 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Annuleren'**
   String get cancelButton;
+
+  /// Label for the settings entry that opens the account sheet, and the heading of that sheet when signed in.
+  ///
+  /// In nl, this message translates to:
+  /// **'Account'**
+  String get accountTooltip;
+
+  /// Shown in the account sheet when the user is signed in, displaying their email address.
+  ///
+  /// In nl, this message translates to:
+  /// **'Aangemeld als {email}'**
+  String accountSignedInAs(String email);
 }
 
 class _AppLocalizationsDelegate

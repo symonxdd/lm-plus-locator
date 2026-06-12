@@ -1,7 +1,6 @@
 {
   "@@locale": "en",
   "appTitle": "LM+ Locator",
-  "appTagline": "Quickly find the LM+ office closest to you.",
   "loginTitle": "Log in",
   "registerTitle": "Create account",
   "emailLabel": "Email address",
@@ -31,7 +30,6 @@
   "settingsTooltip": "Settings",
   "authDisclaimer": "An account isn't needed to use the office locator. Signing in is optional and doesn't unlock any extra features yet.",
   "unofficialAppNotice": "This is an independent project and is not affiliated with LM+.",
-  "continueAsGuestButton": "Continue without account",
   "openInMapsHint": "Tap to open in Maps",
   "officeOpenNow": "Open now",
   "officeClosedNow": "Closed now",
@@ -40,8 +38,9 @@
   "headOfficeTooltip": "Head office",
   "headOfficeTitle": "LM+ head office",
   "countryBelgium": "Belgium",
-  "continueWithAccountButton": "Continue with account",
   "logoutConfirmTitle": "Log out?",
   "logoutConfirmMessage": "Are you sure you want to log out?",
-  "cancelButton": "Cancel"
+  "cancelButton": "Cancel",
+  "accountTooltip": "Account",
+  "accountSignedInAs": "Signed in as {email}"
 }

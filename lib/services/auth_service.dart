@@ -32,10 +32,5 @@ class AuthService {
     );
   }
 
-  /// Signs the user in as an anonymous guest, without any credentials.
-  Future<UserCredential> signInAnonymously() {
-    return _firebaseAuth.signInAnonymously();
-  }
-
   Future<void> signOut() => _firebaseAuth.signOut();
 }

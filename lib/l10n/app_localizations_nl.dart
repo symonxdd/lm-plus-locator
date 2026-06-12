@@ -12,9 +12,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
-  String get appTagline => 'Vind snel het dichtstbijzijnde LM+ kantoor.';
-
-  @override
   String get loginTitle => 'Inloggen';
 
   @override
@@ -114,9 +111,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Dit is een onafhankelijk project en is niet verbonden met LM+.';
 
   @override
-  String get continueAsGuestButton => 'Doorgaan zonder account';
-
-  @override
   String get openInMapsHint => 'Tik om te openen in Maps';
 
   @override
@@ -141,9 +135,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get countryBelgium => 'België';
 
   @override
-  String get continueWithAccountButton => 'Doorgaan met account';
-
-  @override
   String get logoutConfirmTitle => 'Uitloggen?';
 
   @override
@@ -151,4 +142,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get cancelButton => 'Annuleren';
+
+  @override
+  String get accountTooltip => 'Account';
+
+  @override
+  String accountSignedInAs(String email) {
+    return 'Aangemeld als $email';
+  }
 }

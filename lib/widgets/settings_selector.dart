@@ -4,6 +4,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../l10n/app_localizations.dart';
 import '../main.dart';
+import 'account_sheet.dart';
 
 /// App bar action that opens a single bottom sheet combining the theme and
 /// language pickers, keeping the app bar itself uncluttered.
@@ -11,12 +12,7 @@ import '../main.dart';
 /// Choices are persisted via [LmPlusLocatorApp.setThemeMode] and
 /// [LmPlusLocatorApp.setLocale].
 class SettingsSelector extends StatelessWidget {
-  const SettingsSelector({super.key, this.onLogout});
-
-  /// Called when the user taps "log out" in the sheet. If `null`, no logout
-  /// entry is shown (e.g. on the auth screen, where the user isn't signed in
-  /// yet).
-  final VoidCallback? onLogout;
+  const SettingsSelector({super.key});
 
   static final _languages = {
     const Locale('nl'): 'Nederlands',
@@ -111,22 +107,30 @@ class SettingsSelector extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                if (onLogout != null) ...[
-                  const Divider(height: 32),
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    leading: const Icon(Icons.logout),
-                    title: Text(l10n.logoutTooltip),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      onLogout!();
-                    },
-                  ),
-                ],
+                const Divider(height: 32),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.account_circle_outlined),
+                  title: Text(l10n.accountTooltip),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _showAccountSheet(context);
+                  },
+                ),
                 const SizedBox(height: 24),
                 Center(
                   child: Text(
                     versionLabel,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Center(
+                  child: Text(
+                    l10n.unofficialAppNotice,
+                    textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
@@ -137,6 +141,16 @@ class SettingsSelector extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Future<void> _showAccountSheet(BuildContext context) async {
+    if (!context.mounted) return;
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (context) => const AccountSheet(),
     );
   }
 

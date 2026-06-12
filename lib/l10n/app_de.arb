@@ -1,7 +1,6 @@
 {
   "@@locale": "de",
   "appTitle": "LM+ Locator",
-  "appTagline": "Finde schnell das nächstgelegene LM+ Büro.",
   "loginTitle": "Anmelden",
   "registerTitle": "Konto erstellen",
   "emailLabel": "E-Mail-Adresse",
@@ -31,7 +30,6 @@
   "settingsTooltip": "Einstellungen",
   "authDisclaimer": "Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.",
   "unofficialAppNotice": "Dies ist ein unabhängiges Projekt und steht in keiner Verbindung zu LM+.",
-  "continueAsGuestButton": "Ohne Konto fortfahren",
   "openInMapsHint": "Tippen, um in Maps zu öffnen",
   "officeOpenNow": "Jetzt geöffnet",
   "officeClosedNow": "Jetzt geschlossen",
@@ -40,8 +38,9 @@
   "headOfficeTooltip": "Hauptsitz",
   "headOfficeTitle": "LM+ Hauptsitz",
   "countryBelgium": "Belgien",
-  "continueWithAccountButton": "Mit Konto fortfahren",
   "logoutConfirmTitle": "Abmelden?",
   "logoutConfirmMessage": "Möchtest du dich wirklich abmelden?",
-  "cancelButton": "Abbrechen"
+  "cancelButton": "Abbrechen",
+  "accountTooltip": "Konto",
+  "accountSignedInAs": "Angemeldet als {email}"
 }

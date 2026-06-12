@@ -4,10 +4,6 @@
   "@appTitle": {
     "description": "The application title shown in the app bar."
   },
-  "appTagline": "Vind snel het dichtstbijzijnde LM+ kantoor.",
-  "@appTagline": {
-    "description": "Short tagline on the auth screen explaining what the app does."
-  },
   "loginTitle": "Inloggen",
   "@loginTitle": {
     "description": "Heading shown on the email form in login mode, and the login button label."
@@ -128,15 +124,11 @@
   },
   "authDisclaimer": "Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.",
   "@authDisclaimer": {
-    "description": "Small print on the auth screen explaining that signing in is optional and not required for the office locator."
+    "description": "Small print shown in the account sheet explaining that signing in is optional and not required for the office locator."
   },
   "unofficialAppNotice": "Dit is een onafhankelijk project en is niet verbonden met LM+.",
   "@unofficialAppNotice": {
-    "description": "Small print on the auth screen clarifying that this is an unofficial, independent app and not an official LM+ product."
-  },
-  "continueAsGuestButton": "Doorgaan zonder account",
-  "@continueAsGuestButton": {
-    "description": "Button label that lets the user continue using the app anonymously, without signing in."
+    "description": "Small print in the settings sheet clarifying that this is an unofficial, independent app and not an official LM+ product."
   },
   "openInMapsHint": "Tik om te openen in Maps",
   "@openInMapsHint": {
@@ -170,10 +162,6 @@
   "@countryBelgium": {
     "description": "The country name shown after the head office's postal code and city."
   },
-  "continueWithAccountButton": "Doorgaan met account",
-  "@continueWithAccountButton": {
-    "description": "Button on the auth screen that opens the email login/register form in a bottom sheet."
-  },
   "logoutConfirmTitle": "Uitloggen?",
   "@logoutConfirmTitle": {
     "description": "Title of the confirmation dialog shown when the user taps the logout button."
@@ -185,5 +173,18 @@
   "cancelButton": "Annuleren",
   "@cancelButton": {
     "description": "Generic label for a button that cancels/dismisses a dialog."
+  },
+  "accountTooltip": "Account",
+  "@accountTooltip": {
+    "description": "Label for the settings entry that opens the account sheet, and the heading of that sheet when signed in."
+  },
+  "accountSignedInAs": "Aangemeld als {email}",
+  "@accountSignedInAs": {
+    "description": "Shown in the account sheet when the user is signed in, displaying their email address.",
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
   }
 }
