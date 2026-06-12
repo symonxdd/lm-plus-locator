@@ -1,4 +1,4 @@
-package com.example.lm_plus_locator
+package com.example.lmplusLocator
 
 import io.flutter.embedding.android.FlutterActivity
 
