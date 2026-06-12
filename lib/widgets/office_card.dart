@@ -114,7 +114,13 @@ class OfficeCard extends StatelessWidget {
                           color: theme.colorScheme.outline,
                         ),
                         const SizedBox(width: 4),
-                        Expanded(child: Text(office.fullAddress)),
+                        Expanded(
+                          child: Text(
+                            office.fullAddress,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 2),
