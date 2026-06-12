@@ -217,16 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.info_outline),
             tooltip: l10n.headOfficeTooltip,
           ),
-          const SettingsSelector(),
-          IconButton.filled(
-            style: IconButton.styleFrom(
-              backgroundColor: ctaColors(context).background,
-              foregroundColor: ctaColors(context).foreground,
-            ),
-            onPressed: _confirmLogout,
-            icon: const Icon(Icons.logout),
-            tooltip: l10n.logoutTooltip,
-          ),
+          SettingsSelector(onLogout: _confirmLogout),
         ],
       ),
       body: SafeArea(

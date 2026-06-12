@@ -9,7 +9,12 @@ import '../main.dart';
 /// Choices are persisted via [LmPlusLocatorApp.setThemeMode] and
 /// [LmPlusLocatorApp.setLocale].
 class SettingsSelector extends StatelessWidget {
-  const SettingsSelector({super.key});
+  const SettingsSelector({super.key, this.onLogout});
+
+  /// Called when the user taps "log out" in the sheet. If `null`, no logout
+  /// entry is shown (e.g. on the auth screen, where the user isn't signed in
+  /// yet).
+  final VoidCallback? onLogout;
 
   static final _languages = {
     const Locale('nl'): 'Nederlands',
@@ -32,10 +37,11 @@ class SettingsSelector extends StatelessWidget {
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
+      isScrollControlled: true,
       builder: (context) {
         return SafeArea(
           top: false,
-          child: Padding(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -98,6 +104,18 @@ class SettingsSelector extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
+                if (onLogout != null) ...[
+                  const Divider(height: 32),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.logout),
+                    title: Text(l10n.logoutTooltip),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      onLogout!();
+                    },
+                  ),
+                ],
               ],
             ),
           ),
