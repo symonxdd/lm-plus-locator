@@ -131,6 +131,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(l10n.cancelButton),
           ),
           FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: ctaColors(context).background,
+              foregroundColor: ctaColors(context).foreground,
+            ),
             onPressed: () => Navigator.of(context).pop(true),
             child: Text(l10n.logoutTooltip),
           ),
@@ -150,7 +154,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.all(8),
-          child: Image.asset('assets/icon/icon_foreground.png'),
+          child: ColorFiltered(
+            colorFilter: ColorFilter.mode(
+              ctaColors(context).background,
+              BlendMode.srcIn,
+            ),
+            child: Image.asset('assets/icon/icon_foreground.png'),
+          ),
         ),
         title: Text(l10n.appTitle),
         actions: [
@@ -194,10 +204,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Theme.of(context).colorScheme.outline,
                         ),
                         const SizedBox(width: 4),
-                        Expanded(
+                        Flexible(
                           child: Text(
                             l10n.yourLocationLabel(_userLocationText!),
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),

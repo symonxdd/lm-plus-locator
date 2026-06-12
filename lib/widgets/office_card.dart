@@ -75,8 +75,30 @@ class OfficeCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 4),
-                    Text(office.fullAddress),
-                    Text(office.phone),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.place_outlined,
+                          size: 14,
+                          color: theme.colorScheme.outline,
+                        ),
+                        const SizedBox(width: 4),
+                        Expanded(child: Text(office.fullAddress)),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.call_outlined,
+                          size: 14,
+                          color: theme.colorScheme.outline,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(office.phone),
+                      ],
+                    ),
                     const SizedBox(height: 6),
                     Row(
                       children: [
