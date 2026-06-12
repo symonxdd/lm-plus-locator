@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "lm-plus-locator-placeholder",
-    "storage_bucket": "lm-plus-locator-placeholder.appspot.com"
+    "project_number": "147982704006",
+    "project_id": "lm-plus-locator",
+    "storage_bucket": "lm-plus-locator.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "mobilesdk_app_id": "1:147982704006:android:a4c804a0752c3c72a12007",
         "android_client_info": {
           "package_name": "me.symon.lmplusLocator"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "REPLACE_WITH_REAL_API_KEY"
+          "current_key": "AIzaSyDk31cWFwZwQOX42PC_eamavnIaeZssE0A"
         }
       ],
       "services": {

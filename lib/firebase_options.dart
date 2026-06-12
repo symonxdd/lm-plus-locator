@@ -30,19 +30,18 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'REPLACE_WITH_REAL_API_KEY',
-    appId: '1:000000000000:android:0000000000000000000000',
-    messagingSenderId: '000000000000',
-    projectId: 'lm-plus-locator-placeholder',
-    storageBucket: 'lm-plus-locator-placeholder.appspot.com',
+    apiKey: 'AIzaSyDk31cWFwZwQOX42PC_eamavnIaeZssE0A',
+    appId: '1:147982704006:android:a4c804a0752c3c72a12007',
+    messagingSenderId: '147982704006',
+    projectId: 'lm-plus-locator',
+    storageBucket: 'lm-plus-locator.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'REPLACE_WITH_REAL_API_KEY',
-    appId: '1:000000000000:ios:0000000000000000000000',
-    messagingSenderId: '000000000000',
-    projectId: 'lm-plus-locator-placeholder',
-    storageBucket: 'lm-plus-locator-placeholder.appspot.com',
+    apiKey: 'AIzaSyC7vfd67N-XZnuJFUKqbiAosV50swMPzCM',
+    appId: '1:147982704006:ios:52b032cdabbc0804a12007',
+    messagingSenderId: '147982704006',
+    projectId: 'lm-plus-locator',
+    storageBucket: 'lm-plus-locator.firebasestorage.app',
     iosBundleId: 'me.symon.lmplusLocator',
   );
 }
