@@ -8,6 +8,8 @@ import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/auth_service.dart';
 import 'services/locale_service.dart';
+import 'services/theme_service.dart';
+import 'theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +32,17 @@ class LmPlusLocatorApp extends StatefulWidget {
     return context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._locale;
   }
 
+  /// Sets the app's theme mode and persists the choice.
+  static void setThemeMode(BuildContext context, ThemeMode mode) {
+    context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._setThemeMode(mode);
+  }
+
+  /// The current theme mode (defaults to [ThemeMode.system]).
+  static ThemeMode themeModeOf(BuildContext context) {
+    return context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._themeMode ??
+        ThemeMode.system;
+  }
+
   @override
   State<LmPlusLocatorApp> createState() => _LmPlusLocatorAppState();
 }
@@ -37,7 +50,9 @@ class LmPlusLocatorApp extends StatefulWidget {
 class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
     with WidgetsBindingObserver {
   final _localeService = LocaleService();
+  final _themeService = ThemeService();
   Locale? _locale;
+  ThemeMode _themeMode = ThemeMode.system;
 
   @override
   void initState() {
@@ -45,6 +60,9 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
     WidgetsBinding.instance.addObserver(this);
     _localeService.loadLocale().then((locale) {
       if (mounted) setState(() => _locale = locale);
+    });
+    _themeService.loadThemeMode().then((mode) {
+      if (mounted) setState(() => _themeMode = mode);
     });
   }
 
@@ -65,6 +83,11 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
     _localeService.saveLocale(locale);
   }
 
+  void _setThemeMode(ThemeMode mode) {
+    setState(() => _themeMode = mode);
+    _themeService.saveThemeMode(mode);
+  }
+
   /// Maps the device's current locale to a supported one, falling back to
   /// Dutch when the device language isn't supported.
   Locale _resolveDeviceLocale() {
@@ -82,10 +105,9 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
     return MaterialApp(
       title: 'LM+ Locator',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: _themeMode,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       // If the user picked a language manually, use it. Otherwise follow the

@@ -5,6 +5,7 @@ import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/language_selector.dart';
+import '../widgets/theme_selector.dart';
 
 /// Login / register screen supporting email+password auth.
 ///
@@ -58,7 +59,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.appTitle),
-        actions: const [LanguageSelector()],
+        actions: const [ThemeSelector(), LanguageSelector()],
       ),
       body: SafeArea(
         child: Padding(
@@ -74,17 +75,17 @@ class _AuthScreenState extends State<AuthScreen> {
               const SizedBox(height: 32),
               FilledButton.icon(
                 style: FilledButton.styleFrom(
-                  backgroundColor: brandNavy,
-                  foregroundColor: Colors.white,
+                  backgroundColor: ctaColors(context).background,
+                  foregroundColor: ctaColors(context).foreground,
                 ),
                 onPressed: _isGuestLoading ? null : _continueAsGuest,
                 icon: _isGuestLoading
-                    ? const SizedBox(
+                    ? SizedBox(
                         height: 20,
                         width: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: Colors.white,
+                          color: ctaColors(context).foreground,
                         ),
                       )
                     : const Icon(Icons.arrow_forward_rounded),

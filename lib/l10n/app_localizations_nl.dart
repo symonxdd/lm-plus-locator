@@ -88,6 +88,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get languageSystemDefault => 'Systeemtaal';
 
   @override
+  String get themeMenuTooltip => 'Thema';
+
+  @override
+  String get themeModeLight => 'Licht';
+
+  @override
+  String get themeModeDark => 'Donker';
+
+  @override
+  String get themeModeSystem => 'Systeemthema';
+
+  @override
   String get authDisclaimer =>
       'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.';
 

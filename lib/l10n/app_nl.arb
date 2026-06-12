@@ -102,6 +102,22 @@
   "@languageSystemDefault": {
     "description": "Option in the language picker that follows the device language."
   },
+  "themeMenuTooltip": "Thema",
+  "@themeMenuTooltip": {
+    "description": "Tooltip for the app bar button that opens the theme picker, and the title of that picker's sheet."
+  },
+  "themeModeLight": "Licht",
+  "@themeModeLight": {
+    "description": "Option in the theme picker for the light theme."
+  },
+  "themeModeDark": "Donker",
+  "@themeModeDark": {
+    "description": "Option in the theme picker for the dark theme."
+  },
+  "themeModeSystem": "Systeemthema",
+  "@themeModeSystem": {
+    "description": "Option in the theme picker that follows the device theme."
+  },
   "authDisclaimer": "Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.",
   "@authDisclaimer": {
     "description": "Small print on the auth screen explaining that signing in is optional and not required for the office locator."

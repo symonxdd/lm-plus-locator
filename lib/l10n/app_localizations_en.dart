@@ -87,6 +87,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageSystemDefault => 'System language';
 
   @override
+  String get themeMenuTooltip => 'Theme';
+
+  @override
+  String get themeModeLight => 'Light';
+
+  @override
+  String get themeModeDark => 'Dark';
+
+  @override
+  String get themeModeSystem => 'System theme';
+
+  @override
   String get authDisclaimer =>
       'An account isn\'t needed to use the office locator. Signing in is optional and doesn\'t unlock any extra features yet.';
 

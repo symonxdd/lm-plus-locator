@@ -11,6 +11,7 @@ import '../services/office_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/language_selector.dart';
 import '../widgets/office_card.dart';
+import '../widgets/theme_selector.dart';
 
 enum _LocatorStatus {
   idle,
@@ -217,8 +218,13 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.info_outline),
             tooltip: l10n.headOfficeTooltip,
           ),
+          const ThemeSelector(),
           const LanguageSelector(),
-          IconButton(
+          IconButton.filled(
+            style: IconButton.styleFrom(
+              backgroundColor: ctaColors(context).background,
+              foregroundColor: ctaColors(context).foreground,
+            ),
             onPressed: _confirmLogout,
             icon: const Icon(Icons.logout),
             tooltip: l10n.logoutTooltip,
@@ -241,8 +247,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 16),
                   FilledButton.icon(
                     style: FilledButton.styleFrom(
-                      backgroundColor: brandNavy,
-                      foregroundColor: Colors.white,
+                      backgroundColor: ctaColors(context).background,
+                      foregroundColor: ctaColors(context).foreground,
                     ),
                     onPressed: _status == _LocatorStatus.loading
                         ? null

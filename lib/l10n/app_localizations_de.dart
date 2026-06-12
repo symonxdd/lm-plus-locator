@@ -88,6 +88,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get languageSystemDefault => 'Systemsprache';
 
   @override
+  String get themeMenuTooltip => 'Design';
+
+  @override
+  String get themeModeLight => 'Hell';
+
+  @override
+  String get themeModeDark => 'Dunkel';
+
+  @override
+  String get themeModeSystem => 'Systemdesign';
+
+  @override
   String get authDisclaimer =>
       'Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.';
 

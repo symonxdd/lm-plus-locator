@@ -89,6 +89,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get languageSystemDefault => 'Langue du système';
 
   @override
+  String get themeMenuTooltip => 'Thème';
+
+  @override
+  String get themeModeLight => 'Clair';
+
+  @override
+  String get themeModeDark => 'Sombre';
+
+  @override
+  String get themeModeSystem => 'Thème du système';
+
+  @override
   String get authDisclaimer =>
       'Un compte n\'est pas nécessaire pour utiliser le localisateur de bureaux. La connexion est facultative et ne débloque pas encore de fonctionnalités supplémentaires.';
 

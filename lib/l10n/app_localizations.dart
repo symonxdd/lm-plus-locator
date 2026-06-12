@@ -240,6 +240,30 @@ abstract class AppLocalizations {
   /// **'Systeemtaal'**
   String get languageSystemDefault;
 
+  /// Tooltip for the app bar button that opens the theme picker, and the title of that picker's sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Thema'**
+  String get themeMenuTooltip;
+
+  /// Option in the theme picker for the light theme.
+  ///
+  /// In nl, this message translates to:
+  /// **'Licht'**
+  String get themeModeLight;
+
+  /// Option in the theme picker for the dark theme.
+  ///
+  /// In nl, this message translates to:
+  /// **'Donker'**
+  String get themeModeDark;
+
+  /// Option in the theme picker that follows the device theme.
+  ///
+  /// In nl, this message translates to:
+  /// **'Systeemthema'**
+  String get themeModeSystem;
+
   /// Small print on the auth screen explaining that signing in is optional and not required for the office locator.
   ///
   /// In nl, this message translates to:
