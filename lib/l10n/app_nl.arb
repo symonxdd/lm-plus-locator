@@ -141,5 +141,13 @@
         "type": "String"
       }
     }
+  },
+  "languageMenuTooltip": "Taal",
+  "@languageMenuTooltip": {
+    "description": "Tooltip for the app bar button that opens the language picker."
+  },
+  "languageSystemDefault": "Systeemtaal",
+  "@languageSystemDefault": {
+    "description": "Option in the language picker that follows the device language."
   }
 }

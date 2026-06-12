@@ -5,6 +5,7 @@ import '../models/office.dart';
 import '../services/auth_service.dart';
 import '../services/location_service.dart';
 import '../services/office_service.dart';
+import '../widgets/language_selector.dart';
 import '../widgets/office_card.dart';
 
 enum _LocatorStatus {
@@ -76,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(l10n.appTitle),
         actions: [
+          const LanguageSelector(),
           IconButton(
             onPressed: _authService.signOut,
             icon: const Icon(Icons.logout),

@@ -299,6 +299,18 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'{distance} km'**
   String distanceInKm(String distance);
+
+  /// Tooltip for the app bar button that opens the language picker.
+  ///
+  /// In nl, this message translates to:
+  /// **'Taal'**
+  String get languageMenuTooltip;
+
+  /// Option in the language picker that follows the device language.
+  ///
+  /// In nl, this message translates to:
+  /// **'Systeemtaal'**
+  String get languageSystemDefault;
 }
 
 class _AppLocalizationsDelegate

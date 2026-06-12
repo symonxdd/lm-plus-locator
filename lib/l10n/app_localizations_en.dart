@@ -116,4 +116,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String distanceInKm(String distance) {
     return '$distance km';
   }
+
+  @override
+  String get languageMenuTooltip => 'Language';
+
+  @override
+  String get languageSystemDefault => 'System language';
 }

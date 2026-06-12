@@ -32,5 +32,7 @@
   "locationServiceDisabled": "Location services are turned off. Enable GPS to continue.",
   "openLocationSettingsButton": "Open location settings",
   "genericErrorMessage": "Something went wrong. Please try again later.",
-  "distanceInKm": "{distance} km"
+  "distanceInKm": "{distance} km",
+  "languageMenuTooltip": "Language",
+  "languageSystemDefault": "System language"
 }

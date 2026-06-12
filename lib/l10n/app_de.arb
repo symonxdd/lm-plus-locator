@@ -32,5 +32,7 @@
   "locationServiceDisabled": "Standortdienste sind deaktiviert. Aktiviere GPS, um fortzufahren.",
   "openLocationSettingsButton": "Standorteinstellungen öffnen",
   "genericErrorMessage": "Etwas ist schiefgelaufen. Bitte versuche es später erneut.",
-  "distanceInKm": "{distance} km"
+  "distanceInKm": "{distance} km",
+  "languageMenuTooltip": "Sprache",
+  "languageSystemDefault": "Systemsprache"
 }

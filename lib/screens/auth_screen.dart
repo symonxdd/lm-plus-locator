@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
+import '../widgets/language_selector.dart';
 import 'otp_screen.dart';
 
 /// Login / register screen supporting email+password and phone (OTP) auth.
@@ -39,6 +40,7 @@ class _AuthScreenState extends State<AuthScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.appTitle),
+        actions: const [LanguageSelector()],
         bottom: TabBar(
           controller: _tabController,
           tabs: [

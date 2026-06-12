@@ -7,6 +7,7 @@ import 'l10n/app_localizations.dart';
 import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/auth_service.dart';
+import 'services/locale_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,8 +15,35 @@ Future<void> main() async {
   runApp(const LmPlusLocatorApp());
 }
 
-class LmPlusLocatorApp extends StatelessWidget {
+class LmPlusLocatorApp extends StatefulWidget {
   const LmPlusLocatorApp({super.key});
+
+  /// Sets the app's locale and persists the choice. Pass `null` to follow
+  /// the device language again (falling back to Dutch if unsupported).
+  static void setLocale(BuildContext context, Locale? locale) {
+    context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._setLocale(locale);
+  }
+
+  @override
+  State<LmPlusLocatorApp> createState() => _LmPlusLocatorAppState();
+}
+
+class _LmPlusLocatorAppState extends State<LmPlusLocatorApp> {
+  final _localeService = LocaleService();
+  Locale? _locale;
+
+  @override
+  void initState() {
+    super.initState();
+    _localeService.loadLocale().then((locale) {
+      if (mounted) setState(() => _locale = locale);
+    });
+  }
+
+  void _setLocale(Locale? locale) {
+    setState(() => _locale = locale);
+    _localeService.saveLocale(locale);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +55,9 @@ class LmPlusLocatorApp extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // Use the device locale when it's nl/fr/de/en, otherwise fall back to
-      // Dutch (the app's default language).
+      // If the user picked a language manually, use it. Otherwise use the
+      // device locale when it's nl/fr/de/en, falling back to Dutch.
+      locale: _locale,
       localeResolutionCallback: (deviceLocale, supportedLocales) {
         if (deviceLocale != null) {
           for (final supported in supportedLocales) {

@@ -32,5 +32,7 @@
   "locationServiceDisabled": "Les services de localisation sont désactivés. Activez le GPS pour continuer.",
   "openLocationSettingsButton": "Ouvrir les paramètres de localisation",
   "genericErrorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard.",
-  "distanceInKm": "{distance} km"
+  "distanceInKm": "{distance} km",
+  "languageMenuTooltip": "Langue",
+  "languageSystemDefault": "Langue du système"
 }
