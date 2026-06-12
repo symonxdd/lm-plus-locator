@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
@@ -32,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _LocatorStatus _status = _LocatorStatus.idle;
   List<OfficeWithDistance> _nearestOffices = [];
+  Position? _userPosition;
 
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
@@ -62,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
       setState(() {
+        _userPosition = position;
         _nearestOffices = nearest;
         _status = _LocatorStatus.results;
       });
@@ -106,6 +109,27 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(Icons.my_location),
                     label: Text(l10n.findNearestOfficeButton),
                   ),
+                  if (_userPosition != null) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.my_location,
+                          size: 14,
+                          color: Theme.of(context).colorScheme.outline,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          l10n.yourLocationLabel(
+                            _userPosition!.latitude.toStringAsFixed(4),
+                            _userPosition!.longitude.toStringAsFixed(4),
+                          ),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
               ),
             ),
