@@ -89,7 +89,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get authDisclaimer =>
-      'Die Anmeldung dient derzeit nur Test- und Entwicklungszwecken und ist nicht erforderlich, um den Bürofinder zu nutzen.';
+      'Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.';
 
   @override
   String get continueAsGuestButton => 'Ohne Konto fortfahren';
@@ -105,4 +105,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get countryBelgium => 'Belgien';
+
+  @override
+  String get orDividerLabel => 'oder';
 }

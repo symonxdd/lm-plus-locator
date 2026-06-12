@@ -23,10 +23,11 @@
   "yourLocationLabel": "Your location: {address}",
   "languageMenuTooltip": "Language",
   "languageSystemDefault": "System language",
-  "authDisclaimer": "Signing in is currently for testing and development purposes only, and isn't required to use the office locator.",
+  "authDisclaimer": "An account isn't needed to use the office locator. Signing in is optional and doesn't unlock any extra features yet.",
   "continueAsGuestButton": "Continue without an account",
   "openInMapsHint": "Tap to open in Maps",
   "headOfficeTooltip": "Head office",
   "headOfficeTitle": "LM+ head office",
-  "countryBelgium": "Belgium"
+  "countryBelgium": "Belgium",
+  "orDividerLabel": "or"
 }

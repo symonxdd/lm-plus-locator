@@ -240,10 +240,10 @@ abstract class AppLocalizations {
   /// **'Systeemtaal'**
   String get languageSystemDefault;
 
-  /// Small print on the auth screen explaining that signing in is optional and for testing purposes.
+  /// Small print on the auth screen explaining that signing in is optional and not required for the office locator.
   ///
   /// In nl, this message translates to:
-  /// **'Aanmelden is momenteel enkel voor test- en ontwikkelingsdoeleinden en is niet vereist om de kantorenzoeker te gebruiken.'**
+  /// **'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.'**
   String get authDisclaimer;
 
   /// Button label that lets the user continue using the app anonymously, without signing in.
@@ -275,6 +275,12 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'België'**
   String get countryBelgium;
+
+  /// Short label in the divider between the guest button and the email login form on the auth screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'of'**
+  String get orDividerLabel;
 }
 
 class _AppLocalizationsDelegate

@@ -23,10 +23,11 @@
   "yourLocationLabel": "Votre position : {address}",
   "languageMenuTooltip": "Langue",
   "languageSystemDefault": "Langue du système",
-  "authDisclaimer": "La connexion est actuellement réservée aux tests et au développement ; elle n'est pas nécessaire pour utiliser le localisateur de bureaux.",
+  "authDisclaimer": "Un compte n'est pas nécessaire pour utiliser le localisateur de bureaux. La connexion est facultative et ne débloque pas encore de fonctionnalités supplémentaires.",
   "continueAsGuestButton": "Continuer sans compte",
   "openInMapsHint": "Appuyez pour ouvrir dans Maps",
   "headOfficeTooltip": "Siège social",
   "headOfficeTitle": "Siège social de LM+",
-  "countryBelgium": "Belgique"
+  "countryBelgium": "Belgique",
+  "orDividerLabel": "ou"
 }

@@ -43,46 +43,64 @@ class _AuthScreenState extends State<AuthScreen> {
         title: Text(l10n.appTitle),
         actions: const [LanguageSelector()],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 24),
-            child: Image.asset(
-              'assets/icon/icon_foreground.png',
-              width: 88,
-              height: 88,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
-            child: Text(
-              l10n.authDisclaimer,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 24),
+              child: Image.asset(
+                'assets/icon/icon_foreground.png',
+                width: 88,
+                height: 88,
               ),
             ),
-          ),
-          Expanded(
-            child: _EmailAuthForm(authService: _authService),
-          ),
-          SafeArea(
-            top: false,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 8),
-              child: TextButton(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+              child: FilledButton.icon(
                 onPressed: _isGuestLoading ? null : _continueAsGuest,
-                child: _isGuestLoading
+                icon: _isGuestLoading
                     ? const SizedBox(
                         height: 20,
                         width: 20,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : Text(l10n.continueAsGuestButton),
+                    : const Icon(Icons.arrow_forward_rounded),
+                label: Text(l10n.continueAsGuestButton),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
+              child: Text(
+                l10n.authDisclaimer,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+              child: Row(
+                children: [
+                  const Expanded(child: Divider()),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Text(
+                      l10n.orDividerLabel,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
+                    ),
+                  ),
+                  const Expanded(child: Divider()),
+                ],
+              ),
+            ),
+            Expanded(
+              child: _EmailAuthForm(authService: _authService),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -186,7 +204,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
               },
             ),
             const SizedBox(height: 24),
-            FilledButton(
+            OutlinedButton(
               onPressed: _isLoading ? null : _submit,
               child: _isLoading
                   ? const SizedBox(

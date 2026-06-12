@@ -88,7 +88,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get authDisclaimer =>
-      'Signing in is currently for testing and development purposes only, and isn\'t required to use the office locator.';
+      'An account isn\'t needed to use the office locator. Signing in is optional and doesn\'t unlock any extra features yet.';
 
   @override
   String get continueAsGuestButton => 'Continue without an account';
@@ -104,4 +104,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get countryBelgium => 'Belgium';
+
+  @override
+  String get orDividerLabel => 'or';
 }

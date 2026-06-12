@@ -89,7 +89,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get authDisclaimer =>
-      'Aanmelden is momenteel enkel voor test- en ontwikkelingsdoeleinden en is niet vereist om de kantorenzoeker te gebruiken.';
+      'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.';
 
   @override
   String get continueAsGuestButton => 'Doorgaan zonder account';
@@ -105,4 +105,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get countryBelgium => 'België';
+
+  @override
+  String get orDividerLabel => 'of';
 }

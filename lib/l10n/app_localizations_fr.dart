@@ -90,7 +90,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get authDisclaimer =>
-      'La connexion est actuellement réservée aux tests et au développement ; elle n\'est pas nécessaire pour utiliser le localisateur de bureaux.';
+      'Un compte n\'est pas nécessaire pour utiliser le localisateur de bureaux. La connexion est facultative et ne débloque pas encore de fonctionnalités supplémentaires.';
 
   @override
   String get continueAsGuestButton => 'Continuer sans compte';
@@ -106,4 +106,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get countryBelgium => 'Belgique';
+
+  @override
+  String get orDividerLabel => 'ou';
 }

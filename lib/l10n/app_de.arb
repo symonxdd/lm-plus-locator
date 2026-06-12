@@ -23,10 +23,11 @@
   "yourLocationLabel": "Dein Standort: {address}",
   "languageMenuTooltip": "Sprache",
   "languageSystemDefault": "Systemsprache",
-  "authDisclaimer": "Die Anmeldung dient derzeit nur Test- und Entwicklungszwecken und ist nicht erforderlich, um den Bürofinder zu nutzen.",
+  "authDisclaimer": "Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.",
   "continueAsGuestButton": "Ohne Konto fortfahren",
   "openInMapsHint": "Tippen, um in Maps zu öffnen",
   "headOfficeTooltip": "Hauptsitz",
   "headOfficeTitle": "LM+ Hauptsitz",
-  "countryBelgium": "Belgien"
+  "countryBelgium": "Belgien",
+  "orDividerLabel": "oder"
 }
