@@ -1,0 +1,145 @@
+{
+  "@@locale": "nl",
+  "appTitle": "LM+ Locator",
+  "@appTitle": {
+    "description": "The application title shown in the app bar."
+  },
+  "emailTab": "E-mail",
+  "@emailTab": {
+    "description": "Tab label for email/password authentication."
+  },
+  "phoneTab": "Telefoon",
+  "@phoneTab": {
+    "description": "Tab label for phone (OTP) authentication."
+  },
+  "loginTitle": "Inloggen",
+  "@loginTitle": {
+    "description": "Heading shown on the email form in login mode, and the login button label."
+  },
+  "registerTitle": "Account aanmaken",
+  "@registerTitle": {
+    "description": "Heading shown on the email form in register mode."
+  },
+  "emailLabel": "E-mailadres",
+  "@emailLabel": {
+    "description": "Label for the email text field."
+  },
+  "emailValidationError": "Voer een geldig e-mailadres in.",
+  "@emailValidationError": {
+    "description": "Validation message when the email field is empty or invalid."
+  },
+  "passwordLabel": "Wachtwoord",
+  "@passwordLabel": {
+    "description": "Label for the password text field."
+  },
+  "passwordValidationError": "Wachtwoord moet minstens 6 tekens zijn.",
+  "@passwordValidationError": {
+    "description": "Validation message when the password is too short."
+  },
+  "registerButton": "Registreren",
+  "@registerButton": {
+    "description": "Submit button label in register mode."
+  },
+  "toggleToLogin": "Heb je al een account? Log in",
+  "@toggleToLogin": {
+    "description": "Link shown in register mode to switch to login mode."
+  },
+  "toggleToRegister": "Nog geen account? Registreer",
+  "@toggleToRegister": {
+    "description": "Link shown in login mode to switch to register mode."
+  },
+  "authenticationFailed": "Authenticatie mislukt.",
+  "@authenticationFailed": {
+    "description": "Fallback error message when email/password authentication fails."
+  },
+  "phoneLoginTitle": "Inloggen met telefoonnummer",
+  "@phoneLoginTitle": {
+    "description": "Heading shown on the phone authentication form."
+  },
+  "phoneLabel": "Telefoonnummer (bv. +32470123456)",
+  "@phoneLabel": {
+    "description": "Label for the phone number text field."
+  },
+  "phoneValidationError": "Voer een geldig telefoonnummer in met landcode (+32...).",
+  "@phoneValidationError": {
+    "description": "Validation message when the phone number is empty or missing a country code."
+  },
+  "sendVerificationCode": "Verstuur verificatiecode",
+  "@sendVerificationCode": {
+    "description": "Submit button label on the phone authentication form."
+  },
+  "verificationFailed": "Verificatie mislukt.",
+  "@verificationFailed": {
+    "description": "Fallback error message when sending the SMS verification code fails."
+  },
+  "verificationCodeTitle": "Verificatiecode",
+  "@verificationCodeTitle": {
+    "description": "App bar title on the OTP screen."
+  },
+  "otpSentMessage": "We hebben een code gestuurd naar {phoneNumber}.",
+  "@otpSentMessage": {
+    "description": "Message shown on the OTP screen, including the phone number the code was sent to.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String"
+      }
+    }
+  },
+  "verificationCodeLabel": "Verificatiecode",
+  "@verificationCodeLabel": {
+    "description": "Label for the OTP code text field."
+  },
+  "verificationCodeValidationError": "Voer de ontvangen code in.",
+  "@verificationCodeValidationError": {
+    "description": "Validation message when the OTP code field is empty or too short."
+  },
+  "confirmButton": "Bevestigen",
+  "@confirmButton": {
+    "description": "Submit button label on the OTP screen."
+  },
+  "invalidVerificationCode": "Ongeldige verificatiecode.",
+  "@invalidVerificationCode": {
+    "description": "Fallback error message when the OTP code is incorrect."
+  },
+  "logoutTooltip": "Uitloggen",
+  "@logoutTooltip": {
+    "description": "Tooltip for the logout button on the home screen."
+  },
+  "locationPrivacyNotice": "We gebruiken je locatie enkel om het dichtstbijzijnde kantoor te vinden. Je locatie wordt nooit opgeslagen of gedeeld.",
+  "@locationPrivacyNotice": {
+    "description": "Privacy notice shown before requesting GPS location."
+  },
+  "findNearestOfficeButton": "Vind mijn dichtstbijzijnde LM+ kantoor",
+  "@findNearestOfficeButton": {
+    "description": "Label of the button that starts the nearest-office search."
+  },
+  "locationPermissionDenied": "Locatietoegang geweigerd. Geef toestemming in je instellingen om het dichtstbijzijnde kantoor te vinden.",
+  "@locationPermissionDenied": {
+    "description": "Message shown when location permission was denied or permanently denied."
+  },
+  "openSettingsButton": "Open instellingen",
+  "@openSettingsButton": {
+    "description": "Button label that opens the app's system settings."
+  },
+  "locationServiceDisabled": "Locatieservices zijn uitgeschakeld. Zet GPS aan om verder te gaan.",
+  "@locationServiceDisabled": {
+    "description": "Message shown when GPS/location services are turned off."
+  },
+  "openLocationSettingsButton": "Open locatie-instellingen",
+  "@openLocationSettingsButton": {
+    "description": "Button label that opens the device's location settings."
+  },
+  "genericErrorMessage": "Er is iets misgegaan. Probeer het later opnieuw.",
+  "@genericErrorMessage": {
+    "description": "Generic error message shown when finding the nearest office fails unexpectedly."
+  },
+  "distanceInKm": "{distance} km",
+  "@distanceInKm": {
+    "description": "Distance to an office, formatted to one decimal place by the caller.",
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  }
+}

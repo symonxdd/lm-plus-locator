@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/office.dart';
 import '../services/auth_service.dart';
 import '../services/location_service.dart';
@@ -70,14 +71,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LM+ Locator'),
+        title: Text(l10n.appTitle),
         actions: [
           IconButton(
             onPressed: _authService.signOut,
             icon: const Icon(Icons.logout),
-            tooltip: 'Uitloggen',
+            tooltip: l10n.logoutTooltip,
           ),
         ],
       ),
@@ -90,9 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'We gebruiken je locatie enkel om het dichtstbijzijnde '
-                    'kantoor te vinden. Je locatie wordt nooit opgeslagen of '
-                    'gedeeld.',
+                    l10n.locationPrivacyNotice,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
@@ -102,21 +102,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? null
                         : _findNearestOffices,
                     icon: const Icon(Icons.my_location),
-                    label: const Text(
-                      'Vind mijn dichtstbijzijnde LM+ kantoor',
-                    ),
+                    label: Text(l10n.findNearestOfficeButton),
                   ),
                 ],
               ),
             ),
-            Expanded(child: _buildContent()),
+            Expanded(child: _buildContent(l10n)),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(AppLocalizations l10n) {
     switch (_status) {
       case _LocatorStatus.idle:
         return const SizedBox.shrink();
@@ -136,24 +134,20 @@ class _HomeScreenState extends State<HomeScreen> {
       case _LocatorStatus.permissionDenied:
       case _LocatorStatus.permissionPermanentlyDenied:
         return _InfoMessage(
-          text: 'Locatietoegang geweigerd. Geef toestemming in je '
-              'instellingen om het dichtstbijzijnde kantoor te vinden.',
-          actionLabel: 'Open instellingen',
+          text: l10n.locationPermissionDenied,
+          actionLabel: l10n.openSettingsButton,
           onAction: _locationService.openAppSettings,
         );
 
       case _LocatorStatus.serviceDisabled:
         return _InfoMessage(
-          text: 'Locatieservices zijn uitgeschakeld. Zet GPS aan om verder '
-              'te gaan.',
-          actionLabel: 'Open locatie-instellingen',
+          text: l10n.locationServiceDisabled,
+          actionLabel: l10n.openLocationSettingsButton,
           onAction: _locationService.openLocationSettings,
         );
 
       case _LocatorStatus.error:
-        return const _InfoMessage(
-          text: 'Er is iets misgegaan. Probeer het later opnieuw.',
-        );
+        return _InfoMessage(text: l10n.genericErrorMessage);
     }
   }
 }

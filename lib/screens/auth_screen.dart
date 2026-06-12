@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import 'otp_screen.dart';
 
@@ -34,14 +35,15 @@ class _AuthScreenState extends State<AuthScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LM+ Locator'),
+        title: Text(l10n.appTitle),
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: 'E-mail'),
-            Tab(text: 'Telefoon'),
+          tabs: [
+            Tab(text: l10n.emailTab),
+            Tab(text: l10n.phoneTab),
           ],
         ),
       ),
@@ -99,8 +101,9 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
       }
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? 'Authenticatie mislukt.')),
+        SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
       );
     } finally {
       if (mounted) setState(() => _isLoading = false);
@@ -109,6 +112,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Form(
@@ -117,7 +121,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              _isRegisterMode ? 'Account aanmaken' : 'Inloggen',
+              _isRegisterMode ? l10n.registerTitle : l10n.loginTitle,
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
@@ -125,13 +129,13 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
             TextFormField(
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'E-mailadres',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: l10n.emailLabel,
+                border: const OutlineInputBorder(),
               ),
               validator: (value) {
                 if (value == null || !value.contains('@')) {
-                  return 'Voer een geldig e-mailadres in.';
+                  return l10n.emailValidationError;
                 }
                 return null;
               },
@@ -140,13 +144,13 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
             TextFormField(
               controller: _passwordController,
               obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Wachtwoord',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: l10n.passwordLabel,
+                border: const OutlineInputBorder(),
               ),
               validator: (value) {
                 if (value == null || value.length < 6) {
-                  return 'Wachtwoord moet minstens 6 tekens zijn.';
+                  return l10n.passwordValidationError;
                 }
                 return null;
               },
@@ -160,7 +164,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
                       width: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : Text(_isRegisterMode ? 'Registreren' : 'Inloggen'),
+                  : Text(_isRegisterMode ? l10n.registerButton : l10n.loginTitle),
             ),
             const SizedBox(height: 8),
             TextButton(
@@ -168,9 +172,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
                   ? null
                   : () => setState(() => _isRegisterMode = !_isRegisterMode),
               child: Text(
-                _isRegisterMode
-                    ? 'Heb je al een account? Log in'
-                    : 'Nog geen account? Registreer',
+                _isRegisterMode ? l10n.toggleToLogin : l10n.toggleToRegister,
               ),
             ),
           ],
@@ -225,8 +227,9 @@ class _PhoneAuthFormState extends State<_PhoneAuthForm> {
       verificationFailed: (e) {
         if (!mounted) return;
         setState(() => _isLoading = false);
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.message ?? 'Verificatie mislukt.')),
+          SnackBar(content: Text(e.message ?? l10n.verificationFailed)),
         );
       },
     );
@@ -234,6 +237,7 @@ class _PhoneAuthFormState extends State<_PhoneAuthForm> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Form(
@@ -242,7 +246,7 @@ class _PhoneAuthFormState extends State<_PhoneAuthForm> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Inloggen met telefoonnummer',
+              l10n.phoneLoginTitle,
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
@@ -250,15 +254,15 @@ class _PhoneAuthFormState extends State<_PhoneAuthForm> {
             TextFormField(
               controller: _phoneController,
               keyboardType: TextInputType.phone,
-              decoration: const InputDecoration(
-                labelText: 'Telefoonnummer (bv. +32470123456)',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: l10n.phoneLabel,
+                border: const OutlineInputBorder(),
               ),
               validator: (value) {
                 if (value == null ||
                     !value.startsWith('+') ||
                     value.length < 8) {
-                  return 'Voer een geldig telefoonnummer in met landcode (+32...).';
+                  return l10n.phoneValidationError;
                 }
                 return null;
               },
@@ -272,7 +276,7 @@ class _PhoneAuthFormState extends State<_PhoneAuthForm> {
                       width: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Text('Verstuur verificatiecode'),
+                  : Text(l10n.sendVerificationCode),
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'l10n/app_localizations.dart';
 import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/auth_service.dart';
@@ -24,6 +25,20 @@ class LmPlusLocatorApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      // Use the device locale when it's nl/fr/de/en, otherwise fall back to
+      // Dutch (the app's default language).
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        if (deviceLocale != null) {
+          for (final supported in supportedLocales) {
+            if (supported.languageCode == deviceLocale.languageCode) {
+              return supported;
+            }
+          }
+        }
+        return const Locale('nl');
+      },
       home: const AuthGate(),
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/office.dart';
 
 /// A card showing a nearby LM+ office. Tapping it opens the office's
@@ -32,6 +33,7 @@ class OfficeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final office = officeWithDistance.office;
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -42,7 +44,7 @@ class OfficeCard extends StatelessWidget {
         subtitle: Text('${office.city}\n${office.phone}'),
         isThreeLine: true,
         trailing: Text(
-          '${officeWithDistance.distanceKm.toStringAsFixed(1)} km',
+          l10n.distanceInKm(officeWithDistance.distanceKm.toStringAsFixed(1)),
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),

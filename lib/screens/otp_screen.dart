@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 
 /// Screen where the user enters the SMS code sent by Firebase to confirm
@@ -45,8 +46,9 @@ class _OtpScreenState extends State<OtpScreen> {
       // the Home screen automatically.
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? 'Ongeldige verificatiecode.')),
+        SnackBar(content: Text(e.message ?? l10n.invalidVerificationCode)),
       );
     } finally {
       if (mounted) setState(() => _isLoading = false);
@@ -55,8 +57,9 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('Verificatiecode')),
+      appBar: AppBar(title: Text(l10n.verificationCodeTitle)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Form(
@@ -65,7 +68,7 @@ class _OtpScreenState extends State<OtpScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'We hebben een code gestuurd naar ${widget.phoneNumber}.',
+                l10n.otpSentMessage(widget.phoneNumber),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
@@ -73,13 +76,13 @@ class _OtpScreenState extends State<OtpScreen> {
               TextFormField(
                 controller: _codeController,
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'Verificatiecode',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.verificationCodeLabel,
+                  border: const OutlineInputBorder(),
                 ),
                 validator: (value) {
                   if (value == null || value.trim().length < 4) {
-                    return 'Voer de ontvangen code in.';
+                    return l10n.verificationCodeValidationError;
                   }
                   return null;
                 },
@@ -93,7 +96,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         width: 20,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Text('Bevestigen'),
+                    : Text(l10n.confirmButton),
               ),
             ],
           ),
