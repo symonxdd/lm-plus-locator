@@ -8,6 +8,7 @@ import '../models/office.dart';
 import '../services/auth_service.dart';
 import '../services/location_service.dart';
 import '../services/office_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/language_selector.dart';
 import '../widgets/office_card.dart';
 
@@ -239,6 +240,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 16),
                   FilledButton.icon(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: brandNavy,
+                      foregroundColor: Colors.white,
+                    ),
                     onPressed: _status == _LocatorStatus.loading
                         ? null
                         : _findNearestOffices,

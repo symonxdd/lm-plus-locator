@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/language_selector.dart';
-
-/// The dark navy used for the app icon's pin shape.
-const _iconPinColor = Color(0xFF2C398F);
 
 /// Login / register screen supporting email+password auth.
 ///
@@ -76,7 +74,7 @@ class _AuthScreenState extends State<AuthScreen> {
               const SizedBox(height: 32),
               FilledButton.icon(
                 style: FilledButton.styleFrom(
-                  backgroundColor: _iconPinColor,
+                  backgroundColor: brandNavy,
                   foregroundColor: Colors.white,
                 ),
                 onPressed: _isGuestLoading ? null : _continueAsGuest,

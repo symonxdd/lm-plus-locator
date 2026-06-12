@@ -24,6 +24,12 @@ class LmPlusLocatorApp extends StatefulWidget {
     context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._setLocale(locale);
   }
 
+  /// The manually-selected locale, or `null` if the app is following the
+  /// device language.
+  static Locale? selectedLocale(BuildContext context) {
+    return context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._locale;
+  }
+
   @override
   State<LmPlusLocatorApp> createState() => _LmPlusLocatorAppState();
 }
