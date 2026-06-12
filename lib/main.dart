@@ -28,16 +28,30 @@ class LmPlusLocatorApp extends StatefulWidget {
   State<LmPlusLocatorApp> createState() => _LmPlusLocatorAppState();
 }
 
-class _LmPlusLocatorAppState extends State<LmPlusLocatorApp> {
+class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
+    with WidgetsBindingObserver {
   final _localeService = LocaleService();
   Locale? _locale;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _localeService.loadLocale().then((locale) {
       if (mounted) setState(() => _locale = locale);
     });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeLocales(List<Locale>? locales) {
+    // Re-resolve the device locale if the user hasn't picked one manually.
+    if (_locale == null) setState(() {});
   }
 
   void _setLocale(Locale? locale) {
@@ -45,29 +59,32 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp> {
     _localeService.saveLocale(locale);
   }
 
+  /// Maps the device's current locale to a supported one, falling back to
+  /// Dutch when the device language isn't supported.
+  Locale _resolveDeviceLocale() {
+    final deviceLocale = WidgetsBinding.instance.platformDispatcher.locale;
+    for (final supported in AppLocalizations.supportedLocales) {
+      if (supported.languageCode == deviceLocale.languageCode) {
+        return supported;
+      }
+    }
+    return const Locale('nl');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LM+ Locator',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // If the user picked a language manually, use it. Otherwise use the
-      // device locale when it's nl/fr/de/en, falling back to Dutch.
-      locale: _locale,
-      localeResolutionCallback: (deviceLocale, supportedLocales) {
-        if (deviceLocale != null) {
-          for (final supported in supportedLocales) {
-            if (supported.languageCode == deviceLocale.languageCode) {
-              return supported;
-            }
-          }
-        }
-        return const Locale('nl');
-      },
+      // If the user picked a language manually, use it. Otherwise follow the
+      // device language, falling back to Dutch when unsupported.
+      locale: _locale ?? _resolveDeviceLocale(),
       home: const AuthGate(),
     );
   }
