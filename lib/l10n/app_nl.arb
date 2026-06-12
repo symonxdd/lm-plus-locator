@@ -126,9 +126,9 @@
   "@countryBelgium": {
     "description": "The country name shown after the head office's postal code and city."
   },
-  "orDividerLabel": "of",
-  "@orDividerLabel": {
-    "description": "Short label in the divider between the guest button and the email login form on the auth screen."
+  "signInWithEmailButton": "Inloggen met e-mail",
+  "@signInWithEmailButton": {
+    "description": "Button on the auth screen that opens the email login/register form in a bottom sheet."
   },
   "logoutConfirmTitle": "Uitloggen?",
   "@logoutConfirmTitle": {

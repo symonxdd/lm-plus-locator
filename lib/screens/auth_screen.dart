@@ -35,6 +35,22 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
+  Future<void> _showEmailAuthSheet() async {
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: _EmailAuthForm(authService: _authService),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -44,62 +60,45 @@ class _AuthScreenState extends State<AuthScreen> {
         actions: const [LanguageSelector()],
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 24),
-              child: Image.asset(
-                'assets/icon/icon_foreground.png',
-                width: 88,
-                height: 88,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
-              child: FilledButton.icon(
-                onPressed: _isGuestLoading ? null : _continueAsGuest,
-                icon: _isGuestLoading
-                    ? const SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.arrow_forward_rounded),
-                label: Text(l10n.continueAsGuestButton),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
-              child: Text(
-                l10n.authDisclaimer,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.outline,
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/icon/icon_foreground.png',
+                  width: 96,
+                  height: 96,
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
-              child: Row(
-                children: [
-                  const Expanded(child: Divider()),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(
-                      l10n.orDividerLabel,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.outline,
-                      ),
-                    ),
+                const SizedBox(height: 32),
+                FilledButton.icon(
+                  onPressed: _isGuestLoading ? null : _continueAsGuest,
+                  icon: _isGuestLoading
+                      ? const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.arrow_forward_rounded),
+                  label: Text(l10n.continueAsGuestButton),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  l10n.authDisclaimer,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.outline,
                   ),
-                  const Expanded(child: Divider()),
-                ],
-              ),
+                ),
+                const SizedBox(height: 16),
+                TextButton(
+                  onPressed: _showEmailAuthSheet,
+                  child: Text(l10n.signInWithEmailButton),
+                ),
+              ],
             ),
-            Expanded(
-              child: _EmailAuthForm(authService: _authService),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -161,69 +160,75 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              _isRegisterMode ? l10n.registerTitle : l10n.loginTitle,
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            TextFormField(
-              controller: _emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: l10n.emailLabel,
-                border: const OutlineInputBorder(),
+    return SafeArea(
+      top: false,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                _isRegisterMode ? l10n.registerTitle : l10n.loginTitle,
+                style: Theme.of(context).textTheme.headlineSmall,
+                textAlign: TextAlign.center,
               ),
-              validator: (value) {
-                if (value == null || !value.contains('@')) {
-                  return l10n.emailValidationError;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: l10n.passwordLabel,
-                border: const OutlineInputBorder(),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: l10n.emailLabel,
+                  border: const OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || !value.contains('@')) {
+                    return l10n.emailValidationError;
+                  }
+                  return null;
+                },
               ),
-              validator: (value) {
-                if (value == null || value.length < 6) {
-                  return l10n.passwordValidationError;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 24),
-            OutlinedButton(
-              onPressed: _isLoading ? null : _submit,
-              child: _isLoading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : Text(_isRegisterMode ? l10n.registerButton : l10n.loginTitle),
-            ),
-            const SizedBox(height: 8),
-            TextButton(
-              onPressed: _isLoading
-                  ? null
-                  : () => setState(() => _isRegisterMode = !_isRegisterMode),
-              child: Text(
-                _isRegisterMode ? l10n.toggleToLogin : l10n.toggleToRegister,
+              const SizedBox(height: 16),
+              TextFormField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: l10n.passwordLabel,
+                  border: const OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.length < 6) {
+                    return l10n.passwordValidationError;
+                  }
+                  return null;
+                },
               ),
-            ),
-          ],
+              const SizedBox(height: 24),
+              OutlinedButton(
+                onPressed: _isLoading ? null : _submit,
+                child: _isLoading
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : Text(
+                        _isRegisterMode ? l10n.registerButton : l10n.loginTitle,
+                      ),
+              ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: _isLoading
+                    ? null
+                    : () => setState(() => _isRegisterMode = !_isRegisterMode),
+                child: Text(
+                  _isRegisterMode ? l10n.toggleToLogin : l10n.toggleToRegister,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

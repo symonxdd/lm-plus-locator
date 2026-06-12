@@ -276,11 +276,11 @@ abstract class AppLocalizations {
   /// **'België'**
   String get countryBelgium;
 
-  /// Short label in the divider between the guest button and the email login form on the auth screen.
+  /// Button on the auth screen that opens the email login/register form in a bottom sheet.
   ///
   /// In nl, this message translates to:
-  /// **'of'**
-  String get orDividerLabel;
+  /// **'Inloggen met e-mail'**
+  String get signInWithEmailButton;
 
   /// Title of the confirmation dialog shown when the user taps the logout button.
   ///

@@ -29,7 +29,7 @@
   "headOfficeTooltip": "Siège social",
   "headOfficeTitle": "Siège social de LM+",
   "countryBelgium": "Belgique",
-  "orDividerLabel": "ou",
+  "signInWithEmailButton": "Se connecter avec un e-mail",
   "logoutConfirmTitle": "Se déconnecter ?",
   "logoutConfirmMessage": "Voulez-vous vraiment vous déconnecter ?",
   "cancelButton": "Annuler"

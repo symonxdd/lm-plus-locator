@@ -107,7 +107,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get countryBelgium => 'België';
 
   @override
-  String get orDividerLabel => 'of';
+  String get signInWithEmailButton => 'Inloggen met e-mail';
 
   @override
   String get logoutConfirmTitle => 'Uitloggen?';

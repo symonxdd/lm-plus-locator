@@ -108,7 +108,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get countryBelgium => 'Belgique';
 
   @override
-  String get orDividerLabel => 'ou';
+  String get signInWithEmailButton => 'Se connecter avec un e-mail';
 
   @override
   String get logoutConfirmTitle => 'Se déconnecter ?';
