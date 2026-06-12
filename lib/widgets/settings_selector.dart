@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../l10n/app_localizations.dart';
 import '../main.dart';
@@ -27,6 +29,11 @@ class SettingsSelector extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final selectedMode = LmPlusLocatorApp.themeModeOf(context);
     final selectedLocale = LmPlusLocatorApp.selectedLocale(context);
+    final packageInfo = await PackageInfo.fromPlatform();
+    final buildType = kReleaseMode ? 'release' : 'dev';
+    final versionLabel = 'v${packageInfo.version} ($buildType)';
+
+    if (!context.mounted) return;
 
     final themeOptions = {
       ThemeMode.system: (l10n.themeModeSystem, Icons.brightness_auto_outlined),
@@ -116,6 +123,15 @@ class SettingsSelector extends StatelessWidget {
                     },
                   ),
                 ],
+                const SizedBox(height: 24),
+                Center(
+                  child: Text(
+                    versionLabel,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
