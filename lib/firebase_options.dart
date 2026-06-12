@@ -43,6 +43,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '000000000000',
     projectId: 'lm-plus-locator-placeholder',
     storageBucket: 'lm-plus-locator-placeholder.appspot.com',
-    iosBundleId: 'com.example.lmplusLocator',
+    iosBundleId: 'me.symon.lmplusLocator',
   );
 }
