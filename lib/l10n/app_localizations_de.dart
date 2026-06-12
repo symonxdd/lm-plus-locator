@@ -12,6 +12,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
+  String get appTagline => 'Finde schnell das nächstgelegene LM+ Büro.';
+
+  @override
   String get loginTitle => 'Anmelden';
 
   @override
@@ -100,8 +103,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get themeModeSystem => 'Systemdesign';
 
   @override
+  String get settingsTooltip => 'Einstellungen';
+
+  @override
   String get authDisclaimer =>
       'Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.';
+
+  @override
+  String get unofficialAppNotice =>
+      'Dies ist ein unabhängiges Projekt und steht in keiner Verbindung zu LM+ und wird nicht von LM+ unterstützt.';
 
   @override
   String get continueAsGuestButton => 'Ohne Konto fortfahren';

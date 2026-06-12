@@ -12,6 +12,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
+  String get appTagline => 'Vind snel het dichtstbijzijnde LM+ kantoor.';
+
+  @override
   String get loginTitle => 'Inloggen';
 
   @override
@@ -100,8 +103,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get themeModeSystem => 'Systeemthema';
 
   @override
+  String get settingsTooltip => 'Instellingen';
+
+  @override
   String get authDisclaimer =>
       'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.';
+
+  @override
+  String get unofficialAppNotice =>
+      'Dit is een onafhankelijk project en is niet verbonden met of goedgekeurd door LM+.';
 
   @override
   String get continueAsGuestButton => 'Doorgaan zonder account';

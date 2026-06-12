@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import '../theme/app_colors.dart';
-import '../widgets/language_selector.dart';
-import '../widgets/theme_selector.dart';
+import '../widgets/settings_selector.dart';
 
 /// Login / register screen supporting email+password auth.
 ///
@@ -59,7 +58,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.appTitle),
-        actions: const [ThemeSelector(), LanguageSelector()],
+        actions: const [SettingsSelector()],
       ),
       body: SafeArea(
         child: Padding(
@@ -71,6 +70,12 @@ class _AuthScreenState extends State<AuthScreen> {
                 'assets/icon/icon_foreground.png',
                 width: 96,
                 height: 96,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                l10n.appTagline,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 32),
               FilledButton.icon(
@@ -94,6 +99,14 @@ class _AuthScreenState extends State<AuthScreen> {
               const Spacer(flex: 3),
               Text(
                 l10n.authDisclaimer,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                l10n.unofficialAppNotice,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Theme.of(context).colorScheme.outline,

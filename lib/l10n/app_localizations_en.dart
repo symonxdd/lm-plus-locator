@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
+  String get appTagline => 'Quickly find the LM+ office closest to you.';
+
+  @override
   String get loginTitle => 'Log in';
 
   @override
@@ -99,8 +102,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeModeSystem => 'System theme';
 
   @override
+  String get settingsTooltip => 'Settings';
+
+  @override
   String get authDisclaimer =>
       'An account isn\'t needed to use the office locator. Signing in is optional and doesn\'t unlock any extra features yet.';
+
+  @override
+  String get unofficialAppNotice =>
+      'This is an independent project and is not affiliated with or endorsed by LM+.';
 
   @override
   String get continueAsGuestButton => 'Continue without account';

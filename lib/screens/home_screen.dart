@@ -9,9 +9,8 @@ import '../services/auth_service.dart';
 import '../services/location_service.dart';
 import '../services/office_service.dart';
 import '../theme/app_colors.dart';
-import '../widgets/language_selector.dart';
 import '../widgets/office_card.dart';
-import '../widgets/theme_selector.dart';
+import '../widgets/settings_selector.dart';
 
 enum _LocatorStatus {
   idle,
@@ -218,8 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.info_outline),
             tooltip: l10n.headOfficeTooltip,
           ),
-          const ThemeSelector(),
-          const LanguageSelector(),
+          const SettingsSelector(),
           IconButton.filled(
             style: IconButton.styleFrom(
               backgroundColor: ctaColors(context).background,

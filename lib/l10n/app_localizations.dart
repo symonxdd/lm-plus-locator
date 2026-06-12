@@ -108,6 +108,12 @@ abstract class AppLocalizations {
   /// **'LM+ Locator'**
   String get appTitle;
 
+  /// Short tagline on the auth screen explaining what the app does.
+  ///
+  /// In nl, this message translates to:
+  /// **'Vind snel het dichtstbijzijnde LM+ kantoor.'**
+  String get appTagline;
+
   /// Heading shown on the email form in login mode, and the login button label.
   ///
   /// In nl, this message translates to:
@@ -264,11 +270,23 @@ abstract class AppLocalizations {
   /// **'Systeemthema'**
   String get themeModeSystem;
 
+  /// Tooltip for the app bar button that opens the combined theme and language settings sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Instellingen'**
+  String get settingsTooltip;
+
   /// Small print on the auth screen explaining that signing in is optional and not required for the office locator.
   ///
   /// In nl, this message translates to:
   /// **'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel en biedt momenteel geen extra functies.'**
   String get authDisclaimer;
+
+  /// Small print on the auth screen clarifying that this is an unofficial, independent app and not an official LM+ product.
+  ///
+  /// In nl, this message translates to:
+  /// **'Dit is een onafhankelijk project en is niet verbonden met of goedgekeurd door LM+.'**
+  String get unofficialAppNotice;
 
   /// Button label that lets the user continue using the app anonymously, without signing in.
   ///
