@@ -11,6 +11,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -31,12 +32,74 @@ NOMINATIM_HEADERS = {
 }
 
 
+def _extract_office_hours_by_id(html: str) -> dict[str, dict[str, list[list[int]]]]:
+    """Parses the `drupalSettings.office` JSON blob embedded in a listing
+    page, returning ``{data_id: {"0": [[start, end], ...], ..., "6": [...]}}``
+    weekly opening-hours slots (in HHMM int form, day 0 = Sunday).
+
+    Closed days / slots without a fixed time (e.g. "by appointment") yield an
+    empty list for that day or are omitted respectively.
+    """
+    match = re.search(r'"office":\{', html)
+    if not match:
+        return {}
+
+    start = match.end() - 1  # position of the opening '{'
+    depth = 0
+    in_str = False
+    esc = False
+    i = start
+    while i < len(html):
+        c = html[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                in_str = False
+        else:
+            if c == '"':
+                in_str = True
+            elif c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+        i += 1
+
+    try:
+        office_blob = json.loads(html[start : i + 1])
+    except ValueError:
+        return {}
+
+    result: dict[str, dict[str, list[list[int]]]] = {}
+    for office_id, office_data in office_blob.items():
+        hours = office_data.get("officeHours")
+        if not hours:
+            continue
+
+        week: dict[str, list[list[int]]] = {}
+        for day, day_data in hours.items():
+            slots = [
+                [slot["start"], slot["end"]]
+                for slot in day_data.get("slots", [])
+                if slot.get("start") is not None and slot.get("end") is not None
+            ]
+            week[day] = slots
+        result[office_id] = week
+
+    return result
+
+
 def fetch_page(session: requests.Session, page: int) -> list[dict]:
     """Fetch one listing page and return raw office dicts (without coordinates)."""
     url = f"{BASE_URL}?page={page}"
     response = session.get(url, headers=SCRAPE_HEADERS, timeout=30)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
+    office_hours_by_id = _extract_office_hours_by_id(response.text)
 
     offices = []
     for article in soup.select("article.node--view-mode-teaser.node--office"):
@@ -50,16 +113,28 @@ def fetch_page(session: requests.Session, page: int) -> list[dict]:
             print(f"  [page {page}] skipping incomplete entry, missing fields")
             continue
 
+        # Mailbox-only entries lack the "office--identification" class and
+        # don't have opening hours / a live open status on the site.
+        is_office = "office--identification" in article.get("class", [])
+        data_id = article.get("data-id")
+
         location_name = name_span.get("content", "").strip()
-        offices.append(
-            {
-                "name": f"LM Plus {location_name}",
-                "address": address_line.get_text(strip=True),
-                "city": city.get_text(strip=True),
-                "postal_code": postal_code.get_text(strip=True),
-                "phone": phone.get_text(strip=True) if phone else "",
-            }
-        )
+        office = {
+            "name": f"LM Plus {location_name}",
+            "address": address_line.get_text(strip=True),
+            "city": city.get_text(strip=True),
+            "postal_code": postal_code.get_text(strip=True),
+            "phone": phone.get_text(strip=True) if phone else "",
+            "type": "office" if is_office else "mailbox",
+        }
+
+        opening_hours = office_hours_by_id.get(data_id) if data_id else None
+        # Some offices are "by appointment only" and have no fixed slots on
+        # any day; that's not useful for an "open now" check, so omit it.
+        if opening_hours and any(opening_hours.values()):
+            office["opening_hours"] = opening_hours
+
+        offices.append(office)
 
     return offices
 

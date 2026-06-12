@@ -122,6 +122,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get openInMapsHint => 'Appuyez pour ouvrir dans Maps';
 
   @override
+  String get officeOpenNow => 'Ouvert maintenant';
+
+  @override
+  String get officeClosedNow => 'Fermé maintenant';
+
+  @override
+  String get officeTypeFilterOffices => 'Bureaux';
+
+  @override
+  String get officeTypeFilterMailboxes => 'Boîtes aux lettres';
+
+  @override
   String get headOfficeTooltip => 'Siège social';
 
   @override

@@ -120,6 +120,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get openInMapsHint => 'Tik om te openen in Maps';
 
   @override
+  String get officeOpenNow => 'Nu open';
+
+  @override
+  String get officeClosedNow => 'Nu gesloten';
+
+  @override
+  String get officeTypeFilterOffices => 'Kantoren';
+
+  @override
+  String get officeTypeFilterMailboxes => 'Postpunten';
+
+  @override
   String get headOfficeTooltip => 'Hoofdzetel';
 
   @override

@@ -142,6 +142,22 @@
   "@openInMapsHint": {
     "description": "Small hint on each office card explaining that tapping it opens the location in a maps app."
   },
+  "officeOpenNow": "Nu open",
+  "@officeOpenNow": {
+    "description": "Badge shown on an office card when the office is currently open."
+  },
+  "officeClosedNow": "Nu gesloten",
+  "@officeClosedNow": {
+    "description": "Badge shown on an office card when the office is currently closed."
+  },
+  "officeTypeFilterOffices": "Kantoren",
+  "@officeTypeFilterOffices": {
+    "description": "Filter option showing only full offices (with opening hours)."
+  },
+  "officeTypeFilterMailboxes": "Postpunten",
+  "@officeTypeFilterMailboxes": {
+    "description": "Filter option showing only mailbox/drop-off locations."
+  },
   "headOfficeTooltip": "Hoofdzetel",
   "@headOfficeTooltip": {
     "description": "Tooltip for the app bar button that shows the head office info sheet."

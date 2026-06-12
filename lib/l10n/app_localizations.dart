@@ -300,6 +300,30 @@ abstract class AppLocalizations {
   /// **'Tik om te openen in Maps'**
   String get openInMapsHint;
 
+  /// Badge shown on an office card when the office is currently open.
+  ///
+  /// In nl, this message translates to:
+  /// **'Nu open'**
+  String get officeOpenNow;
+
+  /// Badge shown on an office card when the office is currently closed.
+  ///
+  /// In nl, this message translates to:
+  /// **'Nu gesloten'**
+  String get officeClosedNow;
+
+  /// Filter option showing only full offices (with opening hours).
+  ///
+  /// In nl, this message translates to:
+  /// **'Kantoren'**
+  String get officeTypeFilterOffices;
+
+  /// Filter option showing only mailbox/drop-off locations.
+  ///
+  /// In nl, this message translates to:
+  /// **'Postpunten'**
+  String get officeTypeFilterMailboxes;
+
   /// Tooltip for the app bar button that shows the head office info sheet.
   ///
   /// In nl, this message translates to:

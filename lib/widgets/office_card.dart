@@ -74,6 +74,32 @@ class OfficeCard extends StatelessWidget {
                         ),
                       ],
                     ),
+                    if (office.isOpenNow != null) ...[
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            size: 10,
+                            color: office.isOpenNow!
+                                ? Colors.green
+                                : theme.colorScheme.error,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            office.isOpenNow!
+                                ? l10n.officeOpenNow
+                                : l10n.officeClosedNow,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: office.isOpenNow!
+                                  ? Colors.green
+                                  : theme.colorScheme.error,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                     const SizedBox(height: 4),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,

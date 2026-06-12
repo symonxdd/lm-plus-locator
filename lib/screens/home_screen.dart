@@ -38,9 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _LocatorStatus _status = _LocatorStatus.idle;
   List<OfficeWithDistance> _allOffices = [];
+  OfficeType _selectedType = OfficeType.office;
   int _visibleCount = _pageSize;
   String? _userLocationText;
   Future<List<Office>>? _officesFuture;
+
+  List<OfficeWithDistance> get _filteredOffices => _allOffices
+      .where((o) => o.office.type == _selectedType)
+      .toList(growable: false);
 
   @override
   void initState() {
@@ -56,14 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onScroll() {
-    if (_visibleCount >= _allOffices.length) return;
+    final total = _filteredOffices.length;
+    if (_visibleCount >= total) return;
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
       setState(() {
-        _visibleCount = (_visibleCount + _pageSize).clamp(
-          0,
-          _allOffices.length,
-        );
+        _visibleCount = (_visibleCount + _pageSize).clamp(0, total);
       });
     }
   }
@@ -261,14 +264,45 @@ class _HomeScreenState extends State<HomeScreen> {
         return const Center(child: CircularProgressIndicator());
 
       case _LocatorStatus.results:
-        final visibleOffices = _allOffices.take(_visibleCount).toList();
-        return ListView.builder(
-          controller: _scrollController,
-          padding: const EdgeInsets.only(top: 8, bottom: 16),
-          itemCount: visibleOffices.length,
-          itemBuilder: (context, index) {
-            return OfficeCard(officeWithDistance: visibleOffices[index]);
-          },
+        final filteredOffices = _filteredOffices;
+        final visibleOffices = filteredOffices.take(_visibleCount).toList();
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: SegmentedButton<OfficeType>(
+                segments: [
+                  ButtonSegment(
+                    value: OfficeType.office,
+                    label: Text(l10n.officeTypeFilterOffices),
+                    icon: const Icon(Icons.business_outlined),
+                  ),
+                  ButtonSegment(
+                    value: OfficeType.mailbox,
+                    label: Text(l10n.officeTypeFilterMailboxes),
+                    icon: const Icon(Icons.mail_outline),
+                  ),
+                ],
+                selected: {_selectedType},
+                onSelectionChanged: (selection) {
+                  setState(() {
+                    _selectedType = selection.first;
+                    _visibleCount = _pageSize;
+                  });
+                },
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                controller: _scrollController,
+                padding: const EdgeInsets.only(bottom: 16),
+                itemCount: visibleOffices.length,
+                itemBuilder: (context, index) {
+                  return OfficeCard(officeWithDistance: visibleOffices[index]);
+                },
+              ),
+            ),
+          ],
         );
 
       case _LocatorStatus.permissionDenied:

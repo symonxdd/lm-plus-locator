@@ -119,6 +119,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get openInMapsHint => 'Tap to open in Maps';
 
   @override
+  String get officeOpenNow => 'Open now';
+
+  @override
+  String get officeClosedNow => 'Closed now';
+
+  @override
+  String get officeTypeFilterOffices => 'Offices';
+
+  @override
+  String get officeTypeFilterMailboxes => 'Mailboxes';
+
+  @override
   String get headOfficeTooltip => 'Head office';
 
   @override
