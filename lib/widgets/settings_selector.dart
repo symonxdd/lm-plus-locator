@@ -45,40 +45,30 @@ class SettingsSelector extends StatelessWidget {
         return SafeArea(
           top: false,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  l10n.themeMenuTooltip,
-                  style: Theme.of(context).textTheme.titleLarge,
+                ListTile(
+                  dense: true,
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.account_circle_outlined),
+                  title: Text(l10n.accountTooltip),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _showAccountSheet(context);
+                  },
                 ),
-                const SizedBox(height: 8),
-                for (final entry in themeOptions.entries)
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    leading: Icon(entry.value.$2),
-                    title: Text(entry.value.$1),
-                    trailing: selectedMode == entry.key
-                        ? Icon(
-                            Icons.check,
-                            color: Theme.of(context).colorScheme.primary,
-                          )
-                        : null,
-                    onTap: () {
-                      LmPlusLocatorApp.setThemeMode(context, entry.key);
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                const Divider(height: 32),
+                const Divider(height: 16),
                 Text(
                   l10n.languageMenuTooltip,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 8),
                 for (final entry in _languages.entries)
                   ListTile(
+                    dense: true,
                     contentPadding: EdgeInsets.zero,
                     title: Text(entry.value),
                     trailing: selectedLocale?.languageCode ==
@@ -94,6 +84,7 @@ class SettingsSelector extends StatelessWidget {
                     },
                   ),
                 ListTile(
+                  dense: true,
                   contentPadding: EdgeInsets.zero,
                   title: Text(l10n.languageSystemDefault),
                   trailing: selectedLocale == null
@@ -107,17 +98,29 @@ class SettingsSelector extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                const Divider(height: 32),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.account_circle_outlined),
-                  title: Text(l10n.accountTooltip),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    _showAccountSheet(context);
-                  },
+                const Divider(height: 16),
+                Text(
+                  l10n.themeMenuTooltip,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 24),
+                for (final entry in themeOptions.entries)
+                  ListTile(
+                    dense: true,
+                    contentPadding: EdgeInsets.zero,
+                    leading: Icon(entry.value.$2),
+                    title: Text(entry.value.$1),
+                    trailing: selectedMode == entry.key
+                        ? Icon(
+                            Icons.check,
+                            color: Theme.of(context).colorScheme.primary,
+                          )
+                        : null,
+                    onTap: () {
+                      LmPlusLocatorApp.setThemeMode(context, entry.key);
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                const SizedBox(height: 12),
                 Center(
                   child: Text(
                     versionLabel,
