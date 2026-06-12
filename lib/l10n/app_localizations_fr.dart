@@ -113,7 +113,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unofficialAppNotice =>
-      'Ceci est un projet indépendant qui n\'est ni affilié à LM+, ni approuvé par LM+.';
+      'Ceci est un projet indépendant et n\'est pas affilié à LM+.';
 
   @override
   String get continueAsGuestButton => 'Continuer sans compte';

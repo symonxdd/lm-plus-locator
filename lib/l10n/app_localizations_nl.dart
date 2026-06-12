@@ -111,7 +111,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unofficialAppNotice =>
-      'Dit is een onafhankelijk project en is niet verbonden met of goedgekeurd door LM+.';
+      'Dit is een onafhankelijk project en is niet verbonden met LM+.';
 
   @override
   String get continueAsGuestButton => 'Doorgaan zonder account';

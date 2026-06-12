@@ -110,7 +110,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unofficialAppNotice =>
-      'This is an independent project and is not affiliated with or endorsed by LM+.';
+      'This is an independent project and is not affiliated with LM+.';
 
   @override
   String get continueAsGuestButton => 'Continue without account';

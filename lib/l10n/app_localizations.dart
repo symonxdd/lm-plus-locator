@@ -285,7 +285,7 @@ abstract class AppLocalizations {
   /// Small print on the auth screen clarifying that this is an unofficial, independent app and not an official LM+ product.
   ///
   /// In nl, this message translates to:
-  /// **'Dit is een onafhankelijk project en is niet verbonden met of goedgekeurd door LM+.'**
+  /// **'Dit is een onafhankelijk project en is niet verbonden met LM+.'**
   String get unofficialAppNotice;
 
   /// Button label that lets the user continue using the app anonymously, without signing in.

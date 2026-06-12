@@ -130,7 +130,7 @@
   "@authDisclaimer": {
     "description": "Small print on the auth screen explaining that signing in is optional and not required for the office locator."
   },
-  "unofficialAppNotice": "Dit is een onafhankelijk project en is niet verbonden met of goedgekeurd door LM+.",
+  "unofficialAppNotice": "Dit is een onafhankelijk project en is niet verbonden met LM+.",
   "@unofficialAppNotice": {
     "description": "Small print on the auth screen clarifying that this is an unofficial, independent app and not an official LM+ product."
   },

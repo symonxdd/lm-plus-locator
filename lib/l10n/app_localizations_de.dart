@@ -111,7 +111,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unofficialAppNotice =>
-      'Dies ist ein unabhängiges Projekt und steht in keiner Verbindung zu LM+ und wird nicht von LM+ unterstützt.';
+      'Dies ist ein unabhängiges Projekt und steht in keiner Verbindung zu LM+.';
 
   @override
   String get continueAsGuestButton => 'Ohne Konto fortfahren';

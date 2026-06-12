@@ -47,8 +47,10 @@ class LocationService {
     );
   }
 
-  /// Resolves (lat, lng) to a human-readable address (e.g. "Bellemstraat 24,
-  /// 9880 Aalter"), or `null` if reverse geocoding fails or returns nothing.
+  /// Resolves (lat, lng) to a human-readable address without a house number
+  /// (e.g. "Bellemstraat, 9880 Aalter"), since reverse geocoding can be off
+  /// by a house or two. Returns `null` if reverse geocoding fails or returns
+  /// nothing.
   Future<String?> reverseGeocode(double lat, double lng) async {
     try {
       final placemarks = await placemarkFromCoordinates(lat, lng);
@@ -56,8 +58,8 @@ class LocationService {
 
       final placemark = placemarks.first;
       final street = [
-        placemark.street,
         placemark.thoroughfare,
+        placemark.street?.replaceAll(RegExp(r'\s*\d+\S*\s*$'), ''),
       ].firstWhere((s) => s != null && s.isNotEmpty, orElse: () => null);
       final cityLine = [
         placemark.postalCode,

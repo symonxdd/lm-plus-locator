@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import '../theme/app_colors.dart';
+import '../widgets/head_office_info_button.dart';
 import '../widgets/settings_selector.dart';
 
 /// Login / register screen supporting email+password auth.
@@ -58,7 +59,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.appTitle),
-        actions: const [SettingsSelector()],
+        actions: const [HeadOfficeInfoButton(), SettingsSelector()],
       ),
       body: SafeArea(
         child: Padding(
@@ -104,20 +105,20 @@ class _AuthScreenState extends State<AuthScreen> {
                   color: Theme.of(context).colorScheme.outline,
                 ),
               ),
-              const SizedBox(height: 4),
-              Text(
-                l10n.unofficialAppNotice,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.outline,
-                ),
-              ),
               const SizedBox(height: 8),
               TextButton(
                 onPressed: _showEmailAuthSheet,
                 child: Text(l10n.continueWithAccountButton),
               ),
               const Spacer(flex: 1),
+              Text(
+                l10n.unofficialAppNotice,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+              const SizedBox(height: 8),
             ],
           ),
         ),
