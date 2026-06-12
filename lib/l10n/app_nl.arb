@@ -126,8 +126,8 @@
   "@countryBelgium": {
     "description": "The country name shown after the head office's postal code and city."
   },
-  "signInWithEmailButton": "Inloggen met e-mail",
-  "@signInWithEmailButton": {
+  "continueWithAccountButton": "Doorgaan met account",
+  "@continueWithAccountButton": {
     "description": "Button on the auth screen that opens the email login/register form in a bottom sheet."
   },
   "logoutConfirmTitle": "Uitloggen?",

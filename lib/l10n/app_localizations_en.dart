@@ -91,7 +91,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'An account isn\'t needed to use the office locator. Signing in is optional and doesn\'t unlock any extra features yet.';
 
   @override
-  String get continueAsGuestButton => 'Continue without an account';
+  String get continueAsGuestButton => 'Continue without account';
 
   @override
   String get openInMapsHint => 'Tap to open in Maps';
@@ -106,7 +106,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get countryBelgium => 'Belgium';
 
   @override
-  String get signInWithEmailButton => 'Sign in with email';
+  String get continueWithAccountButton => 'Continue with account';
 
   @override
   String get logoutConfirmTitle => 'Log out?';

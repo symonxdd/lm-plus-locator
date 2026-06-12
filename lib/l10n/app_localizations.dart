@@ -279,8 +279,8 @@ abstract class AppLocalizations {
   /// Button on the auth screen that opens the email login/register form in a bottom sheet.
   ///
   /// In nl, this message translates to:
-  /// **'Inloggen met e-mail'**
-  String get signInWithEmailButton;
+  /// **'Doorgaan met account'**
+  String get continueWithAccountButton;
 
   /// Title of the confirmation dialog shown when the user taps the logout button.
   ///

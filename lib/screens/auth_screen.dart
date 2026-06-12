@@ -103,7 +103,7 @@ class _AuthScreenState extends State<AuthScreen> {
               const SizedBox(height: 8),
               TextButton(
                 onPressed: _showEmailAuthSheet,
-                child: Text(l10n.signInWithEmailButton),
+                child: Text(l10n.continueWithAccountButton),
               ),
               const Spacer(flex: 1),
             ],
