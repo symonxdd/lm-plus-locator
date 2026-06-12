@@ -41,11 +41,21 @@ class LocationService {
 
   /// Returns the device's current position. Only call after [checkPermission]
   /// returns [LocationPermissionStatus.granted].
+  ///
+  /// Uses [LocationAccuracy.medium] rather than `.high`: finding the nearest
+  /// office doesn't need GPS-grade precision, and medium accuracy returns a
+  /// fix noticeably faster (often via network/cell positioning).
   Future<Position> getCurrentPosition() {
     return Geolocator.getCurrentPosition(
-      locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+      locationSettings: const LocationSettings(accuracy: LocationAccuracy.medium),
     );
   }
+
+  /// Returns the last cached position, if any, without waiting for a fresh
+  /// fix. Used to show approximate results instantly while a fresh fix is
+  /// obtained via [getCurrentPosition]. Only call after [checkPermission]
+  /// returns [LocationPermissionStatus.granted].
+  Future<Position?> getLastKnownPosition() => Geolocator.getLastKnownPosition();
 
   /// Resolves (lat, lng) to a human-readable address without a house number
   /// (e.g. "Bellemstraat, 9880 Aalter"), since reverse geocoding can be off

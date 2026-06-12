@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<OfficeWithDistance> _allOffices = [];
   int _visibleCount = _pageSize;
   String? _userLocationText;
+  Future<List<Office>>? _officesFuture;
 
   @override
   void initState() {
@@ -74,37 +75,39 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
 
+    final permissionStatus = await _locationService.checkPermission();
+    switch (permissionStatus) {
+      case LocationPermissionStatus.denied:
+        setState(() => _status = _LocatorStatus.permissionDenied);
+        return;
+      case LocationPermissionStatus.permanentlyDenied:
+        setState(() => _status = _LocatorStatus.permissionPermanentlyDenied);
+        return;
+      case LocationPermissionStatus.serviceDisabled:
+        setState(() => _status = _LocatorStatus.serviceDisabled);
+        return;
+      case LocationPermissionStatus.granted:
+        break;
+    }
+
+    // Loaded once and cached: parsing the offices asset is independent of
+    // the user's position, so kick it off in parallel with location lookups.
+    final officesFuture = _officesFuture ??= _officeService.loadOffices();
+
+    var hasResults = false;
     try {
-      final permissionStatus = await _locationService.checkPermission();
-
-      switch (permissionStatus) {
-        case LocationPermissionStatus.denied:
-          setState(() => _status = _LocatorStatus.permissionDenied);
-          return;
-        case LocationPermissionStatus.permanentlyDenied:
-          setState(() => _status = _LocatorStatus.permissionPermanentlyDenied);
-          return;
-        case LocationPermissionStatus.serviceDisabled:
-          setState(() => _status = _LocatorStatus.serviceDisabled);
-          return;
-        case LocationPermissionStatus.granted:
-          break;
+      final lastKnown = await _locationService.getLastKnownPosition();
+      if (lastKnown != null) {
+        await _showResultsFor(lastKnown, officesFuture);
+        hasResults = true;
       }
+    } catch (_) {
+      // Best-effort only; fall through to a fresh fix below.
+    }
 
+    try {
       final position = await _locationService.getCurrentPosition();
-      final offices = await _officeService.loadOffices();
-      final allOffices = _officeService.nearestOffices(
-        offices: offices,
-        userLat: position.latitude,
-        userLng: position.longitude,
-      );
-
-      setState(() {
-        _userLocationText = _formatCoordinates(position);
-        _allOffices = allOffices;
-        _visibleCount = _pageSize;
-        _status = _LocatorStatus.results;
-      });
+      await _showResultsFor(position, officesFuture);
 
       final address = await _locationService.reverseGeocode(
         position.latitude,
@@ -114,8 +117,32 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() => _userLocationText = address);
       }
     } catch (_) {
-      setState(() => _status = _LocatorStatus.error);
+      if (!hasResults && mounted) {
+        setState(() => _status = _LocatorStatus.error);
+      }
     }
+  }
+
+  /// Computes and displays the nearest offices for [position], using the
+  /// (cached) [officesFuture].
+  Future<void> _showResultsFor(
+    Position position,
+    Future<List<Office>> officesFuture,
+  ) async {
+    final offices = await officesFuture;
+    final allOffices = _officeService.nearestOffices(
+      offices: offices,
+      userLat: position.latitude,
+      userLng: position.longitude,
+    );
+
+    if (!mounted) return;
+    setState(() {
+      _userLocationText = _formatCoordinates(position);
+      _allOffices = allOffices;
+      _visibleCount = _pageSize;
+      _status = _LocatorStatus.results;
+    });
   }
 
   Future<void> _confirmLogout() async {
