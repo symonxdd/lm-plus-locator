@@ -62,6 +62,8 @@ class OfficeCard extends StatelessWidget {
                         Expanded(
                           child: Text(
                             office.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.titleMedium,
                           ),
                         ),
@@ -78,12 +80,15 @@ class OfficeCard extends StatelessWidget {
                       const SizedBox(height: 4),
                       Row(
                         children: [
-                          Icon(
-                            Icons.circle,
-                            size: 10,
-                            color: office.isOpenNow!
-                                ? Colors.green
-                                : theme.colorScheme.error,
+                          SizedBox(
+                            width: 14,
+                            child: Icon(
+                              Icons.circle,
+                              size: 10,
+                              color: office.isOpenNow!
+                                  ? Colors.green
+                                  : theme.colorScheme.error,
+                            ),
                           ),
                           const SizedBox(width: 4),
                           Text(
@@ -102,7 +107,6 @@ class OfficeCard extends StatelessWidget {
                     ],
                     const SizedBox(height: 4),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(
                           Icons.place_outlined,
