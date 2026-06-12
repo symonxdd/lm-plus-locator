@@ -29,6 +29,9 @@ class Office {
       lng: (json['lng'] as num).toDouble(),
     );
   }
+
+  /// The full postal address, e.g. "Bellemstraat 24, 9880 Aalter".
+  String get fullAddress => '$address, $postalCode $city';
 }
 
 /// An [Office] paired with its distance from the user, in kilometers.

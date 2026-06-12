@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/app_localizations.dart';
+import '../models/head_office.dart';
 import '../models/office.dart';
 import '../services/auth_service.dart';
 import '../services/location_service.dart';
@@ -27,13 +29,47 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  static const _pageSize = 10;
+
   final _authService = AuthService();
   final _locationService = LocationService();
   final _officeService = OfficeService();
+  final _scrollController = ScrollController();
 
   _LocatorStatus _status = _LocatorStatus.idle;
-  List<OfficeWithDistance> _nearestOffices = [];
-  Position? _userPosition;
+  List<OfficeWithDistance> _allOffices = [];
+  int _visibleCount = _pageSize;
+  String? _userLocationText;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_visibleCount >= _allOffices.length) return;
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
+      setState(() {
+        _visibleCount = (_visibleCount + _pageSize).clamp(
+          0,
+          _allOffices.length,
+        );
+      });
+    }
+  }
+
+  String _formatCoordinates(Position position) =>
+      '${position.latitude.toStringAsFixed(4)}, '
+      '${position.longitude.toStringAsFixed(4)}';
 
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
@@ -57,20 +93,86 @@ class _HomeScreenState extends State<HomeScreen> {
 
       final position = await _locationService.getCurrentPosition();
       final offices = await _officeService.loadOffices();
-      final nearest = _officeService.nearestOffices(
+      final allOffices = _officeService.nearestOffices(
         offices: offices,
         userLat: position.latitude,
         userLng: position.longitude,
       );
 
       setState(() {
-        _userPosition = position;
-        _nearestOffices = nearest;
+        _userLocationText = _formatCoordinates(position);
+        _allOffices = allOffices;
+        _visibleCount = _pageSize;
         _status = _LocatorStatus.results;
       });
+
+      final address = await _locationService.reverseGeocode(
+        position.latitude,
+        position.longitude,
+      );
+      if (address != null && mounted) {
+        setState(() => _userLocationText = address);
+      }
     } catch (_) {
       setState(() => _status = _LocatorStatus.error);
     }
+  }
+
+  Future<void> _showHeadOfficeInfo() async {
+    final l10n = AppLocalizations.of(context)!;
+    await showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      builder: (context) {
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.headOfficeTitle,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  HeadOffice.name,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 4),
+                Text(HeadOffice.addressLine),
+                Text(
+                  '${HeadOffice.postalCode} ${HeadOffice.city}, '
+                  '${l10n.countryBelgium}',
+                ),
+                const SizedBox(height: 8),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.phone_outlined),
+                  title: Text(HeadOffice.phone),
+                  onTap: () => launchUrl(
+                    Uri(
+                      scheme: 'tel',
+                      path: HeadOffice.phone.replaceAll(' ', ''),
+                    ),
+                  ),
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.email_outlined),
+                  title: Text(HeadOffice.email),
+                  onTap: () => launchUrl(
+                    Uri(scheme: 'mailto', path: HeadOffice.email),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -78,8 +180,17 @@ class _HomeScreenState extends State<HomeScreen> {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Image.asset('assets/icon/icon_foreground.png'),
+        ),
         title: Text(l10n.appTitle),
         actions: [
+          IconButton(
+            onPressed: _showHeadOfficeInfo,
+            icon: const Icon(Icons.info_outline),
+            tooltip: l10n.headOfficeTooltip,
+          ),
           const LanguageSelector(),
           IconButton(
             onPressed: _authService.signOut,
@@ -109,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(Icons.my_location),
                     label: Text(l10n.findNearestOfficeButton),
                   ),
-                  if (_userPosition != null) ...[
+                  if (_userLocationText != null) ...[
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -120,12 +231,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Theme.of(context).colorScheme.outline,
                         ),
                         const SizedBox(width: 4),
-                        Text(
-                          l10n.yourLocationLabel(
-                            _userPosition!.latitude.toStringAsFixed(4),
-                            _userPosition!.longitude.toStringAsFixed(4),
+                        Expanded(
+                          child: Text(
+                            l10n.yourLocationLabel(_userLocationText!),
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
                     ),
@@ -149,11 +260,13 @@ class _HomeScreenState extends State<HomeScreen> {
         return const Center(child: CircularProgressIndicator());
 
       case _LocatorStatus.results:
+        final visibleOffices = _allOffices.take(_visibleCount).toList();
         return ListView.builder(
+          controller: _scrollController,
           padding: const EdgeInsets.only(top: 8, bottom: 16),
-          itemCount: _nearestOffices.length,
+          itemCount: visibleOffices.length,
           itemBuilder: (context, index) {
-            return OfficeCard(officeWithDistance: _nearestOffices[index]);
+            return OfficeCard(officeWithDistance: visibleOffices[index]);
           },
         );
 

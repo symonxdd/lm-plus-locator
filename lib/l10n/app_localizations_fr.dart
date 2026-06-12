@@ -78,8 +78,8 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String yourLocationLabel(String latitude, String longitude) {
-    return 'Votre position : $latitude, $longitude';
+  String yourLocationLabel(String address) {
+    return 'Votre position : $address';
   }
 
   @override
@@ -94,4 +94,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get continueAsGuestButton => 'Continuer sans compte';
+
+  @override
+  String get openInMapsHint => 'Appuyez pour ouvrir dans Maps';
+
+  @override
+  String get headOfficeTooltip => 'Siège social';
+
+  @override
+  String get headOfficeTitle => 'Siège social de LM+';
+
+  @override
+  String get countryBelgium => 'Belgique';
 }

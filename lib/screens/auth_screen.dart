@@ -46,6 +46,14 @@ class _AuthScreenState extends State<AuthScreen> {
       body: Column(
         children: [
           Padding(
+            padding: const EdgeInsets.only(top: 24),
+            child: Image.asset(
+              'assets/icon/icon_foreground.png',
+              width: 88,
+              height: 88,
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
             child: Text(
               l10n.authDisclaimer,

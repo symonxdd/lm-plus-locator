@@ -85,14 +85,11 @@
       }
     }
   },
-  "yourLocationLabel": "Jouw locatie: {latitude}, {longitude}",
+  "yourLocationLabel": "Jouw locatie: {address}",
   "@yourLocationLabel": {
-    "description": "Shows the coordinates of the user's current location after a search.",
+    "description": "Shows the user's current location (address, or coordinates as fallback) after a search.",
     "placeholders": {
-      "latitude": {
-        "type": "String"
-      },
-      "longitude": {
+      "address": {
         "type": "String"
       }
     }
@@ -112,5 +109,21 @@
   "continueAsGuestButton": "Doorgaan zonder account",
   "@continueAsGuestButton": {
     "description": "Button label that lets the user continue using the app anonymously, without signing in."
+  },
+  "openInMapsHint": "Tik om te openen in Maps",
+  "@openInMapsHint": {
+    "description": "Small hint on each office card explaining that tapping it opens the location in a maps app."
+  },
+  "headOfficeTooltip": "Hoofdzetel",
+  "@headOfficeTooltip": {
+    "description": "Tooltip for the app bar button that shows the head office info sheet."
+  },
+  "headOfficeTitle": "LM+ hoofdzetel",
+  "@headOfficeTitle": {
+    "description": "Title of the head office info sheet."
+  },
+  "countryBelgium": "België",
+  "@countryBelgium": {
+    "description": "The country name shown after the head office's postal code and city."
   }
 }

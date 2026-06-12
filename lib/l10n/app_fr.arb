@@ -20,9 +20,13 @@
   "openLocationSettingsButton": "Ouvrir les paramètres de localisation",
   "genericErrorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard.",
   "distanceInKm": "{distance} km",
-  "yourLocationLabel": "Votre position : {latitude}, {longitude}",
+  "yourLocationLabel": "Votre position : {address}",
   "languageMenuTooltip": "Langue",
   "languageSystemDefault": "Langue du système",
   "authDisclaimer": "La connexion est actuellement réservée aux tests et au développement ; elle n'est pas nécessaire pour utiliser le localisateur de bureaux.",
-  "continueAsGuestButton": "Continuer sans compte"
+  "continueAsGuestButton": "Continuer sans compte",
+  "openInMapsHint": "Appuyez pour ouvrir dans Maps",
+  "headOfficeTooltip": "Siège social",
+  "headOfficeTitle": "Siège social de LM+",
+  "countryBelgium": "Belgique"
 }

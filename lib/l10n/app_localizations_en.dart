@@ -76,8 +76,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String yourLocationLabel(String latitude, String longitude) {
-    return 'Your location: $latitude, $longitude';
+  String yourLocationLabel(String address) {
+    return 'Your location: $address';
   }
 
   @override
@@ -92,4 +92,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueAsGuestButton => 'Continue without an account';
+
+  @override
+  String get openInMapsHint => 'Tap to open in Maps';
+
+  @override
+  String get headOfficeTooltip => 'Head office';
+
+  @override
+  String get headOfficeTitle => 'LM+ head office';
+
+  @override
+  String get countryBelgium => 'Belgium';
 }

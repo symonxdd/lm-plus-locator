@@ -222,11 +222,11 @@ abstract class AppLocalizations {
   /// **'{distance} km'**
   String distanceInKm(String distance);
 
-  /// Shows the coordinates of the user's current location after a search.
+  /// Shows the user's current location (address, or coordinates as fallback) after a search.
   ///
   /// In nl, this message translates to:
-  /// **'Jouw locatie: {latitude}, {longitude}'**
-  String yourLocationLabel(String latitude, String longitude);
+  /// **'Jouw locatie: {address}'**
+  String yourLocationLabel(String address);
 
   /// Tooltip for the app bar button that opens the language picker.
   ///
@@ -251,6 +251,30 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Doorgaan zonder account'**
   String get continueAsGuestButton;
+
+  /// Small hint on each office card explaining that tapping it opens the location in a maps app.
+  ///
+  /// In nl, this message translates to:
+  /// **'Tik om te openen in Maps'**
+  String get openInMapsHint;
+
+  /// Tooltip for the app bar button that shows the head office info sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Hoofdzetel'**
+  String get headOfficeTooltip;
+
+  /// Title of the head office info sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'LM+ hoofdzetel'**
+  String get headOfficeTitle;
+
+  /// The country name shown after the head office's postal code and city.
+  ///
+  /// In nl, this message translates to:
+  /// **'België'**
+  String get countryBelgium;
 }
 
 class _AppLocalizationsDelegate

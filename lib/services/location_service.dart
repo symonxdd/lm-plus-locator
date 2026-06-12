@@ -1,3 +1,4 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 
@@ -44,6 +45,35 @@ class LocationService {
     return Geolocator.getCurrentPosition(
       locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
     );
+  }
+
+  /// Resolves (lat, lng) to a human-readable address (e.g. "Bellemstraat 24,
+  /// 9880 Aalter"), or `null` if reverse geocoding fails or returns nothing.
+  Future<String?> reverseGeocode(double lat, double lng) async {
+    try {
+      final placemarks = await placemarkFromCoordinates(lat, lng);
+      if (placemarks.isEmpty) return null;
+
+      final placemark = placemarks.first;
+      final street = [
+        placemark.street,
+        placemark.thoroughfare,
+      ].firstWhere((s) => s != null && s.isNotEmpty, orElse: () => null);
+      final cityLine = [
+        placemark.postalCode,
+        placemark.locality,
+      ].where((s) => s != null && s.isNotEmpty).join(' ');
+
+      final parts = [
+        street,
+        cityLine,
+      ].where((s) => s != null && s.isNotEmpty);
+      if (parts.isEmpty) return null;
+
+      return parts.join(', ');
+    } catch (_) {
+      return null;
+    }
   }
 
   /// Opens the app's system settings screen, e.g. so the user can grant

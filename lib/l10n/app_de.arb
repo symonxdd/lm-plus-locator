@@ -20,9 +20,13 @@
   "openLocationSettingsButton": "Standorteinstellungen öffnen",
   "genericErrorMessage": "Etwas ist schiefgelaufen. Bitte versuche es später erneut.",
   "distanceInKm": "{distance} km",
-  "yourLocationLabel": "Dein Standort: {latitude}, {longitude}",
+  "yourLocationLabel": "Dein Standort: {address}",
   "languageMenuTooltip": "Sprache",
   "languageSystemDefault": "Systemsprache",
   "authDisclaimer": "Die Anmeldung dient derzeit nur Test- und Entwicklungszwecken und ist nicht erforderlich, um den Bürofinder zu nutzen.",
-  "continueAsGuestButton": "Ohne Konto fortfahren"
+  "continueAsGuestButton": "Ohne Konto fortfahren",
+  "openInMapsHint": "Tippen, um in Maps zu öffnen",
+  "headOfficeTooltip": "Hauptsitz",
+  "headOfficeTitle": "LM+ Hauptsitz",
+  "countryBelgium": "Belgien"
 }

@@ -34,18 +34,66 @@ class OfficeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     final office = officeWithDistance.office;
+    final mutedStyle = theme.textTheme.bodySmall?.copyWith(
+      color: theme.colorScheme.outline,
+    );
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-      child: ListTile(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
         onTap: _openInMaps,
-        leading: const Icon(Icons.location_on),
-        title: Text(office.name),
-        subtitle: Text('${office.city}\n${office.phone}'),
-        isThreeLine: true,
-        trailing: Text(
-          l10n.distanceInKm(officeWithDistance.distanceKm.toStringAsFixed(1)),
-          style: Theme.of(context).textTheme.titleMedium,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.location_on, color: theme.colorScheme.primary),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            office.name,
+                            style: theme.textTheme.titleMedium,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          l10n.distanceInKm(
+                            officeWithDistance.distanceKm.toStringAsFixed(1),
+                          ),
+                          style: theme.textTheme.titleSmall,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text(office.fullAddress),
+                    Text(office.phone),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.directions_outlined,
+                          size: 14,
+                          color: theme.colorScheme.outline,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(l10n.openInMapsHint, style: mutedStyle),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

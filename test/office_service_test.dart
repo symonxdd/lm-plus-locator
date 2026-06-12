@@ -50,15 +50,14 @@ void main() {
     ]);
   });
 
-  test('nearestOffices respects the count limit', () {
+  test('nearestOffices returns all offices', () {
     final result = officeService.nearestOffices(
       offices: [antwerp, ghent, brussels],
       userLat: brussels.lat,
       userLng: brussels.lng,
-      count: 2,
     );
 
-    expect(result.length, 2);
+    expect(result.length, 3);
   });
 
   test('haversine distance between Brussels and Antwerp is ~41km', () {

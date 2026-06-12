@@ -20,9 +20,13 @@
   "openLocationSettingsButton": "Open location settings",
   "genericErrorMessage": "Something went wrong. Please try again later.",
   "distanceInKm": "{distance} km",
-  "yourLocationLabel": "Your location: {latitude}, {longitude}",
+  "yourLocationLabel": "Your location: {address}",
   "languageMenuTooltip": "Language",
   "languageSystemDefault": "System language",
   "authDisclaimer": "Signing in is currently for testing and development purposes only, and isn't required to use the office locator.",
-  "continueAsGuestButton": "Continue without an account"
+  "continueAsGuestButton": "Continue without an account",
+  "openInMapsHint": "Tap to open in Maps",
+  "headOfficeTooltip": "Head office",
+  "headOfficeTitle": "LM+ head office",
+  "countryBelgium": "Belgium"
 }

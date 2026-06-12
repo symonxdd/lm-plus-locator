@@ -17,13 +17,12 @@ class OfficeService {
     return data.map((e) => Office.fromJson(e as Map<String, dynamic>)).toList();
   }
 
-  /// Returns the [count] offices nearest to (userLat, userLng), sorted by
-  /// ascending distance, using the Haversine formula.
+  /// Returns all [offices] paired with their distance to (userLat, userLng),
+  /// sorted by ascending distance, using the Haversine formula.
   List<OfficeWithDistance> nearestOffices({
     required List<Office> offices,
     required double userLat,
     required double userLng,
-    int count = 5,
   }) {
     final withDistance = offices
         .map(
@@ -40,7 +39,7 @@ class OfficeService {
         .toList();
 
     withDistance.sort((a, b) => a.distanceKm.compareTo(b.distanceKm));
-    return withDistance.take(count).toList();
+    return withDistance;
   }
 
   double _haversineDistanceKm(
