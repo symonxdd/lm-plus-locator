@@ -250,5 +250,29 @@
   "addressSuggestionsAttribution": "Adressuggesties via OpenStreetMap",
   "@addressSuggestionsAttribution": {
     "description": "Attribution link shown below address suggestions, linking to the OpenStreetMap copyright/license page."
+  },
+  "deleteAccountButton": "Account verwijderen",
+  "@deleteAccountButton": {
+    "description": "Button to permanently delete the signed-in user's account."
+  },
+  "deleteAccountConfirmTitle": "Account verwijderen?",
+  "@deleteAccountConfirmTitle": {
+    "description": "Title of the confirmation dialog before permanently deleting the account."
+  },
+  "deleteAccountConfirmMessage": "Dit verwijdert je account permanent. Dit kan niet ongedaan worden gemaakt.",
+  "@deleteAccountConfirmMessage": {
+    "description": "Body text of the confirmation dialog before permanently deleting the account."
+  },
+  "reauthenticateTitle": "Bevestig je wachtwoord",
+  "@reauthenticateTitle": {
+    "description": "Title of the dialog asking the user to re-enter their password before a sensitive action like account deletion."
+  },
+  "reauthenticateMessage": "Voer voor je veiligheid je wachtwoord opnieuw in om door te gaan.",
+  "@reauthenticateMessage": {
+    "description": "Explanatory text in the re-authentication dialog."
+  },
+  "reauthenticateButton": "Bevestigen",
+  "@reauthenticateButton": {
+    "description": "Confirm button in the re-authentication dialog."
   }
 }

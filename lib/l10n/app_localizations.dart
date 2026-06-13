@@ -455,6 +455,42 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Adressuggesties via OpenStreetMap'**
   String get addressSuggestionsAttribution;
+
+  /// Button to permanently delete the signed-in user's account.
+  ///
+  /// In nl, this message translates to:
+  /// **'Account verwijderen'**
+  String get deleteAccountButton;
+
+  /// Title of the confirmation dialog before permanently deleting the account.
+  ///
+  /// In nl, this message translates to:
+  /// **'Account verwijderen?'**
+  String get deleteAccountConfirmTitle;
+
+  /// Body text of the confirmation dialog before permanently deleting the account.
+  ///
+  /// In nl, this message translates to:
+  /// **'Dit verwijdert je account permanent. Dit kan niet ongedaan worden gemaakt.'**
+  String get deleteAccountConfirmMessage;
+
+  /// Title of the dialog asking the user to re-enter their password before a sensitive action like account deletion.
+  ///
+  /// In nl, this message translates to:
+  /// **'Bevestig je wachtwoord'**
+  String get reauthenticateTitle;
+
+  /// Explanatory text in the re-authentication dialog.
+  ///
+  /// In nl, this message translates to:
+  /// **'Voer voor je veiligheid je wachtwoord opnieuw in om door te gaan.'**
+  String get reauthenticateMessage;
+
+  /// Confirm button in the re-authentication dialog.
+  ///
+  /// In nl, this message translates to:
+  /// **'Bevestigen'**
+  String get reauthenticateButton;
 }
 
 class _AppLocalizationsDelegate

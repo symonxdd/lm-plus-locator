@@ -202,4 +202,24 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get addressSuggestionsAttribution =>
       'Suggestions d\'adresses via OpenStreetMap';
+
+  @override
+  String get deleteAccountButton => 'Supprimer le compte';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Supprimer le compte ?';
+
+  @override
+  String get deleteAccountConfirmMessage =>
+      'Cette action supprime définitivement votre compte. Cette action est irréversible.';
+
+  @override
+  String get reauthenticateTitle => 'Confirmez votre mot de passe';
+
+  @override
+  String get reauthenticateMessage =>
+      'Pour votre sécurité, veuillez ressaisir votre mot de passe pour continuer.';
+
+  @override
+  String get reauthenticateButton => 'Confirmer';
 }

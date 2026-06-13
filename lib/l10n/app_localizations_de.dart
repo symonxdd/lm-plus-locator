@@ -200,4 +200,24 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get addressSuggestionsAttribution =>
       'Adressvorschläge via OpenStreetMap';
+
+  @override
+  String get deleteAccountButton => 'Konto löschen';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Konto löschen?';
+
+  @override
+  String get deleteAccountConfirmMessage =>
+      'Dadurch wird dein Konto dauerhaft gelöscht. Dies kann nicht widerrufen werden.';
+
+  @override
+  String get reauthenticateTitle => 'Passwort bestätigen';
+
+  @override
+  String get reauthenticateMessage =>
+      'Bitte gib aus Sicherheitsgründen dein Passwort erneut ein, um fortzufahren.';
+
+  @override
+  String get reauthenticateButton => 'Bestätigen';
 }

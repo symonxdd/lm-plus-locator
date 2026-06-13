@@ -1,0 +1,6 @@
+# Copy this file to key.properties (gitignored) and fill in real values
+# after generating a release keystore. See PUBLISHING_CHECKLIST.md.
+storePassword=REPLACE_WITH_KEYSTORE_PASSWORD
+keyPassword=REPLACE_WITH_KEY_PASSWORD
+keyAlias=upload
+storeFile=../upload-keystore.jks

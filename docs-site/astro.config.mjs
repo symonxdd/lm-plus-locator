@@ -22,6 +22,7 @@ export default defineConfig({
 				{ label: 'Architecture', link: '/architecture/' },
 				{ label: 'Features', link: '/features/' },
 				{ label: 'Office data pipeline', link: '/data-pipeline/' },
+				{ label: 'Privacy Policy', link: '/privacy-policy/' },
 			],
 		}),
 	],

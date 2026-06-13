@@ -58,5 +58,11 @@
   "addressNotFoundError": "Address not found. Try a different address.",
   "visitWebsiteButton": "Visit website",
   "changeLocationButton": "Choose a different location",
-  "addressSuggestionsAttribution": "Address suggestions via OpenStreetMap"
+  "addressSuggestionsAttribution": "Address suggestions via OpenStreetMap",
+  "deleteAccountButton": "Delete account",
+  "deleteAccountConfirmTitle": "Delete account?",
+  "deleteAccountConfirmMessage": "This permanently deletes your account. This can't be undone.",
+  "reauthenticateTitle": "Confirm your password",
+  "reauthenticateMessage": "For your security, please re-enter your password to continue.",
+  "reauthenticateButton": "Confirm"
 }

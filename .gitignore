@@ -50,3 +50,6 @@ __pycache__/
 
 # Local tooling
 .claude/
+
+# Personal planning notes
+/PUBLISHING_CHECKLIST.md

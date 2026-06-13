@@ -41,14 +41,22 @@ class AccountSheet extends StatelessWidget {
   }
 }
 
-/// Shown when a user is signed in: their email and a themed log-out button.
-class _SignedInView extends StatelessWidget {
+/// Shown when a user is signed in: their email, a themed log-out button, and
+/// a delete-account option.
+class _SignedInView extends StatefulWidget {
   const _SignedInView({required this.authService, required this.user});
 
   final AuthService authService;
   final User user;
 
-  Future<void> _confirmLogout(BuildContext context) async {
+  @override
+  State<_SignedInView> createState() => _SignedInViewState();
+}
+
+class _SignedInViewState extends State<_SignedInView> {
+  bool _isDeleting = false;
+
+  Future<void> _confirmLogout() async {
     final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
@@ -73,7 +81,113 @@ class _SignedInView extends StatelessWidget {
     );
 
     if (confirmed == true) {
-      await authService.signOut();
+      await widget.authService.signOut();
+    }
+  }
+
+  /// Prompts for the user's password and re-authenticates with it. Returns
+  /// whether re-authentication succeeded.
+  Future<bool> _reauthenticate() async {
+    final l10n = AppLocalizations.of(context)!;
+    final passwordController = TextEditingController();
+
+    final password = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.reauthenticateTitle),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(l10n.reauthenticateMessage),
+            const SizedBox(height: 16),
+            TextField(
+              controller: passwordController,
+              obscureText: true,
+              autofocus: true,
+              decoration: InputDecoration(labelText: l10n.passwordLabel),
+              onSubmitted: (value) => Navigator.of(context).pop(value),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(l10n.cancelButton),
+          ),
+          FilledButton(
+            onPressed: () =>
+                Navigator.of(context).pop(passwordController.text),
+            child: Text(l10n.reauthenticateButton),
+          ),
+        ],
+      ),
+    );
+
+    passwordController.dispose();
+    if (password == null || password.isEmpty) return false;
+
+    try {
+      await widget.authService.reauthenticateWithPassword(password);
+      return true;
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
+      );
+      return false;
+    }
+  }
+
+  Future<void> _confirmDeleteAccount() async {
+    final l10n = AppLocalizations.of(context)!;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.deleteAccountConfirmTitle),
+        content: Text(l10n.deleteAccountConfirmMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancelButton),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.error,
+              foregroundColor: Theme.of(context).colorScheme.onError,
+            ),
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(l10n.deleteAccountButton),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+    await _deleteAccount();
+  }
+
+  Future<void> _deleteAccount() async {
+    setState(() => _isDeleting = true);
+    try {
+      await widget.authService.deleteAccount();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        if (!mounted) return;
+        final reauthenticated = await _reauthenticate();
+        if (reauthenticated) {
+          await _deleteAccount();
+          return;
+        }
+      } else {
+        if (!mounted) return;
+        final l10n = AppLocalizations.of(context)!;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isDeleting = false);
     }
   }
 
@@ -91,7 +205,7 @@ class _SignedInView extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Text(
-          l10n.accountSignedInAs(user.email ?? ''),
+          l10n.accountSignedInAs(widget.user.email ?? ''),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 24),
@@ -100,9 +214,27 @@ class _SignedInView extends StatelessWidget {
             backgroundColor: ctaColors(context).background,
             foregroundColor: ctaColors(context).foreground,
           ),
-          onPressed: () => _confirmLogout(context),
+          onPressed: () => _confirmLogout(),
           icon: const Icon(Icons.logout),
           label: Text(l10n.logoutTooltip),
+        ),
+        const SizedBox(height: 8),
+        TextButton.icon(
+          style: TextButton.styleFrom(
+            foregroundColor: Theme.of(context).colorScheme.error,
+          ),
+          onPressed: _isDeleting ? null : () => _confirmDeleteAccount(),
+          icon: _isDeleting
+              ? SizedBox(
+                  height: 16,
+                  width: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                )
+              : const Icon(Icons.delete_outline),
+          label: Text(l10n.deleteAccountButton),
         ),
       ],
     );

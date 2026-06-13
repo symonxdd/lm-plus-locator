@@ -58,5 +58,11 @@
   "addressNotFoundError": "Adresse nicht gefunden. Versuche eine andere Adresse.",
   "visitWebsiteButton": "Website besuchen",
   "changeLocationButton": "Anderen Standort wählen",
-  "addressSuggestionsAttribution": "Adressvorschläge via OpenStreetMap"
+  "addressSuggestionsAttribution": "Adressvorschläge via OpenStreetMap",
+  "deleteAccountButton": "Konto löschen",
+  "deleteAccountConfirmTitle": "Konto löschen?",
+  "deleteAccountConfirmMessage": "Dadurch wird dein Konto dauerhaft gelöscht. Dies kann nicht widerrufen werden.",
+  "reauthenticateTitle": "Passwort bestätigen",
+  "reauthenticateMessage": "Bitte gib aus Sicherheitsgründen dein Passwort erneut ein, um fortzufahren.",
+  "reauthenticateButton": "Bestätigen"
 }

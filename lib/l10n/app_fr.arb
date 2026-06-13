@@ -58,5 +58,11 @@
   "addressNotFoundError": "Adresse introuvable. Essayez une autre adresse.",
   "visitWebsiteButton": "Visiter le site web",
   "changeLocationButton": "Choisir un autre emplacement",
-  "addressSuggestionsAttribution": "Suggestions d'adresses via OpenStreetMap"
+  "addressSuggestionsAttribution": "Suggestions d'adresses via OpenStreetMap",
+  "deleteAccountButton": "Supprimer le compte",
+  "deleteAccountConfirmTitle": "Supprimer le compte ?",
+  "deleteAccountConfirmMessage": "Cette action supprime définitivement votre compte. Cette action est irréversible.",
+  "reauthenticateTitle": "Confirmez votre mot de passe",
+  "reauthenticateMessage": "Pour votre sécurité, veuillez ressaisir votre mot de passe pour continuer.",
+  "reauthenticateButton": "Confirmer"
 }

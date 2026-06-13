@@ -199,4 +199,24 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get addressSuggestionsAttribution =>
       'Adressuggesties via OpenStreetMap';
+
+  @override
+  String get deleteAccountButton => 'Account verwijderen';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Account verwijderen?';
+
+  @override
+  String get deleteAccountConfirmMessage =>
+      'Dit verwijdert je account permanent. Dit kan niet ongedaan worden gemaakt.';
+
+  @override
+  String get reauthenticateTitle => 'Bevestig je wachtwoord';
+
+  @override
+  String get reauthenticateMessage =>
+      'Voer voor je veiligheid je wachtwoord opnieuw in om door te gaan.';
+
+  @override
+  String get reauthenticateButton => 'Bevestigen';
 }
