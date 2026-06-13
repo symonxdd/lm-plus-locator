@@ -19,7 +19,7 @@ These same files are also published as a small documentation website at https://
 - A way to run the app: an Android emulator (set up through Android Studio) or a physical Android/iOS device with developer mode/USB debugging enabled.
 - A code editor. VS Code (with the Flutter extension) or Android Studio both work well.
 
-You do **not** need a Mac or an iOS device to develop this app. On Windows or Linux you can build and run the Android version fully. Building for iOS additionally requires a Mac with Xcode and CocoaPods (`sudo gem install cocoapods`).
+You do **not** need a Mac or an iOS device to develop this app. On Windows or Linux you can build and run the Android version fully. Building for iOS additionally requires a Mac with Xcode and CocoaPods (`sudo gem install cocoapods`), though cloud build services like [Codemagic](https://codemagic.io/) offer a free tier of macOS build minutes for Flutter projects, so building and signing an iOS app without owning a Mac is also an option.
 
 After cloning, install dependencies once:
 
