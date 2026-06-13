@@ -76,4 +76,23 @@ Both default to "follow the device" (`null` locale / `ThemeMode.system`) until t
 
 ### Why the Firebase config files are committed
 
-`lib/firebase_options.dart`, `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, and `firebase.json` are checked into this repo on purpose, including in this public copy. According to [Firebase's own documentation](https://firebase.google.com/docs/projects/api-keys), API keys for Firebase services are not used to control access to backend resources and "do not need to be treated as secrets". Access is controlled by Firebase Security Rules and App Check instead, neither of which applies here since this app only uses Firebase Authentication (no Firestore, Realtime Database, or Storage). Anyone cloning this repo gets a working build out of the box that talks to this project's Auth, the same thing the client SDK already allows.
+`lib/firebase_options.dart`, `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, and `firebase.json` are checked into this repo on purpose. They are not secrets, per Firebase's own documentation.
+
+[Firebase docs: Learn about using and managing API keys for Firebase](https://firebase.google.com/docs/projects/api-keys):
+
+> API keys for Firebase services are not used to control access to backend resources; that can only be done with Firebase Security Rules [...] If your app's setup follows the [...] guidelines, then API keys restricted to Firebase services do not need to be treated as secrets, and it's safe to include them in your code or configuration files.
+
+[Firebase docs: Get started with Firebase in your Flutter project](https://firebase.google.com/docs/flutter/setup), specifically about `firebase_options.dart`:
+
+> This Firebase config file contains unique, but non-secret identifiers for each platform you selected.
+
+#### Checking this project against the "if your app's setup follows the guidelines" condition
+
+The API keys page lists four guidelines before saying a key doesn't need to be treated as a secret. Going through each one for this project:
+
+1. **Public by design**: an API key only identifies the project and app; authorization is handled by Google Cloud IAM, Firebase Security Rules, and Firebase App Check, not by the key itself. Nothing to configure, this is just how Firebase works.
+2. **Apply restrictions**: Firebase-provisioned API keys are automatically restricted to Firebase-related APIs. Nothing in this project changes that default.
+3. **Use the key only for Firebase services**: this app's only Firebase/Google dependencies are `firebase_core` and `firebase_auth`. Address lookups use the device's built-in geocoder (`geocoding` package) and "open in Maps" uses `url_launcher` to open a URL, neither uses this API key, and there's no Google Maps, Places, or Gemini API anywhere in this project that could share it.
+4. **Security Rules and App Check are critical for Realtime Database, Cloud Firestore, and Cloud Storage**: this app uses none of those, so there's nothing to lock down here.
+
+This project's setup matches all four, so the Firebase config files can stay in version control, including now that the repo is public.
