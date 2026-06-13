@@ -120,19 +120,12 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
 
   @override
   Widget build(BuildContext context) {
-    // Transparent, edge-to-edge system bars with icon colors matched to the
-    // active theme, instead of the default opaque black navigation bar.
-    final overlayStyle = _resolveBrightness() == Brightness.dark
-        ? SystemUiOverlayStyle.light
-        : SystemUiOverlayStyle.dark;
+    final theme = _resolveBrightness() == Brightness.dark
+        ? AppTheme.dark
+        : AppTheme.light;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: overlayStyle.copyWith(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.transparent,
-        systemNavigationBarDividerColor: Colors.transparent,
-        systemNavigationBarContrastEnforced: false,
-      ),
+      value: AppTheme.systemOverlayStyle(theme),
       child: MaterialApp(
         title: 'LM+ Locator',
         debugShowCheckedModeBanner: false,

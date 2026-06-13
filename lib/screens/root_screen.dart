@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
 import '../theme/app_colors.dart';
+import '../theme/app_theme.dart';
 import '../widgets/head_office_info_button.dart';
 import '../widgets/settings_selector.dart';
 import 'home_screen.dart';
@@ -22,9 +23,16 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        // AppBar imposes its own system bar style, so set ours explicitly
+        // here too - otherwise the nav bar icons revert to the preset's
+        // light color and vanish on the light surface in light mode.
+        systemOverlayStyle: AppTheme.systemOverlayStyle(theme),
         leading: Padding(
           padding: const EdgeInsets.all(8),
           child: Stack(
@@ -54,6 +62,9 @@ class _RootScreenState extends State<RootScreen> {
         children: const [HomeScreen(), PhotoShareScreen()],
       ),
       bottomNavigationBar: NavigationBar(
+        // Match the screen background instead of the default, slightly
+        // elevated surface color, so the bar blends into the rest of the UI.
+        backgroundColor: colorScheme.surface,
         selectedIndex: _index,
         onDestinationSelected: (index) => setState(() => _index = index),
         destinations: [
