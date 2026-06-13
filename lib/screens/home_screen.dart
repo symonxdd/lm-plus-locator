@@ -186,12 +186,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    return Scaffold(
-      // The address search sheet's text field grabs focus on open, which
-      // would otherwise push this screen's whole body (incl. the hero) up
-      // to avoid the keyboard. The sheet handles its own keyboard inset.
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(child: _buildContent(l10n)),
+    return PopScope(
+      // From any non-idle state (results, errors, ...), the back button
+      // should return to the hero screen first instead of leaving the app.
+      canPop: _status == _LocatorStatus.idle,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _changeLocation();
+      },
+      child: Scaffold(
+        // The address search sheet's text field grabs focus on open, which
+        // would otherwise push this screen's whole body (incl. the hero) up
+        // to avoid the keyboard. The sheet handles its own keyboard inset.
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(child: _buildContent(l10n)),
+      ),
     );
   }
 
