@@ -45,13 +45,12 @@ class SettingsSelector extends StatelessWidget {
         return SafeArea(
           top: false,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListTile(
-                  visualDensity: VisualDensity.compact,
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.account_circle_outlined),
                   title: Text(l10n.accountTooltip),
@@ -61,14 +60,24 @@ class SettingsSelector extends StatelessWidget {
                     _showAccountSheet(context);
                   },
                 ),
-                const Divider(height: 16),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.privacy_tip_outlined),
+                  title: Text(l10n.privacyNoticeTooltip),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _showPrivacyNotice(context);
+                  },
+                ),
+                const Divider(height: 32),
                 Text(
                   l10n.languageMenuTooltip,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
+                const SizedBox(height: 8),
                 for (final entry in _languages.entries)
                   ListTile(
-                    visualDensity: VisualDensity.compact,
                     contentPadding: EdgeInsets.zero,
                     title: Text(entry.value),
                     trailing: selectedLocale?.languageCode ==
@@ -83,29 +92,14 @@ class SettingsSelector extends StatelessWidget {
                       Navigator.of(context).pop();
                     },
                   ),
-                ListTile(
-                  visualDensity: VisualDensity.compact,
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(l10n.languageSystemDefault),
-                  trailing: selectedLocale == null
-                      ? Icon(
-                          Icons.check,
-                          color: Theme.of(context).colorScheme.primary,
-                        )
-                      : null,
-                  onTap: () {
-                    LmPlusLocatorApp.setLocale(context, null);
-                    Navigator.of(context).pop();
-                  },
-                ),
-                const Divider(height: 16),
+                const Divider(height: 32),
                 Text(
                   l10n.themeMenuTooltip,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
+                const SizedBox(height: 8),
                 for (final entry in themeOptions.entries)
                   ListTile(
-                    visualDensity: VisualDensity.compact,
                     contentPadding: EdgeInsets.zero,
                     leading: Icon(entry.value.$2),
                     title: Text(entry.value.$1),
@@ -120,7 +114,7 @@ class SettingsSelector extends StatelessWidget {
                       Navigator.of(context).pop();
                     },
                   ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 24),
                 Center(
                   child: Text(
                     versionLabel,
@@ -154,6 +148,24 @@ class SettingsSelector extends StatelessWidget {
       showDragHandle: true,
       isScrollControlled: true,
       builder: (context) => const AccountSheet(),
+    );
+  }
+
+  Future<void> _showPrivacyNotice(BuildContext context) async {
+    if (!context.mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) {
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+            child: Text(l10n.locationPrivacyNotice),
+          ),
+        );
+      },
     );
   }
 

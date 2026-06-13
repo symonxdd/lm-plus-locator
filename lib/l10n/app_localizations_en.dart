@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
+  String get appTagline => 'Quickly find the LM+ office closest to you.';
+
+  @override
   String get loginTitle => 'Log in';
 
   @override
@@ -50,7 +53,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'We only use your location to find the nearest office. Your location is never stored or shared.';
 
   @override
-  String get findNearestOfficeButton => 'Find my nearest LM+ office';
+  String get privacyNoticeTooltip => 'Privacy notice';
+
+  @override
+  String get findNearestOfficeButton => 'Use my location';
 
   @override
   String get locationPermissionDenied =>
@@ -84,9 +90,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageMenuTooltip => 'Language';
 
   @override
-  String get languageSystemDefault => 'System language';
-
-  @override
   String get themeMenuTooltip => 'Theme';
 
   @override
@@ -96,7 +99,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeModeDark => 'Dark';
 
   @override
-  String get themeModeSystem => 'System theme';
+  String get themeModeSystem => 'System';
 
   @override
   String get settingsTooltip => 'Settings';
@@ -154,9 +157,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get photoShareTooltip => 'Take a photo to share';
 
   @override
-  String get photoShareTitle => 'Share photo';
-
-  @override
   String get photoRetakeButton => 'Retake';
 
   @override
@@ -164,4 +164,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get photoShareSubject => 'Photo from LM+ Locator';
+
+  @override
+  String get locatorTabLabel => 'Locator';
+
+  @override
+  String get photoShareTabLabel => 'Share photo';
+
+  @override
+  String get photoShareExperimentalNotice => 'Experimental feature';
+
+  @override
+  String get searchByAddressButton => 'Or search by address';
+
+  @override
+  String get addressSearchTitle => 'Search by address';
+
+  @override
+  String get addressInputLabel => 'Address';
+
+  @override
+  String get addressSearchSubmitButton => 'Search';
+
+  @override
+  String get addressNotFoundError =>
+      'Address not found. Try a different address.';
+
+  @override
+  String get visitWebsiteButton => 'Visit website';
+
+  @override
+  String get changeLocationButton => 'Choose a different location';
+
+  @override
+  String get addressSuggestionsAttribution =>
+      'Address suggestions via OpenStreetMap';
 }

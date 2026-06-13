@@ -44,6 +44,7 @@ dependencies:
   geocoding: ^4.0.0
   permission_handler: ^11.3.1
   url_launcher: ^6.3.1
+  http: ^1.2.0
 
   # Camera & sharing
   image_picker: ^1.1.2

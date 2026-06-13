@@ -108,6 +108,12 @@ abstract class AppLocalizations {
   /// **'LM+ Locator'**
   String get appTitle;
 
+  /// Short tagline shown on the home screen explaining what the app does.
+  ///
+  /// In nl, this message translates to:
+  /// **'Vind snel het dichtstbijzijnde LM+ kantoor.'**
+  String get appTagline;
+
   /// Heading shown on the email form in login mode, and the login button label.
   ///
   /// In nl, this message translates to:
@@ -180,10 +186,16 @@ abstract class AppLocalizations {
   /// **'We gebruiken je locatie enkel om het dichtstbijzijnde kantoor te vinden. Je locatie wordt nooit opgeslagen of gedeeld.'**
   String get locationPrivacyNotice;
 
+  /// Tooltip for the button that shows the location privacy notice.
+  ///
+  /// In nl, this message translates to:
+  /// **'Privacyverklaring'**
+  String get privacyNoticeTooltip;
+
   /// Label of the button that starts the nearest-office search.
   ///
   /// In nl, this message translates to:
-  /// **'Vind mijn dichtstbijzijnde LM+ kantoor'**
+  /// **'Mijn locatie gebruiken'**
   String get findNearestOfficeButton;
 
   /// Message shown when location permission was denied or permanently denied.
@@ -234,12 +246,6 @@ abstract class AppLocalizations {
   /// **'Taal'**
   String get languageMenuTooltip;
 
-  /// Option in the language picker that follows the device language.
-  ///
-  /// In nl, this message translates to:
-  /// **'Systeemtaal'**
-  String get languageSystemDefault;
-
   /// Tooltip for the app bar button that opens the theme picker, and the title of that picker's sheet.
   ///
   /// In nl, this message translates to:
@@ -261,7 +267,7 @@ abstract class AppLocalizations {
   /// Option in the theme picker that follows the device theme.
   ///
   /// In nl, this message translates to:
-  /// **'Systeemthema'**
+  /// **'Systeem'**
   String get themeModeSystem;
 
   /// Tooltip for the app bar button that opens the combined theme and language settings sheet.
@@ -366,12 +372,6 @@ abstract class AppLocalizations {
   /// **'Foto maken om te delen'**
   String get photoShareTooltip;
 
-  /// Title of the photo capture/share screen.
-  ///
-  /// In nl, this message translates to:
-  /// **'Foto delen'**
-  String get photoShareTitle;
-
   /// Button label to discard the current photo and take a new one.
   ///
   /// In nl, this message translates to:
@@ -389,6 +389,72 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Foto van LM+ Locator'**
   String get photoShareSubject;
+
+  /// Label of the bottom navigation tab for the office locator.
+  ///
+  /// In nl, this message translates to:
+  /// **'Locator'**
+  String get locatorTabLabel;
+
+  /// Label of the bottom navigation tab for the photo-share feature.
+  ///
+  /// In nl, this message translates to:
+  /// **'Foto delen'**
+  String get photoShareTabLabel;
+
+  /// Small print on the photo-share screen noting that the feature is experimental.
+  ///
+  /// In nl, this message translates to:
+  /// **'Experimentele functie'**
+  String get photoShareExperimentalNotice;
+
+  /// Button on the home screen that opens the address search sheet, as an alternative to using GPS location.
+  ///
+  /// In nl, this message translates to:
+  /// **'Of zoek op adres'**
+  String get searchByAddressButton;
+
+  /// Title of the address search bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Zoek op adres'**
+  String get addressSearchTitle;
+
+  /// Label for the address text field in the address search sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Adres'**
+  String get addressInputLabel;
+
+  /// Submit button label in the address search sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Zoeken'**
+  String get addressSearchSubmitButton;
+
+  /// Error shown in the address search sheet when the entered address can't be resolved.
+  ///
+  /// In nl, this message translates to:
+  /// **'Adres niet gevonden. Probeer een ander adres.'**
+  String get addressNotFoundError;
+
+  /// Button in the head office info sheet that opens the organization's website in the browser.
+  ///
+  /// In nl, this message translates to:
+  /// **'Bezoek website'**
+  String get visitWebsiteButton;
+
+  /// CTA button above the results that clears the search and returns to the home screen to search again by GPS or a different address.
+  ///
+  /// In nl, this message translates to:
+  /// **'Kies een andere locatie'**
+  String get changeLocationButton;
+
+  /// Attribution link shown below address suggestions, linking to the OpenStreetMap copyright/license page.
+  ///
+  /// In nl, this message translates to:
+  /// **'Adressuggesties via OpenStreetMap'**
+  String get addressSuggestionsAttribution;
 }
 
 class _AppLocalizationsDelegate

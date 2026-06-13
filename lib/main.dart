@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
-import 'screens/home_screen.dart';
+import 'screens/root_screen.dart';
 import 'services/locale_service.dart';
 import 'services/theme_service.dart';
 import 'theme/app_theme.dart';
@@ -11,6 +12,7 @@ import 'theme/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(const LmPlusLocatorApp());
 }
 
@@ -75,6 +77,25 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
     if (_locale == null) setState(() {});
   }
 
+  @override
+  void didChangePlatformBrightness() {
+    // Re-resolve the system UI overlay style if following the device theme.
+    if (_themeMode == ThemeMode.system) setState(() {});
+  }
+
+  /// The effective brightness, resolving [ThemeMode.system] against the
+  /// device's current platform brightness.
+  Brightness _resolveBrightness() {
+    switch (_themeMode) {
+      case ThemeMode.light:
+        return Brightness.light;
+      case ThemeMode.dark:
+        return Brightness.dark;
+      case ThemeMode.system:
+        return WidgetsBinding.instance.platformDispatcher.platformBrightness;
+    }
+  }
+
   void _setLocale(Locale? locale) {
     setState(() => _locale = locale);
     _localeService.saveLocale(locale);
@@ -99,18 +120,32 @@ class _LmPlusLocatorAppState extends State<LmPlusLocatorApp>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LM+ Locator',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      themeMode: _themeMode,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      // If the user picked a language manually, use it. Otherwise follow the
-      // device language, falling back to Dutch when unsupported.
-      locale: _locale ?? _resolveDeviceLocale(),
-      home: const HomeScreen(),
+    // Transparent, edge-to-edge system bars with icon colors matched to the
+    // active theme, instead of the default opaque black navigation bar.
+    final overlayStyle = _resolveBrightness() == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: overlayStyle.copyWith(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarDividerColor: Colors.transparent,
+        systemNavigationBarContrastEnforced: false,
+      ),
+      child: MaterialApp(
+        title: 'LM+ Locator',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: _themeMode,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        // If the user picked a language manually, use it. Otherwise follow
+        // the device language, falling back to Dutch when unsupported.
+        locale: _locale ?? _resolveDeviceLocale(),
+        home: const RootScreen(),
+      ),
     );
   }
 }

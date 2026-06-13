@@ -12,6 +12,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get appTitle => 'LM+ Locator';
 
   @override
+  String get appTagline => 'Finde schnell das nächstgelegene LM+ Büro.';
+
+  @override
   String get loginTitle => 'Anmelden';
 
   @override
@@ -51,7 +54,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wir verwenden deinen Standort nur, um das nächstgelegene Büro zu finden. Dein Standort wird niemals gespeichert oder weitergegeben.';
 
   @override
-  String get findNearestOfficeButton => 'Nächstes LM+ Büro finden';
+  String get privacyNoticeTooltip => 'Datenschutzhinweis';
+
+  @override
+  String get findNearestOfficeButton => 'Meinen Standort verwenden';
 
   @override
   String get locationPermissionDenied =>
@@ -85,9 +91,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get languageMenuTooltip => 'Sprache';
 
   @override
-  String get languageSystemDefault => 'Systemsprache';
-
-  @override
   String get themeMenuTooltip => 'Design';
 
   @override
@@ -97,7 +100,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get themeModeDark => 'Dunkel';
 
   @override
-  String get themeModeSystem => 'Systemdesign';
+  String get themeModeSystem => 'System';
 
   @override
   String get settingsTooltip => 'Einstellungen';
@@ -155,9 +158,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get photoShareTooltip => 'Foto zum Teilen aufnehmen';
 
   @override
-  String get photoShareTitle => 'Foto teilen';
-
-  @override
   String get photoRetakeButton => 'Erneut aufnehmen';
 
   @override
@@ -165,4 +165,39 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get photoShareSubject => 'Foto von LM+ Locator';
+
+  @override
+  String get locatorTabLabel => 'Locator';
+
+  @override
+  String get photoShareTabLabel => 'Foto teilen';
+
+  @override
+  String get photoShareExperimentalNotice => 'Experimentelle Funktion';
+
+  @override
+  String get searchByAddressButton => 'Oder nach Adresse suchen';
+
+  @override
+  String get addressSearchTitle => 'Adresssuche';
+
+  @override
+  String get addressInputLabel => 'Adresse';
+
+  @override
+  String get addressSearchSubmitButton => 'Suchen';
+
+  @override
+  String get addressNotFoundError =>
+      'Adresse nicht gefunden. Versuche eine andere Adresse.';
+
+  @override
+  String get visitWebsiteButton => 'Website besuchen';
+
+  @override
+  String get changeLocationButton => 'Anderen Standort wählen';
+
+  @override
+  String get addressSuggestionsAttribution =>
+      'Adressvorschläge via OpenStreetMap';
 }

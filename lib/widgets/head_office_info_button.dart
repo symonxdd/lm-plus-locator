@@ -58,6 +58,15 @@ class HeadOfficeInfoButton extends StatelessWidget {
                     Uri(scheme: 'mailto', path: HeadOffice.email),
                   ),
                 ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.language_outlined),
+                  title: Text(l10n.visitWebsiteButton),
+                  onTap: () => launchUrl(
+                    Uri.parse(HeadOffice.website),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
               ],
             ),
           ),
@@ -71,7 +80,7 @@ class HeadOfficeInfoButton extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     return IconButton(
       onPressed: () => _showHeadOfficeInfo(context),
-      icon: const Icon(Icons.info_outline),
+      icon: const Icon(Icons.apartment_outlined),
       tooltip: l10n.headOfficeTooltip,
     );
   }

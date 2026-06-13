@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart' as ph;
+
+import '../models/address_suggestion.dart';
 
 /// The result of checking/requesting location permission and GPS status.
 enum LocationPermissionStatus {
@@ -9,6 +14,17 @@ enum LocationPermissionStatus {
   permanentlyDenied,
   serviceDisabled,
 }
+
+/// Nominatim address types broader than a municipality, excluded from
+/// address suggestions since they aren't useful search locations.
+const _excludedAddressTypes = {
+  'county',
+  'state_district',
+  'state',
+  'region',
+  'country',
+  'continent',
+};
 
 /// Wraps geolocator + permission_handler to provide a single, exhaustive
 /// permission check and the user's current position.
@@ -85,6 +101,96 @@ class LocationService {
       return parts.join(', ');
     } catch (_) {
       return null;
+    }
+  }
+
+  /// Resolves a free-text address to coordinates, e.g. for users who don't
+  /// want to grant location access. Returns `null` if the address can't be
+  /// resolved.
+  Future<Location?> geocodeAddress(String address) async {
+    try {
+      final locations = await locationFromAddress(address);
+      return locations.isEmpty ? null : locations.first;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Looks up live address suggestions for [query] as the user types, using
+  /// the free OpenStreetMap Nominatim search API. Returns an empty list for
+  /// short queries or if the request fails.
+  Future<List<AddressSuggestion>> suggestAddresses(
+    String query, {
+    String? languageCode,
+  }) async {
+    if (query.trim().length < 3) return [];
+
+    // LM+ offices are all in Belgium, so restrict suggestions accordingly -
+    // without this, Nominatim happily suggests same-named places abroad
+    // (e.g. searching "Alken" also returns hits in Germany, Denmark, Poland).
+    final uri = Uri.https('nominatim.openstreetmap.org', '/search', {
+      'q': query,
+      'format': 'jsonv2',
+      'addressdetails': '1',
+      'limit': '8',
+      'countrycodes': 'be',
+    });
+
+    try {
+      final response = await http.get(
+        uri,
+        headers: {
+          'User-Agent': 'LM+ Locator (Flutter app)',
+          'Accept-Language': ?languageCode,
+        },
+      );
+      if (response.statusCode != 200) return [];
+
+      final results = (jsonDecode(response.body) as List<dynamic>)
+          .cast<Map<String, dynamic>>();
+
+      final suggestions = <AddressSuggestion>[];
+      final seenLabels = <String>{};
+      for (final map in results) {
+        // Administrative areas broader than a municipality (counties,
+        // provinces, states, countries) aren't useful search locations and
+        // can shadow a city/town result under the same name - e.g.
+        // searching "Gent" also returns the "Gent" arrondissement, a
+        // county-sized area whose centre is ~6km from the city itself.
+        if (_excludedAddressTypes.contains(map['addresstype'])) continue;
+
+        final lat = double.tryParse(map['lat'] as String? ?? '');
+        final lon = double.tryParse(map['lon'] as String? ?? '');
+        if (lat == null || lon == null) continue;
+
+        final address = map['address'] as Map<String, dynamic>? ?? {};
+        final name = map['name'] as String? ?? address['road'] as String?;
+        if (name == null) continue;
+
+        final locality = address['city'] as String? ??
+            address['town'] as String? ??
+            address['village'] as String? ??
+            address['municipality'] as String?;
+        final country = address['country'] as String?;
+
+        final labelParts = <String>{
+          name,
+          ?locality,
+          ?country,
+        };
+        final displayName = labelParts.join(', ');
+
+        if (!seenLabels.add(displayName)) continue;
+        suggestions.add(AddressSuggestion(
+          displayName: displayName,
+          latitude: lat,
+          longitude: lon,
+        ));
+        if (suggestions.length >= 5) break;
+      }
+      return suggestions;
+    } catch (_) {
+      return [];
     }
   }
 

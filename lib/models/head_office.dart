@@ -7,4 +7,5 @@ class HeadOffice {
   static const city = 'Gent';
   static const phone = '09 223 19 76';
   static const email = 'info.ov@lm.be';
+  static const website = 'https://www.lm-ml.be/nl/lm-plus';
 }

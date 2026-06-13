@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
 import '../services/location_service.dart';
 import '../services/office_service.dart';
 import '../theme/app_colors.dart';
-import '../widgets/head_office_info_button.dart';
+import '../widgets/address_search_sheet.dart';
 import '../widgets/office_card.dart';
-import '../widgets/settings_selector.dart';
-import 'photo_share_screen.dart';
+import '../widgets/privacy_info_button.dart';
 
 enum _LocatorStatus {
   idle,
@@ -70,9 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  String _formatCoordinates(Position position) =>
-      '${position.latitude.toStringAsFixed(4)}, '
-      '${position.longitude.toStringAsFixed(4)}';
+  String _formatCoordinates(double lat, double lng) =>
+      '${lat.toStringAsFixed(4)}, ${lng.toStringAsFixed(4)}';
 
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
@@ -100,7 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       final lastKnown = await _locationService.getLastKnownPosition();
       if (lastKnown != null) {
-        await _showResultsFor(lastKnown, officesFuture);
+        await _showResultsFor(
+          lastKnown.latitude,
+          lastKnown.longitude,
+          officesFuture,
+        );
         hasResults = true;
       }
     } catch (_) {
@@ -109,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       final position = await _locationService.getCurrentPosition();
-      await _showResultsFor(position, officesFuture);
+      await _showResultsFor(position.latitude, position.longitude, officesFuture);
 
       final address = await _locationService.reverseGeocode(
         position.latitude,
@@ -125,22 +126,57 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  /// Computes and displays the nearest offices for [position], using the
-  /// (cached) [officesFuture].
+  /// Opens the address search sheet and, if the user finds an address,
+  /// shows the nearest offices to it - an alternative to GPS location.
+  Future<void> _searchByAddress() async {
+    final result = await showModalBottomSheet<AddressSearchResult>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (context) => const AddressSearchSheet(),
+    );
+    if (result == null || !mounted) return;
+
+    setState(() => _status = _LocatorStatus.loading);
+    final officesFuture = _officesFuture ??= _officeService.loadOffices();
+    await _showResultsFor(
+      result.latitude,
+      result.longitude,
+      officesFuture,
+      locationText: result.address,
+    );
+  }
+
+  /// Clears the current results and returns to the hero, so the user can
+  /// search again by GPS or a different address.
+  void _changeLocation() {
+    setState(() {
+      _status = _LocatorStatus.idle;
+      _allOffices = [];
+      _visibleCount = _pageSize;
+      _userLocationText = null;
+    });
+  }
+
+  /// Computes and displays the nearest offices to (lat, lng), using the
+  /// (cached) [officesFuture]. Shows [locationText] as the user's location,
+  /// falling back to the raw coordinates.
   Future<void> _showResultsFor(
-    Position position,
-    Future<List<Office>> officesFuture,
-  ) async {
+    double lat,
+    double lng,
+    Future<List<Office>> officesFuture, {
+    String? locationText,
+  }) async {
     final offices = await officesFuture;
     final allOffices = _officeService.nearestOffices(
       offices: offices,
-      userLat: position.latitude,
-      userLng: position.longitude,
+      userLat: lat,
+      userLng: lng,
     );
 
     if (!mounted) return;
     setState(() {
-      _userLocationText = _formatCoordinates(position);
+      _userLocationText = locationText ?? _formatCoordinates(lat, lng);
       _allOffices = allOffices;
       _visibleCount = _pageSize;
       _status = _LocatorStatus.results;
@@ -151,92 +187,77 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Stack(
-            children: [
-              ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  ctaColors(context).background,
-                  BlendMode.srcIn,
-                ),
-                child: Image.asset('assets/icon/icon_pin_mask.png'),
-              ),
-              ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  ctaColors(context).foreground,
-                  BlendMode.srcIn,
-                ),
-                child: Image.asset('assets/icon/icon_plus_mask.png'),
-              ),
-            ],
-          ),
-        ),
-        title: Text(l10n.appTitle),
-        actions: [
-          IconButton(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const PhotoShareScreen()),
-            ),
-            icon: const Icon(Icons.camera_alt_outlined),
-            tooltip: l10n.photoShareTooltip,
-          ),
-          const HeadOfficeInfoButton(),
-          const SettingsSelector(),
-        ],
-      ),
-      body: SafeArea(
+      // The address search sheet's text field grabs focus on open, which
+      // would otherwise push this screen's whole body (incl. the hero) up
+      // to avoid the keyboard. The sheet handles its own keyboard inset.
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(child: _buildContent(l10n)),
+    );
+  }
+
+  Widget _buildHero(AppLocalizations l10n) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+            SizedBox(
+              width: 96,
+              height: 96,
+              child: Stack(
                 children: [
-                  Text(
-                    l10n.locationPrivacyNotice,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  const SizedBox(height: 16),
-                  FilledButton.icon(
-                    style: FilledButton.styleFrom(
-                      backgroundColor: ctaColors(context).background,
-                      foregroundColor: ctaColors(context).foreground,
+                  ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      ctaColors(context).background,
+                      BlendMode.srcIn,
                     ),
-                    onPressed: _status == _LocatorStatus.loading
-                        ? null
-                        : _findNearestOffices,
-                    icon: const Icon(Icons.my_location),
-                    label: Text(l10n.findNearestOfficeButton),
+                    child: Image.asset('assets/icon/icon_pin_mask.png'),
                   ),
-                  if (_userLocationText != null) ...[
-                    const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.my_location,
-                          size: 14,
-                          color: Theme.of(context).colorScheme.outline,
-                        ),
-                        const SizedBox(width: 4),
-                        Flexible(
-                          child: Text(
-                            l10n.yourLocationLabel(_userLocationText!),
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
-                      ],
+                  ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      ctaColors(context).foreground,
+                      BlendMode.srcIn,
                     ),
-                  ],
+                    child: Image.asset('assets/icon/icon_plus_mask.png'),
+                  ),
                 ],
               ),
             ),
-            Expanded(child: _buildContent(l10n)),
+            const SizedBox(height: 16),
+            Text(
+              l10n.appTagline,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 40),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Balances the PrivacyInfoButton on the other side, so the
+                // CTA itself stays centered (matching the address button
+                // below) while the privacy button sits beside it.
+                const SizedBox(width: 48),
+                const SizedBox(width: 4),
+                FilledButton.icon(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: ctaColors(context).background,
+                    foregroundColor: ctaColors(context).foreground,
+                  ),
+                  onPressed: _findNearestOffices,
+                  icon: const Icon(Icons.my_location),
+                  label: Text(l10n.findNearestOfficeButton),
+                ),
+                const SizedBox(width: 4),
+                const PrivacyInfoButton(),
+              ],
+            ),
+            const SizedBox(height: 8),
+            TextButton.icon(
+              onPressed: _searchByAddress,
+              icon: const Icon(Icons.edit_location_alt_outlined),
+              label: Text(l10n.searchByAddressButton),
+            ),
           ],
         ),
       ),
@@ -246,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildContent(AppLocalizations l10n) {
     switch (_status) {
       case _LocatorStatus.idle:
-        return const SizedBox.shrink();
+        return _buildHero(l10n);
 
       case _LocatorStatus.loading:
         return const Center(child: CircularProgressIndicator());
@@ -256,8 +277,43 @@ class _HomeScreenState extends State<HomeScreen> {
         final visibleOffices = filteredOffices.take(_visibleCount).toList();
         return Column(
           children: [
+            if (_userLocationText != null)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.my_location,
+                      size: 14,
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
+                    const SizedBox(width: 4),
+                    Flexible(
+                      child: Text(
+                        l10n.yourLocationLabel(_userLocationText!),
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+              child: FilledButton.icon(
+                style: FilledButton.styleFrom(
+                  backgroundColor: ctaColors(context).background,
+                  foregroundColor: ctaColors(context).foreground,
+                ),
+                onPressed: _changeLocation,
+                icon: const Icon(Icons.edit_location_alt_outlined),
+                label: Text(l10n.changeLocationButton),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
               child: SegmentedButton<OfficeType>(
                 segments: [
                   ButtonSegment(

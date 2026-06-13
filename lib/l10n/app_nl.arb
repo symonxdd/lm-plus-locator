@@ -4,6 +4,10 @@
   "@appTitle": {
     "description": "The application title shown in the app bar."
   },
+  "appTagline": "Vind snel het dichtstbijzijnde LM+ kantoor.",
+  "@appTagline": {
+    "description": "Short tagline shown on the home screen explaining what the app does."
+  },
   "loginTitle": "Inloggen",
   "@loginTitle": {
     "description": "Heading shown on the email form in login mode, and the login button label."
@@ -52,7 +56,11 @@
   "@locationPrivacyNotice": {
     "description": "Privacy notice shown before requesting GPS location."
   },
-  "findNearestOfficeButton": "Vind mijn dichtstbijzijnde LM+ kantoor",
+  "privacyNoticeTooltip": "Privacyverklaring",
+  "@privacyNoticeTooltip": {
+    "description": "Tooltip for the button that shows the location privacy notice."
+  },
+  "findNearestOfficeButton": "Mijn locatie gebruiken",
   "@findNearestOfficeButton": {
     "description": "Label of the button that starts the nearest-office search."
   },
@@ -98,10 +106,6 @@
   "@languageMenuTooltip": {
     "description": "Tooltip for the app bar button that opens the language picker."
   },
-  "languageSystemDefault": "Systeemtaal",
-  "@languageSystemDefault": {
-    "description": "Option in the language picker that follows the device language."
-  },
   "themeMenuTooltip": "Thema",
   "@themeMenuTooltip": {
     "description": "Tooltip for the app bar button that opens the theme picker, and the title of that picker's sheet."
@@ -114,7 +118,7 @@
   "@themeModeDark": {
     "description": "Option in the theme picker for the dark theme."
   },
-  "themeModeSystem": "Systeemthema",
+  "themeModeSystem": "Systeem",
   "@themeModeSystem": {
     "description": "Option in the theme picker that follows the device theme."
   },
@@ -191,10 +195,6 @@
   "@photoShareTooltip": {
     "description": "Tooltip for the app bar button that opens the photo capture screen."
   },
-  "photoShareTitle": "Foto delen",
-  "@photoShareTitle": {
-    "description": "Title of the photo capture/share screen."
-  },
   "photoRetakeButton": "Opnieuw nemen",
   "@photoRetakeButton": {
     "description": "Button label to discard the current photo and take a new one."
@@ -206,5 +206,49 @@
   "photoShareSubject": "Foto van LM+ Locator",
   "@photoShareSubject": {
     "description": "Subject line pre-filled when sharing a photo, e.g. via email."
+  },
+  "locatorTabLabel": "Locator",
+  "@locatorTabLabel": {
+    "description": "Label of the bottom navigation tab for the office locator."
+  },
+  "photoShareTabLabel": "Foto delen",
+  "@photoShareTabLabel": {
+    "description": "Label of the bottom navigation tab for the photo-share feature."
+  },
+  "photoShareExperimentalNotice": "Experimentele functie",
+  "@photoShareExperimentalNotice": {
+    "description": "Small print on the photo-share screen noting that the feature is experimental."
+  },
+  "searchByAddressButton": "Of zoek op adres",
+  "@searchByAddressButton": {
+    "description": "Button on the home screen that opens the address search sheet, as an alternative to using GPS location."
+  },
+  "addressSearchTitle": "Zoek op adres",
+  "@addressSearchTitle": {
+    "description": "Title of the address search bottom sheet."
+  },
+  "addressInputLabel": "Adres",
+  "@addressInputLabel": {
+    "description": "Label for the address text field in the address search sheet."
+  },
+  "addressSearchSubmitButton": "Zoeken",
+  "@addressSearchSubmitButton": {
+    "description": "Submit button label in the address search sheet."
+  },
+  "addressNotFoundError": "Adres niet gevonden. Probeer een ander adres.",
+  "@addressNotFoundError": {
+    "description": "Error shown in the address search sheet when the entered address can't be resolved."
+  },
+  "visitWebsiteButton": "Bezoek website",
+  "@visitWebsiteButton": {
+    "description": "Button in the head office info sheet that opens the organization's website in the browser."
+  },
+  "changeLocationButton": "Kies een andere locatie",
+  "@changeLocationButton": {
+    "description": "CTA button above the results that clears the search and returns to the home screen to search again by GPS or a different address."
+  },
+  "addressSuggestionsAttribution": "Adressuggesties via OpenStreetMap",
+  "@addressSuggestionsAttribution": {
+    "description": "Attribution link shown below address suggestions, linking to the OpenStreetMap copyright/license page."
   }
 }
