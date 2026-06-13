@@ -1,5 +1,18 @@
 # Architecture
 
+## Why Flutter?
+
+This app is a small, single-developer side project that still needs to run well on both Android and iOS, talk to the device's camera/GPS, and support four languages and light/dark theming — without becoming a maintenance burden. Flutter was a good fit for a few reasons:
+
+- **One codebase, two app stores.** The bulk of the UI, navigation, and business logic (locator search, distance sorting, opening-hours logic) is written once and ships to Android and iOS alike — there's no Kotlin/Swift code to keep in sync.
+- **Everything this app needs is "off the shelf".** Location (`geolocator`), reverse geocoding (`geocoding`), runtime permissions (`permission_handler`), camera + share sheet (`image_picker`, `share_plus`), local persistence (`shared_preferences`), and auth (`firebase_auth`) are all mature, well-maintained plugins — no custom native modules were needed anywhere.
+- **Material 3 + localization come built in.** `flutter_localizations` plus ARB files gave nl/fr/de/en support with generated, type-safe accessors (`l10n.xxx`), and Material 3 theming (`ColorScheme.fromSeed`, `InputDecorationTheme`, etc.) made consistent light/dark styling straightforward.
+- **Hot reload makes UI iteration fast.** Tweaking layouts, theming, or copy and seeing the result in under a second is a big productivity win for the kind of UI-polish work this app gets a lot of.
+- **Dart is a pleasant, statically-typed language** with good null-safety and tooling (`flutter analyze`, DevTools), and a single language for the whole app is simpler than context-switching between platforms.
+- **Backed by Google with a large ecosystem** — long-term viability and community support for a project that may sit untouched for stretches between updates.
+
+The main trade-off is the debug-mode performance overhead discussed elsewhere (see the README's "Build modes" section) — but for development that's a worthwhile trade for the iteration speed, and it disappears entirely in release builds.
+
 ## Tech stack
 
 - **Flutter** (Material 3) — UI framework, targeting Android and iOS
