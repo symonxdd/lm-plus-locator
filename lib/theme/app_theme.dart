@@ -3,20 +3,50 @@ import 'package:flutter/services.dart';
 
 /// The app's light and dark [ThemeData].
 class AppTheme {
+  static final _lightColorScheme = ColorScheme.fromSeed(seedColor: Colors.blue);
+  static final _darkColorScheme = ColorScheme.fromSeed(
+    seedColor: Colors.blue,
+    brightness: Brightness.dark,
+  );
+
   static final light = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+    colorScheme: _lightColorScheme,
     appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    inputDecorationTheme: _inputDecorationTheme(_lightColorScheme),
   );
 
   static final dark = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.blue,
-      brightness: Brightness.dark,
-    ),
+    colorScheme: _darkColorScheme,
     appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    inputDecorationTheme: _inputDecorationTheme(_darkColorScheme),
   );
+
+  /// A softer, filled look for text fields: a tinted background with no
+  /// visible outline at rest, and a crisp rounded border once focused.
+  static InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme) {
+    final radius = BorderRadius.circular(14);
+    return InputDecorationTheme(
+      filled: true,
+      fillColor: colorScheme.surfaceContainerHighest,
+      border: OutlineInputBorder(borderRadius: radius, borderSide: BorderSide.none),
+      enabledBorder: OutlineInputBorder(borderRadius: radius, borderSide: BorderSide.none),
+      disabledBorder: OutlineInputBorder(borderRadius: radius, borderSide: BorderSide.none),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: radius,
+        borderSide: BorderSide(color: colorScheme.primary, width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: radius,
+        borderSide: BorderSide(color: colorScheme.error, width: 1.5),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: radius,
+        borderSide: BorderSide(color: colorScheme.error, width: 2),
+      ),
+    );
+  }
 
   /// System bar overlay style for [theme]: a transparent status bar and a
   /// navigation bar painted in the theme's surface color, with status- and

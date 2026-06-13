@@ -123,7 +123,7 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
               onSubmitted: (_) => _search(),
               decoration: InputDecoration(
                 labelText: l10n.addressInputLabel,
-                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.search),
                 errorText: _notFound ? l10n.addressNotFoundError : null,
               ),
             ),

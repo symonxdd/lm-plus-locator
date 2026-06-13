@@ -19,7 +19,12 @@ class AccountSheet extends StatelessWidget {
     return SafeArea(
       top: false,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.fromLTRB(
+          24,
+          24,
+          24,
+          24 + MediaQuery.of(context).viewInsets.bottom,
+        ),
         child: StreamBuilder<User?>(
           stream: authService.authStateChanges,
           initialData: authService.currentUser,
@@ -185,7 +190,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: l10n.emailLabel,
-              border: const OutlineInputBorder(),
+              prefixIcon: const Icon(Icons.email_outlined),
             ),
             validator: (value) {
               if (value == null || !value.contains('@')) {
@@ -200,7 +205,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
             obscureText: true,
             decoration: InputDecoration(
               labelText: l10n.passwordLabel,
-              border: const OutlineInputBorder(),
+              prefixIcon: const Icon(Icons.lock_outline),
             ),
             validator: (value) {
               if (value == null || value.length < 6) {
