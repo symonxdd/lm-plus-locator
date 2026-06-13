@@ -1,9 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { remarkDocLinks } from './src/remark-doc-links.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+	// GitHub Pages serves project sites from https://<user>.github.io/<repo>/
+	site: 'https://symonxdd.github.io',
+	base: '/lm-plus-locator',
+	markdown: {
+		remarkPlugins: [remarkDocLinks],
+	},
 	integrations: [
 		starlight({
 			title: 'LM+ Locator',
