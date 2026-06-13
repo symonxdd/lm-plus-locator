@@ -95,4 +95,4 @@ The API keys page lists four guidelines before saying a key doesn't need to be t
 3. **Use the key only for Firebase services**: this app's only Firebase/Google dependencies are `firebase_core` and `firebase_auth`. Address lookups use the device's built-in geocoder (`geocoding` package) and "open in Maps" uses `url_launcher` to open a URL, neither uses this API key, and there's no Google Maps, Places, or Gemini API anywhere in this project that could share it.
 4. **Security Rules and App Check are critical for Realtime Database, Cloud Firestore, and Cloud Storage**: this app uses none of those, so there's nothing to lock down here.
 
-This project's setup matches all four, so the Firebase config files can stay in version control, including now that the repo is public.
+This project's setup matches all four, so the Firebase config files can stay in version control.
