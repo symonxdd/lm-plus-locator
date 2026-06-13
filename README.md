@@ -1,17 +1,21 @@
-# lm_plus_locator
+# LM+ Locator
 
-A new Flutter project.
+An unofficial Flutter companion app for finding the nearest [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit) office or mailbox in Belgium — by GPS or by address — complete with opening hours, distance, and one-tap directions.
 
-## Getting Started
+## Documentation
 
-This project is a starting point for a Flutter application.
+- [docs/README.md](docs/README.md) — start here: what the app does, tech stack, and where everything lives
+- [docs/architecture.md](docs/architecture.md) — how the app is wired together
+- [docs/features.md](docs/features.md) — feature-by-feature walkthrough
+- [docs/data-pipeline.md](docs/data-pipeline.md) — how `assets/lm_offices.json` is scraped and kept up to date
 
-A few resources to get you started if this is your first Flutter project:
+## Getting started
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+This is a standard Flutter project.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
+```
+
+The optional account feature requires a configured Firebase project (see `lib/firebase_options.dart`); the locator itself works without one.
