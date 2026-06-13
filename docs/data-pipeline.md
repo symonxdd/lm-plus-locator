@@ -1,4 +1,7 @@
-# Office data pipeline
+---
+title: Office data pipeline
+description: How the bundled office/mailbox dataset is structured and kept up to date.
+---
 
 The app's office/mailbox list is bundled as a static asset: [assets/lm_offices.json](../assets/lm_offices.json). It's loaded once at runtime by [OfficeService.loadOffices()](../lib/services/office_service.dart) and never fetched from the network, so the app works fully offline once the user's coordinates are known.
 

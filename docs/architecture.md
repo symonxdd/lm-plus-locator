@@ -1,4 +1,7 @@
-# Architecture
+---
+title: Architecture
+description: Tech stack, app shell and navigation, theming, localization, persistence, and Firebase/auth for LM+ Locator.
+---
 
 ## Why Flutter?
 

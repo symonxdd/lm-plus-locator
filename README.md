@@ -9,6 +9,8 @@ An unofficial Flutter companion app for finding the nearest [LM Plus](https://ww
 - [docs/features.md](docs/features.md): feature-by-feature walkthrough
 - [docs/data-pipeline.md](docs/data-pipeline.md): how `assets/lm_offices.json` is scraped and kept up to date
 
+These same files are also rendered as a small documentation website using [Starlight](https://starlight.astro.build/). See [docs-site/README.md](docs-site/README.md) for how to run it locally (`npm install` then `npm run dev` inside `docs-site/`).
+
 ## Getting started
 
 ### Requirements

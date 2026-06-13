@@ -1,4 +1,7 @@
-# LM+ Locator documentation
+---
+title: LM+ Locator documentation
+description: Documentation for LM+ Locator, an unofficial Flutter app for finding LM Plus offices and mailboxes in Belgium.
+---
 
 LM+ Locator is an **unofficial** Flutter app that helps members of [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit, a Belgian health insurance fund) find their nearest office or mailbox drop-off point.
 

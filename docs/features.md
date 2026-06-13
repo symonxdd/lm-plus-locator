@@ -1,4 +1,7 @@
-# Features
+---
+title: Features
+description: A walkthrough of each LM+ Locator feature, screen by screen, with source file references.
+---
 
 ## 1. Office & mailbox locator (main feature)
 
