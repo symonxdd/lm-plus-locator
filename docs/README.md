@@ -1,4 +1,4 @@
-# LM+ Locator — Documentation
+# LM+ Locator documentation
 
 LM+ Locator is an **unofficial** Flutter app that helps members of [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit, a Belgian health insurance fund) find their nearest office or mailbox drop-off point.
 
@@ -7,9 +7,9 @@ LM+ Locator is an **unofficial** Flutter app that helps members of [LM Plus](htt
 - **Find the nearest office** using the device's GPS, or by typing an address (with live autocomplete)
 - **Browse offices and mailboxes** sorted by distance, with opening hours and an "open now" status
 - **Open any location in Maps** (Google Maps / Apple Maps) with one tap
-- **Multilingual** — Dutch, French, German, English, following the device language by default
+- **Multilingual**: Dutch, French, German, English, following the device language by default
 - **Light/dark theme**, following the system by default
-- **Optional account** (email/password via Firebase) — not required to use the locator
+- **Optional account** (email/password via Firebase), not required to use the locator
 - An experimental **photo-share** tab for taking and sharing a photo
 
 ## Where to go next

@@ -8,11 +8,11 @@ The Locator tab ([HomeScreen](../lib/screens/home_screen.dart)) has several stat
 
 The starting screen, showing the app logo, tagline, and two ways to search:
 
-- **"Mijn locatie gebruiken" (find nearest)** — calls `_findNearestOffices()`, which:
+- **"Mijn locatie gebruiken" (find nearest)**: calls `_findNearestOffices()`, which:
   1. Checks/requests location permission via [LocationService.checkPermission()](../lib/services/location_service.dart)
   2. If granted, shows results for the **last known position** immediately (if any) for instant feedback, then fetches a fresh GPS fix and updates the results and the "your location" label (via reverse geocoding)
   3. On permission/GPS issues, shows a dedicated info screen with a button to open the relevant system settings
-- **"Zoek op adres" (search by address)** — opens [AddressSearchSheet](../lib/widgets/address_search_sheet.dart), a bottom sheet with a text field that shows live suggestions (debounced, via Nominatim) as the user types, or geocodes the typed address on submit
+- **"Zoek op adres" (search by address)**: opens [AddressSearchSheet](../lib/widgets/address_search_sheet.dart), a bottom sheet with a text field that shows live suggestions (debounced, via Nominatim) as the user types, or geocodes the typed address on submit
 
 ### Results screen (`results`)
 
@@ -31,7 +31,7 @@ A `PopScope` ensures the system back button returns to the hero screen from any 
 
 ### Distance calculation
 
-[OfficeService.nearestOffices()](../lib/services/office_service.dart) sorts the bundled office list by straight-line (haversine) distance to the user's coordinates — see [data-pipeline.md](data-pipeline.md) for where that office list comes from.
+[OfficeService.nearestOffices()](../lib/services/office_service.dart) sorts the bundled office list by straight-line (haversine) distance to the user's coordinates. See [data-pipeline.md](data-pipeline.md) for where that office list comes from.
 
 ## 2. Account (optional sign-in)
 
@@ -40,7 +40,7 @@ Settings → **Account** opens [AccountSheet](../lib/widgets/account_sheet.dart)
 - If signed out: an email/password login form, with a toggle to switch to registration (`_isRegisterMode`)
 - If signed in: shows the account's email and a "log out" button (with a confirmation dialog)
 
-Backed by [AuthService](../lib/services/auth_service.dart) (Firebase Auth). Entirely optional — none of the locator features require an account.
+Backed by [AuthService](../lib/services/auth_service.dart) (Firebase Auth). Entirely optional: none of the locator features require an account.
 
 ## 3. Settings
 
@@ -60,6 +60,4 @@ The second bottom-nav tab ([PhotoShareScreen](../lib/screens/photo_share_screen.
 
 1. Take a photo with the camera (`image_picker`)
 2. Preview it, with the option to retake
-3. Share it via the OS share sheet (`share_plus`) — e.g. to email it to an LM+ office
-
-Marked as experimental in the UI via `photoShareExperimentalNotice`.
+3. Share it via the OS share sheet (`share_plus`), e.g. to email it to an LM+ office

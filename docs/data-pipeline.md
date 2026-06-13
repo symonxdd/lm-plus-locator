@@ -1,6 +1,6 @@
 # Office data pipeline
 
-The app's office/mailbox list is bundled as a static asset: [assets/lm_offices.json](../assets/lm_offices.json) (297 entries as of writing). It's loaded once at runtime by [OfficeService.loadOffices()](../lib/services/office_service.dart) and never fetched from the network — so the app works fully offline once the user's coordinates are known.
+The app's office/mailbox list is bundled as a static asset: [assets/lm_offices.json](../assets/lm_offices.json). It's loaded once at runtime by [OfficeService.loadOffices()](../lib/services/office_service.dart) and never fetched from the network, so the app works fully offline once the user's coordinates are known.
 
 ## Format
 
@@ -34,8 +34,8 @@ Two Python scripts in [scripts/](../scripts/) scrape https://www.lm-ml.be/nl/kan
 
 | Script | Use it to... | What it touches |
 |---|---|---|
-| `scrape_offices.py` | Do a **full rebuild** | Scrapes everything (name/address/phone/type/hours) *and* geocodes each address via Nominatim. Slow (one geocoding request per office, rate-limited) — only needed when offices are added, removed, or moved. |
-| `update_office_metadata.py` | **Refresh type & opening hours** | Re-scrapes the listing pages and merges just `type`/`opening_hours` into the existing JSON by matching on name/address/postal code/city. Leaves coordinates untouched — much faster, safe to re-run periodically. |
+| `scrape_offices.py` | Do a **full rebuild** | Scrapes everything (name/address/phone/type/hours) *and* geocodes each address via Nominatim. Slow (one geocoding request per office, rate-limited), only needed when offices are added, removed, or moved. |
+| `update_office_metadata.py` | **Refresh type & opening hours** | Re-scrapes the listing pages and merges just `type`/`opening_hours` into the existing JSON by matching on name/address/postal code/city. Leaves coordinates untouched, much faster, safe to re-run periodically. |
 
 Both write back to `assets/lm_offices.json`. Run with:
 
