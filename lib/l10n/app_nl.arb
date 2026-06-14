@@ -60,6 +60,10 @@
   "@privacyNoticeTooltip": {
     "description": "Tooltip for the button that shows the location privacy notice."
   },
+  "privacyPolicyButton": "Privacybeleid",
+  "@privacyPolicyButton": {
+    "description": "Settings sheet item that opens the full hosted privacy policy in the browser."
+  },
   "findNearestOfficeButton": "Mijn locatie gebruiken",
   "@findNearestOfficeButton": {
     "description": "Label of the button that starts the nearest-office search."
@@ -274,5 +278,51 @@
   "reauthenticateButton": "Bevestigen",
   "@reauthenticateButton": {
     "description": "Confirm button in the re-authentication dialog."
+  },
+  "invalidCredentialsError": "Onjuist e-mailadres of wachtwoord.",
+  "@invalidCredentialsError": {
+    "description": "Shown when sign-in fails because the email and/or password is incorrect or the account doesn't exist. Deliberately generic for security (doesn't reveal which one is wrong)."
+  },
+  "emailAlreadyInUseError": "Er bestaat al een account met dit e-mailadres.",
+  "@emailAlreadyInUseError": {
+    "description": "Shown when registration fails because an account with this email already exists."
+  },
+  "weakPasswordError": "Kies een sterker wachtwoord (minstens 6 tekens).",
+  "@weakPasswordError": {
+    "description": "Shown when registration fails because the password is too weak."
+  },
+  "forgotPasswordButton": "Wachtwoord vergeten?",
+  "@forgotPasswordButton": {
+    "description": "Button in the login form that sends a password reset email."
+  },
+  "passwordResetEmailSent": "E-mail voor wachtwoordherstel verzonden. Controleer je inbox.",
+  "@passwordResetEmailSent": {
+    "description": "Confirmation shown after a password reset email was sent successfully."
+  },
+  "passwordRequiredError": "Voer je wachtwoord in.",
+  "@passwordRequiredError": {
+    "description": "Validation message shown in the re-authentication dialog when the password field is left empty."
+  },
+  "accountIdLabel": "Account-ID: {id}",
+  "@accountIdLabel": {
+    "description": "Shows the signed-in user's Firebase account ID (UID), useful for support requests.",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "accountCreatedLabel": "Lid sinds {date}",
+  "@accountCreatedLabel": {
+    "description": "Shows the date the signed-in account was created.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "accountDeletedMessage": "Account succesvol verwijderd.",
+  "@accountDeletedMessage": {
+    "description": "Confirmation shown on the login form after the user successfully deletes their account."
   }
 }

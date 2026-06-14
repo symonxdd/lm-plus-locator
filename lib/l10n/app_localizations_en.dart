@@ -56,6 +56,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privacyNoticeTooltip => 'Privacy notice';
 
   @override
+  String get privacyPolicyButton => 'Privacy Policy';
+
+  @override
   String get findNearestOfficeButton => 'Use my location';
 
   @override
@@ -219,4 +222,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reauthenticateButton => 'Confirm';
+
+  @override
+  String get invalidCredentialsError => 'Incorrect email or password.';
+
+  @override
+  String get emailAlreadyInUseError =>
+      'An account with this email already exists.';
+
+  @override
+  String get weakPasswordError =>
+      'Choose a stronger password (at least 6 characters).';
+
+  @override
+  String get forgotPasswordButton => 'Forgot password?';
+
+  @override
+  String get passwordResetEmailSent =>
+      'Password reset email sent. Check your inbox.';
+
+  @override
+  String get passwordRequiredError => 'Please enter your password.';
+
+  @override
+  String accountIdLabel(String id) {
+    return 'Account ID: $id';
+  }
+
+  @override
+  String accountCreatedLabel(String date) {
+    return 'Member since $date';
+  }
+
+  @override
+  String get accountDeletedMessage => 'Account deleted successfully.';
 }

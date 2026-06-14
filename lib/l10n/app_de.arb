@@ -15,6 +15,7 @@
   "logoutTooltip": "Abmelden",
   "locationPrivacyNotice": "Wir verwenden deinen Standort nur, um das nächstgelegene Büro zu finden. Dein Standort wird niemals gespeichert oder weitergegeben.",
   "privacyNoticeTooltip": "Datenschutzhinweis",
+  "privacyPolicyButton": "Datenschutzerklärung",
   "findNearestOfficeButton": "Meinen Standort verwenden",
   "locationPermissionDenied": "Standortzugriff verweigert. Erlaube den Zugriff in den Einstellungen, um das nächstgelegene Büro zu finden.",
   "openSettingsButton": "Einstellungen öffnen",
@@ -64,5 +65,14 @@
   "deleteAccountConfirmMessage": "Dadurch wird dein Konto dauerhaft gelöscht. Dies kann nicht widerrufen werden.",
   "reauthenticateTitle": "Passwort bestätigen",
   "reauthenticateMessage": "Bitte gib aus Sicherheitsgründen dein Passwort erneut ein, um fortzufahren.",
-  "reauthenticateButton": "Bestätigen"
+  "reauthenticateButton": "Bestätigen",
+  "invalidCredentialsError": "E-Mail-Adresse oder Passwort ist falsch.",
+  "emailAlreadyInUseError": "Es existiert bereits ein Konto mit dieser E-Mail-Adresse.",
+  "weakPasswordError": "Wähle ein stärkeres Passwort (mindestens 6 Zeichen).",
+  "forgotPasswordButton": "Passwort vergessen?",
+  "passwordResetEmailSent": "E-Mail zum Zurücksetzen des Passworts wurde gesendet. Überprüfe dein Postfach.",
+  "passwordRequiredError": "Bitte gib dein Passwort ein.",
+  "accountIdLabel": "Konto-ID: {id}",
+  "accountCreatedLabel": "Mitglied seit {date}",
+  "accountDeletedMessage": "Konto erfolgreich gelöscht."
 }

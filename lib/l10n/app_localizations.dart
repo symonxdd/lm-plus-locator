@@ -192,6 +192,12 @@ abstract class AppLocalizations {
   /// **'Privacyverklaring'**
   String get privacyNoticeTooltip;
 
+  /// Settings sheet item that opens the full hosted privacy policy in the browser.
+  ///
+  /// In nl, this message translates to:
+  /// **'Privacybeleid'**
+  String get privacyPolicyButton;
+
   /// Label of the button that starts the nearest-office search.
   ///
   /// In nl, this message translates to:
@@ -491,6 +497,60 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Bevestigen'**
   String get reauthenticateButton;
+
+  /// Shown when sign-in fails because the email and/or password is incorrect or the account doesn't exist. Deliberately generic for security (doesn't reveal which one is wrong).
+  ///
+  /// In nl, this message translates to:
+  /// **'Onjuist e-mailadres of wachtwoord.'**
+  String get invalidCredentialsError;
+
+  /// Shown when registration fails because an account with this email already exists.
+  ///
+  /// In nl, this message translates to:
+  /// **'Er bestaat al een account met dit e-mailadres.'**
+  String get emailAlreadyInUseError;
+
+  /// Shown when registration fails because the password is too weak.
+  ///
+  /// In nl, this message translates to:
+  /// **'Kies een sterker wachtwoord (minstens 6 tekens).'**
+  String get weakPasswordError;
+
+  /// Button in the login form that sends a password reset email.
+  ///
+  /// In nl, this message translates to:
+  /// **'Wachtwoord vergeten?'**
+  String get forgotPasswordButton;
+
+  /// Confirmation shown after a password reset email was sent successfully.
+  ///
+  /// In nl, this message translates to:
+  /// **'E-mail voor wachtwoordherstel verzonden. Controleer je inbox.'**
+  String get passwordResetEmailSent;
+
+  /// Validation message shown in the re-authentication dialog when the password field is left empty.
+  ///
+  /// In nl, this message translates to:
+  /// **'Voer je wachtwoord in.'**
+  String get passwordRequiredError;
+
+  /// Shows the signed-in user's Firebase account ID (UID), useful for support requests.
+  ///
+  /// In nl, this message translates to:
+  /// **'Account-ID: {id}'**
+  String accountIdLabel(String id);
+
+  /// Shows the date the signed-in account was created.
+  ///
+  /// In nl, this message translates to:
+  /// **'Lid sinds {date}'**
+  String accountCreatedLabel(String date);
+
+  /// Confirmation shown on the login form after the user successfully deletes their account.
+  ///
+  /// In nl, this message translates to:
+  /// **'Account succesvol verwijderd.'**
+  String get accountDeletedMessage;
 }
 
 class _AppLocalizationsDelegate

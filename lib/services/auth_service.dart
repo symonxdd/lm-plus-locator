@@ -34,6 +34,12 @@ class AuthService {
 
   Future<void> signOut() => _firebaseAuth.signOut();
 
+  /// Sends a password reset email to [email], if an account with that
+  /// address exists.
+  Future<void> sendPasswordResetEmail(String email) {
+    return _firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
   /// Re-authenticates the current user with their password. Required by
   /// Firebase before sensitive operations like [deleteAccount] if the user's
   /// sign-in is no longer "recent" (throws `requires-recent-login` otherwise).

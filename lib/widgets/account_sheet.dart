@@ -1,18 +1,46 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
 import '../services/auth_service.dart';
 import '../theme/app_colors.dart';
+
+/// Maps a [FirebaseAuthException] to a localized, user-facing message.
+///
+/// Wrong password, wrong email, and unknown accounts are deliberately
+/// reported with the same generic message: revealing which one was wrong
+/// would let an attacker enumerate registered email addresses.
+String _authErrorMessage(AppLocalizations l10n, FirebaseAuthException e) {
+  switch (e.code) {
+    case 'invalid-credential':
+    case 'wrong-password':
+    case 'user-not-found':
+      return l10n.invalidCredentialsError;
+    case 'email-already-in-use':
+      return l10n.emailAlreadyInUseError;
+    case 'weak-password':
+      return l10n.weakPasswordError;
+    case 'invalid-email':
+      return l10n.emailValidationError;
+    default:
+      return l10n.authenticationFailed;
+  }
+}
 
 /// Bottom sheet, opened from Settings, for signing in/registering, or for
 /// viewing the signed-in account and logging out.
 ///
 /// An account is entirely optional - the office locator works fully without
 /// signing in.
-class AccountSheet extends StatelessWidget {
+class AccountSheet extends StatefulWidget {
   const AccountSheet({super.key});
 
+  @override
+  State<AccountSheet> createState() => _AccountSheetState();
+}
+
+class _AccountSheetState extends State<AccountSheet> {
   @override
   Widget build(BuildContext context) {
     final authService = AuthService();
@@ -55,6 +83,7 @@ class _SignedInView extends StatefulWidget {
 
 class _SignedInViewState extends State<_SignedInView> {
   bool _isDeleting = false;
+  String? _errorMessage;
 
   Future<void> _confirmLogout() async {
     final l10n = AppLocalizations.of(context)!;
@@ -85,58 +114,17 @@ class _SignedInViewState extends State<_SignedInView> {
     }
   }
 
-  /// Prompts for the user's password and re-authenticates with it. Returns
-  /// whether re-authentication succeeded.
+  /// Prompts for the user's password and re-authenticates with it. The
+  /// dialog itself handles empty/incorrect passwords and stays open with an
+  /// inline error until the user succeeds or cancels. Returns whether
+  /// re-authentication succeeded.
   Future<bool> _reauthenticate() async {
-    final l10n = AppLocalizations.of(context)!;
-    final passwordController = TextEditingController();
-
-    final password = await showDialog<String>(
+    final result = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.reauthenticateTitle),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(l10n.reauthenticateMessage),
-            const SizedBox(height: 16),
-            TextField(
-              controller: passwordController,
-              obscureText: true,
-              autofocus: true,
-              decoration: InputDecoration(labelText: l10n.passwordLabel),
-              onSubmitted: (value) => Navigator.of(context).pop(value),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(l10n.cancelButton),
-          ),
-          FilledButton(
-            onPressed: () =>
-                Navigator.of(context).pop(passwordController.text),
-            child: Text(l10n.reauthenticateButton),
-          ),
-        ],
-      ),
+      builder: (context) =>
+          _ReauthenticateDialog(authService: widget.authService),
     );
-
-    passwordController.dispose();
-    if (password == null || password.isEmpty) return false;
-
-    try {
-      await widget.authService.reauthenticateWithPassword(password);
-      return true;
-    } on FirebaseAuthException catch (e) {
-      if (!mounted) return false;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
-      );
-      return false;
-    }
+    return result ?? false;
   }
 
   Future<void> _confirmDeleteAccount() async {
@@ -168,9 +156,19 @@ class _SignedInViewState extends State<_SignedInView> {
   }
 
   Future<void> _deleteAccount() async {
-    setState(() => _isDeleting = true);
+    setState(() {
+      _isDeleting = true;
+      _errorMessage = null;
+    });
+    // Captured before the await: deleting the account triggers the
+    // auth-state stream to emit immediately, which swaps this view out for
+    // the login form and unmounts this widget before this function resumes.
+    // The Navigator itself is still around, so popping through it still
+    // closes the sheet even though `this` is no longer mounted.
+    final navigator = Navigator.of(context);
     try {
       await widget.authService.deleteAccount();
+      navigator.pop(true);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {
         if (!mounted) return;
@@ -182,9 +180,7 @@ class _SignedInViewState extends State<_SignedInView> {
       } else {
         if (!mounted) return;
         final l10n = AppLocalizations.of(context)!;
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
-        );
+        setState(() => _errorMessage = _authErrorMessage(l10n, e));
       }
     } finally {
       if (mounted) setState(() => _isDeleting = false);
@@ -208,6 +204,28 @@ class _SignedInViewState extends State<_SignedInView> {
           l10n.accountSignedInAs(widget.user.email ?? ''),
           textAlign: TextAlign.center,
         ),
+        const SizedBox(height: 4),
+        Text(
+          l10n.accountIdLabel(widget.user.uid),
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Theme.of(context).colorScheme.outline,
+          ),
+        ),
+        if (widget.user.metadata.creationTime != null) ...[
+          const SizedBox(height: 4),
+          Text(
+            l10n.accountCreatedLabel(
+              DateFormat.yMMMd(
+                Localizations.localeOf(context).toString(),
+              ).format(widget.user.metadata.creationTime!),
+            ),
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Theme.of(context).colorScheme.outline,
+            ),
+          ),
+        ],
         const SizedBox(height: 24),
         FilledButton.icon(
           style: FilledButton.styleFrom(
@@ -236,6 +254,130 @@ class _SignedInViewState extends State<_SignedInView> {
               : const Icon(Icons.delete_outline),
           label: Text(l10n.deleteAccountButton),
         ),
+        if (_errorMessage != null) ...[
+          const SizedBox(height: 8),
+          Text(
+            _errorMessage!,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Theme.of(context).colorScheme.error),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+/// Dialog prompting for the user's password before a sensitive action like
+/// account deletion. Owns its own [TextEditingController], disposed safely
+/// via the widget lifecycle rather than immediately after the dialog closes.
+///
+/// Handles the re-authentication attempt itself: an empty or incorrect
+/// password shows an inline error and keeps the dialog open, instead of
+/// dismissing back to the account sheet.
+class _ReauthenticateDialog extends StatefulWidget {
+  const _ReauthenticateDialog({required this.authService});
+
+  final AuthService authService;
+
+  @override
+  State<_ReauthenticateDialog> createState() => _ReauthenticateDialogState();
+}
+
+class _ReauthenticateDialogState extends State<_ReauthenticateDialog> {
+  final _passwordController = TextEditingController();
+  String? _errorMessage;
+  bool _isSubmitting = false;
+  bool _obscurePassword = true;
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
+    final l10n = AppLocalizations.of(context)!;
+    if (_passwordController.text.isEmpty) {
+      setState(() => _errorMessage = l10n.passwordRequiredError);
+      return;
+    }
+
+    setState(() {
+      _isSubmitting = true;
+      _errorMessage = null;
+    });
+    try {
+      await widget.authService.reauthenticateWithPassword(
+        _passwordController.text,
+      );
+      if (!mounted) return;
+      Navigator.of(context).pop(true);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      setState(() => _errorMessage = _authErrorMessage(l10n, e));
+    } finally {
+      if (mounted) setState(() => _isSubmitting = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return AlertDialog(
+      title: Text(l10n.reauthenticateTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.reauthenticateMessage),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _passwordController,
+            obscureText: _obscurePassword,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: l10n.passwordLabel,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _obscurePassword
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                ),
+                onPressed: () =>
+                    setState(() => _obscurePassword = !_obscurePassword),
+              ),
+            ),
+            onSubmitted: _isSubmitting ? null : (_) => _submit(),
+          ),
+          if (_errorMessage != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              _errorMessage!,
+              style: TextStyle(color: Theme.of(context).colorScheme.error),
+            ),
+          ],
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: _isSubmitting
+              ? null
+              : () => Navigator.of(context).pop(false),
+          child: Text(l10n.cancelButton),
+        ),
+        FilledButton(
+          onPressed: _isSubmitting ? null : _submit,
+          child: _isSubmitting
+              ? SizedBox(
+                  height: 16,
+                  width: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                )
+              : Text(l10n.reauthenticateButton),
+        ),
       ],
     );
   }
@@ -259,6 +401,9 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
 
   bool _isRegisterMode = false;
   bool _isLoading = false;
+  bool _obscurePassword = true;
+  String? _errorMessage;
+  String? _infoMessage;
 
   @override
   void dispose() {
@@ -270,7 +415,11 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
 
-    setState(() => _isLoading = true);
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+      _infoMessage = null;
+    });
     try {
       if (_isRegisterMode) {
         await widget.authService.registerWithEmail(
@@ -286,9 +435,35 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
     } on FirebaseAuthException catch (e) {
       if (!mounted) return;
       final l10n = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? l10n.authenticationFailed)),
-      );
+      setState(() => _errorMessage = _authErrorMessage(l10n, e));
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
+
+  Future<void> _sendPasswordReset() async {
+    final l10n = AppLocalizations.of(context)!;
+    final email = _emailController.text.trim();
+    if (!email.contains('@')) {
+      setState(() {
+        _errorMessage = l10n.emailValidationError;
+        _infoMessage = null;
+      });
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+      _infoMessage = null;
+    });
+    try {
+      await widget.authService.sendPasswordResetEmail(email);
+      if (!mounted) return;
+      setState(() => _infoMessage = l10n.passwordResetEmailSent);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      setState(() => _errorMessage = _authErrorMessage(l10n, e));
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -334,10 +509,19 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
           const SizedBox(height: 16),
           TextFormField(
             controller: _passwordController,
-            obscureText: true,
+            obscureText: _obscurePassword,
             decoration: InputDecoration(
               labelText: l10n.passwordLabel,
               prefixIcon: const Icon(Icons.lock_outline),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _obscurePassword
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                ),
+                onPressed: () =>
+                    setState(() => _obscurePassword = !_obscurePassword),
+              ),
             ),
             validator: (value) {
               if (value == null || value.length < 6) {
@@ -346,7 +530,35 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
               return null;
             },
           ),
-          const SizedBox(height: 24),
+          if (!_isRegisterMode) ...[
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: _isLoading ? null : _sendPasswordReset,
+                child: Text(l10n.forgotPasswordButton),
+              ),
+            ),
+          ] else
+            const SizedBox(height: 8),
+          if (_errorMessage != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                _errorMessage!,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            ),
+          if (_infoMessage != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                _infoMessage!,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
+            ),
+          const SizedBox(height: 8),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: ctaColors(context).background,
@@ -362,9 +574,7 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
                       color: ctaColors(context).foreground,
                     ),
                   )
-                : Text(
-                    _isRegisterMode ? l10n.registerButton : l10n.loginTitle,
-                  ),
+                : Text(_isRegisterMode ? l10n.registerButton : l10n.loginTitle),
           ),
           const SizedBox(height: 8),
           TextButton(

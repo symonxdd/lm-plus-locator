@@ -15,6 +15,7 @@
   "logoutTooltip": "Se déconnecter",
   "locationPrivacyNotice": "Nous utilisons votre position uniquement pour trouver le bureau le plus proche. Votre position n'est jamais enregistrée ni partagée.",
   "privacyNoticeTooltip": "Politique de confidentialité",
+  "privacyPolicyButton": "Politique de confidentialité",
   "findNearestOfficeButton": "Utiliser ma position",
   "locationPermissionDenied": "Accès à la position refusé. Autorisez l'accès dans vos paramètres pour trouver le bureau le plus proche.",
   "openSettingsButton": "Ouvrir les paramètres",
@@ -64,5 +65,14 @@
   "deleteAccountConfirmMessage": "Cette action supprime définitivement votre compte. Cette action est irréversible.",
   "reauthenticateTitle": "Confirmez votre mot de passe",
   "reauthenticateMessage": "Pour votre sécurité, veuillez ressaisir votre mot de passe pour continuer.",
-  "reauthenticateButton": "Confirmer"
+  "reauthenticateButton": "Confirmer",
+  "invalidCredentialsError": "E-mail ou mot de passe incorrect.",
+  "emailAlreadyInUseError": "Un compte existe déjà avec cette adresse e-mail.",
+  "weakPasswordError": "Choisissez un mot de passe plus fort (au moins 6 caractères).",
+  "forgotPasswordButton": "Mot de passe oublié ?",
+  "passwordResetEmailSent": "E-mail de réinitialisation envoyé. Vérifiez votre boîte de réception.",
+  "passwordRequiredError": "Veuillez saisir votre mot de passe.",
+  "accountIdLabel": "ID de compte : {id}",
+  "accountCreatedLabel": "Membre depuis {date}",
+  "accountDeletedMessage": "Compte supprimé avec succès."
 }

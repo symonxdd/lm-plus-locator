@@ -57,6 +57,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get privacyNoticeTooltip => 'Datenschutzhinweis';
 
   @override
+  String get privacyPolicyButton => 'Datenschutzerklärung';
+
+  @override
   String get findNearestOfficeButton => 'Meinen Standort verwenden';
 
   @override
@@ -220,4 +223,39 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reauthenticateButton => 'Bestätigen';
+
+  @override
+  String get invalidCredentialsError =>
+      'E-Mail-Adresse oder Passwort ist falsch.';
+
+  @override
+  String get emailAlreadyInUseError =>
+      'Es existiert bereits ein Konto mit dieser E-Mail-Adresse.';
+
+  @override
+  String get weakPasswordError =>
+      'Wähle ein stärkeres Passwort (mindestens 6 Zeichen).';
+
+  @override
+  String get forgotPasswordButton => 'Passwort vergessen?';
+
+  @override
+  String get passwordResetEmailSent =>
+      'E-Mail zum Zurücksetzen des Passworts wurde gesendet. Überprüfe dein Postfach.';
+
+  @override
+  String get passwordRequiredError => 'Bitte gib dein Passwort ein.';
+
+  @override
+  String accountIdLabel(String id) {
+    return 'Konto-ID: $id';
+  }
+
+  @override
+  String accountCreatedLabel(String date) {
+    return 'Mitglied seit $date';
+  }
+
+  @override
+  String get accountDeletedMessage => 'Konto erfolgreich gelöscht.';
 }

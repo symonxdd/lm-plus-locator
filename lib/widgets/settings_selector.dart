@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/app_localizations.dart';
 import '../main.dart';
 import 'account_sheet.dart';
+
+const _privacyPolicyUrl =
+    'https://symonxdd.github.io/lm-plus-locator/privacy-policy/';
 
 /// App bar action that opens a single bottom sheet combining the theme and
 /// language pickers, keeping the app bar itself uncluttered.
@@ -21,15 +25,15 @@ class SettingsSelector extends StatelessWidget {
     const Locale('en'): 'English',
   };
 
-  Future<void> _showSettingsSheet(BuildContext context) async {
-    final l10n = AppLocalizations.of(context)!;
-    final selectedMode = LmPlusLocatorApp.themeModeOf(context);
-    final selectedLocale = LmPlusLocatorApp.selectedLocale(context);
+  Future<void> _showSettingsSheet(BuildContext rootContext) async {
+    final l10n = AppLocalizations.of(rootContext)!;
+    final selectedMode = LmPlusLocatorApp.themeModeOf(rootContext);
+    final selectedLocale = LmPlusLocatorApp.selectedLocale(rootContext);
     final packageInfo = await PackageInfo.fromPlatform();
     final buildType = kReleaseMode ? 'release' : 'dev';
     final versionLabel = 'v${packageInfo.version} ($buildType)';
 
-    if (!context.mounted) return;
+    if (!rootContext.mounted) return;
 
     final themeOptions = {
       ThemeMode.system: (l10n.themeModeSystem, Icons.brightness_auto_outlined),
@@ -38,7 +42,7 @@ class SettingsSelector extends StatelessWidget {
     };
 
     await showModalBottomSheet<void>(
-      context: context,
+      context: rootContext,
       showDragHandle: true,
       isScrollControlled: true,
       builder: (context) {
@@ -57,17 +61,20 @@ class SettingsSelector extends StatelessWidget {
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Navigator.of(context).pop();
-                    _showAccountSheet(context);
+                    _showAccountSheet(rootContext);
                   },
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.privacy_tip_outlined),
-                  title: Text(l10n.privacyNoticeTooltip),
-                  trailing: const Icon(Icons.chevron_right),
+                  title: Text(l10n.privacyPolicyButton),
+                  trailing: const Icon(Icons.open_in_new),
                   onTap: () {
                     Navigator.of(context).pop();
-                    _showPrivacyNotice(context);
+                    launchUrl(
+                      Uri.parse(_privacyPolicyUrl),
+                      mode: LaunchMode.externalApplication,
+                    );
                   },
                 ),
                 const Divider(height: 32),
@@ -80,8 +87,8 @@ class SettingsSelector extends StatelessWidget {
                   ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: Text(entry.value),
-                    trailing: selectedLocale?.languageCode ==
-                            entry.key.languageCode
+                    trailing:
+                        selectedLocale?.languageCode == entry.key.languageCode
                         ? Icon(
                             Icons.check,
                             color: Theme.of(context).colorScheme.primary,
@@ -143,30 +150,42 @@ class SettingsSelector extends StatelessWidget {
 
   Future<void> _showAccountSheet(BuildContext context) async {
     if (!context.mounted) return;
-    await showModalBottomSheet<void>(
+    final accountDeleted = await showModalBottomSheet<bool>(
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
       builder: (context) => const AccountSheet(),
     );
-  }
 
-  Future<void> _showPrivacyNotice(BuildContext context) async {
-    if (!context.mounted) return;
-    final l10n = AppLocalizations.of(context)!;
-    await showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) {
-        return SafeArea(
-          top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-            child: Text(l10n.locationPrivacyNotice),
+    if (accountDeleted == true && context.mounted) {
+      final l10n = AppLocalizations.of(context)!;
+      final colorScheme = Theme.of(context).colorScheme;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 3),
+          backgroundColor: colorScheme.surfaceContainerHigh,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-        );
-      },
-    );
+          content: Row(
+            children: [
+              Icon(
+                Icons.check_circle_outline,
+                color: colorScheme.onSurfaceVariant,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  l10n.accountDeletedMessage,
+                  style: TextStyle(color: colorScheme.onSurfaceVariant),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
   }
 
   @override

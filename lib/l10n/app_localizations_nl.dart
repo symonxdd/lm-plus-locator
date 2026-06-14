@@ -56,6 +56,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get privacyNoticeTooltip => 'Privacyverklaring';
 
   @override
+  String get privacyPolicyButton => 'Privacybeleid';
+
+  @override
   String get findNearestOfficeButton => 'Mijn locatie gebruiken';
 
   @override
@@ -219,4 +222,38 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reauthenticateButton => 'Bevestigen';
+
+  @override
+  String get invalidCredentialsError => 'Onjuist e-mailadres of wachtwoord.';
+
+  @override
+  String get emailAlreadyInUseError =>
+      'Er bestaat al een account met dit e-mailadres.';
+
+  @override
+  String get weakPasswordError =>
+      'Kies een sterker wachtwoord (minstens 6 tekens).';
+
+  @override
+  String get forgotPasswordButton => 'Wachtwoord vergeten?';
+
+  @override
+  String get passwordResetEmailSent =>
+      'E-mail voor wachtwoordherstel verzonden. Controleer je inbox.';
+
+  @override
+  String get passwordRequiredError => 'Voer je wachtwoord in.';
+
+  @override
+  String accountIdLabel(String id) {
+    return 'Account-ID: $id';
+  }
+
+  @override
+  String accountCreatedLabel(String date) {
+    return 'Lid sinds $date';
+  }
+
+  @override
+  String get accountDeletedMessage => 'Account succesvol verwijderd.';
 }

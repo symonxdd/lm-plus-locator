@@ -15,6 +15,7 @@
   "logoutTooltip": "Log out",
   "locationPrivacyNotice": "We only use your location to find the nearest office. Your location is never stored or shared.",
   "privacyNoticeTooltip": "Privacy notice",
+  "privacyPolicyButton": "Privacy Policy",
   "findNearestOfficeButton": "Use my location",
   "locationPermissionDenied": "Location access denied. Allow access in your settings to find the nearest office.",
   "openSettingsButton": "Open settings",
@@ -64,5 +65,14 @@
   "deleteAccountConfirmMessage": "This permanently deletes your account. This can't be undone.",
   "reauthenticateTitle": "Confirm your password",
   "reauthenticateMessage": "For your security, please re-enter your password to continue.",
-  "reauthenticateButton": "Confirm"
+  "reauthenticateButton": "Confirm",
+  "invalidCredentialsError": "Incorrect email or password.",
+  "emailAlreadyInUseError": "An account with this email already exists.",
+  "weakPasswordError": "Choose a stronger password (at least 6 characters).",
+  "forgotPasswordButton": "Forgot password?",
+  "passwordResetEmailSent": "Password reset email sent. Check your inbox.",
+  "passwordRequiredError": "Please enter your password.",
+  "accountIdLabel": "Account ID: {id}",
+  "accountCreatedLabel": "Member since {date}",
+  "accountDeletedMessage": "Account deleted successfully."
 }
