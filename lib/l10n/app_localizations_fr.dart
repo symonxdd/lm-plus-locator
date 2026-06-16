@@ -263,4 +263,16 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get offlineBannerMessage =>
       'Pas d\'internet — la liste des bureaux reste disponible';
+
+  @override
+  String get openingHoursTitle => 'Heures d\'ouverture';
+
+  @override
+  String get openingHoursClosed => 'Fermé';
+
+  @override
+  String get openingHoursTodayLabel => '(aujourd\'hui)';
+
+  @override
+  String get viewOpeningHoursHint => 'Voir les heures d\'ouverture';
 }

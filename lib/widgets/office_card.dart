@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
+import 'opening_hours_sheet.dart';
 
 /// A card showing a nearby LM+ office. Tapping it opens the office's
 /// location in Google Maps (or Apple Maps on iOS).
@@ -43,116 +44,142 @@ class OfficeCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: _openInMaps,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(Icons.location_on, color: theme.colorScheme.primary),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          InkWell(
+            onTap: _openInMaps,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.location_on, color: theme.colorScheme.primary),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Text(
-                            office.name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleMedium,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          l10n.distanceInKm(
-                            officeWithDistance.distanceKm.toStringAsFixed(1),
-                          ),
-                          style: theme.textTheme.titleSmall,
-                        ),
-                      ],
-                    ),
-                    if (office.isOpenNow != null) ...[
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 14,
-                            child: Icon(
-                              Icons.circle,
-                              size: 10,
-                              color: office.isOpenNow!
-                                  ? Colors.green
-                                  : theme.colorScheme.error,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                office.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.titleMedium,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            office.isOpenNow!
-                                ? l10n.officeOpenNow
-                                : l10n.officeClosedNow,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: office.isOpenNow!
-                                  ? Colors.green
-                                  : theme.colorScheme.error,
-                              fontWeight: FontWeight.w600,
+                            const SizedBox(width: 8),
+                            Text(
+                              l10n.distanceInKm(
+                                officeWithDistance.distanceKm.toStringAsFixed(1),
+                              ),
+                              style: theme.textTheme.titleSmall,
                             ),
+                          ],
+                        ),
+                        if (office.isOpenNow != null) ...[
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 14,
+                                child: Icon(
+                                  Icons.circle,
+                                  size: 10,
+                                  color: office.isOpenNow!
+                                      ? Colors.green
+                                      : theme.colorScheme.error,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                office.isOpenNow!
+                                    ? l10n.officeOpenNow
+                                    : l10n.officeClosedNow,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: office.isOpenNow!
+                                      ? Colors.green
+                                      : theme.colorScheme.error,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                    ],
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.place_outlined,
-                          size: 14,
-                          color: theme.colorScheme.outline,
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.place_outlined,
+                              size: 14,
+                              color: theme.colorScheme.outline,
+                            ),
+                            const SizedBox(width: 4),
+                            Expanded(
+                              child: Text(
+                                office.fullAddress,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            office.fullAddress,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                        const SizedBox(height: 2),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.call_outlined,
+                              size: 14,
+                              color: theme.colorScheme.outline,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(office.phone),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.directions_outlined,
+                              size: 14,
+                              color: theme.colorScheme.outline,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(l10n.openInMapsHint, style: mutedStyle),
+                          ],
                         ),
                       ],
                     ),
-                    const SizedBox(height: 2),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.call_outlined,
-                          size: 14,
-                          color: theme.colorScheme.outline,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(office.phone),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.directions_outlined,
-                          size: 14,
-                          color: theme.colorScheme.outline,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(l10n.openInMapsHint, style: mutedStyle),
-                      ],
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (office.openingHours != null) ...[
+            const Divider(height: 1),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => showModalBottomSheet<void>(
+                  context: context,
+                  showDragHandle: true,
+                  builder: (_) => OpeningHoursSheet(office: office),
+                ),
+                icon: const Icon(Icons.schedule_outlined, size: 18),
+                label: Text(l10n.viewOpeningHoursHint),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
                 ),
               ),
-            ],
-          ),
-        ),
+            ),
+          ],
+        ],
       ),
     );
   }

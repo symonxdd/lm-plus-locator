@@ -75,5 +75,9 @@
   "accountIdLabel": "Account ID: {id}",
   "accountCreatedLabel": "Member since {date}",
   "accountDeletedMessage": "Account deleted successfully.",
-  "offlineBannerMessage": "No internet — office list still available"
+  "offlineBannerMessage": "No internet — office list still available",
+  "openingHoursTitle": "Opening hours",
+  "openingHoursClosed": "Closed",
+  "openingHoursTodayLabel": "(today)",
+  "viewOpeningHoursHint": "View opening hours"
 }

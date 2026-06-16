@@ -75,5 +75,9 @@
   "accountIdLabel": "Konto-ID: {id}",
   "accountCreatedLabel": "Mitglied seit {date}",
   "accountDeletedMessage": "Konto erfolgreich gelöscht.",
-  "offlineBannerMessage": "Kein Internet — Büroliste noch verfügbar"
+  "offlineBannerMessage": "Kein Internet — Büroliste noch verfügbar",
+  "openingHoursTitle": "Öffnungszeiten",
+  "openingHoursClosed": "Geschlossen",
+  "openingHoursTodayLabel": "(heute)",
+  "viewOpeningHoursHint": "Öffnungszeiten anzeigen"
 }

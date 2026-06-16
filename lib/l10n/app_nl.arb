@@ -328,5 +328,21 @@
   "offlineBannerMessage": "Geen internet — kantoorlijst nog beschikbaar",
   "@offlineBannerMessage": {
     "description": "Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline."
+  },
+  "openingHoursTitle": "Openingsuren",
+  "@openingHoursTitle": {
+    "description": "Title of the bottom sheet that shows the full weekly opening hours for an office."
+  },
+  "openingHoursClosed": "Gesloten",
+  "@openingHoursClosed": {
+    "description": "Shown in the opening hours table for a weekday on which the office is closed all day."
+  },
+  "openingHoursTodayLabel": "(vandaag)",
+  "@openingHoursTodayLabel": {
+    "description": "Short label appended to the current weekday row in the opening hours table to highlight it."
+  },
+  "viewOpeningHoursHint": "Openingsuren bekijken",
+  "@viewOpeningHoursHint": {
+    "description": "Label on the button inside an office card that opens the full opening hours sheet."
   }
 }

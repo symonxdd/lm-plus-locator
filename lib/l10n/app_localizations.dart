@@ -557,6 +557,30 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Geen internet — kantoorlijst nog beschikbaar'**
   String get offlineBannerMessage;
+
+  /// Title of the bottom sheet that shows the full weekly opening hours for an office.
+  ///
+  /// In nl, this message translates to:
+  /// **'Openingsuren'**
+  String get openingHoursTitle;
+
+  /// Shown in the opening hours table for a weekday on which the office is closed all day.
+  ///
+  /// In nl, this message translates to:
+  /// **'Gesloten'**
+  String get openingHoursClosed;
+
+  /// Short label appended to the current weekday row in the opening hours table to highlight it.
+  ///
+  /// In nl, this message translates to:
+  /// **'(vandaag)'**
+  String get openingHoursTodayLabel;
+
+  /// Label on the button inside an office card that opens the full opening hours sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Openingsuren bekijken'**
+  String get viewOpeningHoursHint;
 }
 
 class _AppLocalizationsDelegate

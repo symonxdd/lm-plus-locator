@@ -260,4 +260,16 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get offlineBannerMessage =>
       'Geen internet — kantoorlijst nog beschikbaar';
+
+  @override
+  String get openingHoursTitle => 'Openingsuren';
+
+  @override
+  String get openingHoursClosed => 'Gesloten';
+
+  @override
+  String get openingHoursTodayLabel => '(vandaag)';
+
+  @override
+  String get viewOpeningHoursHint => 'Openingsuren bekijken';
 }

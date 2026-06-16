@@ -260,4 +260,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get offlineBannerMessage =>
       'No internet — office list still available';
+
+  @override
+  String get openingHoursTitle => 'Opening hours';
+
+  @override
+  String get openingHoursClosed => 'Closed';
+
+  @override
+  String get openingHoursTodayLabel => '(today)';
+
+  @override
+  String get viewOpeningHoursHint => 'View opening hours';
 }
