@@ -60,9 +60,40 @@ Everything else (address search, account, settings, info sheets) is a **modal bo
 
 ## Localization
 
-Translations live as ARB files in `lib/l10n/` (`app_nl.arb`, `app_en.arb`, `app_fr.arb`, `app_de.arb`); the `app_localizations*.dart` files are generated from these by `flutter gen-l10n` (triggered automatically on build via `generate: true` in `pubspec.yaml`).
+Translations live as ARB files in `lib/l10n/` — `app_nl.arb`, `app_en.arb`, `app_fr.arb`, `app_de.arb`.
 
-Dutch (`nl`) is the fallback if the device language isn't one of the four supported. The user can also pick a language manually via Settings, persisted by `LocaleService`.
+### What is ARB?
+
+ARB stands for **Application Resource Bundle** — it's the file format Flutter uses for localizations. Each ARB file is a JSON file mapping string keys to their translated values. The `app_nl.arb` (Dutch) file is the **source-of-truth template**: it contains both the translations *and* `@key` metadata entries that describe each string (translator context, placeholder argument types, etc.). The three other files contain only the translated values, with no metadata.
+
+Example snippet from `app_nl.arb`:
+
+```json
+"offlineBannerMessage": "Offline — zoeken via GPS werkt nog",
+"@offlineBannerMessage": {
+  "description": "Banner shown at the top of the screen when the device is offline."
+},
+"distanceInKm": "{distance} km",
+"@distanceInKm": {
+  "description": "Distance label shown on an office card.",
+  "placeholders": {
+    "distance": { "type": "String" }
+  }
+}
+```
+
+### Code generation
+
+Running `flutter gen-l10n` (or simply building the app, because `generate: true` is set in `pubspec.yaml`) reads all four ARB files and produces:
+
+- `lib/l10n/app_localizations.dart` — the abstract `AppLocalizations` class with a getter for every key
+- Per-locale subclasses (e.g. `app_localizations_nl.dart`) with the actual translated strings
+
+In code, strings are accessed via `AppLocalizations.of(context)!.someKey` — fully type-safe, so a missing translation key is a compile-time error, not a runtime surprise.
+
+**Adding a new string** means: add it to `app_nl.arb` with its `@metadata` entry, add the translated value to the other three ARB files, then rebuild. `flutter gen-l10n` generates the type-safe accessor automatically.
+
+Dutch (`nl`) is the fallback locale if the device language isn't one of the four supported. The user can also pick a language manually via Settings, persisted by `LocaleService`.
 
 ## Persistence
 
@@ -113,3 +144,42 @@ The API keys page lists four guidelines before saying a key doesn't need to be t
 4. **Security Rules and App Check are critical for Realtime Database, Cloud Firestore, and Cloud Storage**: this app now uses Cloud Firestore (for favorites sync). The `firestore.rules` file in the repo root locks the database down so that only an authenticated user can read or write their own `userFavorites/{uid}` document; all other paths are denied. These rules are deployed alongside the app and are the actual access-control mechanism — the API key in `firebase_options.dart` plays no role in enforcing them.
 
 This project's setup matches all four, so the Firebase config files can stay in version control.
+
+## Known Android log noise
+
+When running the app on Android in debug mode, the logcat output contains recurring warnings that look alarming but are harmless. This section documents the most common ones.
+
+### `E/GoogleApiManager: Failed to get service from broker`
+
+Full logcat output:
+
+```
+E/GoogleApiManager: Failed to get service from broker.
+E/GoogleApiManager: java.lang.SecurityException: Unknown calling package name 'com.google.android.gms'.
+```
+
+**What GMS is**: GMS stands for **Google Mobile Services** — the set of proprietary Google apps and APIs that ship on most Android devices (Play Store, Play Services, Maps, Firebase, etc.). The `com.google.android.gms` package is Google Play Services specifically: the background process that Firebase, geolocator, and many other Flutter plugins communicate with on Android.
+
+**What this error actually is**: This is GMS failing to connect to one of its own internal broker services. It is an IPC (inter-process communication) fault entirely within Google's own code — no line in this stack trace refers to `me.symon.lmplusLocator`, and no app-level code calls `GoogleApiManager` directly.
+
+**Is it harmful?** No. The logcat line immediately after the exception confirms it:
+
+```
+W/GoogleApiManager: Not showing notification since connectionResult is not user-facing
+```
+
+GMS itself classifies this failure as invisible to users and requiring no action. It is a known, logged-by-Google issue that appears in debug builds across a large number of Flutter + Firebase projects, on both physical devices and emulators. It has been confirmed as harmless by the Flutter team, the FlutterFire team, and Google's own issue tracker:
+
+- [flutter/flutter#178332](https://github.com/flutter/flutter/issues/178332) — Flutter issue tracker
+- [firebase/flutterfire#13440](https://github.com/firebase/flutterfire/issues/13440) — FlutterFire issue
+- [firebase/flutterfire#13485](https://github.com/firebase/flutterfire/issues/13485) — FlutterFire issue
+- [Google Issue Tracker #397255623](https://issuetracker.google.com/issues/397255623)
+- [Google Issue Tracker #376437033](https://issuetracker.google.com/issues/376437033)
+
+### `W/FlagRegistrar` / `W/FlagStore`: Phenotype API not available
+
+GMS uses an internal feature-flagging system called **Phenotype** to remotely configure its own behaviour. In development environments (and on some devices), this system isn't reachable, so GMS logs a warning when it can't fetch flag updates. This has no effect on the app.
+
+### `Skipped N frames!`
+
+Android's Choreographer logs this when the main thread takes more than 16 ms between frames (the 60 fps budget). In debug builds, Flutter's JIT compiler, Firebase initialization, and `FavoritesService.initialize()` all run on the first launch frame, causing measurable startup-frame skips. This disappears entirely in release builds, where Dart is compiled ahead-of-time (AOT) with no JIT overhead.
