@@ -122,6 +122,26 @@ Staying signed in across app restarts is handled entirely by the `firebase_auth`
 
 The session lasts until the user signs out, deletes their account, or the refresh token is revoked (password change, manual revocation in the Firebase console, app data cleared/uninstalled).
 
+### Firestore setup (one-time, per developer machine)
+
+The security rules file (`firestore.rules`) lives in the repo root and is the access-control mechanism for the cloud favorites feature. It must be deployed separately — committing it to git does **not** push it to Firebase automatically. Two CLI commands are needed:
+
+1. **Select the active Firebase project** (only needed once per machine, or after `firebase logout`):
+
+   ```bash
+   firebase use lm-plus-locator
+   ```
+
+2. **Deploy the security rules**:
+
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+
+   This reads `firestore.rules` and uploads it to the Firestore service. Until this is done (or if the rules are accidentally overwritten in the console), all Firestore reads and writes will fail with `PERMISSION_DENIED`.
+
+Before running either command, the Firestore database itself must exist. If starting from a fresh Firebase project, create it first: Firebase Console → Build → Firestore Database → Create database → choose region `europe-west1 (Belgium)` → production mode.
+
 ### Why the Firebase config files are committed
 
 `lib/firebase_options.dart`, `android/app/google-services.json`, `ios/Runner/GoogleService-Info.plist`, and `firebase.json` are checked into this repo on purpose. They are not secrets, per Firebase's own documentation.

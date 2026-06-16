@@ -10,9 +10,11 @@ LM+ Locator is an **unofficial** Flutter app that helps members of [LM Plus](htt
 - **Find the nearest office** using the device's GPS, or by typing an address (with live autocomplete)
 - **Browse offices and mailboxes** sorted by distance, with opening hours and an "open now" status
 - **Open any location in Maps** (Google Maps / Apple Maps) with one tap
+- **Save offices** to a Saved tab (bookmarked locally; synced to the cloud when signed in)
+- **Offline-first**: bundled office data and GPS search work with no internet; an animated banner appears when offline
 - **Multilingual**: Dutch, French, German, English, following the device language by default
 - **Light/dark theme**, following the system by default
-- **Optional account** (email/password via Firebase), not required to use the locator
+- **Optional account** (email/password via Firebase), not required to use the locator; enables favorites cloud sync
 - An experimental **photo-share** tab for taking and sharing a photo
 
 ## Where to go next
