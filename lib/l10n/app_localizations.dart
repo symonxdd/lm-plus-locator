@@ -582,11 +582,17 @@ abstract class AppLocalizations {
   /// **'Verwijder uit opgeslagen'**
   String get favoriteRemoveTooltip;
 
-  /// Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline.
+  /// Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that GPS-based office search still works offline.
   ///
   /// In nl, this message translates to:
-  /// **'Geen internet — kantoorlijst nog beschikbaar'**
+  /// **'Offline — zoeken via GPS werkt nog'**
   String get offlineBannerMessage;
+
+  /// Error shown on the address search field when the user tries to search by address while offline. Directs them to use GPS instead.
+  ///
+  /// In nl, this message translates to:
+  /// **'Offline — enkel zoeken via GPS beschikbaar'**
+  String get addressSearchOfflineError;
 
   /// Title of the bottom sheet that shows the full weekly opening hours for an office.
   ///

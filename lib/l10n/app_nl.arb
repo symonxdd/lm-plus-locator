@@ -345,9 +345,13 @@
   "@favoriteRemoveTooltip": {
     "description": "Tooltip for the bookmark button on an office card when the office is already saved."
   },
-  "offlineBannerMessage": "Geen internet — kantoorlijst nog beschikbaar",
+  "offlineBannerMessage": "Offline — zoeken via GPS werkt nog",
   "@offlineBannerMessage": {
-    "description": "Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline."
+    "description": "Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that GPS-based office search still works offline."
+  },
+  "addressSearchOfflineError": "Offline — enkel zoeken via GPS beschikbaar",
+  "@addressSearchOfflineError": {
+    "description": "Error shown on the address search field when the user tries to search by address while offline. Directs them to use GPS instead."
   },
   "openingHoursTitle": "Openingsuren",
   "@openingHoursTitle": {

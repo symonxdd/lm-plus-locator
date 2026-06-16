@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/address_suggestion.dart';
+import '../services/connectivity_service.dart';
 import '../services/location_service.dart';
 import '../theme/app_colors.dart';
 
@@ -31,13 +32,29 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
   final _controller = TextEditingController();
   final _locationService = LocationService();
   Timer? _debounce;
+  StreamSubscription<bool>? _connectivitySub;
   List<AddressSuggestion> _suggestions = [];
   bool _isSearching = false;
   bool _notFound = false;
+  bool _isOffline = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _connectivitySub = ConnectivityService().onlineStream.listen((online) {
+      if (mounted) {
+        setState(() {
+          _isOffline = !online;
+          if (_isOffline) _suggestions = [];
+        });
+      }
+    });
+  }
 
   @override
   void dispose() {
     _debounce?.cancel();
+    _connectivitySub?.cancel();
     _controller.dispose();
     super.dispose();
   }
@@ -47,7 +64,7 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
     if (_notFound) setState(() => _notFound = false);
 
     final trimmed = query.trim();
-    if (trimmed.length < 3) {
+    if (trimmed.length < 3 || _isOffline) {
       setState(() => _suggestions = []);
       return;
     }
@@ -74,7 +91,7 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
 
   Future<void> _search() async {
     final address = _controller.text.trim();
-    if (address.isEmpty) return;
+    if (address.isEmpty || _isOffline) return;
 
     setState(() {
       _isSearching = true;
@@ -124,7 +141,11 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
               decoration: InputDecoration(
                 labelText: l10n.addressInputLabel,
                 prefixIcon: const Icon(Icons.search),
-                errorText: _notFound ? l10n.addressNotFoundError : null,
+                errorText: _isOffline && _controller.text.isNotEmpty
+                    ? l10n.addressSearchOfflineError
+                    : _notFound
+                    ? l10n.addressNotFoundError
+                    : null,
               ),
             ),
             if (_suggestions.isNotEmpty) ...[
@@ -171,7 +192,7 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
                   backgroundColor: ctaColors(context).background,
                   foregroundColor: ctaColors(context).foreground,
                 ),
-                onPressed: _isSearching ? null : _search,
+                onPressed: _isSearching || _isOffline ? null : _search,
                 icon: _isSearching
                     ? SizedBox(
                         height: 20,

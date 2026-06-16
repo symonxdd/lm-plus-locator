@@ -274,8 +274,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get favoriteRemoveTooltip => 'Verwijder uit opgeslagen';
 
   @override
-  String get offlineBannerMessage =>
-      'Geen internet — kantoorlijst nog beschikbaar';
+  String get offlineBannerMessage => 'Offline — zoeken via GPS werkt nog';
+
+  @override
+  String get addressSearchOfflineError =>
+      'Offline — enkel zoeken via GPS beschikbaar';
 
   @override
   String get openingHoursTitle => 'Openingsuren';

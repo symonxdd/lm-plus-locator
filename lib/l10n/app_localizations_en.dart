@@ -274,8 +274,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoriteRemoveTooltip => 'Remove from saved';
 
   @override
-  String get offlineBannerMessage =>
-      'No internet — office list still available';
+  String get offlineBannerMessage => 'Offline — GPS search still works';
+
+  @override
+  String get addressSearchOfflineError => 'Offline — only GPS search available';
 
   @override
   String get openingHoursTitle => 'Opening hours';

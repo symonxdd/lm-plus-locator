@@ -278,7 +278,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get offlineBannerMessage =>
-      'Pas d\'internet — la liste des bureaux reste disponible';
+      'Hors ligne — la recherche GPS fonctionne toujours';
+
+  @override
+  String get addressSearchOfflineError =>
+      'Hors ligne — seule la recherche GPS est disponible';
 
   @override
   String get openingHoursTitle => 'Heures d\'ouverture';
