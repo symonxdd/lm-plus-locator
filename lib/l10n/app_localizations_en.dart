@@ -258,6 +258,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accountDeletedMessage => 'Account deleted successfully.';
 
   @override
+  String get favoritesTabLabel => 'Saved';
+
+  @override
+  String get favoritesEmptyTitle => 'No saved offices';
+
+  @override
+  String get favoritesEmptySubtitle =>
+      'Tap the bookmark on any office card to save it.';
+
+  @override
+  String get favoriteAddTooltip => 'Save office';
+
+  @override
+  String get favoriteRemoveTooltip => 'Remove from saved';
+
+  @override
   String get offlineBannerMessage =>
       'No internet — office list still available';
 

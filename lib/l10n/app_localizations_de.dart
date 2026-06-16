@@ -260,6 +260,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get accountDeletedMessage => 'Konto erfolgreich gelöscht.';
 
   @override
+  String get favoritesTabLabel => 'Gespeichert';
+
+  @override
+  String get favoritesEmptyTitle => 'Keine gespeicherten Büros';
+
+  @override
+  String get favoritesEmptySubtitle =>
+      'Tippe auf das Lesezeichen einer Bürokarte, um sie zu speichern.';
+
+  @override
+  String get favoriteAddTooltip => 'Büro speichern';
+
+  @override
+  String get favoriteRemoveTooltip => 'Aus Gespeicherten entfernen';
+
+  @override
   String get offlineBannerMessage => 'Kein Internet — Büroliste noch verfügbar';
 
   @override

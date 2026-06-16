@@ -258,6 +258,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String get accountDeletedMessage => 'Account succesvol verwijderd.';
 
   @override
+  String get favoritesTabLabel => 'Opgeslagen';
+
+  @override
+  String get favoritesEmptyTitle => 'Geen opgeslagen kantoren';
+
+  @override
+  String get favoritesEmptySubtitle =>
+      'Tik op het bladwijzerpictogram op een kantoor om het op te slaan.';
+
+  @override
+  String get favoriteAddTooltip => 'Kantoor opslaan';
+
+  @override
+  String get favoriteRemoveTooltip => 'Verwijder uit opgeslagen';
+
+  @override
   String get offlineBannerMessage =>
       'Geen internet — kantoorlijst nog beschikbaar';
 

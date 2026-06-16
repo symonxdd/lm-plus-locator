@@ -261,6 +261,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String get accountDeletedMessage => 'Compte supprimé avec succès.';
 
   @override
+  String get favoritesTabLabel => 'Enregistrés';
+
+  @override
+  String get favoritesEmptyTitle => 'Aucun bureau enregistré';
+
+  @override
+  String get favoritesEmptySubtitle =>
+      'Appuyez sur le signet d\'une fiche de bureau pour l\'enregistrer.';
+
+  @override
+  String get favoriteAddTooltip => 'Enregistrer le bureau';
+
+  @override
+  String get favoriteRemoveTooltip => 'Retirer des enregistrés';
+
+  @override
   String get offlineBannerMessage =>
       'Pas d\'internet — la liste des bureaux reste disponible';
 

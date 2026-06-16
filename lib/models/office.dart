@@ -91,9 +91,11 @@ class Office {
 }
 
 /// An [Office] paired with its distance from the user, in kilometers.
+/// [distanceKm] is null when no location context is available (e.g. the
+/// Saved tab, where offices are shown without an active GPS search).
 class OfficeWithDistance {
   final Office office;
-  final double distanceKm;
+  final double? distanceKm;
 
-  const OfficeWithDistance({required this.office, required this.distanceKm});
+  const OfficeWithDistance({required this.office, this.distanceKm});
 }

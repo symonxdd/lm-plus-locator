@@ -552,6 +552,36 @@ abstract class AppLocalizations {
   /// **'Account succesvol verwijderd.'**
   String get accountDeletedMessage;
 
+  /// Label of the bottom navigation tab that shows the user's saved (favourite) offices.
+  ///
+  /// In nl, this message translates to:
+  /// **'Opgeslagen'**
+  String get favoritesTabLabel;
+
+  /// Heading shown on the Saved tab when the user has not yet saved any offices.
+  ///
+  /// In nl, this message translates to:
+  /// **'Geen opgeslagen kantoren'**
+  String get favoritesEmptyTitle;
+
+  /// Supporting text under the empty-state heading on the Saved tab, explaining how to save an office.
+  ///
+  /// In nl, this message translates to:
+  /// **'Tik op het bladwijzerpictogram op een kantoor om het op te slaan.'**
+  String get favoritesEmptySubtitle;
+
+  /// Tooltip for the bookmark button on an office card when the office is not yet saved.
+  ///
+  /// In nl, this message translates to:
+  /// **'Kantoor opslaan'**
+  String get favoriteAddTooltip;
+
+  /// Tooltip for the bookmark button on an office card when the office is already saved.
+  ///
+  /// In nl, this message translates to:
+  /// **'Verwijder uit opgeslagen'**
+  String get favoriteRemoveTooltip;
+
   /// Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline.
   ///
   /// In nl, this message translates to:

@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
+import '../services/favorites_service.dart';
 import 'opening_hours_sheet.dart';
 
 /// A card showing a nearby LM+ office. Tapping it opens the office's
@@ -61,7 +62,7 @@ class OfficeCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Expanded(
                               child: Text(
@@ -71,12 +72,43 @@ class OfficeCard extends StatelessWidget {
                                 style: theme.textTheme.titleMedium,
                               ),
                             ),
-                            const SizedBox(width: 8),
-                            Text(
-                              l10n.distanceInKm(
-                                officeWithDistance.distanceKm.toStringAsFixed(1),
+                            if (officeWithDistance.distanceKm != null) ...[
+                              const SizedBox(width: 8),
+                              Text(
+                                l10n.distanceInKm(
+                                  officeWithDistance.distanceKm!
+                                      .toStringAsFixed(1),
+                                ),
+                                style: theme.textTheme.titleSmall,
                               ),
-                              style: theme.textTheme.titleSmall,
+                            ],
+                            const SizedBox(width: 4),
+                            ValueListenableBuilder<Set<String>>(
+                              valueListenable:
+                                  FavoritesService.instance.favorites,
+                              builder: (context, keys, _) {
+                                final key = '${office.lat},${office.lng}';
+                                final saved = keys.contains(key);
+                                return IconButton(
+                                  icon: Icon(
+                                    saved
+                                        ? Icons.bookmark
+                                        : Icons.bookmark_outline,
+                                    color: saved
+                                        ? theme.colorScheme.primary
+                                        : theme.colorScheme.outline,
+                                  ),
+                                  iconSize: 20,
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                  visualDensity: VisualDensity.compact,
+                                  tooltip: saved
+                                      ? l10n.favoriteRemoveTooltip
+                                      : l10n.favoriteAddTooltip,
+                                  onPressed: () =>
+                                      FavoritesService.instance.toggle(key),
+                                );
+                              },
                             ),
                           ],
                         ),

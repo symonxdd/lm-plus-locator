@@ -6,6 +6,7 @@ import '../theme/app_theme.dart';
 import '../widgets/head_office_info_button.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/settings_selector.dart';
+import 'favorites_screen.dart';
 import 'home_screen.dart';
 import 'photo_share_screen.dart';
 
@@ -64,7 +65,11 @@ class _RootScreenState extends State<RootScreen> {
           Expanded(
             child: IndexedStack(
               index: _index,
-              children: const [HomeScreen(), PhotoShareScreen()],
+              children: const [
+                HomeScreen(),
+                FavoritesScreen(),
+                PhotoShareScreen(),
+              ],
             ),
           ),
         ],
@@ -80,6 +85,11 @@ class _RootScreenState extends State<RootScreen> {
             icon: const Icon(Icons.location_on_outlined),
             selectedIcon: const Icon(Icons.location_on),
             label: l10n.locatorTabLabel,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.bookmark_outline),
+            selectedIcon: const Icon(Icons.bookmark),
+            label: l10n.favoritesTabLabel,
           ),
           NavigationDestination(
             icon: const Icon(Icons.camera_alt_outlined),

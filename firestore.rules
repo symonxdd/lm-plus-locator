@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Each user may only read and write their own favorites document.
+    // Nobody else — authenticated or not — can touch another user's data.
+    match /userFavorites/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Deny everything else by default (Firestore's implicit fallback, made
+    // explicit here so the intent is clear during code review).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

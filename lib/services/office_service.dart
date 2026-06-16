@@ -38,7 +38,7 @@ class OfficeService {
         )
         .toList();
 
-    withDistance.sort((a, b) => a.distanceKm.compareTo(b.distanceKm));
+    withDistance.sort((a, b) => a.distanceKm!.compareTo(b.distanceKm!));
     return withDistance;
   }
 

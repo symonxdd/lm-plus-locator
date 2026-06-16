@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
 import 'screens/root_screen.dart';
+import 'services/favorites_service.dart';
 import 'services/locale_service.dart';
 import 'services/theme_service.dart';
 import 'theme/app_theme.dart';
@@ -12,6 +13,7 @@ import 'theme/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FavoritesService.instance.initialize();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(const LmPlusLocatorApp());
 }

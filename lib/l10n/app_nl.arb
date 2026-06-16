@@ -325,6 +325,26 @@
   "@accountDeletedMessage": {
     "description": "Confirmation shown on the login form after the user successfully deletes their account."
   },
+  "favoritesTabLabel": "Opgeslagen",
+  "@favoritesTabLabel": {
+    "description": "Label of the bottom navigation tab that shows the user's saved (favourite) offices."
+  },
+  "favoritesEmptyTitle": "Geen opgeslagen kantoren",
+  "@favoritesEmptyTitle": {
+    "description": "Heading shown on the Saved tab when the user has not yet saved any offices."
+  },
+  "favoritesEmptySubtitle": "Tik op het bladwijzerpictogram op een kantoor om het op te slaan.",
+  "@favoritesEmptySubtitle": {
+    "description": "Supporting text under the empty-state heading on the Saved tab, explaining how to save an office."
+  },
+  "favoriteAddTooltip": "Kantoor opslaan",
+  "@favoriteAddTooltip": {
+    "description": "Tooltip for the bookmark button on an office card when the office is not yet saved."
+  },
+  "favoriteRemoveTooltip": "Verwijder uit opgeslagen",
+  "@favoriteRemoveTooltip": {
+    "description": "Tooltip for the bookmark button on an office card when the office is already saved."
+  },
   "offlineBannerMessage": "Geen internet — kantoorlijst nog beschikbaar",
   "@offlineBannerMessage": {
     "description": "Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline."
