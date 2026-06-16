@@ -4,7 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Persists the user's manually-selected app language across restarts.
 ///
 /// A `null` locale means "follow the device language" (falling back to
-/// Dutch for unsupported languages, via [MaterialApp.localeResolutionCallback]).
+/// Dutch for unsupported languages, handled by `_resolveDeviceLocale()` in
+/// `main.dart`).
 class LocaleService {
   static const _prefsKey = 'app_locale_code';
 

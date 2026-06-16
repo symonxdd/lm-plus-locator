@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-/// Thin wrapper around [FirebaseAuth] for email/password and phone (OTP) auth.
+/// Thin wrapper around [FirebaseAuth] for email/password sign-in.
 class AuthService {
   AuthService({FirebaseAuth? firebaseAuth})
     : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
