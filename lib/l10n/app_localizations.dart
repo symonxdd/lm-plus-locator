@@ -551,6 +551,12 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Account succesvol verwijderd.'**
   String get accountDeletedMessage;
+
+  /// Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline.
+  ///
+  /// In nl, this message translates to:
+  /// **'Geen internet — kantoorlijst nog beschikbaar'**
+  String get offlineBannerMessage;
 }
 
 class _AppLocalizationsDelegate

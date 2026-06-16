@@ -74,5 +74,6 @@
   "passwordRequiredError": "Veuillez saisir votre mot de passe.",
   "accountIdLabel": "ID de compte : {id}",
   "accountCreatedLabel": "Membre depuis {date}",
-  "accountDeletedMessage": "Compte supprimé avec succès."
+  "accountDeletedMessage": "Compte supprimé avec succès.",
+  "offlineBannerMessage": "Pas d'internet — la liste des bureaux reste disponible"
 }

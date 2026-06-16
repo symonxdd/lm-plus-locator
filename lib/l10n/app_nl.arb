@@ -324,5 +324,9 @@
   "accountDeletedMessage": "Account succesvol verwijderd.",
   "@accountDeletedMessage": {
     "description": "Confirmation shown on the login form after the user successfully deletes their account."
+  },
+  "offlineBannerMessage": "Geen internet — kantoorlijst nog beschikbaar",
+  "@offlineBannerMessage": {
+    "description": "Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that the office list (bundled in the app) still works offline."
   }
 }

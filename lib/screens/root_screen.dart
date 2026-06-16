@@ -4,6 +4,7 @@ import '../l10n/app_localizations.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
 import '../widgets/head_office_info_button.dart';
+import '../widgets/offline_banner.dart';
 import '../widgets/settings_selector.dart';
 import 'home_screen.dart';
 import 'photo_share_screen.dart';
@@ -57,9 +58,16 @@ class _RootScreenState extends State<RootScreen> {
         title: Text(l10n.appTitle),
         actions: const [HeadOfficeInfoButton(), SettingsSelector()],
       ),
-      body: IndexedStack(
-        index: _index,
-        children: const [HomeScreen(), PhotoShareScreen()],
+      body: Column(
+        children: [
+          const OfflineBanner(),
+          Expanded(
+            child: IndexedStack(
+              index: _index,
+              children: const [HomeScreen(), PhotoShareScreen()],
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         // Match the screen background instead of the default, slightly

@@ -256,4 +256,8 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get accountDeletedMessage => 'Account succesvol verwijderd.';
+
+  @override
+  String get offlineBannerMessage =>
+      'Geen internet — kantoorlijst nog beschikbaar';
 }

@@ -74,5 +74,6 @@
   "passwordRequiredError": "Bitte gib dein Passwort ein.",
   "accountIdLabel": "Konto-ID: {id}",
   "accountCreatedLabel": "Mitglied seit {date}",
-  "accountDeletedMessage": "Konto erfolgreich gelöscht."
+  "accountDeletedMessage": "Konto erfolgreich gelöscht.",
+  "offlineBannerMessage": "Kein Internet — Büroliste noch verfügbar"
 }

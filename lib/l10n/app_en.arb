@@ -74,5 +74,6 @@
   "passwordRequiredError": "Please enter your password.",
   "accountIdLabel": "Account ID: {id}",
   "accountCreatedLabel": "Member since {date}",
-  "accountDeletedMessage": "Account deleted successfully."
+  "accountDeletedMessage": "Account deleted successfully.",
+  "offlineBannerMessage": "No internet — office list still available"
 }

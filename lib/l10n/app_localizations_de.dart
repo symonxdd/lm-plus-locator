@@ -258,4 +258,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get accountDeletedMessage => 'Konto erfolgreich gelöscht.';
+
+  @override
+  String get offlineBannerMessage => 'Kein Internet — Büroliste noch verfügbar';
 }
