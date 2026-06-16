@@ -114,6 +114,23 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
     );
   }
 
+  // Max height for the suggestions list, shrunk when the keyboard leaves little room.
+  // Accounts for the drag handle, title, text field, attribution, button, and paddings.
+  double _suggestionsMaxHeight(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    final available = mq.size.height - mq.padding.top;
+    const fixedHeight = 32.0  // drag handle
+        + 30.0                // title
+        + 12.0                // gap
+        + 60.0                // text field
+        + 4.0                 // gap
+        + 32.0                // attribution button
+        + 16.0                // gap
+        + 50.0                // search button
+        + 24.0;               // bottom padding (excl. keyboard)
+    return (available - fixedHeight - mq.viewInsets.bottom).clamp(80.0, 200.0);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -151,7 +168,7 @@ class _AddressSearchSheetState extends State<AddressSearchSheet> {
             if (_suggestions.isNotEmpty) ...[
               const SizedBox(height: 4),
               ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 200),
+                constraints: BoxConstraints(maxHeight: _suggestionsMaxHeight(context)),
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: _suggestions.length,
