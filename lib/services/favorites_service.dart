@@ -5,8 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Manages the user's saved offices, persisting locally when signed out and
-/// syncing to Firestore when signed in.
+/// Manages the user's saved offices.
+///
+/// Signed out: favorites are stored in SharedPreferences (device-local).
+/// Signed in: favorites are stored in Firestore. The Firestore SDK caches
+/// reads and writes locally and syncs them automatically when connectivity
+/// is restored, so add/remove operations made while offline are queued and
+/// applied correctly instead of being lost or overwritten.
 ///
 /// Firestore structure:
 ///   collection: userFavorites
@@ -27,6 +32,7 @@ class FavoritesService {
   final favorites = ValueNotifier<Set<String>>({});
 
   StreamSubscription<User?>? _authSub;
+  StreamSubscription<DocumentSnapshot<Map<String, dynamic>>>? _firestoreSub;
 
   /// Call once from [main] after Firebase.initializeApp completes.
   Future<void> initialize() async {
@@ -38,6 +44,7 @@ class FavoritesService {
 
   void dispose() {
     _authSub?.cancel();
+    _firestoreSub?.cancel();
     favorites.dispose();
   }
 
@@ -50,7 +57,13 @@ class FavoritesService {
       updated.add(key);
     }
     favorites.value = updated;
-    await _persist(updated);
+
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid != null) {
+      _writeFirestore(uid, updated);
+    } else {
+      await _saveLocal(updated);
+    }
   }
 
   bool isFavorite(String key) => favorites.value.contains(key);
@@ -60,33 +73,55 @@ class FavoritesService {
   // ---------------------------------------------------------------------------
 
   Future<void> _onAuthStateChanged(User? user) async {
+    await _firestoreSub?.cancel();
+    _firestoreSub = null;
+
     if (user == null) {
-      // Signed out: persist whatever is currently in memory locally so
+      // Signed out: snapshot whatever is currently in memory locally so
       // favorites survive logout without losing any unsaved changes.
       await _saveLocal(favorites.value);
       return;
     }
 
-    // Signed in: load cloud favorites, merge with local ones (additive only —
-    // never delete remote favorites that may exist from another device), then
-    // write the merged set back to both stores.
-    final remote = await _loadFirestore(user.uid);
-    final merged = {...favorites.value, ...remote};
-    favorites.value = merged;
-    await _persist(merged, uid: user.uid);
+    // Signed in: if there are favorites saved locally from being signed out,
+    // merge them into Firestore once (additive only, so we never delete
+    // favorites that may already exist there from another device).
+    final local = await _loadLocal();
+    if (local.isNotEmpty) {
+      var remote = <String>{};
+      try {
+        final doc = await FirebaseFirestore.instance
+            .collection(_collection)
+            .doc(user.uid)
+            .get();
+        final raw = doc.data()?[_field];
+        if (raw is List) remote = raw.cast<String>().toSet();
+      } catch (_) {
+        // Offline with no cached doc yet — proceed with local only.
+      }
+      final merged = {...local, ...remote};
+      favorites.value = merged;
+      _writeFirestore(user.uid, merged);
+      await _saveLocal({});
+    }
+
+    // From here on, Firestore is the source of truth. The SDK serves this
+    // stream from its local cache when offline and reconciles automatically
+    // once connectivity returns, so later add/remove calls behave correctly
+    // even if made entirely offline.
+    _firestoreSub = FirebaseFirestore.instance
+        .collection(_collection)
+        .doc(user.uid)
+        .snapshots()
+        .listen((doc) {
+          final raw = doc.data()?[_field];
+          favorites.value = raw is List ? raw.cast<String>().toSet() : {};
+        });
   }
 
   // ---------------------------------------------------------------------------
   // Persistence helpers
   // ---------------------------------------------------------------------------
-
-  Future<void> _persist(Set<String> keys, {String? uid}) async {
-    await _saveLocal(keys);
-    final effectiveUid = uid ?? FirebaseAuth.instance.currentUser?.uid;
-    if (effectiveUid != null) {
-      await _saveFirestore(effectiveUid, keys);
-    }
-  }
 
   Future<Set<String>> _loadLocal() async {
     final prefs = await SharedPreferences.getInstance();
@@ -98,28 +133,13 @@ class FavoritesService {
     await prefs.setStringList(_prefsKey, keys.toList());
   }
 
-  Future<Set<String>> _loadFirestore(String uid) async {
-    try {
-      final doc = await FirebaseFirestore.instance
-          .collection(_collection)
-          .doc(uid)
-          .get();
-      final raw = doc.data()?[_field];
-      if (raw is List) return raw.cast<String>().toSet();
-    } catch (_) {
-      // Network failure — local copy remains the source of truth.
-    }
-    return {};
-  }
-
-  Future<void> _saveFirestore(String uid, Set<String> keys) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection(_collection)
-          .doc(uid)
-          .set({_field: keys.toList()});
-    } catch (_) {
-      // Best-effort: local copy is authoritative if the write fails.
-    }
+  /// Fire-and-forget: the Firestore SDK queues this write locally when
+  /// offline and syncs it once connectivity is restored.
+  void _writeFirestore(String uid, Set<String> keys) {
+    FirebaseFirestore.instance
+        .collection(_collection)
+        .doc(uid)
+        .set({_field: keys.toList()})
+        .catchError((_) {});
   }
 }

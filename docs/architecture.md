@@ -107,8 +107,10 @@ Both locale and theme default to "follow the device" (`null` locale / `ThemeMode
 
 `FavoritesService` is a singleton with a `ValueNotifier<Set<String>> favorites` that widgets subscribe to. The key for each office is `"${office.lat},${office.lng}"`, a stable identifier derived from the bundled JSON. Persistence works in two layers:
 
-- **Local** (`shared_preferences`): always written on every change, so favorites survive offline use and work for signed-out users.
-- **Cloud** (Firestore `userFavorites/{uid}`): written and read when a user is signed in. On sign-in, cloud favorites are merged (additive) with any locally stored ones, so bookmarks made offline are never lost. On sign-out, the latest set is flushed to local storage before the cloud reference is released. All Firestore operations are fire-and-forget (best-effort, wrapped in `try/catch`) so a network hiccup can't break the local experience.
+- **Signed out**: favorites live entirely in `shared_preferences`, written on every change.
+- **Signed in**: favorites live entirely in Firestore (`userFavorites/{uid}`), read through a live `snapshots()` listener instead of one-off reads. The Firestore SDK keeps a local cache and queues writes made while offline, syncing them automatically once connectivity returns, so a bookmark added or removed offline is never lost or reverted.
+
+On sign-in, any favorites saved locally while signed out are merged (additive only) into the Firestore document once, so they aren't lost. On sign-out, the in-memory set is flushed to `shared_preferences` before the Firestore listener is released.
 
 ### Firestore data model
 
