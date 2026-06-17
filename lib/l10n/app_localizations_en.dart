@@ -274,6 +274,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoriteRemoveTooltip => 'Remove from saved';
 
   @override
+  String get favoritesSyncedNotice => 'Synced to your account';
+
+  @override
+  String get favoritesSignInToSync => 'Sign in to sync across devices';
+
+  @override
   String get offlineBannerMessage => 'Offline — GPS search still works';
 
   @override

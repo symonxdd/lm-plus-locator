@@ -274,6 +274,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get favoriteRemoveTooltip => 'Verwijder uit opgeslagen';
 
   @override
+  String get favoritesSyncedNotice => 'Gesynchroniseerd met je account';
+
+  @override
+  String get favoritesSignInToSync =>
+      'Log in om te synchroniseren via al je apparaten';
+
+  @override
   String get offlineBannerMessage => 'Offline — zoeken via GPS werkt nog';
 
   @override

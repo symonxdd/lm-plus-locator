@@ -80,6 +80,8 @@
   "favoritesEmptySubtitle": "Tap the bookmark on any office card to save it.",
   "favoriteAddTooltip": "Save office",
   "favoriteRemoveTooltip": "Remove from saved",
+  "favoritesSyncedNotice": "Synced to your account",
+  "favoritesSignInToSync": "Sign in to sync across devices",
   "offlineBannerMessage": "Offline — GPS search still works",
   "addressSearchOfflineError": "Offline — only GPS search available",
   "openingHoursTitle": "Opening hours",

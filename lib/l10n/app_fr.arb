@@ -80,6 +80,8 @@
   "favoritesEmptySubtitle": "Appuyez sur le signet d'une fiche de bureau pour l'enregistrer.",
   "favoriteAddTooltip": "Enregistrer le bureau",
   "favoriteRemoveTooltip": "Retirer des enregistrés",
+  "favoritesSyncedNotice": "Synchronisé avec votre compte",
+  "favoritesSignInToSync": "Connectez-vous pour synchroniser sur vos appareils",
   "offlineBannerMessage": "Hors ligne — la recherche GPS fonctionne toujours",
   "addressSearchOfflineError": "Hors ligne — seule la recherche GPS est disponible",
   "openingHoursTitle": "Heures d'ouverture",

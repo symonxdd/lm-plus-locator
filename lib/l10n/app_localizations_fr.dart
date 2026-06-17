@@ -277,6 +277,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get favoriteRemoveTooltip => 'Retirer des enregistrés';
 
   @override
+  String get favoritesSyncedNotice => 'Synchronisé avec votre compte';
+
+  @override
+  String get favoritesSignInToSync =>
+      'Connectez-vous pour synchroniser sur vos appareils';
+
+  @override
   String get offlineBannerMessage =>
       'Hors ligne — la recherche GPS fonctionne toujours';
 

@@ -80,6 +80,8 @@
   "favoritesEmptySubtitle": "Tippe auf das Lesezeichen einer Bürokarte, um sie zu speichern.",
   "favoriteAddTooltip": "Büro speichern",
   "favoriteRemoveTooltip": "Aus Gespeicherten entfernen",
+  "favoritesSyncedNotice": "Mit deinem Konto synchronisiert",
+  "favoritesSignInToSync": "Anmelden, um auf allen Geräten zu synchronisieren",
   "offlineBannerMessage": "Offline — GPS-Suche funktioniert noch",
   "addressSearchOfflineError": "Offline — nur GPS-Suche verfügbar",
   "openingHoursTitle": "Öffnungszeiten",
