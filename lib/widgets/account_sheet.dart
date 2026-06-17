@@ -23,6 +23,12 @@ String _authErrorMessage(AppLocalizations l10n, FirebaseAuthException e) {
       return l10n.weakPasswordError;
     case 'invalid-email':
       return l10n.emailValidationError;
+    case 'network-request-failed':
+      return l10n.networkErrorMessage;
+    case 'too-many-requests':
+      return l10n.tooManyRequestsError;
+    case 'user-disabled':
+      return l10n.userDisabledError;
     default:
       return l10n.authenticationFailed;
   }

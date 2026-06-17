@@ -558,6 +558,24 @@ abstract class AppLocalizations {
   /// **'Account succesvol verwijderd.'**
   String get accountDeletedMessage;
 
+  /// Shown when a Firebase Auth call fails because there is no network connection.
+  ///
+  /// In nl, this message translates to:
+  /// **'Geen internetverbinding. Controleer je verbinding en probeer opnieuw.'**
+  String get networkErrorMessage;
+
+  /// Shown when Firebase Auth rate-limits the user after too many failed sign-in attempts.
+  ///
+  /// In nl, this message translates to:
+  /// **'Te veel pogingen. Wacht even en probeer het opnieuw.'**
+  String get tooManyRequestsError;
+
+  /// Shown when the user tries to sign in to an account that has been disabled in Firebase Console.
+  ///
+  /// In nl, this message translates to:
+  /// **'Dit account is uitgeschakeld.'**
+  String get userDisabledError;
+
   /// Label of the bottom navigation tab that shows the user's saved (favourite) offices.
   ///
   /// In nl, this message translates to:

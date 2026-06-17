@@ -329,6 +329,18 @@
   "@accountDeletedMessage": {
     "description": "Confirmation shown on the login form after the user successfully deletes their account."
   },
+  "networkErrorMessage": "Geen internetverbinding. Controleer je verbinding en probeer opnieuw.",
+  "@networkErrorMessage": {
+    "description": "Shown when a Firebase Auth call fails because there is no network connection."
+  },
+  "tooManyRequestsError": "Te veel pogingen. Wacht even en probeer het opnieuw.",
+  "@tooManyRequestsError": {
+    "description": "Shown when Firebase Auth rate-limits the user after too many failed sign-in attempts."
+  },
+  "userDisabledError": "Dit account is uitgeschakeld.",
+  "@userDisabledError": {
+    "description": "Shown when the user tries to sign in to an account that has been disabled in Firebase Console."
+  },
   "favoritesTabLabel": "Opgeslagen",
   "@favoritesTabLabel": {
     "description": "Label of the bottom navigation tab that shows the user's saved (favourite) offices."

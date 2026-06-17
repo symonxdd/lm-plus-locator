@@ -262,6 +262,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accountDeletedMessage => 'Account deleted successfully.';
 
   @override
+  String get networkErrorMessage =>
+      'No internet connection. Check your connection and try again.';
+
+  @override
+  String get tooManyRequestsError =>
+      'Too many attempts. Please wait a moment and try again.';
+
+  @override
+  String get userDisabledError => 'This account has been disabled.';
+
+  @override
   String get favoritesTabLabel => 'Saved';
 
   @override

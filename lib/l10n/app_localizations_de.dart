@@ -264,6 +264,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get accountDeletedMessage => 'Konto erfolgreich gelöscht.';
 
   @override
+  String get networkErrorMessage =>
+      'Keine Internetverbindung. Überprüfe deine Verbindung und versuche es erneut.';
+
+  @override
+  String get tooManyRequestsError =>
+      'Zu viele Versuche. Warte einen Moment und versuche es erneut.';
+
+  @override
+  String get userDisabledError => 'Dieses Konto wurde deaktiviert.';
+
+  @override
   String get favoritesTabLabel => 'Gespeichert';
 
   @override

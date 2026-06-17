@@ -262,6 +262,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get accountDeletedMessage => 'Account succesvol verwijderd.';
 
   @override
+  String get networkErrorMessage =>
+      'Geen internetverbinding. Controleer je verbinding en probeer opnieuw.';
+
+  @override
+  String get tooManyRequestsError =>
+      'Te veel pogingen. Wacht even en probeer het opnieuw.';
+
+  @override
+  String get userDisabledError => 'Dit account is uitgeschakeld.';
+
+  @override
   String get favoritesTabLabel => 'Opgeslagen';
 
   @override

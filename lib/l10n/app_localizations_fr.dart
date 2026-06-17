@@ -265,6 +265,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get accountDeletedMessage => 'Compte supprimé avec succès.';
 
   @override
+  String get networkErrorMessage =>
+      'Pas de connexion internet. Vérifiez votre connexion et réessayez.';
+
+  @override
+  String get tooManyRequestsError =>
+      'Trop de tentatives. Patientez un moment et réessayez.';
+
+  @override
+  String get userDisabledError => 'Ce compte a été désactivé.';
+
+  @override
   String get favoritesTabLabel => 'Enregistrés';
 
   @override
