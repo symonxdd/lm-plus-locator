@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// Pill-shaped notice on the Saved tab when the user is signed out, prompting them to sign in to enable cloud sync. Tapping it opens the account sheet.
   ///
   /// In nl, this message translates to:
-  /// **'Log in om te synchroniseren via al je apparaten'**
+  /// **'Log in om deze lijst op te slaan in je account'**
   String get favoritesSignInToSync;
 
   /// Thin banner shown at the top of the screen when the device has no internet connection. Reassures the user that GPS-based office search still works offline.

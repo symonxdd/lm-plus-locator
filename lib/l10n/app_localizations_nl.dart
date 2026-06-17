@@ -282,7 +282,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get favoritesSignInToSync =>
-      'Log in om te synchroniseren via al je apparaten';
+      'Log in om deze lijst op te slaan in je account';
 
   @override
   String get offlineBannerMessage => 'Offline — zoeken via GPS werkt nog';

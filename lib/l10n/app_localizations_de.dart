@@ -284,7 +284,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get favoritesSignInToSync =>
-      'Anmelden, um auf allen Geräten zu synchronisieren';
+      'Anmelden, um diese Liste in deinem Konto zu speichern';
 
   @override
   String get offlineBannerMessage => 'Offline — GPS-Suche funktioniert noch';

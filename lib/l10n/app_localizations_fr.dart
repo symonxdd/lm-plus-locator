@@ -285,7 +285,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get favoritesSignInToSync =>
-      'Connectez-vous pour synchroniser sur vos appareils';
+      'Connectez-vous pour enregistrer cette liste dans votre compte';
 
   @override
   String get offlineBannerMessage =>

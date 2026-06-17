@@ -281,7 +281,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoritesSyncedNotice => 'Synced to your account';
 
   @override
-  String get favoritesSignInToSync => 'Sign in to sync across devices';
+  String get favoritesSignInToSync =>
+      'Sign in to save this list to your account';
 
   @override
   String get offlineBannerMessage => 'Offline — GPS search still works';

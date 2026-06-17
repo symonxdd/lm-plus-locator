@@ -353,7 +353,7 @@
   "@favoritesSyncedNotice": {
     "description": "Pill-shaped notice on the Saved tab when the user is signed in, confirming that saved offices sync to their cloud account."
   },
-  "favoritesSignInToSync": "Log in om te synchroniseren via al je apparaten",
+  "favoritesSignInToSync": "Log in om deze lijst op te slaan in je account",
   "@favoritesSignInToSync": {
     "description": "Pill-shaped notice on the Saved tab when the user is signed out, prompting them to sign in to enable cloud sync. Tapping it opens the account sheet."
   },
