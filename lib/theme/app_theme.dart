@@ -12,14 +12,26 @@ class AppTheme {
   static final light = ThemeData(
     useMaterial3: true,
     colorScheme: _lightColorScheme,
-    appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    appBarTheme: AppBarTheme(
+      // Pinned explicitly: AppBar otherwise resolves its background to
+      // colorScheme.surfaceContainer while scrolled-under vs. plain
+      // colorScheme.surface at rest, producing a visible color shift on
+      // scroll independent of elevation/surfaceTintColor.
+      backgroundColor: _lightColorScheme.surface,
+      surfaceTintColor: Colors.transparent,
+      scrolledUnderElevation: 0,
+    ),
     inputDecorationTheme: _inputDecorationTheme(_lightColorScheme),
   );
 
   static final dark = ThemeData(
     useMaterial3: true,
     colorScheme: _darkColorScheme,
-    appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    appBarTheme: AppBarTheme(
+      backgroundColor: _darkColorScheme.surface,
+      surfaceTintColor: Colors.transparent,
+      scrolledUnderElevation: 0,
+    ),
     inputDecorationTheme: _inputDecorationTheme(_darkColorScheme),
   );
 

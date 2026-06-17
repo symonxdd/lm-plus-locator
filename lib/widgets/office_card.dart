@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../l10n/app_localizations.dart';
 import '../models/office.dart';
 import '../services/favorites_service.dart';
+import '../theme/app_colors.dart';
 import 'opening_hours_sheet.dart';
 
 /// A card showing a nearby LM+ office. Tapping it opens the office's
@@ -52,66 +53,68 @@ class OfficeCard extends StatelessWidget {
             onTap: _openInMaps,
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Row(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.location_on, color: theme.colorScheme.primary),
-                  const SizedBox(width: 12),
-                  Expanded(
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        color: ctaColors(context).background,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          office.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleMedium,
+                        ),
+                      ),
+                      if (officeWithDistance.distanceKm != null) ...[
+                        const SizedBox(width: 8),
+                        Text(
+                          l10n.distanceInKm(
+                            officeWithDistance.distanceKm!.toStringAsFixed(1),
+                          ),
+                          style: theme.textTheme.titleSmall,
+                        ),
+                      ],
+                      const SizedBox(width: 4),
+                      ValueListenableBuilder<Set<String>>(
+                        valueListenable: FavoritesService.instance.favorites,
+                        builder: (context, keys, _) {
+                          final key = '${office.lat},${office.lng}';
+                          final saved = keys.contains(key);
+                          return IconButton(
+                            icon: Icon(
+                              saved ? Icons.bookmark : Icons.bookmark_outline,
+                              color: saved
+                                  ? ctaColors(context).background
+                                  : theme.colorScheme.outline,
+                            ),
+                            iconSize: 20,
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(),
+                            visualDensity: VisualDensity.compact,
+                            tooltip: saved
+                                ? l10n.favoriteRemoveTooltip
+                                : l10n.favoriteAddTooltip,
+                            onPressed: () =>
+                                FavoritesService.instance.toggle(key),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    // Indented to align under the title text, past the pin
+                    // icon (24) and its spacing (12) above.
+                    padding: const EdgeInsets.only(left: 36),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                office.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.titleMedium,
-                              ),
-                            ),
-                            if (officeWithDistance.distanceKm != null) ...[
-                              const SizedBox(width: 8),
-                              Text(
-                                l10n.distanceInKm(
-                                  officeWithDistance.distanceKm!
-                                      .toStringAsFixed(1),
-                                ),
-                                style: theme.textTheme.titleSmall,
-                              ),
-                            ],
-                            const SizedBox(width: 4),
-                            ValueListenableBuilder<Set<String>>(
-                              valueListenable:
-                                  FavoritesService.instance.favorites,
-                              builder: (context, keys, _) {
-                                final key = '${office.lat},${office.lng}';
-                                final saved = keys.contains(key);
-                                return IconButton(
-                                  icon: Icon(
-                                    saved
-                                        ? Icons.bookmark
-                                        : Icons.bookmark_outline,
-                                    color: saved
-                                        ? theme.colorScheme.primary
-                                        : theme.colorScheme.outline,
-                                  ),
-                                  iconSize: 20,
-                                  padding: EdgeInsets.zero,
-                                  constraints: const BoxConstraints(),
-                                  visualDensity: VisualDensity.compact,
-                                  tooltip: saved
-                                      ? l10n.favoriteRemoveTooltip
-                                      : l10n.favoriteAddTooltip,
-                                  onPressed: () =>
-                                      FavoritesService.instance.toggle(key),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
                         if (office.isOpenNow != null) ...[
                           const SizedBox(height: 4),
                           Row(

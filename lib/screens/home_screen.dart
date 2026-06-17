@@ -73,6 +73,41 @@ class HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// Builds a segmented-button label with an inline result-count pill, laid
+  /// out as a normal Row so it can't overflow into a neighboring segment
+  /// (unlike [Badge], which positions itself with an absolute offset).
+  ///
+  /// The pill is tinted from the ambient text color rather than a fixed
+  /// theme color, so it automatically matches whatever foreground Flutter
+  /// resolves for this segment (selected vs. unselected, light vs. dark).
+  Widget _segmentLabel(String text, int count) {
+    final foreground =
+        DefaultTextStyle.of(context).style.color ??
+        Theme.of(context).colorScheme.onSurface;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(text),
+        if (count > 0) ...[
+          const SizedBox(width: 6),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+            decoration: BoxDecoration(
+              color: foreground.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              '$count',
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: foreground,
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
   String _formatCoordinates(double lat, double lng) =>
       '${lat.toStringAsFixed(4)}, ${lng.toStringAsFixed(4)}';
 
@@ -334,20 +369,18 @@ class HomeScreenState extends State<HomeScreen> {
                 segments: [
                   ButtonSegment(
                     value: OfficeType.office,
-                    label: Text(l10n.officeTypeFilterOffices),
-                    icon: Badge(
-                      label: Text('$officeCount'),
-                      isLabelVisible: officeCount > 0,
-                      child: const Icon(Icons.business_outlined),
+                    icon: const Icon(Icons.business_outlined),
+                    label: _segmentLabel(
+                      l10n.officeTypeFilterOffices,
+                      officeCount,
                     ),
                   ),
                   ButtonSegment(
                     value: OfficeType.mailbox,
-                    label: Text(l10n.officeTypeFilterMailboxes),
-                    icon: Badge(
-                      label: Text('$mailboxCount'),
-                      isLabelVisible: mailboxCount > 0,
-                      child: const Icon(Icons.mail_outline),
+                    icon: const Icon(Icons.mail_outline),
+                    label: _segmentLabel(
+                      l10n.officeTypeFilterMailboxes,
+                      mailboxCount,
                     ),
                   ),
                 ],
