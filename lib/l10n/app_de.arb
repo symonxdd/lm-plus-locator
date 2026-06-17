@@ -30,7 +30,7 @@
   "themeModeDark": "Dunkel",
   "themeModeSystem": "System",
   "settingsTooltip": "Einstellungen",
-  "authDisclaimer": "Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional und schaltet derzeit keine zusätzlichen Funktionen frei.",
+  "authDisclaimer": "Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional; sie synchronisiert deine gespeicherten Büros automatisch auf allen deinen Geräten.",
   "unofficialAppNotice": "Dies ist ein unabhängiges Projekt und steht in keiner Verbindung zu LM+.",
   "openInMapsHint": "Tippen, um in Maps zu öffnen",
   "officeOpenNow": "Jetzt geöffnet",

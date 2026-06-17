@@ -109,7 +109,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get authDisclaimer =>
-      'An account isn\'t needed to use the office locator. Signing in is optional and doesn\'t unlock any extra features yet.';
+      'An account isn\'t needed to use the office locator. Signing in is optional; it backs up your saved offices and keeps them in sync across your devices.';
 
   @override
   String get unofficialAppNotice =>
