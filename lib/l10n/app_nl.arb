@@ -130,9 +130,13 @@
   "@settingsTooltip": {
     "description": "Tooltip for the app bar button that opens the combined theme and language settings sheet."
   },
-  "authDisclaimer": "Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.",
-  "@authDisclaimer": {
-    "description": "Small print shown in the account sheet explaining that signing in is optional and not required for the office locator."
+  "authDisclaimerIntro": "Een account is niet nodig om de kantorenzoeker te gebruiken.",
+  "@authDisclaimerIntro": {
+    "description": "First line of the small print in the account sheet: an account is not required to use the locator."
+  },
+  "authDisclaimerSync": "Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.",
+  "@authDisclaimerSync": {
+    "description": "Second line of the small print in the account sheet: what signing in actually enables (cloud sync of saved offices)."
   },
   "unofficialAppNotice": "Dit is een onafhankelijk project en is niet verbonden met LM+.",
   "@unofficialAppNotice": {

@@ -111,8 +111,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsTooltip => 'Paramètres';
 
   @override
-  String get authDisclaimer =>
-      'Un compte n\'est pas nécessaire pour utiliser le localisateur de bureaux. La connexion est facultative; elle synchronise automatiquement vos bureaux enregistrés sur tous vos appareils.';
+  String get authDisclaimerIntro =>
+      'Un compte n\'est pas nécessaire pour utiliser le localisateur de bureaux.';
+
+  @override
+  String get authDisclaimerSync =>
+      'La connexion est facultative; elle synchronise automatiquement vos bureaux enregistrés sur tous vos appareils.';
 
   @override
   String get unofficialAppNotice =>

@@ -109,8 +109,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsTooltip => 'Einstellungen';
 
   @override
-  String get authDisclaimer =>
-      'Für die Nutzung des Bürofinders ist kein Konto erforderlich. Die Anmeldung ist optional; sie synchronisiert deine gespeicherten Büros automatisch auf allen deinen Geräten.';
+  String get authDisclaimerIntro =>
+      'Für die Nutzung des Bürofinders ist kein Konto erforderlich.';
+
+  @override
+  String get authDisclaimerSync =>
+      'Die Anmeldung ist optional; sie synchronisiert deine gespeicherten Büros automatisch auf allen deinen Geräten.';
 
   @override
   String get unofficialAppNotice =>

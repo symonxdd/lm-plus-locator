@@ -108,8 +108,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get settingsTooltip => 'Instellingen';
 
   @override
-  String get authDisclaimer =>
-      'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.';
+  String get authDisclaimerIntro =>
+      'Een account is niet nodig om de kantorenzoeker te gebruiken.';
+
+  @override
+  String get authDisclaimerSync =>
+      'Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.';
 
   @override
   String get unofficialAppNotice =>

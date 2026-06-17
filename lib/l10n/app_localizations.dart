@@ -282,11 +282,17 @@ abstract class AppLocalizations {
   /// **'Instellingen'**
   String get settingsTooltip;
 
-  /// Small print shown in the account sheet explaining that signing in is optional and not required for the office locator.
+  /// First line of the small print in the account sheet: an account is not required to use the locator.
   ///
   /// In nl, this message translates to:
-  /// **'Een account is niet nodig om de kantorenzoeker te gebruiken. Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.'**
-  String get authDisclaimer;
+  /// **'Een account is niet nodig om de kantorenzoeker te gebruiken.'**
+  String get authDisclaimerIntro;
+
+  /// Second line of the small print in the account sheet: what signing in actually enables (cloud sync of saved offices).
+  ///
+  /// In nl, this message translates to:
+  /// **'Aanmelden is optioneel; het synchroniseert je opgeslagen kantoren automatisch via al je apparaten.'**
+  String get authDisclaimerSync;
 
   /// Small print in the settings sheet clarifying that this is an unofficial, independent app and not an official LM+ product.
   ///

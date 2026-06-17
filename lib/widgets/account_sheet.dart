@@ -485,7 +485,15 @@ class _EmailAuthFormState extends State<_EmailAuthForm> {
           ),
           const SizedBox(height: 8),
           Text(
-            l10n.authDisclaimer,
+            l10n.authDisclaimerIntro,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Theme.of(context).colorScheme.outline,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            l10n.authDisclaimerSync,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: Theme.of(context).colorScheme.outline,
