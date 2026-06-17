@@ -251,10 +251,6 @@
   "@visitWebsiteButton": {
     "description": "Button in the head office info sheet that opens the organization's website in the browser."
   },
-  "changeLocationButton": "Kies een andere locatie",
-  "@changeLocationButton": {
-    "description": "CTA button above the results that clears the search and returns to the home screen to search again by GPS or a different address."
-  },
   "addressSuggestionsAttribution": "Adressuggesties via OpenStreetMap",
   "@addressSuggestionsAttribution": {
     "description": "Attribution link shown below address suggestions, linking to the OpenStreetMap copyright/license page."

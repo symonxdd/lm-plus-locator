@@ -110,6 +110,7 @@ class _DayRow extends StatelessWidget {
             flex: 5,
             child: Wrap(
               spacing: 6,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 Text(dayName, style: nameStyle),
                 if (isToday)

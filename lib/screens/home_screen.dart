@@ -20,13 +20,18 @@ enum _LocatorStatus {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, this.onSubScreenChanged});
+
+  /// Called whenever the locator moves between the hero and any sub-screen
+  /// (results, loading, errors, permission prompts), so [RootScreen] can
+  /// swap its shared app bar's leading icon for a back button.
+  final ValueChanged<bool>? onSubScreenChanged;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   static const _pageSize = 10;
 
   final _locationService = LocationService();
@@ -73,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _findNearestOffices() async {
     setState(() => _status = _LocatorStatus.loading);
+    widget.onSubScreenChanged?.call(true);
 
     final permissionStatus = await _locationService.checkPermission();
     switch (permissionStatus) {
@@ -138,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (result == null || !mounted) return;
 
     setState(() => _status = _LocatorStatus.loading);
+    widget.onSubScreenChanged?.call(true);
     final officesFuture = _officesFuture ??= _officeService.loadOffices();
     await _showResultsFor(
       result.latitude,
@@ -156,7 +163,13 @@ class _HomeScreenState extends State<HomeScreen> {
       _visibleCount = _pageSize;
       _userLocationText = null;
     });
+    widget.onSubScreenChanged?.call(false);
   }
+
+  /// Returns to the hero screen. Called by [RootScreen] when the user taps
+  /// the back button shown in the shared app bar while a sub-screen (results,
+  /// loading, errors, ...) is visible.
+  void goToHero() => _changeLocation();
 
   /// Computes and displays the nearest offices to (lat, lng), using the
   /// (cached) [officesFuture]. Shows [locationText] as the user's location,
@@ -284,11 +297,17 @@ class _HomeScreenState extends State<HomeScreen> {
       case _LocatorStatus.results:
         final filteredOffices = _filteredOffices;
         final visibleOffices = filteredOffices.take(_visibleCount).toList();
+        final officeCount = _allOffices
+            .where((o) => o.office.type == OfficeType.office)
+            .length;
+        final mailboxCount = _allOffices
+            .where((o) => o.office.type == OfficeType.mailbox)
+            .length;
         return Column(
           children: [
             if (_userLocationText != null)
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -310,30 +329,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-              child: FilledButton.icon(
-                style: FilledButton.styleFrom(
-                  backgroundColor: ctaColors(context).background,
-                  foregroundColor: ctaColors(context).foreground,
-                ),
-                onPressed: _changeLocation,
-                icon: const Icon(Icons.edit_location_alt_outlined),
-                label: Text(l10n.changeLocationButton),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.symmetric(vertical: 12),
               child: SegmentedButton<OfficeType>(
                 segments: [
                   ButtonSegment(
                     value: OfficeType.office,
                     label: Text(l10n.officeTypeFilterOffices),
-                    icon: const Icon(Icons.business_outlined),
+                    icon: Badge(
+                      label: Text('$officeCount'),
+                      isLabelVisible: officeCount > 0,
+                      child: const Icon(Icons.business_outlined),
+                    ),
                   ),
                   ButtonSegment(
                     value: OfficeType.mailbox,
                     label: Text(l10n.officeTypeFilterMailboxes),
-                    icon: const Icon(Icons.mail_outline),
+                    icon: Badge(
+                      label: Text('$mailboxCount'),
+                      isLabelVisible: mailboxCount > 0,
+                      child: const Icon(Icons.mail_outline),
+                    ),
                   ),
                 ],
                 selected: {_selectedType},

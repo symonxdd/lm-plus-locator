@@ -201,9 +201,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get visitWebsiteButton => 'Bezoek website';
 
   @override
-  String get changeLocationButton => 'Kies een andere locatie';
-
-  @override
   String get addressSuggestionsAttribution =>
       'Adressuggesties via OpenStreetMap';
 

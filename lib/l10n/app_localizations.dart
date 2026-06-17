@@ -456,12 +456,6 @@ abstract class AppLocalizations {
   /// **'Bezoek website'**
   String get visitWebsiteButton;
 
-  /// CTA button above the results that clears the search and returns to the home screen to search again by GPS or a different address.
-  ///
-  /// In nl, this message translates to:
-  /// **'Kies een andere locatie'**
-  String get changeLocationButton;
-
   /// Attribution link shown below address suggestions, linking to the OpenStreetMap copyright/license page.
   ///
   /// In nl, this message translates to:

@@ -59,7 +59,6 @@
   "addressSearchSubmitButton": "Rechercher",
   "addressNotFoundError": "Adresse introuvable. Essayez une autre adresse.",
   "visitWebsiteButton": "Visiter le site web",
-  "changeLocationButton": "Choisir un autre emplacement",
   "addressSuggestionsAttribution": "Suggestions d'adresses via OpenStreetMap",
   "deleteAccountButton": "Supprimer le compte",
   "deleteAccountConfirmTitle": "Supprimer le compte ?",

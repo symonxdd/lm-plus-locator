@@ -21,12 +21,15 @@ class RootScreen extends StatefulWidget {
 
 class _RootScreenState extends State<RootScreen> {
   int _index = 0;
+  bool _locatorShowingSubScreen = false;
+  final _homeScreenKey = GlobalKey<HomeScreenState>();
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final showBackButton = _index == 0 && _locatorShowingSubScreen;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -35,27 +38,33 @@ class _RootScreenState extends State<RootScreen> {
         // here too - otherwise the nav bar icons revert to the preset's
         // light color and vanish on the light surface in light mode.
         systemOverlayStyle: AppTheme.systemOverlayStyle(theme),
-        leading: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Stack(
-            children: [
-              ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  ctaColors(context).background,
-                  BlendMode.srcIn,
+        leading: showBackButton
+            ? IconButton(
+                icon: const BackButtonIcon(),
+                tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                onPressed: () => _homeScreenKey.currentState?.goToHero(),
+              )
+            : Padding(
+                padding: const EdgeInsets.all(8),
+                child: Stack(
+                  children: [
+                    ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                        ctaColors(context).background,
+                        BlendMode.srcIn,
+                      ),
+                      child: Image.asset('assets/icon/icon_pin_mask.png'),
+                    ),
+                    ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                        ctaColors(context).foreground,
+                        BlendMode.srcIn,
+                      ),
+                      child: Image.asset('assets/icon/icon_plus_mask.png'),
+                    ),
+                  ],
                 ),
-                child: Image.asset('assets/icon/icon_pin_mask.png'),
               ),
-              ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  ctaColors(context).foreground,
-                  BlendMode.srcIn,
-                ),
-                child: Image.asset('assets/icon/icon_plus_mask.png'),
-              ),
-            ],
-          ),
-        ),
         title: Text(l10n.appTitle),
         actions: const [HeadOfficeInfoButton(), SettingsSelector()],
       ),
@@ -65,10 +74,14 @@ class _RootScreenState extends State<RootScreen> {
           Expanded(
             child: IndexedStack(
               index: _index,
-              children: const [
-                HomeScreen(),
-                FavoritesScreen(),
-                PhotoShareScreen(),
+              children: [
+                HomeScreen(
+                  key: _homeScreenKey,
+                  onSubScreenChanged: (showing) =>
+                      setState(() => _locatorShowingSubScreen = showing),
+                ),
+                const FavoritesScreen(),
+                const PhotoShareScreen(),
               ],
             ),
           ),

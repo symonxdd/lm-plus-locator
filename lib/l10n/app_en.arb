@@ -59,7 +59,6 @@
   "addressSearchSubmitButton": "Search",
   "addressNotFoundError": "Address not found. Try a different address.",
   "visitWebsiteButton": "Visit website",
-  "changeLocationButton": "Choose a different location",
   "addressSuggestionsAttribution": "Address suggestions via OpenStreetMap",
   "deleteAccountButton": "Delete account",
   "deleteAccountConfirmTitle": "Delete account?",
