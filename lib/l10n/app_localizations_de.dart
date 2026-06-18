@@ -320,4 +320,53 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get chatSendTooltip => 'Senden';
+
+  @override
+  String get messagesDentalReimbursementTitle => 'Rückerstattung Zahnpflege';
+
+  @override
+  String get messagesAddressChangeTitle => 'Adressänderung';
+
+  @override
+  String get messagesMembershipCardTitle => 'Mitgliedskarte ersetzen';
+
+  @override
+  String get messagesDentalReimbursementUserQuestion =>
+      'Hallo, ich habe letzte Woche einen Antrag für eine Zahnbehandlung eingereicht — gibt es schon Neuigkeiten zur Rückerstattung?';
+
+  @override
+  String get messagesDentalReimbursementOfficeAck =>
+      'Ich schaue das kurz für Sie nach, einen Moment.';
+
+  @override
+  String get messagesDentalReimbursementOfficeApproved =>
+      'Ihr Antrag wurde genehmigt. Die Rückerstattung wird innerhalb von 5 Werktagen überwiesen.';
+
+  @override
+  String get messagesDentalReimbursementOfficeFollowup =>
+      'Können wir Ihnen sonst noch helfen?';
+
+  @override
+  String get messagesAddressChangeUserQuestion =>
+      'Hallo, ich bin vor kurzem umgezogen — muss ich meine Adresse selbst bei Ihnen ändern?';
+
+  @override
+  String get messagesAddressChangeOfficeReply =>
+      'Das ist nicht nötig — wir haben die Änderung automatisch über das Einwohnermelderegister erhalten. Ihre Akte ist aktuell.';
+
+  @override
+  String get messagesMembershipCardOfficeReminder =>
+      'Erinnerung: Ihre neue Mitgliedskarte liegt an unserem Schalter zur Abholung bereit.';
+
+  @override
+  String get messagesCannedReply1 =>
+      'Danke für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.';
+
+  @override
+  String get messagesCannedReply2 =>
+      'Verstanden — jemand aus unserem Team meldet sich bald bei Ihnen.';
+
+  @override
+  String get messagesCannedReply3 =>
+      'Danke, dass Sie sich an uns gewandt haben. Wir prüfen das und antworten so schnell wie möglich.';
 }

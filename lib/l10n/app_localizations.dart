@@ -665,6 +665,84 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Verzenden'**
   String get chatSendTooltip;
+
+  /// Title of the mock conversation thread about a dental care reimbursement.
+  ///
+  /// In nl, this message translates to:
+  /// **'Terugbetaling tandzorg'**
+  String get messagesDentalReimbursementTitle;
+
+  /// Title of the mock conversation thread about an address change.
+  ///
+  /// In nl, this message translates to:
+  /// **'Adreswijziging'**
+  String get messagesAddressChangeTitle;
+
+  /// Title of the mock conversation thread about replacing a membership card.
+  ///
+  /// In nl, this message translates to:
+  /// **'Lidkaart vervangen'**
+  String get messagesMembershipCardTitle;
+
+  /// Mock message from the user asking about the status of a dental care reimbursement.
+  ///
+  /// In nl, this message translates to:
+  /// **'Hallo, ik heb vorige week een aanvraag voor tandzorg ingediend — is er al nieuws over de terugbetaling?'**
+  String get messagesDentalReimbursementUserQuestion;
+
+  /// Mock reply from the office acknowledging the dental reimbursement question.
+  ///
+  /// In nl, this message translates to:
+  /// **'Ik kijk dat even voor u na, een moment.'**
+  String get messagesDentalReimbursementOfficeAck;
+
+  /// Mock reply from the office confirming the dental reimbursement was approved.
+  ///
+  /// In nl, this message translates to:
+  /// **'Uw aanvraag is goedgekeurd. De terugbetaling wordt binnen 5 werkdagen overgeschreven.'**
+  String get messagesDentalReimbursementOfficeApproved;
+
+  /// Mock follow-up message from the office offering further help.
+  ///
+  /// In nl, this message translates to:
+  /// **'Kan ik u nog ergens anders mee helpen?'**
+  String get messagesDentalReimbursementOfficeFollowup;
+
+  /// Mock message from the user asking whether they need to update their address themselves.
+  ///
+  /// In nl, this message translates to:
+  /// **'Hallo, ik ben recent verhuisd — moet ik mijn adres zelf bij u laten aanpassen?'**
+  String get messagesAddressChangeUserQuestion;
+
+  /// Mock reply from the office explaining the address was updated automatically.
+  ///
+  /// In nl, this message translates to:
+  /// **'Dat is niet nodig — we hebben de wijziging automatisch ontvangen via het bevolkingsregister. Uw dossier is up-to-date.'**
+  String get messagesAddressChangeOfficeReply;
+
+  /// Mock reminder message from the office that a replacement membership card is ready for pickup.
+  ///
+  /// In nl, this message translates to:
+  /// **'Herinnering: uw nieuwe lidkaart ligt klaar aan onze balie.'**
+  String get messagesMembershipCardOfficeReminder;
+
+  /// First canned auto-reply sent a short while after the user sends a message.
+  ///
+  /// In nl, this message translates to:
+  /// **'Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.'**
+  String get messagesCannedReply1;
+
+  /// Second canned auto-reply sent a short while after the user sends a message.
+  ///
+  /// In nl, this message translates to:
+  /// **'Begrepen — iemand van ons team neemt binnenkort contact met u op.'**
+  String get messagesCannedReply2;
+
+  /// Third canned auto-reply sent a short while after the user sends a message.
+  ///
+  /// In nl, this message translates to:
+  /// **'Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.'**
+  String get messagesCannedReply3;
 }
 
 class _AppLocalizationsDelegate

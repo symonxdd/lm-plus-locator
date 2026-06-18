@@ -323,4 +323,55 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get chatSendTooltip => 'Envoyer';
+
+  @override
+  String get messagesDentalReimbursementTitle =>
+      'Remboursement soins dentaires';
+
+  @override
+  String get messagesAddressChangeTitle => 'Changement d\'adresse';
+
+  @override
+  String get messagesMembershipCardTitle =>
+      'Remplacement de la carte de membre';
+
+  @override
+  String get messagesDentalReimbursementUserQuestion =>
+      'Bonjour, j\'ai introduit une demande de soins dentaires la semaine dernière — y a-t-il du nouveau concernant le remboursement ?';
+
+  @override
+  String get messagesDentalReimbursementOfficeAck =>
+      'Je vérifie cela pour vous, un instant.';
+
+  @override
+  String get messagesDentalReimbursementOfficeApproved =>
+      'Votre demande a été approuvée. Le remboursement sera viré dans les 5 jours ouvrables.';
+
+  @override
+  String get messagesDentalReimbursementOfficeFollowup =>
+      'Puis-je encore vous aider pour autre chose ?';
+
+  @override
+  String get messagesAddressChangeUserQuestion =>
+      'Bonjour, j\'ai récemment déménagé — dois-je moi-même mettre à jour mon adresse chez vous ?';
+
+  @override
+  String get messagesAddressChangeOfficeReply =>
+      'Ce n\'est pas nécessaire — nous avons reçu la mise à jour automatiquement via le registre de la population. Votre dossier est à jour.';
+
+  @override
+  String get messagesMembershipCardOfficeReminder =>
+      'Rappel : votre nouvelle carte de membre est prête à être retirée à notre guichet.';
+
+  @override
+  String get messagesCannedReply1 =>
+      'Merci pour votre message ! Nous reviendrons vers vous rapidement.';
+
+  @override
+  String get messagesCannedReply2 =>
+      'Bien reçu — quelqu\'un de notre équipe vous contactera bientôt.';
+
+  @override
+  String get messagesCannedReply3 =>
+      'Merci de nous avoir contactés. Nous allons examiner cela et répondre dès que possible.';
 }

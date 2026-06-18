@@ -93,5 +93,18 @@
   "viewOpeningHoursHint": "Öffnungszeiten anzeigen",
   "messagesTabLabel": "Nachrichten",
   "chatInputHint": "Nachricht eingeben...",
-  "chatSendTooltip": "Senden"
+  "chatSendTooltip": "Senden",
+  "messagesDentalReimbursementTitle": "Rückerstattung Zahnpflege",
+  "messagesAddressChangeTitle": "Adressänderung",
+  "messagesMembershipCardTitle": "Mitgliedskarte ersetzen",
+  "messagesDentalReimbursementUserQuestion": "Hallo, ich habe letzte Woche einen Antrag für eine Zahnbehandlung eingereicht — gibt es schon Neuigkeiten zur Rückerstattung?",
+  "messagesDentalReimbursementOfficeAck": "Ich schaue das kurz für Sie nach, einen Moment.",
+  "messagesDentalReimbursementOfficeApproved": "Ihr Antrag wurde genehmigt. Die Rückerstattung wird innerhalb von 5 Werktagen überwiesen.",
+  "messagesDentalReimbursementOfficeFollowup": "Können wir Ihnen sonst noch helfen?",
+  "messagesAddressChangeUserQuestion": "Hallo, ich bin vor kurzem umgezogen — muss ich meine Adresse selbst bei Ihnen ändern?",
+  "messagesAddressChangeOfficeReply": "Das ist nicht nötig — wir haben die Änderung automatisch über das Einwohnermelderegister erhalten. Ihre Akte ist aktuell.",
+  "messagesMembershipCardOfficeReminder": "Erinnerung: Ihre neue Mitgliedskarte liegt an unserem Schalter zur Abholung bereit.",
+  "messagesCannedReply1": "Danke für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.",
+  "messagesCannedReply2": "Verstanden — jemand aus unserem Team meldet sich bald bei Ihnen.",
+  "messagesCannedReply3": "Danke, dass Sie sich an uns gewandt haben. Wir prüfen das und antworten so schnell wie möglich."
 }

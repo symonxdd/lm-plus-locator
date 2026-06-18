@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/conversation.dart';
 import '../theme/app_colors.dart';
 
@@ -21,6 +22,7 @@ class ConversationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final unread = conversation.unreadCount > 0;
     final lastMessage = conversation.lastMessage;
@@ -45,7 +47,7 @@ class ConversationTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    conversation.title,
+                    conversation.topic.title(l10n),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.titleMedium?.copyWith(
@@ -55,7 +57,7 @@ class ConversationTile extends StatelessWidget {
                   if (lastMessage != null) ...[
                     const SizedBox(height: 2),
                     Text(
-                      lastMessage.text,
+                      lastMessage.text(l10n),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodyMedium?.copyWith(

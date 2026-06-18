@@ -318,4 +318,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chatSendTooltip => 'Send';
+
+  @override
+  String get messagesDentalReimbursementTitle => 'Dental care reimbursement';
+
+  @override
+  String get messagesAddressChangeTitle => 'Address change';
+
+  @override
+  String get messagesMembershipCardTitle => 'Replacement membership card';
+
+  @override
+  String get messagesDentalReimbursementUserQuestion =>
+      'Hi, I submitted a dental care claim last week — any update on the reimbursement?';
+
+  @override
+  String get messagesDentalReimbursementOfficeAck =>
+      'Let me check that for you, one moment.';
+
+  @override
+  String get messagesDentalReimbursementOfficeApproved =>
+      'Your claim has been approved. The reimbursement will be transferred within 5 business days.';
+
+  @override
+  String get messagesDentalReimbursementOfficeFollowup =>
+      'Is there anything else we can help with?';
+
+  @override
+  String get messagesAddressChangeUserQuestion =>
+      'Hi, I recently moved — do I need to update my address with you myself?';
+
+  @override
+  String get messagesAddressChangeOfficeReply =>
+      'No need — we received the update automatically from the population registry. Your file is up to date.';
+
+  @override
+  String get messagesMembershipCardOfficeReminder =>
+      'Reminder: your replacement membership card is ready for pickup at our counter.';
+
+  @override
+  String get messagesCannedReply1 =>
+      'Thanks for your message! We\'ll get back to you shortly.';
+
+  @override
+  String get messagesCannedReply2 =>
+      'Got it — someone from our team will follow up soon.';
+
+  @override
+  String get messagesCannedReply3 =>
+      'Thanks for reaching out. We\'ll review this and reply as soon as we can.';
 }

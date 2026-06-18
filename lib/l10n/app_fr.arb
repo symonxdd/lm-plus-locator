@@ -93,5 +93,18 @@
   "viewOpeningHoursHint": "Voir les heures d'ouverture",
   "messagesTabLabel": "Messages",
   "chatInputHint": "Écrire un message...",
-  "chatSendTooltip": "Envoyer"
+  "chatSendTooltip": "Envoyer",
+  "messagesDentalReimbursementTitle": "Remboursement soins dentaires",
+  "messagesAddressChangeTitle": "Changement d'adresse",
+  "messagesMembershipCardTitle": "Remplacement de la carte de membre",
+  "messagesDentalReimbursementUserQuestion": "Bonjour, j'ai introduit une demande de soins dentaires la semaine dernière — y a-t-il du nouveau concernant le remboursement ?",
+  "messagesDentalReimbursementOfficeAck": "Je vérifie cela pour vous, un instant.",
+  "messagesDentalReimbursementOfficeApproved": "Votre demande a été approuvée. Le remboursement sera viré dans les 5 jours ouvrables.",
+  "messagesDentalReimbursementOfficeFollowup": "Puis-je encore vous aider pour autre chose ?",
+  "messagesAddressChangeUserQuestion": "Bonjour, j'ai récemment déménagé — dois-je moi-même mettre à jour mon adresse chez vous ?",
+  "messagesAddressChangeOfficeReply": "Ce n'est pas nécessaire — nous avons reçu la mise à jour automatiquement via le registre de la population. Votre dossier est à jour.",
+  "messagesMembershipCardOfficeReminder": "Rappel : votre nouvelle carte de membre est prête à être retirée à notre guichet.",
+  "messagesCannedReply1": "Merci pour votre message ! Nous reviendrons vers vous rapidement.",
+  "messagesCannedReply2": "Bien reçu — quelqu'un de notre équipe vous contactera bientôt.",
+  "messagesCannedReply3": "Merci de nous avoir contactés. Nous allons examiner cela et répondre dès que possible."
 }

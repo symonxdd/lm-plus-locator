@@ -93,5 +93,18 @@
   "viewOpeningHoursHint": "View opening hours",
   "messagesTabLabel": "Messages",
   "chatInputHint": "Type a message...",
-  "chatSendTooltip": "Send"
+  "chatSendTooltip": "Send",
+  "messagesDentalReimbursementTitle": "Dental care reimbursement",
+  "messagesAddressChangeTitle": "Address change",
+  "messagesMembershipCardTitle": "Replacement membership card",
+  "messagesDentalReimbursementUserQuestion": "Hi, I submitted a dental care claim last week — any update on the reimbursement?",
+  "messagesDentalReimbursementOfficeAck": "Let me check that for you, one moment.",
+  "messagesDentalReimbursementOfficeApproved": "Your claim has been approved. The reimbursement will be transferred within 5 business days.",
+  "messagesDentalReimbursementOfficeFollowup": "Is there anything else we can help with?",
+  "messagesAddressChangeUserQuestion": "Hi, I recently moved — do I need to update my address with you myself?",
+  "messagesAddressChangeOfficeReply": "No need — we received the update automatically from the population registry. Your file is up to date.",
+  "messagesMembershipCardOfficeReminder": "Reminder: your replacement membership card is ready for pickup at our counter.",
+  "messagesCannedReply1": "Thanks for your message! We'll get back to you shortly.",
+  "messagesCannedReply2": "Got it — someone from our team will follow up soon.",
+  "messagesCannedReply3": "Thanks for reaching out. We'll review this and reply as soon as we can."
 }

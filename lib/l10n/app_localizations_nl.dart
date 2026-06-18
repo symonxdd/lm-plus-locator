@@ -319,4 +319,53 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get chatSendTooltip => 'Verzenden';
+
+  @override
+  String get messagesDentalReimbursementTitle => 'Terugbetaling tandzorg';
+
+  @override
+  String get messagesAddressChangeTitle => 'Adreswijziging';
+
+  @override
+  String get messagesMembershipCardTitle => 'Lidkaart vervangen';
+
+  @override
+  String get messagesDentalReimbursementUserQuestion =>
+      'Hallo, ik heb vorige week een aanvraag voor tandzorg ingediend — is er al nieuws over de terugbetaling?';
+
+  @override
+  String get messagesDentalReimbursementOfficeAck =>
+      'Ik kijk dat even voor u na, een moment.';
+
+  @override
+  String get messagesDentalReimbursementOfficeApproved =>
+      'Uw aanvraag is goedgekeurd. De terugbetaling wordt binnen 5 werkdagen overgeschreven.';
+
+  @override
+  String get messagesDentalReimbursementOfficeFollowup =>
+      'Kan ik u nog ergens anders mee helpen?';
+
+  @override
+  String get messagesAddressChangeUserQuestion =>
+      'Hallo, ik ben recent verhuisd — moet ik mijn adres zelf bij u laten aanpassen?';
+
+  @override
+  String get messagesAddressChangeOfficeReply =>
+      'Dat is niet nodig — we hebben de wijziging automatisch ontvangen via het bevolkingsregister. Uw dossier is up-to-date.';
+
+  @override
+  String get messagesMembershipCardOfficeReminder =>
+      'Herinnering: uw nieuwe lidkaart ligt klaar aan onze balie.';
+
+  @override
+  String get messagesCannedReply1 =>
+      'Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.';
+
+  @override
+  String get messagesCannedReply2 =>
+      'Begrepen — iemand van ons team neemt binnenkort contact met u op.';
+
+  @override
+  String get messagesCannedReply3 =>
+      'Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.';
 }

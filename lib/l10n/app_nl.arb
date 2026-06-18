@@ -400,5 +400,57 @@
   "chatSendTooltip": "Verzenden",
   "@chatSendTooltip": {
     "description": "Tooltip for the send button on the chat screen."
+  },
+  "messagesDentalReimbursementTitle": "Terugbetaling tandzorg",
+  "@messagesDentalReimbursementTitle": {
+    "description": "Title of the mock conversation thread about a dental care reimbursement."
+  },
+  "messagesAddressChangeTitle": "Adreswijziging",
+  "@messagesAddressChangeTitle": {
+    "description": "Title of the mock conversation thread about an address change."
+  },
+  "messagesMembershipCardTitle": "Lidkaart vervangen",
+  "@messagesMembershipCardTitle": {
+    "description": "Title of the mock conversation thread about replacing a membership card."
+  },
+  "messagesDentalReimbursementUserQuestion": "Hallo, ik heb vorige week een aanvraag voor tandzorg ingediend — is er al nieuws over de terugbetaling?",
+  "@messagesDentalReimbursementUserQuestion": {
+    "description": "Mock message from the user asking about the status of a dental care reimbursement."
+  },
+  "messagesDentalReimbursementOfficeAck": "Ik kijk dat even voor u na, een moment.",
+  "@messagesDentalReimbursementOfficeAck": {
+    "description": "Mock reply from the office acknowledging the dental reimbursement question."
+  },
+  "messagesDentalReimbursementOfficeApproved": "Uw aanvraag is goedgekeurd. De terugbetaling wordt binnen 5 werkdagen overgeschreven.",
+  "@messagesDentalReimbursementOfficeApproved": {
+    "description": "Mock reply from the office confirming the dental reimbursement was approved."
+  },
+  "messagesDentalReimbursementOfficeFollowup": "Kan ik u nog ergens anders mee helpen?",
+  "@messagesDentalReimbursementOfficeFollowup": {
+    "description": "Mock follow-up message from the office offering further help."
+  },
+  "messagesAddressChangeUserQuestion": "Hallo, ik ben recent verhuisd — moet ik mijn adres zelf bij u laten aanpassen?",
+  "@messagesAddressChangeUserQuestion": {
+    "description": "Mock message from the user asking whether they need to update their address themselves."
+  },
+  "messagesAddressChangeOfficeReply": "Dat is niet nodig — we hebben de wijziging automatisch ontvangen via het bevolkingsregister. Uw dossier is up-to-date.",
+  "@messagesAddressChangeOfficeReply": {
+    "description": "Mock reply from the office explaining the address was updated automatically."
+  },
+  "messagesMembershipCardOfficeReminder": "Herinnering: uw nieuwe lidkaart ligt klaar aan onze balie.",
+  "@messagesMembershipCardOfficeReminder": {
+    "description": "Mock reminder message from the office that a replacement membership card is ready for pickup."
+  },
+  "messagesCannedReply1": "Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.",
+  "@messagesCannedReply1": {
+    "description": "First canned auto-reply sent a short while after the user sends a message."
+  },
+  "messagesCannedReply2": "Begrepen — iemand van ons team neemt binnenkort contact met u op.",
+  "@messagesCannedReply2": {
+    "description": "Second canned auto-reply sent a short while after the user sends a message."
+  },
+  "messagesCannedReply3": "Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.",
+  "@messagesCannedReply3": {
+    "description": "Third canned auto-reply sent a short while after the user sends a message."
   }
 }

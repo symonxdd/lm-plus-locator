@@ -17,11 +17,7 @@ class MessagingService {
 
   static final _random = Random();
 
-  static const _cannedReplies = [
-    "Thanks for your message! We'll get back to you shortly.",
-    "Got it — someone from our team will follow up soon.",
-    "Thanks for reaching out. We'll review this and reply as soon as we can.",
-  ];
+  static const _cannedReplies = [SeedMessage.cannedReply1, SeedMessage.cannedReply2, SeedMessage.cannedReply3];
 
   /// Reactive list of conversations. Listen with [ValueListenableBuilder].
   final conversations = ValueNotifier<List<Conversation>>(_seedConversations());
@@ -40,7 +36,7 @@ class MessagingService {
     if (conversation == null || text.trim().isEmpty) return;
 
     conversation.messages.add(
-      ChatMessage(
+      ChatMessage.typed(
         id: _newId(),
         text: text.trim(),
         sentAt: DateTime.now(),
@@ -51,9 +47,9 @@ class MessagingService {
 
     Future.delayed(const Duration(milliseconds: 1200), () {
       conversation.messages.add(
-        ChatMessage(
+        ChatMessage.seeded(
           id: _newId(),
-          text: _cannedReplies[_random.nextInt(_cannedReplies.length)],
+          seedMessage: _cannedReplies[_random.nextInt(_cannedReplies.length)],
           sentAt: DateTime.now(),
           isFromUser: false,
         ),
@@ -87,32 +83,32 @@ class MessagingService {
     return [
       Conversation(
         id: 'dental-reimbursement',
-        title: 'Terugbetaling tandzorg',
+        topic: ConversationTopic.dentalReimbursement,
         avatarLabel: _officeLabel,
         avatarColor: _officeColor,
         unreadCount: 2,
         messages: [
-          ChatMessage(
+          ChatMessage.seeded(
             id: '1',
-            text: "Hi, I submitted a dental care claim last week — any update on the reimbursement?",
+            seedMessage: SeedMessage.dentalReimbursementUserQuestion,
             sentAt: now.subtract(const Duration(days: 1, hours: 2)),
             isFromUser: true,
           ),
-          ChatMessage(
+          ChatMessage.seeded(
             id: '2',
-            text: "Let me check that for you, one moment.",
+            seedMessage: SeedMessage.dentalReimbursementOfficeAck,
             sentAt: now.subtract(const Duration(days: 1, hours: 1, minutes: 50)),
             isFromUser: false,
           ),
-          ChatMessage(
+          ChatMessage.seeded(
             id: '3',
-            text: "Your claim has been approved. The reimbursement will be transferred within 5 business days.",
+            seedMessage: SeedMessage.dentalReimbursementOfficeApproved,
             sentAt: now.subtract(const Duration(minutes: 35)),
             isFromUser: false,
           ),
-          ChatMessage(
+          ChatMessage.seeded(
             id: '4',
-            text: 'Is there anything else we can help with?',
+            seedMessage: SeedMessage.dentalReimbursementOfficeFollowup,
             sentAt: now.subtract(const Duration(minutes: 34)),
             isFromUser: false,
           ),
@@ -120,20 +116,20 @@ class MessagingService {
       ),
       Conversation(
         id: 'address-change',
-        title: 'Adreswijziging',
+        topic: ConversationTopic.addressChange,
         avatarLabel: _officeLabel,
         avatarColor: _officeColor,
         unreadCount: 0,
         messages: [
-          ChatMessage(
+          ChatMessage.seeded(
             id: '1',
-            text: "Hi, I recently moved — do I need to update my address with you myself?",
+            seedMessage: SeedMessage.addressChangeUserQuestion,
             sentAt: now.subtract(const Duration(days: 3)),
             isFromUser: true,
           ),
-          ChatMessage(
+          ChatMessage.seeded(
             id: '2',
-            text: 'No need — we received the update automatically from the population registry. Your file is up to date.',
+            seedMessage: SeedMessage.addressChangeOfficeReply,
             sentAt: now.subtract(const Duration(days: 2, hours: 22)),
             isFromUser: false,
           ),
@@ -141,14 +137,14 @@ class MessagingService {
       ),
       Conversation(
         id: 'membership-card',
-        title: 'Lidkaart vervangen',
+        topic: ConversationTopic.membershipCard,
         avatarLabel: _officeLabel,
         avatarColor: _officeColor,
         unreadCount: 1,
         messages: [
-          ChatMessage(
+          ChatMessage.seeded(
             id: '1',
-            text: 'Reminder: your replacement membership card is ready for pickup at our counter.',
+            seedMessage: SeedMessage.membershipCardOfficeReminder,
             sentAt: now.subtract(const Duration(hours: 5)),
             isFromUser: false,
           ),

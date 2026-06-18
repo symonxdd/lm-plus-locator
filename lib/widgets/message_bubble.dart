@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/conversation.dart';
 import '../theme/app_colors.dart';
 
@@ -13,6 +14,7 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final isUser = message.isFromUser;
     final cta = ctaColors(context);
@@ -33,7 +35,7 @@ class MessageBubble extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(message.text, style: theme.textTheme.bodyMedium?.copyWith(color: textColor)),
+            Text(message.text(l10n), style: theme.textTheme.bodyMedium?.copyWith(color: textColor)),
             const SizedBox(height: 4),
             Text(
               DateFormat.Hm().format(message.sentAt),
