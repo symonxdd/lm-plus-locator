@@ -82,7 +82,13 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Text(conversation.topic.title(l10n)),
+                Expanded(
+                  child: Text(
+                    conversation.topic.title(l10n),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
             ),
           ),
