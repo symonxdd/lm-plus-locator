@@ -32,14 +32,11 @@ class ConversationTile extends StatelessWidget {
         child: Row(
           children: [
             CircleAvatar(
-              radius: 22,
+              radius: 20,
               backgroundColor: conversation.avatarColor,
               child: Text(
                 conversation.avatarLabel,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(width: 12),
@@ -52,7 +49,7 @@ class ConversationTile extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: unread ? FontWeight.w700 : FontWeight.w500,
+                      fontWeight: unread ? FontWeight.w600 : FontWeight.w400,
                     ),
                   ),
                   if (lastMessage != null) ...[
@@ -63,7 +60,6 @@ class ConversationTile extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.outline,
-                        fontWeight: unread ? FontWeight.w600 : FontWeight.normal,
                       ),
                     ),
                   ],
@@ -84,20 +80,25 @@ class ConversationTile extends StatelessWidget {
                 const SizedBox(height: 6),
                 if (unread)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                    width: 20,
+                    height: 20,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: ctaColors(context).background,
-                      borderRadius: BorderRadius.circular(10),
+                      shape: BoxShape.circle,
                     ),
                     child: Text(
                       '${conversation.unreadCount}',
                       style: TextStyle(
                         color: ctaColors(context).foreground,
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: FontWeight.w600,
+                        height: 1,
                       ),
                     ),
-                  ),
+                  )
+                else
+                  const SizedBox(height: 20),
               ],
             ),
           ],

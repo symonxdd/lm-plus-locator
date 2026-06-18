@@ -25,8 +25,13 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    MessagingService.instance.markAsRead(widget.conversationId);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+    // Deferred: calling this synchronously here would mutate the
+    // ValueNotifier mid-build (the very first build of this widget),
+    // which throws "setState() called during build".
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      MessagingService.instance.markAsRead(widget.conversationId);
+      _scrollToBottom();
+    });
   }
 
   @override
