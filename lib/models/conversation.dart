@@ -16,9 +16,11 @@ class ChatMessage {
   });
 }
 
-/// A mock conversation thread between the user and LM+ (support or a branch
-/// office). [messages] is mutable so [MessagingService] can append to it
-/// locally when the user "sends" a message.
+/// A mock conversation thread with the user's LM+ office about a specific
+/// topic (e.g. a reimbursement or an address change) — a member only ever
+/// has one office, so [title] is the topic, not the office's name.
+/// [messages] is mutable so [MessagingService] can append to it locally when
+/// the user "sends" a message.
 class Conversation {
   final String id;
   final String title;

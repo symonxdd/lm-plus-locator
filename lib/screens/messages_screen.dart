@@ -5,8 +5,8 @@ import '../services/messaging_service.dart';
 import '../widgets/conversation_tile.dart';
 import 'chat_screen.dart';
 
-/// Tab listing mock conversations between the user and LM+ (support or a
-/// branch office). Backed by [MessagingService]'s in-memory mock data.
+/// Tab listing mock conversation threads with the user's LM+ office, one
+/// per topic. Backed by [MessagingService]'s in-memory mock data.
 class MessagesScreen extends StatelessWidget {
   const MessagesScreen({super.key});
 

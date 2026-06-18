@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../models/conversation.dart';
 
-/// Mock messaging data and local state. Conversations and messages are
+/// Mock messaging data and local state. A member only ever has one LM+
+/// office, so conversations here represent separate topics/threads with
+/// that single office rather than chats with different branches. Data is
 /// seeded in-memory and never persisted or sent anywhere — there's no real
 /// backend behind this feature yet, just a UI showcase that feels alive.
 ///
@@ -74,42 +76,42 @@ class MessagingService {
 
   static String _newId() => DateTime.now().microsecondsSinceEpoch.toString();
 
+  // A member is enrolled with exactly one LM+ office (their local
+  // mutualiteit branch), so every thread below shares that same identity —
+  // what differs between conversations is the topic, not who it's with.
+  static const _officeLabel = 'GE';
+  static const _officeColor = Color(0xFF2C398F);
+
   static List<Conversation> _seedConversations() {
     final now = DateTime.now();
     return [
       Conversation(
-        id: 'support',
-        title: 'LM+ Support',
-        avatarLabel: 'LM',
-        avatarColor: const Color(0xFF2C398F),
+        id: 'dental-reimbursement',
+        title: 'Terugbetaling tandzorg',
+        avatarLabel: _officeLabel,
+        avatarColor: _officeColor,
         unreadCount: 2,
         messages: [
           ChatMessage(
             id: '1',
-            text: 'Hello! How can we help you today?',
+            text: "Hi, I submitted a dental care claim last week — any update on the reimbursement?",
             sentAt: now.subtract(const Duration(days: 1, hours: 2)),
-            isFromUser: false,
-          ),
-          ChatMessage(
-            id: '2',
-            text: "Hi, I'd like to know if the Ghent office is open on Saturdays.",
-            sentAt: now.subtract(const Duration(days: 1, hours: 1, minutes: 50)),
             isFromUser: true,
           ),
           ChatMessage(
-            id: '3',
+            id: '2',
             text: "Let me check that for you, one moment.",
-            sentAt: now.subtract(const Duration(days: 1, hours: 1, minutes: 45)),
+            sentAt: now.subtract(const Duration(days: 1, hours: 1, minutes: 50)),
             isFromUser: false,
           ),
           ChatMessage(
-            id: '4',
-            text: 'Yes, the Ghent office is open Saturdays from 9:00 to 12:30.',
+            id: '3',
+            text: "Your claim has been approved. The reimbursement will be transferred within 5 business days.",
             sentAt: now.subtract(const Duration(minutes: 35)),
             isFromUser: false,
           ),
           ChatMessage(
-            id: '5',
+            id: '4',
             text: 'Is there anything else we can help with?',
             sentAt: now.subtract(const Duration(minutes: 34)),
             isFromUser: false,
@@ -117,36 +119,36 @@ class MessagingService {
         ],
       ),
       Conversation(
-        id: 'gent',
-        title: 'LM+ Gent',
-        avatarLabel: 'GE',
-        avatarColor: const Color(0xFF1F7A5C),
+        id: 'address-change',
+        title: 'Adreswijziging',
+        avatarLabel: _officeLabel,
+        avatarColor: _officeColor,
         unreadCount: 0,
         messages: [
           ChatMessage(
             id: '1',
-            text: "Hi, I dropped off a parcel yesterday — has it been processed?",
+            text: "Hi, I recently moved — do I need to update my address with you myself?",
             sentAt: now.subtract(const Duration(days: 3)),
             isFromUser: true,
           ),
           ChatMessage(
             id: '2',
-            text: 'Yes, it was picked up this morning. You should receive a confirmation soon.',
+            text: 'No need — we received the update automatically from the population registry. Your file is up to date.',
             sentAt: now.subtract(const Duration(days: 2, hours: 22)),
             isFromUser: false,
           ),
         ],
       ),
       Conversation(
-        id: 'antwerpen',
-        title: 'LM+ Antwerpen',
-        avatarLabel: 'AN',
-        avatarColor: const Color(0xFFB05A1F),
+        id: 'membership-card',
+        title: 'Lidkaart vervangen',
+        avatarLabel: _officeLabel,
+        avatarColor: _officeColor,
         unreadCount: 1,
         messages: [
           ChatMessage(
             id: '1',
-            text: 'Reminder: your parcel is ready for pickup at our counter.',
+            text: 'Reminder: your replacement membership card is ready for pickup at our counter.',
             sentAt: now.subtract(const Duration(hours: 5)),
             isFromUser: false,
           ),
