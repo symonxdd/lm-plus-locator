@@ -369,4 +369,7 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get messagesCannedReply3 =>
       'Danke, dass Sie sich an uns gewandt haben. Wir prüfen das und antworten so schnell wie möglich.';
+
+  @override
+  String get messagesExperimentalNotice => 'Experimentelle Funktion';
 }

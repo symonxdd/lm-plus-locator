@@ -106,5 +106,6 @@
   "messagesMembershipCardOfficeReminder": "Erinnerung: Ihre neue Mitgliedskarte liegt an unserem Schalter zur Abholung bereit.",
   "messagesCannedReply1": "Danke für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.",
   "messagesCannedReply2": "Verstanden — jemand aus unserem Team meldet sich bald bei Ihnen.",
-  "messagesCannedReply3": "Danke, dass Sie sich an uns gewandt haben. Wir prüfen das und antworten so schnell wie möglich."
+  "messagesCannedReply3": "Danke, dass Sie sich an uns gewandt haben. Wir prüfen das und antworten so schnell wie möglich.",
+  "messagesExperimentalNotice": "Experimentelle Funktion"
 }

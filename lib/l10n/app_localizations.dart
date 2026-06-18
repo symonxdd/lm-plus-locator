@@ -743,6 +743,12 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.'**
   String get messagesCannedReply3;
+
+  /// Small print on the messages screen noting that the feature is experimental.
+  ///
+  /// In nl, this message translates to:
+  /// **'Experimentele functie'**
+  String get messagesExperimentalNotice;
 }
 
 class _AppLocalizationsDelegate

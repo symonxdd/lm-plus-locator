@@ -106,5 +106,6 @@
   "messagesMembershipCardOfficeReminder": "Rappel : votre nouvelle carte de membre est prête à être retirée à notre guichet.",
   "messagesCannedReply1": "Merci pour votre message ! Nous reviendrons vers vous rapidement.",
   "messagesCannedReply2": "Bien reçu — quelqu'un de notre équipe vous contactera bientôt.",
-  "messagesCannedReply3": "Merci de nous avoir contactés. Nous allons examiner cela et répondre dès que possible."
+  "messagesCannedReply3": "Merci de nous avoir contactés. Nous allons examiner cela et répondre dès que possible.",
+  "messagesExperimentalNotice": "Fonctionnalité expérimentale"
 }

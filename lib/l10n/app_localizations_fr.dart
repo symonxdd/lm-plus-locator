@@ -374,4 +374,7 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get messagesCannedReply3 =>
       'Merci de nous avoir contactés. Nous allons examiner cela et répondre dès que possible.';
+
+  @override
+  String get messagesExperimentalNotice => 'Fonctionnalité expérimentale';
 }

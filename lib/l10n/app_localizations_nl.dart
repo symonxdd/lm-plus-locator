@@ -368,4 +368,7 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get messagesCannedReply3 =>
       'Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.';
+
+  @override
+  String get messagesExperimentalNotice => 'Experimentele functie';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/conversation.dart';
 import '../services/messaging_service.dart';
 import '../widgets/conversation_tile.dart';
@@ -12,22 +13,39 @@ class MessagesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<List<Conversation>>(
-      valueListenable: MessagingService.instance.conversations,
-      builder: (context, conversations, _) {
-        return ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          itemCount: conversations.length,
-          separatorBuilder: (_, _) => const Divider(height: 1, indent: 16, endIndent: 16),
-          itemBuilder: (context, index) {
-            final conversation = conversations[index];
-            return ConversationTile(
-              conversation: conversation,
-              onTap: () => Navigator.of(context).push(_chatRoute(conversation.id)),
-            );
-          },
-        );
-      },
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+          child: Text(
+            l10n.messagesExperimentalNotice,
+            textAlign: TextAlign.center,
+            style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.outline),
+          ),
+        ),
+        Expanded(
+          child: ValueListenableBuilder<List<Conversation>>(
+            valueListenable: MessagingService.instance.conversations,
+            builder: (context, conversations, _) {
+              return ListView.separated(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                itemCount: conversations.length,
+                separatorBuilder: (_, _) => const Divider(height: 1, indent: 16, endIndent: 16),
+                itemBuilder: (context, index) {
+                  final conversation = conversations[index];
+                  return ConversationTile(
+                    conversation: conversation,
+                    onTap: () => Navigator.of(context).push(_chatRoute(conversation.id)),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 

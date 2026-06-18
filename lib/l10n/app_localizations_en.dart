@@ -367,4 +367,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get messagesCannedReply3 =>
       'Thanks for reaching out. We\'ll review this and reply as soon as we can.';
+
+  @override
+  String get messagesExperimentalNotice => 'Experimental feature';
 }

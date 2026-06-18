@@ -106,5 +106,6 @@
   "messagesMembershipCardOfficeReminder": "Reminder: your replacement membership card is ready for pickup at our counter.",
   "messagesCannedReply1": "Thanks for your message! We'll get back to you shortly.",
   "messagesCannedReply2": "Got it — someone from our team will follow up soon.",
-  "messagesCannedReply3": "Thanks for reaching out. We'll review this and reply as soon as we can."
+  "messagesCannedReply3": "Thanks for reaching out. We'll review this and reply as soon as we can.",
+  "messagesExperimentalNotice": "Experimental feature"
 }

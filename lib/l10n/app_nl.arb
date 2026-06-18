@@ -452,5 +452,9 @@
   "messagesCannedReply3": "Bedankt voor uw bericht. We bekijken dit en reageren zo snel mogelijk.",
   "@messagesCannedReply3": {
     "description": "Third canned auto-reply sent a short while after the user sends a message."
+  },
+  "messagesExperimentalNotice": "Experimentele functie",
+  "@messagesExperimentalNotice": {
+    "description": "Small print on the messages screen noting that the feature is experimental."
   }
 }
