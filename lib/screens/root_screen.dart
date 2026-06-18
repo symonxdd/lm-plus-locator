@@ -8,6 +8,7 @@ import '../widgets/offline_banner.dart';
 import '../widgets/settings_selector.dart';
 import 'favorites_screen.dart';
 import 'home_screen.dart';
+import 'messages_screen.dart';
 import 'photo_share_screen.dart';
 
 /// Top-level scaffold with a bottom navigation bar for switching between the
@@ -81,6 +82,7 @@ class _RootScreenState extends State<RootScreen> {
                       setState(() => _locatorShowingSubScreen = showing),
                 ),
                 const FavoritesScreen(),
+                const MessagesScreen(),
                 const PhotoShareScreen(),
               ],
             ),
@@ -103,6 +105,11 @@ class _RootScreenState extends State<RootScreen> {
             icon: const Icon(Icons.bookmark_outline),
             selectedIcon: const Icon(Icons.bookmark),
             label: l10n.favoritesTabLabel,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.chat_bubble_outline),
+            selectedIcon: const Icon(Icons.chat_bubble),
+            label: l10n.messagesTabLabel,
           ),
           NavigationDestination(
             icon: const Icon(Icons.camera_alt_outlined),
