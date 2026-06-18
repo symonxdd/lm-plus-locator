@@ -90,5 +90,8 @@
   "openingHoursTitle": "Opening hours",
   "openingHoursClosed": "Closed",
   "openingHoursTodayLabel": "(today)",
-  "viewOpeningHoursHint": "View opening hours"
+  "viewOpeningHoursHint": "View opening hours",
+  "messagesTabLabel": "Messages",
+  "chatInputHint": "Type a message...",
+  "chatSendTooltip": "Send"
 }

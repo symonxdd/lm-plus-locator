@@ -310,4 +310,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get viewOpeningHoursHint => 'Openingsuren bekijken';
+
+  @override
+  String get messagesTabLabel => 'Berichten';
+
+  @override
+  String get chatInputHint => 'Typ een bericht...';
+
+  @override
+  String get chatSendTooltip => 'Verzenden';
 }

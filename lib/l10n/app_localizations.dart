@@ -647,6 +647,24 @@ abstract class AppLocalizations {
   /// In nl, this message translates to:
   /// **'Openingsuren bekijken'**
   String get viewOpeningHoursHint;
+
+  /// Label of the bottom navigation tab for the messaging feature.
+  ///
+  /// In nl, this message translates to:
+  /// **'Berichten'**
+  String get messagesTabLabel;
+
+  /// Placeholder text in the message input field on the chat screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'Typ een bericht...'**
+  String get chatInputHint;
+
+  /// Tooltip for the send button on the chat screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'Verzenden'**
+  String get chatSendTooltip;
 }
 
 class _AppLocalizationsDelegate

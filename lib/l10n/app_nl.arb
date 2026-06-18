@@ -388,5 +388,17 @@
   "viewOpeningHoursHint": "Openingsuren bekijken",
   "@viewOpeningHoursHint": {
     "description": "Label on the button inside an office card that opens the full opening hours sheet."
+  },
+  "messagesTabLabel": "Berichten",
+  "@messagesTabLabel": {
+    "description": "Label of the bottom navigation tab for the messaging feature."
+  },
+  "chatInputHint": "Typ een bericht...",
+  "@chatInputHint": {
+    "description": "Placeholder text in the message input field on the chat screen."
+  },
+  "chatSendTooltip": "Verzenden",
+  "@chatSendTooltip": {
+    "description": "Tooltip for the send button on the chat screen."
   }
 }
