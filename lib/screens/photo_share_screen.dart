@@ -63,44 +63,41 @@ class _PhotoShareScreenState extends State<PhotoShareScreen> {
     return Scaffold(
       body: SafeArea(
         child: photo == null
-            ? Column(
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: FilledButton.icon(
-                          style: FilledButton.styleFrom(
-                            backgroundColor: ctaColors(context).background,
-                            foregroundColor: ctaColors(context).foreground,
-                          ),
-                          onPressed: _isCapturing ? null : _capture,
-                          icon: _isCapturing
-                              ? SizedBox(
-                                  height: 20,
-                                  width: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: ctaColors(context).foreground,
-                                  ),
-                                )
-                              : const Icon(Icons.camera_alt),
-                          label: Text(l10n.photoShareTooltip),
+            ? Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      FilledButton.icon(
+                        style: FilledButton.styleFrom(
+                          backgroundColor: ctaColors(context).background,
+                          foregroundColor: ctaColors(context).foreground,
+                        ),
+                        onPressed: _isCapturing ? null : _capture,
+                        icon: _isCapturing
+                            ? SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: ctaColors(context).foreground,
+                                ),
+                              )
+                            : const Icon(Icons.camera_alt),
+                        label: Text(l10n.photoShareTooltip),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        l10n.photoShareExperimentalNotice,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.outline,
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
-                    child: Text(
-                      l10n.photoShareExperimentalNotice,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.outline,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               )
             : Column(
                 children: [
