@@ -18,14 +18,6 @@ class MessagesScreen extends StatelessWidget {
 
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-          child: Text(
-            l10n.messagesExperimentalNotice,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.outline),
-          ),
-        ),
         Expanded(
           child: ValueListenableBuilder<List<Conversation>>(
             valueListenable: MessagingService.instance.conversations,
@@ -43,6 +35,14 @@ class MessagesScreen extends StatelessWidget {
                 },
               );
             },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+          child: Text(
+            l10n.messagesExperimentalNotice,
+            textAlign: TextAlign.center,
+            style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.outline),
           ),
         ),
       ],
