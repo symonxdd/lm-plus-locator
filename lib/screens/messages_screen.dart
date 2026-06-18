@@ -23,14 +23,30 @@ class MessagesScreen extends StatelessWidget {
             final conversation = conversations[index];
             return ConversationTile(
               conversation: conversation,
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => ChatScreen(conversationId: conversation.id),
-                ),
-              ),
+              onTap: () => Navigator.of(context).push(_chatRoute(conversation.id)),
             );
           },
         );
+      },
+    );
+  }
+
+  // A plain slide, no fade — the default Material page transition fades the
+  // incoming screen in, which (combined with everything else in the app
+  // being instant tab switches or sheets) reads as the chat content loading
+  // late rather than as a transition.
+  Route<void> _chatRoute(String conversationId) {
+    return PageRouteBuilder<void>(
+      transitionDuration: const Duration(milliseconds: 220),
+      reverseTransitionDuration: const Duration(milliseconds: 220),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          ChatScreen(conversationId: conversationId),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final offset = Tween<Offset>(
+          begin: const Offset(1, 0),
+          end: Offset.zero,
+        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+        return SlideTransition(position: offset, child: child);
       },
     );
   }
