@@ -75,7 +75,7 @@ class MessagingService {
   // A member is enrolled with exactly one LM+ office (their local
   // mutualiteit branch), so every thread below shares that same identity —
   // what differs between conversations is the topic, not who it's with.
-  static const _officeLabel = 'GE';
+  static const _officeLabel = 'LM';
   static const _officeColor = Color(0xFF2C398F);
 
   static List<Conversation> _seedConversations() {
