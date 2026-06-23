@@ -64,6 +64,26 @@
   "@privacyPolicyButton": {
     "description": "Settings sheet item that opens the full hosted privacy policy in the browser."
   },
+  "aboutTooltip": "Over deze app",
+  "@aboutTooltip": {
+    "description": "Settings sheet item that opens the About sheet, and the title of that sheet."
+  },
+  "aboutDeveloperLabel": "Gemaakt door",
+  "@aboutDeveloperLabel": {
+    "description": "Small label above the developer's name in the About sheet."
+  },
+  "aboutPortfolioButton": "Portfolio",
+  "@aboutPortfolioButton": {
+    "description": "Link to the developer's portfolio website in the About sheet."
+  },
+  "aboutGithubButton": "GitHub",
+  "@aboutGithubButton": {
+    "description": "Link to the developer's GitHub profile in the About sheet."
+  },
+  "aboutDocsButton": "Technische documentatie",
+  "@aboutDocsButton": {
+    "description": "Link to this project's hosted technical documentation site in the About sheet."
+  },
   "findNearestOfficeButton": "Mijn locatie gebruiken",
   "@findNearestOfficeButton": {
     "description": "Label of the button that starts the nearest-office search."

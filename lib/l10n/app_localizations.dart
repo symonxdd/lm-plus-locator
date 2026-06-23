@@ -198,6 +198,36 @@ abstract class AppLocalizations {
   /// **'Privacybeleid'**
   String get privacyPolicyButton;
 
+  /// Settings sheet item that opens the About sheet, and the title of that sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Over deze app'**
+  String get aboutTooltip;
+
+  /// Small label above the developer's name in the About sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Gemaakt door'**
+  String get aboutDeveloperLabel;
+
+  /// Link to the developer's portfolio website in the About sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Portfolio'**
+  String get aboutPortfolioButton;
+
+  /// Link to the developer's GitHub profile in the About sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'GitHub'**
+  String get aboutGithubButton;
+
+  /// Link to this project's hosted technical documentation site in the About sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Technische documentatie'**
+  String get aboutDocsButton;
+
   /// Label of the button that starts the nearest-office search.
   ///
   /// In nl, this message translates to:

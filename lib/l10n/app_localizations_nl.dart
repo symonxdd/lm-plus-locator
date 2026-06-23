@@ -59,6 +59,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get privacyPolicyButton => 'Privacybeleid';
 
   @override
+  String get aboutTooltip => 'Over deze app';
+
+  @override
+  String get aboutDeveloperLabel => 'Gemaakt door';
+
+  @override
+  String get aboutPortfolioButton => 'Portfolio';
+
+  @override
+  String get aboutGithubButton => 'GitHub';
+
+  @override
+  String get aboutDocsButton => 'Technische documentatie';
+
+  @override
   String get findNearestOfficeButton => 'Mijn locatie gebruiken';
 
   @override

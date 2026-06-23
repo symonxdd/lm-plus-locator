@@ -10,6 +10,11 @@ import 'account_sheet.dart';
 const _privacyPolicyUrl =
     'https://symonxdd.github.io/lm-plus-locator/privacy-policy/';
 
+const _developerName = 'Symon Blazejczak';
+const _portfolioUrl = 'https://symon.me';
+const _githubUrl = 'https://github.com/symonxdd';
+const _docsUrl = 'https://symonxdd.github.io/lm-plus-locator/';
+
 /// App bar action that opens a single bottom sheet combining the theme and
 /// language pickers, keeping the app bar itself uncluttered.
 ///
@@ -75,6 +80,16 @@ class SettingsSelector extends StatelessWidget {
                       Uri.parse(_privacyPolicyUrl),
                       mode: LaunchMode.externalApplication,
                     );
+                  },
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.info_outline),
+                  title: Text(l10n.aboutTooltip),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _showAboutSheet(rootContext);
                   },
                 ),
                 const Divider(height: 32),
@@ -186,6 +201,68 @@ class SettingsSelector extends StatelessWidget {
         ),
       );
     }
+  }
+
+  Future<void> _showAboutSheet(BuildContext context) async {
+    if (!context.mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      isScrollControlled: true,
+      builder: (context) {
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.aboutTooltip, style: Theme.of(context).textTheme.titleLarge),
+                const SizedBox(height: 16),
+                Text(
+                  l10n.aboutDeveloperLabel,
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ),
+                Text(_developerName, style: Theme.of(context).textTheme.titleMedium),
+                const SizedBox(height: 8),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.language_outlined),
+                  title: Text(l10n.aboutPortfolioButton),
+                  onTap: () => launchUrl(
+                    Uri.parse(_portfolioUrl),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.code_outlined),
+                  title: Text(l10n.aboutGithubButton),
+                  onTap: () => launchUrl(
+                    Uri.parse(_githubUrl),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.menu_book_outlined),
+                  title: Text(l10n.aboutDocsButton),
+                  onTap: () => launchUrl(
+                    Uri.parse(_docsUrl),
+                    mode: LaunchMode.externalApplication,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override

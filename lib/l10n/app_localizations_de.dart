@@ -60,6 +60,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String get privacyPolicyButton => 'Datenschutzerklärung';
 
   @override
+  String get aboutTooltip => 'Über diese App';
+
+  @override
+  String get aboutDeveloperLabel => 'Erstellt von';
+
+  @override
+  String get aboutPortfolioButton => 'Portfolio';
+
+  @override
+  String get aboutGithubButton => 'GitHub';
+
+  @override
+  String get aboutDocsButton => 'Technische Dokumentation';
+
+  @override
   String get findNearestOfficeButton => 'Meinen Standort verwenden';
 
   @override
