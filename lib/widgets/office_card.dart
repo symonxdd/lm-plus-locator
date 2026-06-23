@@ -196,7 +196,7 @@ class OfficeCard extends StatelessWidget {
           if (office.openingHours != null) ...[
             const Divider(height: 1),
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.centerRight,
               child: TextButton.icon(
                 onPressed: () => showModalBottomSheet<void>(
                   context: context,
