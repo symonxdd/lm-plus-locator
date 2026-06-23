@@ -118,9 +118,9 @@ Firestore organizes data in three nested levels:
 
 | Term | Plain synonym | What it is in this app |
 |---|---|---|
-| **Collection** | Folder / table | `userFavorites` — one collection for all users |
+| **Collection** | Folder / table | `userFavorites`, one collection for all users |
 | **Document** | Row / file | One document per signed-in user, identified by their Firebase Auth UID (e.g. `r8nB7Qly…`) |
-| **Field** | Column / property | `keys` — an array of `"lat,lng"` strings, one per bookmarked office |
+| **Field** | Column / property | `keys`, an array of `"lat,lng"` strings, one per bookmarked office |
 
 The full path to any user's favorites is `userFavorites/{uid}`, which is also what the security rules use (`match /userFavorites/{userId}`) to ensure each user can only access their own document.
 

@@ -23,8 +23,10 @@ Shows:
 
 - The resolved "your location" text
 - A "change location" button, returning to the hero screen (`_changeLocation()`)
-- A segmented control to filter between **Offices** and **Mailboxes** (`OfficeType`)
+- A text field that filters the current results by name, street, or house number ([OfficeService.filterByText()](../lib/services/office_service.dart)). Matching is case- and diacritic-insensitive and requires every word of a multi-word query to match, but does no network call and preserves the existing distance order. This narrows what's already on screen; it's not a way to search the full office list independently of a GPS/address search.
+- A segmented control to filter between **Offices** and **Mailboxes** (`OfficeType`), whose counts reflect the active text filter
 - A paginated list of [OfficeCard](../lib/widgets/office_card.dart)s, sorted by distance (loaded 10 at a time as the user scrolls, via `_onScroll`)
+- An empty-state message when the current type/text filter combination matches nothing
 
 Each `OfficeCard` shows the office's name, distance, open/closed status (if opening hours are known), address, and phone number, and opens the location in Google/Apple Maps when tapped. A bookmark icon in the name row saves the office to the Saved tab (see [§ Saved offices](#2-saved-offices)). If the office has opening hours data, a "View opening hours" button appears at the bottom of the card.
 
@@ -32,7 +34,7 @@ Each `OfficeCard` shows the office's name, distance, open/closed status (if open
 
 Tapping "View opening hours" on a card that has hours data opens [OpeningHoursSheet](../lib/widgets/opening_hours_sheet.dart), a modal bottom sheet showing the full weekly schedule:
 
-- Days are displayed Monday–Sunday (the data model uses 0 = Sunday … 6 = Saturday, matching the source site's convention; the sheet remaps this to Mon–Sun display order internally)
+- Days are displayed Monday to Sunday (the data model uses 0 = Sunday … 6 = Saturday, matching the source site's convention; the sheet remaps this to Monday-to-Sunday display order internally)
 - Today's row is highlighted in the theme's primary colour with bold text
 - Time slots are shown in `HH:mm` format; days with no slots show "Closed"
 - The button only appears on cards where `office.openingHours != null`
