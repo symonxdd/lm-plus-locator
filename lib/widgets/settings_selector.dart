@@ -229,12 +229,6 @@ class SettingsSelector extends StatelessWidget {
                   ),
                 ),
                 Text(_developerName, style: Theme.of(context).textTheme.titleMedium),
-                Text(
-                  l10n.aboutBuiltLabel,
-                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-                ),
                 const SizedBox(height: 8),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
@@ -261,6 +255,15 @@ class SettingsSelector extends StatelessWidget {
                   onTap: () => launchUrl(
                     Uri.parse(_docsUrl),
                     mode: LaunchMode.externalApplication,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Center(
+                  child: Text(
+                    l10n.aboutBuiltLabel,
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.outline,
+                    ),
                   ),
                 ),
               ],
