@@ -37,15 +37,24 @@ class HomeScreenState extends State<HomeScreen> {
   final _locationService = LocationService();
   final _officeService = OfficeService();
   final _scrollController = ScrollController();
+  final _filterController = TextEditingController();
 
   _LocatorStatus _status = _LocatorStatus.idle;
   List<OfficeWithDistance> _allOffices = [];
   OfficeType _selectedType = OfficeType.office;
   int _visibleCount = _pageSize;
   String? _userLocationText;
+  String _filterQuery = '';
   Future<List<Office>>? _officesFuture;
 
-  List<OfficeWithDistance> get _filteredOffices => _allOffices
+  /// [_allOffices] narrowed down by the free-text filter, preserving their
+  /// existing order (by distance, or as loaded).
+  List<OfficeWithDistance> get _textFilteredOffices =>
+      _officeService.filterByText(_allOffices, _filterQuery);
+
+  /// [_textFilteredOffices] further narrowed down to the selected office
+  /// type, for display.
+  List<OfficeWithDistance> get _filteredOffices => _textFilteredOffices
       .where((o) => o.office.type == _selectedType)
       .toList(growable: false);
 
@@ -59,6 +68,7 @@ class HomeScreenState extends State<HomeScreen> {
   void dispose() {
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
+    _filterController.dispose();
     super.dispose();
   }
 
@@ -197,6 +207,8 @@ class HomeScreenState extends State<HomeScreen> {
       _allOffices = [];
       _visibleCount = _pageSize;
       _userLocationText = null;
+      _filterController.clear();
+      _filterQuery = '';
     });
     widget.onSubScreenChanged?.call(false);
   }
@@ -225,6 +237,8 @@ class HomeScreenState extends State<HomeScreen> {
     if (!mounted) return;
     setState(() {
       _userLocationText = locationText ?? _formatCoordinates(lat, lng);
+      _filterController.clear();
+      _filterQuery = '';
       _allOffices = allOffices;
       _visibleCount = _pageSize;
       _status = _LocatorStatus.results;
@@ -330,12 +344,13 @@ class HomeScreenState extends State<HomeScreen> {
         return const Center(child: CircularProgressIndicator());
 
       case _LocatorStatus.results:
+        final textFilteredOffices = _textFilteredOffices;
         final filteredOffices = _filteredOffices;
         final visibleOffices = filteredOffices.take(_visibleCount).toList();
-        final officeCount = _allOffices
+        final officeCount = textFilteredOffices
             .where((o) => o.office.type == OfficeType.office)
             .length;
-        final mailboxCount = _allOffices
+        final mailboxCount = textFilteredOffices
             .where((o) => o.office.type == OfficeType.mailbox)
             .length;
         return Column(
@@ -363,6 +378,34 @@ class HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: TextField(
+                controller: _filterController,
+                onChanged: (value) => setState(() {
+                  _filterQuery = value;
+                  _visibleCount = _pageSize;
+                }),
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: l10n.resultsFilterHint,
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: _filterQuery.isEmpty
+                      ? null
+                      : IconButton(
+                          icon: const Icon(Icons.clear),
+                          onPressed: () => setState(() {
+                            _filterController.clear();
+                            _filterQuery = '';
+                            _visibleCount = _pageSize;
+                          }),
+                        ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: SegmentedButton<OfficeType>(
@@ -394,14 +437,30 @@ class HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                controller: _scrollController,
-                padding: const EdgeInsets.only(bottom: 16),
-                itemCount: visibleOffices.length,
-                itemBuilder: (context, index) {
-                  return OfficeCard(officeWithDistance: visibleOffices[index]);
-                },
-              ),
+              child: filteredOffices.isEmpty
+                  ? Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Text(
+                          l10n.resultsFilterNoMatches,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.outline,
+                              ),
+                        ),
+                      ),
+                    )
+                  : ListView.builder(
+                      controller: _scrollController,
+                      padding: const EdgeInsets.only(bottom: 16),
+                      itemCount: visibleOffices.length,
+                      itemBuilder: (context, index) {
+                        return OfficeCard(
+                          officeWithDistance: visibleOffices[index],
+                        );
+                      },
+                    ),
             ),
           ],
         );

@@ -198,6 +198,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'Address not found. Try a different address.';
 
   @override
+  String get resultsFilterHint => 'Filter by name, street, or number';
+
+  @override
+  String get resultsFilterNoMatches => 'No offices or mailboxes found.';
+
+  @override
   String get visitWebsiteButton => 'Visit website';
 
   @override

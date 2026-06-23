@@ -198,6 +198,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Adres niet gevonden. Probeer een ander adres.';
 
   @override
+  String get resultsFilterHint => 'Filter op naam, straat of huisnummer';
+
+  @override
+  String get resultsFilterNoMatches =>
+      'Geen kantoren of brievenbussen gevonden.';
+
+  @override
   String get visitWebsiteButton => 'Bezoek website';
 
   @override

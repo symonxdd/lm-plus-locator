@@ -58,6 +58,8 @@
   "addressInputLabel": "Address",
   "addressSearchSubmitButton": "Search",
   "addressNotFoundError": "Address not found. Try a different address.",
+  "resultsFilterHint": "Filter by name, street, or number",
+  "resultsFilterNoMatches": "No offices or mailboxes found.",
   "visitWebsiteButton": "Visit website",
   "addressSuggestionsAttribution": "Address suggestions via OpenStreetMap",
   "deleteAccountButton": "Delete account",

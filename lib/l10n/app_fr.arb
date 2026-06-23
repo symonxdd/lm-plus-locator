@@ -58,6 +58,8 @@
   "addressInputLabel": "Adresse",
   "addressSearchSubmitButton": "Rechercher",
   "addressNotFoundError": "Adresse introuvable. Essayez une autre adresse.",
+  "resultsFilterHint": "Filtrer par nom, rue ou numéro",
+  "resultsFilterNoMatches": "Aucun bureau ou boîte aux lettres trouvé.",
   "visitWebsiteButton": "Visiter le site web",
   "addressSuggestionsAttribution": "Suggestions d'adresses via OpenStreetMap",
   "deleteAccountButton": "Supprimer le compte",

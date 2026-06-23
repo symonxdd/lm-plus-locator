@@ -450,6 +450,18 @@ abstract class AppLocalizations {
   /// **'Adres niet gevonden. Probeer een ander adres.'**
   String get addressNotFoundError;
 
+  /// Placeholder text for the filter field shown above the office results list, narrowing the current results by name/street/number.
+  ///
+  /// In nl, this message translates to:
+  /// **'Filter op naam, straat of huisnummer'**
+  String get resultsFilterHint;
+
+  /// Message shown in the results list when the typed filter doesn't match any of the current results.
+  ///
+  /// In nl, this message translates to:
+  /// **'Geen kantoren of brievenbussen gevonden.'**
+  String get resultsFilterNoMatches;
+
   /// Button in the head office info sheet that opens the organization's website in the browser.
   ///
   /// In nl, this message translates to:

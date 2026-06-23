@@ -201,6 +201,13 @@ class AppLocalizationsFr extends AppLocalizations {
       'Adresse introuvable. Essayez une autre adresse.';
 
   @override
+  String get resultsFilterHint => 'Filtrer par nom, rue ou numéro';
+
+  @override
+  String get resultsFilterNoMatches =>
+      'Aucun bureau ou boîte aux lettres trouvé.';
+
+  @override
   String get visitWebsiteButton => 'Visiter le site web';
 
   @override

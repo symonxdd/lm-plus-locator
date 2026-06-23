@@ -69,4 +69,77 @@ void main() {
 
     expect(result.single.distanceKm, closeTo(41, 2));
   });
+
+  final liege = Office(
+    name: 'LM Plus Liège',
+    address: 'Rue Église 5',
+    city: 'Liège',
+    postalCode: '4000',
+    phone: '04 000 00 00',
+    lat: 50.6326,
+    lng: 5.5797,
+  );
+  // Distance-sorted, as nearestOffices would return it - filterByText should
+  // preserve this order rather than re-sorting alphabetically.
+  final nearestToLiege = officeService.nearestOffices(
+    offices: [ghent, antwerp, brussels, liege],
+    userLat: liege.lat,
+    userLng: liege.lng,
+  );
+
+  test('filterByText matches by office name', () {
+    final result = officeService.filterByText(nearestToLiege, 'Antwerpen');
+    expect(result.map((o) => o.office.name), [antwerp.name]);
+  });
+
+  test('filterByText matches by street and postal code', () {
+    expect(
+      officeService
+          .filterByText(nearestToLiege, 'Teststraat 2')
+          .map((o) => o.office.name),
+      [antwerp.name],
+    );
+    expect(
+      officeService
+          .filterByText(nearestToLiege, '9000')
+          .map((o) => o.office.name),
+      [ghent.name],
+    );
+  });
+
+  test('filterByText is case- and diacritic-insensitive', () {
+    expect(
+      officeService
+          .filterByText(nearestToLiege, 'liege')
+          .map((o) => o.office.name),
+      [liege.name],
+    );
+    expect(
+      officeService
+          .filterByText(nearestToLiege, 'EGLISE')
+          .map((o) => o.office.name),
+      [liege.name],
+    );
+  });
+
+  test('filterByText requires every word in a multi-word query to match', () {
+    expect(
+      officeService
+          .filterByText(nearestToLiege, 'Plus Gent')
+          .map((o) => o.office.name),
+      [ghent.name],
+    );
+    expect(officeService.filterByText(nearestToLiege, 'Gent Antwerpen'), isEmpty);
+  });
+
+  test('filterByText preserves the input order instead of re-sorting', () {
+    // "LM Plus" matches every office, so filtering shouldn't drop or
+    // reorder anything relative to the distance-sorted input.
+    final result = officeService.filterByText(nearestToLiege, 'LM Plus');
+    expect(result, nearestToLiege);
+  });
+
+  test('filterByText returns the input unchanged for a blank query', () {
+    expect(officeService.filterByText(nearestToLiege, '   '), nearestToLiege);
+  });
 }

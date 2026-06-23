@@ -42,6 +42,49 @@ class OfficeService {
     return withDistance;
   }
 
+  /// Narrows [offices] down to the ones matching a free-text [query],
+  /// against the name, street address, postal code, and city - diacritic-
+  /// and case-insensitive. A multi-word query (e.g. "korenmarkt gent")
+  /// requires every word to match somewhere in the office's combined text.
+  /// An empty [query] returns [offices] unchanged. Unlike [nearestOffices],
+  /// this preserves the input order, so filtering already-sorted results
+  /// (by distance) keeps them sorted.
+  List<OfficeWithDistance> filterByText(
+    List<OfficeWithDistance> offices,
+    String query,
+  ) {
+    final tokens = _normalize(
+      query,
+    ).split(RegExp(r'\s+')).where((t) => t.isNotEmpty).toList();
+    if (tokens.isEmpty) return offices;
+
+    return offices.where((o) {
+      final office = o.office;
+      final haystack = _normalize(
+        '${office.name} ${office.address} ${office.postalCode} ${office.city}',
+      );
+      return tokens.every(haystack.contains);
+    }).toList();
+  }
+
+  static const _diacriticsMap = {
+    'à': 'a', 'á': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a',
+    'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
+    'ì': 'i', 'í': 'i', 'î': 'i', 'ï': 'i',
+    'ò': 'o', 'ó': 'o', 'ô': 'o', 'õ': 'o', 'ö': 'o',
+    'ù': 'u', 'ú': 'u', 'û': 'u', 'ü': 'u',
+    'ç': 'c', 'ñ': 'n', 'ý': 'y', 'ÿ': 'y',
+  };
+
+  String _normalize(String input) {
+    final buffer = StringBuffer();
+    for (final rune in input.toLowerCase().runes) {
+      final ch = String.fromCharCode(rune);
+      buffer.write(_diacriticsMap[ch] ?? ch);
+    }
+    return buffer.toString();
+  }
+
   double _haversineDistanceKm(
     double lat1,
     double lon1,

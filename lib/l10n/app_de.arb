@@ -58,6 +58,8 @@
   "addressInputLabel": "Adresse",
   "addressSearchSubmitButton": "Suchen",
   "addressNotFoundError": "Adresse nicht gefunden. Versuche eine andere Adresse.",
+  "resultsFilterHint": "Nach Name, Straße oder Nummer filtern",
+  "resultsFilterNoMatches": "Keine Büros oder Briefkästen gefunden.",
   "visitWebsiteButton": "Website besuchen",
   "addressSuggestionsAttribution": "Adressvorschläge via OpenStreetMap",
   "deleteAccountButton": "Konto löschen",

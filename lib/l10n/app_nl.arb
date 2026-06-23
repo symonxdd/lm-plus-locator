@@ -247,6 +247,14 @@
   "@addressNotFoundError": {
     "description": "Error shown in the address search sheet when the entered address can't be resolved."
   },
+  "resultsFilterHint": "Filter op naam, straat of huisnummer",
+  "@resultsFilterHint": {
+    "description": "Placeholder text for the filter field shown above the office results list, narrowing the current results by name/street/number."
+  },
+  "resultsFilterNoMatches": "Geen kantoren of brievenbussen gevonden.",
+  "@resultsFilterNoMatches": {
+    "description": "Message shown in the results list when the typed filter doesn't match any of the current results."
+  },
   "visitWebsiteButton": "Bezoek website",
   "@visitWebsiteButton": {
     "description": "Button in the head office info sheet that opens the organization's website in the browser."
