@@ -62,7 +62,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutTooltip => 'About this app';
 
   @override
-  String get aboutDeveloperLabel => 'Made by';
+  String get aboutDeveloperLabel => 'A project by';
+
+  @override
+  String get aboutBuiltLabel => 'Built in June 2026';
 
   @override
   String get aboutPortfolioButton => 'Portfolio';

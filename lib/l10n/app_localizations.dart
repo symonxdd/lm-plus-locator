@@ -207,8 +207,14 @@ abstract class AppLocalizations {
   /// Small label above the developer's name in the About sheet.
   ///
   /// In nl, this message translates to:
-  /// **'Gemaakt door'**
+  /// **'Een project van'**
   String get aboutDeveloperLabel;
+
+  /// Small static line in the About sheet noting when the app was built. Updated by hand when the developer wants to refresh the date.
+  ///
+  /// In nl, this message translates to:
+  /// **'Gebouwd in juni 2026'**
+  String get aboutBuiltLabel;
 
   /// Link to the developer's portfolio website in the About sheet.
   ///

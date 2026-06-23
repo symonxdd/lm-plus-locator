@@ -68,9 +68,13 @@
   "@aboutTooltip": {
     "description": "Settings sheet item that opens the About sheet, and the title of that sheet."
   },
-  "aboutDeveloperLabel": "Gemaakt door",
+  "aboutDeveloperLabel": "Een project van",
   "@aboutDeveloperLabel": {
     "description": "Small label above the developer's name in the About sheet."
+  },
+  "aboutBuiltLabel": "Gebouwd in juni 2026",
+  "@aboutBuiltLabel": {
+    "description": "Small static line in the About sheet noting when the app was built. Updated by hand when the developer wants to refresh the date."
   },
   "aboutPortfolioButton": "Portfolio",
   "@aboutPortfolioButton": {

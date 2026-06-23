@@ -229,6 +229,12 @@ class SettingsSelector extends StatelessWidget {
                   ),
                 ),
                 Text(_developerName, style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  l10n.aboutBuiltLabel,
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ),
                 const SizedBox(height: 8),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
