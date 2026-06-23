@@ -28,7 +28,7 @@ class SettingsSelector extends StatelessWidget {
   Future<void> _showSettingsSheet(BuildContext rootContext) async {
     final l10n = AppLocalizations.of(rootContext)!;
     final selectedMode = LmPlusLocatorApp.themeModeOf(rootContext);
-    final selectedLocale = LmPlusLocatorApp.selectedLocale(rootContext);
+    final effectiveLocale = LmPlusLocatorApp.effectiveLocale(rootContext);
     final packageInfo = await PackageInfo.fromPlatform();
     final buildType = kReleaseMode ? 'release' : 'dev';
     final versionLabel = 'v${packageInfo.version} ($buildType)';
@@ -88,7 +88,7 @@ class SettingsSelector extends StatelessWidget {
                     contentPadding: EdgeInsets.zero,
                     title: Text(entry.value),
                     trailing:
-                        selectedLocale?.languageCode == entry.key.languageCode
+                        effectiveLocale.languageCode == entry.key.languageCode
                         ? Icon(
                             Icons.check,
                             color: Theme.of(context).colorScheme.primary,

@@ -33,6 +33,16 @@ class LmPlusLocatorApp extends StatefulWidget {
     return context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._locale;
   }
 
+  /// The locale the app is actually rendering in right now: the
+  /// manually-selected one if any, otherwise the resolved device language
+  /// (falling back to Dutch when unsupported). Unlike [selectedLocale], this
+  /// is never `null`, so it's what UI should compare against to highlight
+  /// the active language - including when following the device language.
+  static Locale effectiveLocale(BuildContext context) {
+    final state = context.findAncestorStateOfType<_LmPlusLocatorAppState>();
+    return state?._locale ?? state?._resolveDeviceLocale() ?? const Locale('nl');
+  }
+
   /// Sets the app's theme mode and persists the choice.
   static void setThemeMode(BuildContext context, ThemeMode mode) {
     context.findAncestorStateOfType<_LmPlusLocatorAppState>()?._setThemeMode(mode);
