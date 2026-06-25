@@ -1,6 +1,6 @@
 # LM+ Locator
 
-An unofficial Flutter companion app for finding the nearest [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit) office or mailbox in Belgium, by GPS or by address, complete with opening hours, distance, and one-tap directions.
+A Flutter companion app for finding the nearest [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit) office or mailbox in Belgium, by GPS or by address, complete with opening hours, distance, and one-tap directions. It is not affiliated with LM Plus.
 
 ## Documentation
 
