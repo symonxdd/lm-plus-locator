@@ -12,7 +12,7 @@ const _privacyPolicyUrl =
 
 const _developerName = 'Symon Blazejczak';
 const _portfolioUrl = 'https://symon.me';
-const _githubUrl = 'https://github.com/symonxdd';
+const _githubUrl = 'https://github.com/symonxdd/lm-plus-locator';
 const _docsUrl = 'https://symonxdd.github.io/lm-plus-locator/';
 
 /// App bar action that opens a single bottom sheet combining the theme and
@@ -35,7 +35,7 @@ class SettingsSelector extends StatelessWidget {
     final selectedMode = LmPlusLocatorApp.themeModeOf(rootContext);
     final effectiveLocale = LmPlusLocatorApp.effectiveLocale(rootContext);
     final packageInfo = await PackageInfo.fromPlatform();
-    final buildType = kReleaseMode ? 'release' : 'dev';
+    final buildType = kReleaseMode ? 'internal release build' : 'dev';
     final versionLabel = 'v${packageInfo.version} ($buildType)';
 
     if (!rootContext.mounted) return;
