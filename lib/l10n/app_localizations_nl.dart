@@ -179,7 +179,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get photoShareTagline => 'Stuur documenten naar LM+';
+  String get documentSendTagline => 'Stuur documenten naar LM+';
 
   @override
   String get mascotFactSheetTitle => 'Wist je dat?';
@@ -217,25 +217,25 @@ class AppLocalizationsNl extends AppLocalizations {
       'Tik op \"Mijn locatie gebruiken\" om via GPS het dichtstbijzijnde kantoor te vinden, ook zonder internetverbinding - enkel zoeken op adres heeft die wel nodig.';
 
   @override
-  String get photoShareTooltip => 'Foto maken';
+  String get documentCaptureButton => 'Foto maken';
 
   @override
-  String get photoRetakeButton => 'Opnieuw nemen';
+  String get documentRetakeButton => 'Opnieuw nemen';
 
   @override
-  String get photoShareButton => 'Verzenden';
+  String get documentSendButton => 'Verzenden';
 
   @override
-  String get photoShareSubject => 'Document van LM+ Locator';
+  String get documentEmailSubject => 'Document van LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Locator';
 
   @override
-  String get photoShareTabLabel => 'Documenten';
+  String get documentsTabLabel => 'Documenten';
 
   @override
-  String get photoShareExperimentalNotice => 'Experimentele functie';
+  String get documentExperimentalNotice => 'Experimentele functie';
 
   @override
   String get searchByAddressButton => 'Of zoek op adres';

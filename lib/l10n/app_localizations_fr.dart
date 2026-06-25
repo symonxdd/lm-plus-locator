@@ -182,7 +182,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get photoShareTagline => 'Envoyez des documents à LM+';
+  String get documentSendTagline => 'Envoyez des documents à LM+';
 
   @override
   String get mascotFactSheetTitle => 'Le saviez-vous ?';
@@ -220,25 +220,25 @@ class AppLocalizationsFr extends AppLocalizations {
       'Appuyez sur \"Utiliser ma position\" pour trouver le bureau le plus proche par GPS, sans connexion internet - seule la recherche par adresse en a besoin.';
 
   @override
-  String get photoShareTooltip => 'Prendre une photo';
+  String get documentCaptureButton => 'Prendre une photo';
 
   @override
-  String get photoRetakeButton => 'Reprendre';
+  String get documentRetakeButton => 'Reprendre';
 
   @override
-  String get photoShareButton => 'Envoyer';
+  String get documentSendButton => 'Envoyer';
 
   @override
-  String get photoShareSubject => 'Document de LM+ Locator';
+  String get documentEmailSubject => 'Document de LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Localisateur';
 
   @override
-  String get photoShareTabLabel => 'Documents';
+  String get documentsTabLabel => 'Documents';
 
   @override
-  String get photoShareExperimentalNotice => 'Fonctionnalité expérimentale';
+  String get documentExperimentalNotice => 'Fonctionnalité expérimentale';
 
   @override
   String get searchByAddressButton => 'Ou recherchez par adresse';

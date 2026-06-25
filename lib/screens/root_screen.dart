@@ -11,7 +11,7 @@ import '../widgets/settings_selector.dart';
 import 'favorites_screen.dart';
 import 'home_screen.dart';
 import 'messages_screen.dart';
-import 'photo_share_screen.dart';
+import 'send_document_screen.dart';
 
 /// Top-level scaffold with a bottom navigation bar for switching between the
 /// office locator and the photo-share feature.
@@ -159,8 +159,8 @@ class _RootScreenState extends State<RootScreen> {
                     ),
                     const FavoritesScreen(),
                     const MessagesScreen(),
-                    PhotoShareScreen(
-                      onPhotoPreviewChanged: (showing) => setState(
+                    SendDocumentScreen(
+                      onDocumentPreviewChanged: (showing) => setState(
                         () => _documentsShowingPreview = showing,
                       ),
                     ),
@@ -220,7 +220,7 @@ class _RootScreenState extends State<RootScreen> {
           NavigationDestination(
             icon: const Icon(Icons.camera_alt_outlined),
             selectedIcon: const Icon(Icons.camera_alt),
-            label: l10n.photoShareTabLabel,
+            label: l10n.documentsTabLabel,
           ),
         ],
       ),

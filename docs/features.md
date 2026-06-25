@@ -87,9 +87,9 @@ The settings icon in the app bar ([SettingsSelector](../lib/widgets/settings_sel
 
 The app bar also has a head-office info button ([HeadOfficeInfoButton](../lib/widgets/head_office_info_button.dart)), showing LM Oost-Vlaanderen's contact details from [HeadOffice](../lib/models/head_office.dart), with tap-to-call/email/website links.
 
-## 5. Document Share (experimental)
+## 5. Send Document (experimental)
 
-The third bottom-nav tab ([PhotoShareScreen](../lib/screens/photo_share_screen.dart)) lets the user:
+The third bottom-nav tab ([SendDocumentScreen](../lib/screens/send_document_screen.dart)) lets the user:
 
 1. Take a photo of a document with the camera (`image_picker`)
 2. Preview it, with the option to retake

@@ -29,9 +29,9 @@ The app has an optional sign-in feature, used for nothing else right now. If you
 - Signing in is entirely optional. The locator works fully without an account.
 - You can permanently delete your account at any time from **Account → Delete account**.
 
-## Document Share (experimental)
+## Send Document (experimental)
 
-The Document Share tab lets you take a photo of a document with your camera and send it by email. Tapping send opens your device's native Mail app with the photo already attached and the recipient pre-filled; nothing is sent until you confirm in that screen. This app does not upload the photo anywhere itself - it only hands it to your device's own Mail app.
+The Send Document tab lets you take a photo of a document with your camera and send it by email. Tapping send opens your device's native Mail app with the photo already attached and the recipient pre-filled; nothing is sent until you confirm in that screen. This app does not upload the photo anywhere itself - it only hands it to your device's own Mail app.
 
 ## What this app does not do
 

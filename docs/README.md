@@ -3,7 +3,7 @@ title: LM+ Locator documentation
 description: Documentation for LM+ Locator, a Flutter app for finding LM Plus offices and mailboxes in Belgium. This app is not affiliated with LM Plus (Liberale Mutualiteit).
 ---
 
-LM+ Locator is a Flutter app that helps members of [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit, a Belgian health insurance fund) find their nearest office or mailbox drop-off point. This app is not affiliated with LM Plus (Liberale Mutualiteit).
+LM+ Locator is a Flutter app that helps members of [LM Plus](https://www.lm-ml.be/nl/lm-plus) (Liberale Mutualiteit, a Belgian health insurance fund) find their nearest office or mailbox drop-off point. This app is not affiliated with LM Plus.
 
 ## What it does
 
@@ -16,7 +16,7 @@ LM+ Locator is a Flutter app that helps members of [LM Plus](https://www.lm-ml.b
 - **Multilingual**: Dutch, French, German, English, following the device language by default
 - **Light/dark theme**, following the system by default
 - **Optional account** (email/password via Firebase), not required to use the locator; enables favorites cloud sync
-- An experimental **document-share** tab for photographing and emailing a document
+- An experimental **send-document** tab for photographing and emailing a document
 
 ## Where to go next
 
@@ -31,7 +31,7 @@ LM+ Locator is a Flutter app that helps members of [LM Plus](https://www.lm-ml.b
 | Path | Contains |
 |---|---|
 | `lib/main.dart` | App entry point, theme/locale bootstrapping |
-| `lib/screens/` | Top-level screens (`RootScreen`, `HomeScreen`, `PhotoShareScreen`) |
+| `lib/screens/` | Top-level screens (`RootScreen`, `HomeScreen`, `SendDocumentScreen`) |
 | `lib/widgets/` | Reusable widgets and bottom sheets |
 | `lib/services/` | Stateless helper classes wrapping platform/plugin/API calls |
 | `lib/models/` | Plain data classes (`Office`, `AddressSuggestion`, ...) |

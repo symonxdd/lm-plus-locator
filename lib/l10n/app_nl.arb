@@ -223,9 +223,9 @@
       }
     }
   },
-  "photoShareTagline": "Stuur documenten naar LM+",
-  "@photoShareTagline": {
-    "description": "Short tagline shown above the capture button on the document-share screen."
+  "documentSendTagline": "Stuur documenten naar LM+",
+  "@documentSendTagline": {
+    "description": "Short tagline shown above the capture button on the send-document screen."
   },
   "mascotFactSheetTitle": "Wist je dat?",
   "@mascotFactSheetTitle": {
@@ -263,33 +263,33 @@
   "@mascotFact8": {
     "description": "Fact shown in the mascot's bottom sheet."
   },
-  "photoShareTooltip": "Foto maken",
-  "@photoShareTooltip": {
+  "documentCaptureButton": "Foto maken",
+  "@documentCaptureButton": {
     "description": "Tooltip for the app bar button that opens the document capture screen."
   },
-  "photoRetakeButton": "Opnieuw nemen",
-  "@photoRetakeButton": {
+  "documentRetakeButton": "Opnieuw nemen",
+  "@documentRetakeButton": {
     "description": "Button label to discard the current photo and take a new one."
   },
-  "photoShareButton": "Verzenden",
-  "@photoShareButton": {
+  "documentSendButton": "Verzenden",
+  "@documentSendButton": {
     "description": "Button label to send the captured document photo by email."
   },
-  "photoShareSubject": "Document van LM+ Locator",
-  "@photoShareSubject": {
+  "documentEmailSubject": "Document van LM+ Locator",
+  "@documentEmailSubject": {
     "description": "Subject line pre-filled when sending a scanned document, e.g. via email."
   },
   "locatorTabLabel": "Locator",
   "@locatorTabLabel": {
     "description": "Label of the bottom navigation tab for the office locator."
   },
-  "photoShareTabLabel": "Documenten",
-  "@photoShareTabLabel": {
+  "documentsTabLabel": "Documenten",
+  "@documentsTabLabel": {
     "description": "Label of the bottom navigation tab for the document-sending feature."
   },
-  "photoShareExperimentalNotice": "Experimentele functie",
-  "@photoShareExperimentalNotice": {
-    "description": "Small print on the photo-share screen noting that the feature is experimental."
+  "documentExperimentalNotice": "Experimentele functie",
+  "@documentExperimentalNotice": {
+    "description": "Small print on the send-document screen noting that the feature is experimental."
   },
   "searchByAddressButton": "Of zoek op adres",
   "@searchByAddressButton": {

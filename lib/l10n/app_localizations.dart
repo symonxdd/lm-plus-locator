@@ -414,11 +414,11 @@ abstract class AppLocalizations {
   /// **'Aangemeld als {email}'**
   String accountSignedInAs(String email);
 
-  /// Short tagline shown above the capture button on the document-share screen.
+  /// Short tagline shown above the capture button on the send-document screen.
   ///
   /// In nl, this message translates to:
   /// **'Stuur documenten naar LM+'**
-  String get photoShareTagline;
+  String get documentSendTagline;
 
   /// Title of the bottom sheet shown when the decorative mascot is tapped.
   ///
@@ -478,25 +478,25 @@ abstract class AppLocalizations {
   ///
   /// In nl, this message translates to:
   /// **'Foto maken'**
-  String get photoShareTooltip;
+  String get documentCaptureButton;
 
   /// Button label to discard the current photo and take a new one.
   ///
   /// In nl, this message translates to:
   /// **'Opnieuw nemen'**
-  String get photoRetakeButton;
+  String get documentRetakeButton;
 
   /// Button label to send the captured document photo by email.
   ///
   /// In nl, this message translates to:
   /// **'Verzenden'**
-  String get photoShareButton;
+  String get documentSendButton;
 
   /// Subject line pre-filled when sending a scanned document, e.g. via email.
   ///
   /// In nl, this message translates to:
   /// **'Document van LM+ Locator'**
-  String get photoShareSubject;
+  String get documentEmailSubject;
 
   /// Label of the bottom navigation tab for the office locator.
   ///
@@ -508,13 +508,13 @@ abstract class AppLocalizations {
   ///
   /// In nl, this message translates to:
   /// **'Documenten'**
-  String get photoShareTabLabel;
+  String get documentsTabLabel;
 
-  /// Small print on the photo-share screen noting that the feature is experimental.
+  /// Small print on the send-document screen noting that the feature is experimental.
   ///
   /// In nl, this message translates to:
   /// **'Experimentele functie'**
-  String get photoShareExperimentalNotice;
+  String get documentExperimentalNotice;
 
   /// Button on the home screen that opens the address search sheet, as an alternative to using GPS location.
   ///
