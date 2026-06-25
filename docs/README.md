@@ -16,7 +16,7 @@ LM+ Locator is an **unofficial** Flutter app that helps members of [LM Plus](htt
 - **Multilingual**: Dutch, French, German, English, following the device language by default
 - **Light/dark theme**, following the system by default
 - **Optional account** (email/password via Firebase), not required to use the locator; enables favorites cloud sync
-- An experimental **photo-share** tab for taking and sharing a photo
+- An experimental **document-share** tab for photographing and emailing a document
 
 ## Where to go next
 

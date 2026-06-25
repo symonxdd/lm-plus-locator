@@ -87,13 +87,13 @@ The settings icon in the app bar ([SettingsSelector](../lib/widgets/settings_sel
 
 The app bar also has a head-office info button ([HeadOfficeInfoButton](../lib/widgets/head_office_info_button.dart)), showing LM Oost-Vlaanderen's contact details from [HeadOffice](../lib/models/head_office.dart), with tap-to-call/email/website links.
 
-## 5. Photo Share (experimental)
+## 5. Document Share (experimental)
 
 The third bottom-nav tab ([PhotoShareScreen](../lib/screens/photo_share_screen.dart)) lets the user:
 
-1. Take a photo with the camera (`image_picker`)
+1. Take a photo of a document with the camera (`image_picker`)
 2. Preview it, with the option to retake
-3. Share it via the OS share sheet (`share_plus`), e.g. to email it to an LM+ office
+3. Send it by email (`flutter_email_sender`), which opens the device's native Mail compose screen with the recipient, subject, and the photo already attached, ready for the user to review and send
 
 ## 6. Offline-first banner
 

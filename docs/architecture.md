@@ -25,7 +25,7 @@ The main trade-off is the debug-mode performance overhead discussed in the READM
 - **Nominatim (OpenStreetMap)**: free address-search/autocomplete API, called directly via `http`
 - **shared_preferences**: persisting the user's theme, language choice, and offline favorites cache
 - **connectivity_plus**: network-state stream powering the offline banner
-- **image_picker** / **share_plus**: camera capture and OS share sheet (Photo Share tab)
+- **image_picker** / **flutter_email_sender**: camera capture and a pre-filled, pre-attached email compose screen (Document Share tab)
 - **flutter_localizations** + ARB files: translations for nl/fr/de/en
 
 No external state-management package is used. Screens are `StatefulWidget`s using `setState`; cross-screen reactive state (favorites) uses `ValueNotifier`.
@@ -38,7 +38,7 @@ No external state-management package is used. Screens are `StatefulWidget`s usin
 
 1. **Locator**: `HomeScreen`
 2. **Saved**: `FavoritesScreen`
-3. **Photo Share**: `PhotoShareScreen`
+3. **Document Share**: `PhotoShareScreen`
 
 All tabs are kept alive in the `IndexedStack`, so switching tabs doesn't reset their state.
 
