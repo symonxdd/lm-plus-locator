@@ -59,17 +59,3 @@ flutter build ipa --release
 ```
 
 Artifacts end up under `build/app/outputs/` (Android) or `build/ios/` (iOS).
-
-### Optional: setting up Firebase (for the account / sign-in feature)
-
-The locator works fully without this. Skip it unless you're working on the optional email/password sign-in feature. Firebase's free **Spark** plan is more than enough; no billing setup required.
-
-1. **On the Firebase console** ([console.firebase.google.com](https://console.firebase.google.com)):
-   - Create a new (free) project
-   - Go to **Build → Authentication → Sign-in method** and enable the **Email/Password** provider
-2. **On your machine**:
-   - Install the Firebase CLI: `npm install -g firebase-tools`, then sign in with `firebase login`
-   - Install the FlutterFire CLI: `dart pub global activate flutterfire_cli`
-   - From the project root, run `flutterfire configure` and select your Firebase project plus the platforms you need (Android/iOS)
-
-This generates/updates `lib/firebase_options.dart`, `android/app/google-services.json`, and `ios/Runner/GoogleService-Info.plist`. Once those are in place, `flutter run` picks them up automatically and the Account sheet's sign-in/registration will work against your Firebase project.
