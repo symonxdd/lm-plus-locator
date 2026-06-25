@@ -20,12 +20,21 @@ enum _LocatorStatus {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, this.onSubScreenChanged});
+  const HomeScreen({
+    super.key,
+    this.onSubScreenChanged,
+    this.onResultsChanged,
+  });
 
   /// Called whenever the locator moves between the hero and any sub-screen
   /// (results, loading, errors, permission prompts), so [RootScreen] can
   /// swap its shared app bar's leading icon for a back button.
   final ValueChanged<bool>? onSubScreenChanged;
+
+  /// Called specifically when the results list is shown or left (as opposed
+  /// to loading/error/permission sub-screens), so [RootScreen] can adapt its
+  /// mascot watermark's position to the results list layout.
+  final ValueChanged<bool>? onResultsChanged;
 
   @override
   State<HomeScreen> createState() => HomeScreenState();
@@ -211,6 +220,7 @@ class HomeScreenState extends State<HomeScreen> {
       _filterQuery = '';
     });
     widget.onSubScreenChanged?.call(false);
+    widget.onResultsChanged?.call(false);
   }
 
   /// Returns to the hero screen. Called by [RootScreen] when the user taps
@@ -243,6 +253,7 @@ class HomeScreenState extends State<HomeScreen> {
       _visibleCount = _pageSize;
       _status = _LocatorStatus.results;
     });
+    widget.onResultsChanged?.call(true);
   }
 
   @override
