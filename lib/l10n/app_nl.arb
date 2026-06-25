@@ -76,13 +76,13 @@
   "@aboutBuiltLabel": {
     "description": "Small static line in the About sheet noting when the app was built. Updated by hand when the developer wants to refresh the date."
   },
-  "aboutPortfolioButton": "Portfolio",
+  "aboutPortfolioButton": "Mijn portfolio",
   "@aboutPortfolioButton": {
     "description": "Link to the developer's portfolio website in the About sheet."
   },
-  "aboutGithubButton": "GitHub",
+  "aboutGithubButton": "Broncode van de app op GitHub",
   "@aboutGithubButton": {
-    "description": "Link to the developer's GitHub profile in the About sheet."
+    "description": "Link to this project's GitHub repository in the About sheet."
   },
   "aboutDocsButton": "Technische documentatie",
   "@aboutDocsButton": {
@@ -223,29 +223,69 @@
       }
     }
   },
-  "photoShareTooltip": "Foto maken om te delen",
+  "photoShareTagline": "Stuur documenten naar LM+",
+  "@photoShareTagline": {
+    "description": "Short tagline shown above the capture button on the document-share screen."
+  },
+  "mascotFactSheetTitle": "Wist je dat?",
+  "@mascotFactSheetTitle": {
+    "description": "Title of the bottom sheet shown when the decorative mascot is tapped."
+  },
+  "mascotFact1": "LM Plus is een liberale mutualiteit: een Belgisch ziekenfonds zonder winstoogmerk, geen gewone verzekeraar.",
+  "@mascotFact1": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact2": "Je kan documenten afgeven bij een brievenbus-locatie, ook als het kantoor zelf gesloten is.",
+  "@mascotFact2": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact3": "Elke mutualiteit in België werkt binnen hetzelfde nationale socialezekerheidsstelsel, maar beheert haar eigen lokale kantoren.",
+  "@mascotFact3": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact4": "Deze app toont actuele openingsuren, zodat je vooraf weet of een kantoor echt open is.",
+  "@mascotFact4": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact5": "Een mutualiteit is niet enkel verzekering - ze betaalt ook medicatie, doktersbezoeken en ziekenhuisverblijven terug.",
+  "@mascotFact5": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact6": "België heeft meerdere mutualiteiten waaruit leden kunnen kiezen, elk historisch verbonden aan een politieke of filosofische strekking.",
+  "@mascotFact6": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact7": "Brievenbuspunten bestaan zodat je niet voor elk papierwerk een volledig kantoor moet bezoeken.",
+  "@mascotFact7": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "mascotFact8": "Tik op \"Mijn locatie gebruiken\" om via GPS het dichtstbijzijnde kantoor te vinden, ook zonder internetverbinding - enkel zoeken op adres heeft die wel nodig.",
+  "@mascotFact8": {
+    "description": "Fact shown in the mascot's bottom sheet."
+  },
+  "photoShareTooltip": "Foto maken",
   "@photoShareTooltip": {
-    "description": "Tooltip for the app bar button that opens the photo capture screen."
+    "description": "Tooltip for the app bar button that opens the document capture screen."
   },
   "photoRetakeButton": "Opnieuw nemen",
   "@photoRetakeButton": {
     "description": "Button label to discard the current photo and take a new one."
   },
-  "photoShareButton": "Delen",
+  "photoShareButton": "Verzenden",
   "@photoShareButton": {
-    "description": "Button label to share the captured photo via the OS share sheet."
+    "description": "Button label to send the captured document photo by email."
   },
-  "photoShareSubject": "Foto van LM+ Locator",
+  "photoShareSubject": "Document van LM+ Locator",
   "@photoShareSubject": {
-    "description": "Subject line pre-filled when sharing a photo, e.g. via email."
+    "description": "Subject line pre-filled when sending a scanned document, e.g. via email."
   },
   "locatorTabLabel": "Locator",
   "@locatorTabLabel": {
     "description": "Label of the bottom navigation tab for the office locator."
   },
-  "photoShareTabLabel": "Foto delen",
+  "photoShareTabLabel": "Documenten",
   "@photoShareTabLabel": {
-    "description": "Label of the bottom navigation tab for the photo-share feature."
+    "description": "Label of the bottom navigation tab for the document-sending feature."
   },
   "photoShareExperimentalNotice": "Experimentele functie",
   "@photoShareExperimentalNotice": {

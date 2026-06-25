@@ -68,10 +68,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutBuiltLabel => 'Built in June 2026';
 
   @override
-  String get aboutPortfolioButton => 'Portfolio';
+  String get aboutPortfolioButton => 'My portfolio';
 
   @override
-  String get aboutGithubButton => 'GitHub';
+  String get aboutGithubButton => 'App\'s source code on GitHub';
 
   @override
   String get aboutDocsButton => 'Technical documentation';
@@ -179,22 +179,60 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get photoShareTooltip => 'Take a photo to share';
+  String get photoShareTagline => 'Send documents to LM+';
+
+  @override
+  String get mascotFactSheetTitle => 'Did you know?';
+
+  @override
+  String get mascotFact1 =>
+      'LM Plus is a liberale mutualiteit: a Belgian non-profit health fund, not a regular insurance company.';
+
+  @override
+  String get mascotFact2 =>
+      'You can drop off documents at a mailbox location even when the office itself is closed.';
+
+  @override
+  String get mascotFact3 =>
+      'Every mutualiteit in Belgium operates under the same national social-security system, but runs its own local offices.';
+
+  @override
+  String get mascotFact4 =>
+      'This app shows live opening hours, so you\'ll know beforehand whether an office is actually open.';
+
+  @override
+  String get mascotFact5 =>
+      'A mutualiteit isn\'t just insurance - it also reimburses medication, doctor visits, and hospital stays.';
+
+  @override
+  String get mascotFact6 =>
+      'Belgium has several mutualiteiten members can choose between, each tied to a political or philosophical movement historically.';
+
+  @override
+  String get mascotFact7 =>
+      'Mailbox drop-off points exist so you don\'t need a full office visit just to hand in paperwork.';
+
+  @override
+  String get mascotFact8 =>
+      'Tap \"Use my location\" to find the nearest office over GPS with no internet connection needed - only searching by address requires one.';
+
+  @override
+  String get photoShareTooltip => 'Take photo';
 
   @override
   String get photoRetakeButton => 'Retake';
 
   @override
-  String get photoShareButton => 'Share';
+  String get photoShareButton => 'Send';
 
   @override
-  String get photoShareSubject => 'Photo from LM+ Locator';
+  String get photoShareSubject => 'Document from LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Locator';
 
   @override
-  String get photoShareTabLabel => 'Share photo';
+  String get photoShareTabLabel => 'Documents';
 
   @override
   String get photoShareExperimentalNotice => 'Experimental feature';

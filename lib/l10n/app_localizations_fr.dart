@@ -70,10 +70,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutBuiltLabel => 'Créé en juin 2026';
 
   @override
-  String get aboutPortfolioButton => 'Portfolio';
+  String get aboutPortfolioButton => 'Mon portfolio';
 
   @override
-  String get aboutGithubButton => 'GitHub';
+  String get aboutGithubButton => 'Code source de l\'app sur GitHub';
 
   @override
   String get aboutDocsButton => 'Documentation technique';
@@ -182,22 +182,60 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get photoShareTooltip => 'Prendre une photo à partager';
+  String get photoShareTagline => 'Envoyez des documents à LM+';
+
+  @override
+  String get mascotFactSheetTitle => 'Le saviez-vous ?';
+
+  @override
+  String get mascotFact1 =>
+      'LM Plus est une mutualité libérale : une caisse d\'assurance santé belge à but non lucratif, pas un assureur classique.';
+
+  @override
+  String get mascotFact2 =>
+      'Vous pouvez déposer des documents à une boîte aux lettres même quand le bureau lui-même est fermé.';
+
+  @override
+  String get mascotFact3 =>
+      'Chaque mutualité en Belgique fonctionne dans le même système national de sécurité sociale, mais gère ses propres bureaux locaux.';
+
+  @override
+  String get mascotFact4 =>
+      'Cette app affiche les horaires d\'ouverture en direct, pour savoir à l\'avance si un bureau est vraiment ouvert.';
+
+  @override
+  String get mascotFact5 =>
+      'Une mutualité n\'est pas qu\'une assurance - elle rembourse aussi les médicaments, les visites médicales et les séjours hospitaliers.';
+
+  @override
+  String get mascotFact6 =>
+      'La Belgique compte plusieurs mutualités au choix, chacune historiquement liée à un courant politique ou philosophique.';
+
+  @override
+  String get mascotFact7 =>
+      'Les points boîte aux lettres existent pour éviter une visite complète au bureau juste pour déposer des documents.';
+
+  @override
+  String get mascotFact8 =>
+      'Appuyez sur \"Utiliser ma position\" pour trouver le bureau le plus proche par GPS, sans connexion internet - seule la recherche par adresse en a besoin.';
+
+  @override
+  String get photoShareTooltip => 'Prendre une photo';
 
   @override
   String get photoRetakeButton => 'Reprendre';
 
   @override
-  String get photoShareButton => 'Partager';
+  String get photoShareButton => 'Envoyer';
 
   @override
-  String get photoShareSubject => 'Photo de LM+ Locator';
+  String get photoShareSubject => 'Document de LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Localisateur';
 
   @override
-  String get photoShareTabLabel => 'Partager une photo';
+  String get photoShareTabLabel => 'Documents';
 
   @override
   String get photoShareExperimentalNotice => 'Fonctionnalité expérimentale';

@@ -68,10 +68,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get aboutBuiltLabel => 'Gebouwd in juni 2026';
 
   @override
-  String get aboutPortfolioButton => 'Portfolio';
+  String get aboutPortfolioButton => 'Mijn portfolio';
 
   @override
-  String get aboutGithubButton => 'GitHub';
+  String get aboutGithubButton => 'Broncode van de app op GitHub';
 
   @override
   String get aboutDocsButton => 'Technische documentatie';
@@ -179,22 +179,60 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get photoShareTooltip => 'Foto maken om te delen';
+  String get photoShareTagline => 'Stuur documenten naar LM+';
+
+  @override
+  String get mascotFactSheetTitle => 'Wist je dat?';
+
+  @override
+  String get mascotFact1 =>
+      'LM Plus is een liberale mutualiteit: een Belgisch ziekenfonds zonder winstoogmerk, geen gewone verzekeraar.';
+
+  @override
+  String get mascotFact2 =>
+      'Je kan documenten afgeven bij een brievenbus-locatie, ook als het kantoor zelf gesloten is.';
+
+  @override
+  String get mascotFact3 =>
+      'Elke mutualiteit in België werkt binnen hetzelfde nationale socialezekerheidsstelsel, maar beheert haar eigen lokale kantoren.';
+
+  @override
+  String get mascotFact4 =>
+      'Deze app toont actuele openingsuren, zodat je vooraf weet of een kantoor echt open is.';
+
+  @override
+  String get mascotFact5 =>
+      'Een mutualiteit is niet enkel verzekering - ze betaalt ook medicatie, doktersbezoeken en ziekenhuisverblijven terug.';
+
+  @override
+  String get mascotFact6 =>
+      'België heeft meerdere mutualiteiten waaruit leden kunnen kiezen, elk historisch verbonden aan een politieke of filosofische strekking.';
+
+  @override
+  String get mascotFact7 =>
+      'Brievenbuspunten bestaan zodat je niet voor elk papierwerk een volledig kantoor moet bezoeken.';
+
+  @override
+  String get mascotFact8 =>
+      'Tik op \"Mijn locatie gebruiken\" om via GPS het dichtstbijzijnde kantoor te vinden, ook zonder internetverbinding - enkel zoeken op adres heeft die wel nodig.';
+
+  @override
+  String get photoShareTooltip => 'Foto maken';
 
   @override
   String get photoRetakeButton => 'Opnieuw nemen';
 
   @override
-  String get photoShareButton => 'Delen';
+  String get photoShareButton => 'Verzenden';
 
   @override
-  String get photoShareSubject => 'Foto van LM+ Locator';
+  String get photoShareSubject => 'Document van LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Locator';
 
   @override
-  String get photoShareTabLabel => 'Foto delen';
+  String get photoShareTabLabel => 'Documenten';
 
   @override
   String get photoShareExperimentalNotice => 'Experimentele functie';

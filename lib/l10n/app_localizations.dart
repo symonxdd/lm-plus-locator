@@ -219,13 +219,13 @@ abstract class AppLocalizations {
   /// Link to the developer's portfolio website in the About sheet.
   ///
   /// In nl, this message translates to:
-  /// **'Portfolio'**
+  /// **'Mijn portfolio'**
   String get aboutPortfolioButton;
 
-  /// Link to the developer's GitHub profile in the About sheet.
+  /// Link to this project's GitHub repository in the About sheet.
   ///
   /// In nl, this message translates to:
-  /// **'GitHub'**
+  /// **'Broncode van de app op GitHub'**
   String get aboutGithubButton;
 
   /// Link to this project's hosted technical documentation site in the About sheet.
@@ -414,10 +414,70 @@ abstract class AppLocalizations {
   /// **'Aangemeld als {email}'**
   String accountSignedInAs(String email);
 
-  /// Tooltip for the app bar button that opens the photo capture screen.
+  /// Short tagline shown above the capture button on the document-share screen.
   ///
   /// In nl, this message translates to:
-  /// **'Foto maken om te delen'**
+  /// **'Stuur documenten naar LM+'**
+  String get photoShareTagline;
+
+  /// Title of the bottom sheet shown when the decorative mascot is tapped.
+  ///
+  /// In nl, this message translates to:
+  /// **'Wist je dat?'**
+  String get mascotFactSheetTitle;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'LM Plus is een liberale mutualiteit: een Belgisch ziekenfonds zonder winstoogmerk, geen gewone verzekeraar.'**
+  String get mascotFact1;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Je kan documenten afgeven bij een brievenbus-locatie, ook als het kantoor zelf gesloten is.'**
+  String get mascotFact2;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Elke mutualiteit in België werkt binnen hetzelfde nationale socialezekerheidsstelsel, maar beheert haar eigen lokale kantoren.'**
+  String get mascotFact3;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Deze app toont actuele openingsuren, zodat je vooraf weet of een kantoor echt open is.'**
+  String get mascotFact4;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Een mutualiteit is niet enkel verzekering - ze betaalt ook medicatie, doktersbezoeken en ziekenhuisverblijven terug.'**
+  String get mascotFact5;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'België heeft meerdere mutualiteiten waaruit leden kunnen kiezen, elk historisch verbonden aan een politieke of filosofische strekking.'**
+  String get mascotFact6;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Brievenbuspunten bestaan zodat je niet voor elk papierwerk een volledig kantoor moet bezoeken.'**
+  String get mascotFact7;
+
+  /// Fact shown in the mascot's bottom sheet.
+  ///
+  /// In nl, this message translates to:
+  /// **'Tik op \"Mijn locatie gebruiken\" om via GPS het dichtstbijzijnde kantoor te vinden, ook zonder internetverbinding - enkel zoeken op adres heeft die wel nodig.'**
+  String get mascotFact8;
+
+  /// Tooltip for the app bar button that opens the document capture screen.
+  ///
+  /// In nl, this message translates to:
+  /// **'Foto maken'**
   String get photoShareTooltip;
 
   /// Button label to discard the current photo and take a new one.
@@ -426,16 +486,16 @@ abstract class AppLocalizations {
   /// **'Opnieuw nemen'**
   String get photoRetakeButton;
 
-  /// Button label to share the captured photo via the OS share sheet.
+  /// Button label to send the captured document photo by email.
   ///
   /// In nl, this message translates to:
-  /// **'Delen'**
+  /// **'Verzenden'**
   String get photoShareButton;
 
-  /// Subject line pre-filled when sharing a photo, e.g. via email.
+  /// Subject line pre-filled when sending a scanned document, e.g. via email.
   ///
   /// In nl, this message translates to:
-  /// **'Foto van LM+ Locator'**
+  /// **'Document van LM+ Locator'**
   String get photoShareSubject;
 
   /// Label of the bottom navigation tab for the office locator.
@@ -444,10 +504,10 @@ abstract class AppLocalizations {
   /// **'Locator'**
   String get locatorTabLabel;
 
-  /// Label of the bottom navigation tab for the photo-share feature.
+  /// Label of the bottom navigation tab for the document-sending feature.
   ///
   /// In nl, this message translates to:
-  /// **'Foto delen'**
+  /// **'Documenten'**
   String get photoShareTabLabel;
 
   /// Small print on the photo-share screen noting that the feature is experimental.

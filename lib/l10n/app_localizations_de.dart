@@ -69,10 +69,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aboutBuiltLabel => 'Erstellt im Juni 2026';
 
   @override
-  String get aboutPortfolioButton => 'Portfolio';
+  String get aboutPortfolioButton => 'Mein Portfolio';
 
   @override
-  String get aboutGithubButton => 'GitHub';
+  String get aboutGithubButton => 'Quellcode der App auf GitHub';
 
   @override
   String get aboutDocsButton => 'Technische Dokumentation';
@@ -180,22 +180,60 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get photoShareTooltip => 'Foto zum Teilen aufnehmen';
+  String get photoShareTagline => 'Dokumente an LM+ senden';
+
+  @override
+  String get mascotFactSheetTitle => 'Wusstest du schon?';
+
+  @override
+  String get mascotFact1 =>
+      'LM Plus ist eine liberale Krankenkasse: eine belgische gemeinnützige Krankenkasse, kein gewöhnlicher Versicherer.';
+
+  @override
+  String get mascotFact2 =>
+      'Dokumente kannst du auch an einer Briefkasten-Stelle abgeben, selbst wenn das Büro selbst geschlossen ist.';
+
+  @override
+  String get mascotFact3 =>
+      'Jede Krankenkasse in Belgien arbeitet im selben nationalen Sozialversicherungssystem, betreibt aber ihre eigenen lokalen Büros.';
+
+  @override
+  String get mascotFact4 =>
+      'Diese App zeigt aktuelle Öffnungszeiten, damit du vorher weißt, ob ein Büro wirklich offen ist.';
+
+  @override
+  String get mascotFact5 =>
+      'Eine Krankenkasse ist nicht nur Versicherung - sie erstattet auch Medikamente, Arztbesuche und Krankenhausaufenthalte.';
+
+  @override
+  String get mascotFact6 =>
+      'Belgien hat mehrere Krankenkassen zur Auswahl, historisch jeweils einer politischen oder weltanschaulichen Richtung zugeordnet.';
+
+  @override
+  String get mascotFact7 =>
+      'Briefkasten-Stellen gibt es, damit man nicht für jeden Papierkram ein ganzes Büro besuchen muss.';
+
+  @override
+  String get mascotFact8 =>
+      'Tippe auf \"Meinen Standort verwenden\", um per GPS das nächste Büro zu finden, ganz ohne Internetverbindung - nur die Adresssuche braucht eine.';
+
+  @override
+  String get photoShareTooltip => 'Foto aufnehmen';
 
   @override
   String get photoRetakeButton => 'Erneut aufnehmen';
 
   @override
-  String get photoShareButton => 'Teilen';
+  String get photoShareButton => 'Senden';
 
   @override
-  String get photoShareSubject => 'Foto von LM+ Locator';
+  String get photoShareSubject => 'Dokument von LM+ Locator';
 
   @override
   String get locatorTabLabel => 'Locator';
 
   @override
-  String get photoShareTabLabel => 'Foto teilen';
+  String get photoShareTabLabel => 'Dokumente';
 
   @override
   String get photoShareExperimentalNotice => 'Experimentelle Funktion';
